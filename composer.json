@@ -1,0 +1,19 @@
+{
+    "name": "pascualina/hotelrosabela",
+    "description": "hotel rosa bela",
+    "authors": [
+        {
+            "name": "Emilmar Cuarez"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            
+            "Model\\": "./models",
+            "MVC\\": "./",
+            "Controllers\\": "./controllers"
+            
+        }
+    }
+}
