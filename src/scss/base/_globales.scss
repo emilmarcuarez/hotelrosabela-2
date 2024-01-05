@@ -1,0 +1,77 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: $fuente_principal;
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+p {
+    color: $negro;
+    font-size: 2rem;
+}
+.contenedor {
+    // width: 95%;
+    max-width: 110rem;
+    margin: auto;
+}
+
+.espacio{
+    width: 100%;
+    // height: 2rem;
+    margin-bottom: 7rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+picture {
+    width: 15rem;
+    display: block;
+}
+
+h1, h2, h3 {
+    font-family: $fuente_principal;
+    margin: calc($separacion / 2) 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 3.4rem;
+    margin: 0;
+}
+h3 {
+    font-size: 3rem;
+}
+h4 {
+    font-size: 2.6rem;
+}
+
+// mensajes de exito y alerta
+.alerta{
+
+    padding: .5rem;
+    text-align: center;
+    color: $blanco;
+    font-weight: $bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    &.error{
+        background-color: $fucsia;
+    }
+    &.exito{
+        background-color: $vinotinto;
+    }
+}

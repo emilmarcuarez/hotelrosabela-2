@@ -1,0 +1,302 @@
+body{
+    background-color: #e4e2e2;
+}
+.inicio_info{
+    background-color: $vinotinto;
+    padding: 1rem;
+    .inicio_logos{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .logos_part_flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+    }
+}
+
+.l_partes{
+    display: flex;
+    gap: 1rem;
+    .inicio_texto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p{
+            color: $blanco;
+            font-weight: 300;
+        }
+    }
+    .inicio_svg{
+        svg{
+            width: 44px;
+        height: 44px;
+        }
+        
+    }
+}
+.texto_form_pre{
+    h4{
+        color: $grisOscuro;
+        font-weight: 600;
+        // font-style: italic;
+        margin-bottom: 1.5rem;
+    }
+}
+.form_pers{
+    display: flex;
+    margin: 0;
+    .par_label{
+        display: flex;
+
+    }
+}
+.formulario_re{
+   background: #f4f0f0;;
+  border: 2px solid #bbb9b9;
+  border-radius: .75rem;
+  box-shadow: 4px 4px 12px 0 rgba(75,73,73,.25);
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+ grid-template-columns: 25% 25% 25% 20%;
+ justify-content: center;
+  align-items: center;
+    input, label{
+        font-size: 1.3rem;
+    }
+}
+.par_label
+{
+  display: flex;
+
+  flex-direction: column;
+}
+#fechaReserva, 
+#fechaEgreso
+{
+  padding: 1rem;
+  border: 2px solid #d0a3a5;
+  border-radius: 1rem;
+}
+
+// eventos
+.eventos_part{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 3rem;
+    .imagen_evento´{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.imagen_evento img
+{
+  width: 100%;
+}
+
+// cards
+.card_padre{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    height: 38rem;
+  
+}
+.card_hija{
+    background-color: #f2f0f0;
+    height: 36rem;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    
+    border-radius: 13px;
+border: 1px solid #eeebeb;
+background: #FFF;
+box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    .texto_card{
+        padding: 2rem;
+        p{
+            font-size: 1.3rem;
+            span{
+                color: $rosado;
+                font-weight: 600;
+            }
+        }
+    }
+}
+.imagen_card img
+{
+  width: 100%;
+  height: 100%;
+//   border-radius: 1rem;
+}
+
+// salones
+.salones_cont{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 3rem;
+    height: 38rem;
+    .salon_evento img{
+        width: 100%;
+        height: 38rem;
+        margin-left: 2rem;
+    }
+}
+.titulo_sal{
+   
+    .salones_hr{
+        border: 2px solid $rosado;
+        width: 12rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.restaurantes{
+   
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    padding: 1rem 0rem;
+    .rest_inicio_cont-im{
+        display: flex;
+        gap: 2rem;
+        p{
+            font-weight: 700;
+            font-size: 2.6rem;
+            color:$blanco;
+        }
+    }
+    .rest_inicio_cont{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5rem;
+        p{
+            font-weight: 700;
+            font-size: 3rem;
+            color:$blanco;
+        }
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.rest_color{
+    background-color: $vinotinto;
+}
+.rest_inicio_cont a
+{
+  color: #9f425a;
+  background: #e8dada;
+  padding: .5rem 2rem;
+  font-weight: 600;
+  border-radius: 2rem;
+}
+
+.imagen_card img
+{
+  border-radius: 1rem;
+}
+
+h4{
+    color:$grisOscuro
+}
+
+// Habitaciones
+.habitaciones{
+    background-color: #787676;
+    padding: 6rem 2rem 2rem 2rem;
+    
+    .hab_part{
+        display: grid;
+        grid-template-columns: 35% 40% 25%;
+        height: 25rem;
+        background-color: #E7E7E7;
+        border-radius: .5rem;
+        justify-content: center;
+         align-items: center;
+        margin-bottom: 3rem;
+box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
+        .img_hab{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 22rem;
+                width: 92%;
+            }
+        }
+        .info_hab{
+            display: grid;
+            grid-template-rows: 60% 40%;
+            row-gap: 3rem;
+            padding: 1rem;
+            .icono_info {
+                display: flex;
+                gap: 5rem;
+                margin-top: 1rem;
+                justify-content: center;
+                    .icono_info_part svg {
+                        width: 3rem;
+                    }
+                }
+                .info_hab_3{
+                    .titulo_info h5{
+                        color: $rosado;
+                        font-size: 2rem;
+                    }
+                    .info_adicional p{
+                        font-size: 1.3rem;
+                    }
+                    .info_parrafo p{
+                        font-size: 1.5rem;
+                        color: $grisMediano;
+                    }
+                }
+            
+        }
+        .precio_hab{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.9rem;
+            font-weight: 700;
+            p{
+                font-size: 1rem;
+                text-align: center;
+                color: $grisOscuro;
+                margin: 0;
+                padding: 0;
+                .pre_nro{
+                    color: $fucsia;
+                    font-size: 2.9rem;
+                }
+                .des_hab{
+                    color: $fucsia;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .hab{
+        .titulo_ha{
+            h4{
+                color: #f1f1f1;
+            }
+            .salones_hr{
+                border: 2px solid $rosado;
+                width: 19rem;
+                margin-bottom: 4rem;
+            }
+        }
+    }
+}

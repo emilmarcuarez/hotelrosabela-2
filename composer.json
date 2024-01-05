@@ -6,8 +6,7 @@
             "name": "Emilmar Cuarez"
         }
     ],
-    "require": {},
-    "autoload": {
+    "autoload":{
         "psr-4": {
             
             "Model\\": "./models",
@@ -15,5 +14,9 @@
             "Controllers\\": "./controllers"
             
         }
+    },
+    "require": {
+        "intervention/image": "2.7.2",
+        "phpmailer/phpmailer": "^6.9"
     }
 }

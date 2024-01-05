@@ -1,0 +1,59 @@
+.boton-rosado {
+    border-radius: .5rem;
+    @include boton($rosado, inline-block);
+}
+
+.boton-rosado-block {
+    @include boton($rosado, block);
+    font-weight: $bold;
+    
+}
+
+.boton-rojo-block{
+    border-radius: .5rem;
+    font-weight: 400 !important;
+    @include boton($fucsia, inline-block);
+    margin-bottom: 1rem;
+}
+.boton-verde-block{
+ 
+    border-radius: .5rem;
+    font-weight: 400 !important;
+    @include boton($verde, inline-block);
+}
+
+// formulario de los botones
+.w-100{
+    display: flex;
+    flex-direction: column;
+}
+.boton-rosado2
+{
+  background-color: #cf5a60;
+  border: none;
+  border-radius: .5rem;
+  color: #fff;
+  display: inline-block;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 2.5rem 0;
+  padding: .5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.4rem;
+}
+.btn-rosado3{
+    background-color: #cf5a60;
+  border: none;
+  border-radius: 0.5rem;
+  padding: .5rem;
+  width: 51%;
+  color: #fff;
+  display: inline-block;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  text-decoration: none;
+}

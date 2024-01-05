@@ -1,0 +1,58 @@
+.footer{
+    background-color: #000;;
+
+    .footer_todo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        .logo_footer{
+            width: 45rem;
+        }
+        .footer_titulo {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h5{
+                font-weight: 400;
+                text-transform: uppercase;
+                color: $blanco;
+            }
+        }
+        .copyright{
+            padding: 5rem 2rem 2rem 2rem;
+           font-size: 1.2rem;
+           color: $blanco;
+        }
+    }
+}
+.footer_info{
+   display: grid;
+  justify-content: space-between;
+  width: 100%;
+  grid-template-columns: repeat(3,1fr);
+  column-gap: 5rem;
+
+  .footer_info_part{
+    p{
+        color: $blanco;
+        font-size: 1.5rem;
+    }
+  }
+   .redes_part_footer{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+        .redes_div{
+            a{
+                i{
+                    color: $blanco;
+                }
+            }
+        }
+   }
+}
