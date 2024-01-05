@@ -1,0 +1,27 @@
+.cc_re_act{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid $rosado;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    margin-bottom: 2rem;
+        input, textarea{
+            border: 1px solid $grisMediano;
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: $grisClaro2;
+        }
+}
+
+
+// eventos- formulario
+
+.eventos_form{
+    display: flex;
+    justify-content: left;
+    gap: 2rem;
+    .eventos_form_radio{
+        display: flex;
+        gap: 1rem;
+    }
+}

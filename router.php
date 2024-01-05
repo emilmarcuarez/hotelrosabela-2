@@ -13,11 +13,11 @@ class Router{
     }
     public function comprobarRutas(){
 
-        session_start();
-        $auth=$_SESSION['login'] ?? null;
+        // session_start();
+        // $auth=$_SESSION['login'] ?? null;
 
         // ARREGLO DE RUTAS PROTEGIDAS
-        $rutas_protegidas=['/admin', '/locales/crear', '/locales/actualizar', '/locales/eliminar'];
+        // $rutas_protegidas=['/admin', '/locales/crear', '/locales/actualizar', '/locales/eliminar'];
 
         // basada en la url que estoy visitando gracias al router, me busca la funcion asociada a ese url
         $urlActual=$_SERVER['PATH_INFO'] ?? '/';
@@ -31,9 +31,9 @@ class Router{
         }
 
         // PROTEGER LAS RUTAS
-        if(in_array($urlActual, $rutas_protegidas)&& !$auth){ ///si no esta autenticado
-            header('location: /');
-        }
+        // if(in_array($urlActual, $rutas_protegidas)&& !$auth){ ///si no esta autenticado
+        //     header('location: /');
+        // }
 
         if($fn){
             // la url existe y hay una funcion asociada
@@ -42,7 +42,6 @@ class Router{
             call_user_func($fn,$this);
 
         }else{
-            // debuguear($fn);
             echo 'Error 404: Pagina No encontrada';
         }
     }
@@ -61,4 +60,6 @@ class Router{
         
         $contenido=ob_get_clean();//limpia el buffer
 
-        include __DIR__ . "/views/layout.php"
+        include __DIR__ . "/views/layout.php";
+    }
+}
