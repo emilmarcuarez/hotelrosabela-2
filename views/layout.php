@@ -18,9 +18,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="../build/css/app.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Hotel Rosa bela</title>
@@ -56,6 +53,7 @@
 </head>
 
 <body>
+
     <!-- HEADER -->
     <header class="header">
         <div class="header_cont contenedor">
@@ -81,6 +79,10 @@
             </div>
         </div>
     </header>
+    <section class="seccion_registrar">
+        <a href="#">Iniciar sesion</a>
+        <a href="#">Registrar</a>
+    </section>
 
     <!-- <div class="imagen_header">
         <div class="imagen_header_fondo"></div>

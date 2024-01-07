@@ -11,11 +11,23 @@ class PaginaController{
     //pagina index 
     public static function index(Router $router ){
 
-        $Evento=Evento::get(5);
-        $inicio=true;//para que aparezca el header
+
         $router->render('paginas/index', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
-            'Evento'=> $Evento,
-            'inicio'=>$inicio
+    
+        ]);  
+    }
+    public static function nosotros(Router $router ){
+
+      
+        $router->render('paginas/nosotros', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+
+        ]);  
+    }
+    public static function centros(Router $router ){
+
+      
+        $router->render('paginas/centros', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+
         ]);  
     }
 }

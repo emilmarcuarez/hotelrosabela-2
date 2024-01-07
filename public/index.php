@@ -45,5 +45,6 @@ $router->post('/salones/eliminar', [SalonesController::class, 'eliminar']);
 $router->post('/salones/eliminar', [SalonesController::class, 'eliminar']);
 
 // zona publica
-
+$router->get('/nosotros', [PaginaController::class, 'nosotros']);
+$router->get('/centros', [PaginaController::class, 'centros']);
 $router->comprobarRutas();

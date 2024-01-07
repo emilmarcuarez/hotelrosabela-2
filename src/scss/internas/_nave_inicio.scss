@@ -1,0 +1,22 @@
+.seccion_registrar{
+    background: #483e44;
+    display: flex;
+    height: 4.5rem;
+    justify-content: right;
+    align-items: center;
+    padding-right: 14rem;
+    gap: 3rem;
+    a{
+        color: $blanco;
+        display: inline-block;
+        background-color: $blanco;
+        color: $rosado;
+        padding: .3rem 1rem;
+        border-radius: 20rem;
+        font-size:1.3rem;
+    }
+    a:hover{
+        background-color: $rosado;
+        color: $blanco;
+    }
+}
