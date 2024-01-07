@@ -3,7 +3,6 @@ body{
 }
 .inicio_info{
     background-color: $vinotinto;
-    padding: 1rem;
     .inicio_logos{
         display: flex;
         justify-content: space-evenly;
@@ -27,12 +26,13 @@ body{
         p{
             color: $blanco;
             font-weight: 300;
+            font-size: 1.6rem;
         }
     }
     .inicio_svg{
         svg{
-            width: 44px;
-        height: 44px;
+            width: 29px;
+        height: 29px;
         }
         
     }
@@ -88,59 +88,81 @@ body{
     display: grid;
     grid-template-columns: 70% 30%;
     gap: 3rem;
-    .imagen_evento´{
+    
+}
+.imagen_evento{
         width: 100%;
         height: 100%;
+        background: #f7f2f6;;
+        padding: 3rem;
+        border-radius: 1rem;
+        ul{
+            li{
+                font-size: 1.3rem;
+                color: $grisMediano;
+            }
+        }
+        h5{
+            color: $grisOscuro;
+        }
     }
-}
-
 .imagen_evento img
 {
   width: 100%;
 }
-
+.eventos_esta{
+    border: 1px solid $rosado;
+    width: 14rem;
+    margin-bottom: 4rem;
+}
 // cards
 .card_padre{
     display: grid;
     gap: 2rem;
     grid-template-columns: 33.3% 33.3% 33.3%;
-    height: 38rem;
+    height: 20rem;
   
 }
 .card_hija{
-    background-color: #f2f0f0;
-    height: 36rem;
+    // background-color: #f2f0f0;
+    height: 21rem;
     display: grid;
-    grid-template-rows: 80% 20%;
-    
-    border-radius: 13px;
-border: 1px solid #eeebeb;
-background: #FFF;
-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    grid-template-columns: 35% 65%;
+    padding: 1rem;
+    background: #f0f0f0;
+     border-radius: 10px;
     .texto_card{
         padding: 2rem;
         p{
             font-size: 1.3rem;
+            color: $grisMediano;
             span{
                 color: $rosado;
                 font-weight: 600;
             }
         }
+        h5{
+            color: $grisOscuro;
+        }
+    }
+    &:hover{
+        box-shadow: 3px 3px 10px 0px rgba(85, 83, 83, 0.25);
     }
 }
+
 .imagen_card img
 {
   width: 100%;
-  height: 100%;
-//   border-radius: 1rem;
+  height: 19rem;
+
 }
 
 // salones
 .salones_cont{
-    display: grid;
-    grid-template-columns: 70% 30%;
-    gap: 3rem;
-    height: 38rem;
+    // display: grid;
+    // grid-template-columns: 70% 30%;
+    // gap: 3rem;
+    // height: 38rem;
     .salon_evento img{
         width: 100%;
         height: 38rem;
@@ -201,10 +223,7 @@ box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
 }
 
-.imagen_card img
-{
-  border-radius: 1rem;
-}
+
 
 h4{
     color:$grisOscuro
@@ -300,3 +319,92 @@ box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
         }
     }
 }
+
+// artistas
+.artista_fondo{
+    background-color: #6D373A;
+    padding: 2rem;
+}
+.cont_grid_art{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    .artistas_cont_titulo{
+        padding: 1rem;
+        p{
+            font-size: 4rem;
+            font-weight: 700;
+            color: $blanco;
+        }
+        img{
+            width: 100%;
+        }
+    }
+    .artistas_card{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        gap: 3rem;
+        justify-content: center;
+        align-items: center;
+        .art_part{
+            .img_art img {
+                width: 100%;
+                height: 32rem;
+                }
+            .text_art{
+                padding: .4rem;
+                background-color: $grisClaro2;
+                text-align: center;
+                p{
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    color:$grisMediano;
+                }
+            }
+        }
+    }
+}
+
+// ubicacion
+.ubicacion_fondo{
+    background-color: $vinotinto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    .imagen_ubi{
+        img{
+            width: 100%;
+        }
+    }
+  
+        .info_ubi_tittle{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 1rem;
+            p{
+                font-size: 5rem;
+                font-weight: 700;
+                color: $blanco;
+            }
+        }
+    .text_ubi{
+       margin-top: 3rem;
+       display: flex;
+       flex-direction: column;
+       gap:2rem ;
+    }
+
+    .info_ubi_av{
+        display: flex;
+        gap: 2rem;
+        justify-content: left;
+        align-items: center;
+        p{
+            color: $blanco;
+        }
+        svg{
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+

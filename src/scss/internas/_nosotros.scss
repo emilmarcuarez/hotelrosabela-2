@@ -1,0 +1,145 @@
+
+// nosotros
+.quienessomos{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 3rem;
+    margin-top: 3rem;
+    .quienes_imagen{
+        img{
+            width: 100%;
+        }
+        
+    }
+    
+
+    .texto_quienes{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: center;
+        align-items: center;
+        h3{
+            font-weight: 700;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+    }
+}
+.mision{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 3rem;
+    height: 41rem;
+    
+    .imagen_mision{
+        height: 41rem;
+        img{
+            width: 100%;
+            max-height: 100%;
+        }
+        
+    }
+    
+        h3{
+            margin: 0;
+        }
+
+    .mision_texto{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF5A60;
+        height: 41rem;
+        padding: 2rem;
+        h3{
+            font-weight: 700;
+            margin: 0;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        h3,p{
+            color: $blanco;
+        }
+    }
+}
+
+// vision
+.vision{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 3rem;
+    height: 50rem;
+    margin-top: 1rem;
+    
+    .vision_texto{
+        display: flex;
+        flex-direction: column;
+        height: 50rem;
+        background-color: $vinotinto;
+            .vision_texto_alinear{
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            justify-content: start;
+            align-items: center;
+           
+            
+            padding: 2rem;
+            h3{
+                font-weight: 700;
+                margin: 0;
+            }
+            p{
+                font-size: 1.5rem;
+            }
+            h3,p{
+                color: $blanco;
+            }
+        }
+
+        .imag_texto_vision img{
+            width: 100%;
+        }
+    }
+    
+    .imagen_vision img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// contacto
+.contactanos_nosotros{
+    margin-top: 3rem;
+    background-image: url(/build/img/contacto.webp);
+   
+    .text_contactanos_nosotros{
+        padding: 3rem;
+        p{
+            color: $blanco;
+        }
+        .titulo_contact_nos{
+            padding-top: 2rem;
+            font-weight: 700;
+            font-size: 4rem;
+            text-transform: uppercase;
+        }
+        .text_extra_cont{
+            display:flex;
+            flex-direction: column;
+            gap: 2rem;
+            .part1_text_nos{
+            display:flex;
+            gap: 2rem;
+            justify-content: left;
+            align-items: center;
+            }
+        }
+        
+    }
+}
