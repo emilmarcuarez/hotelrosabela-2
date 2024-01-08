@@ -123,11 +123,14 @@ body{
     height: 20rem;
   
 }
+.padding_espa{
+    padding-top: 5rem;
+}
 .card_hija{
     // background-color: #f2f0f0;
     height: 21rem;
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 40% 65%;
     padding: 1rem;
     background: #f0f0f0;
      border-radius: 10px;
@@ -170,9 +173,13 @@ body{
     }
 }
 .titulo_sal{
-   
+   .eventos_hr1{
+    border: 1px solid $rosado;
+    width: 25rem;
+    margin-bottom: 4rem;
+   }
     .salones_hr{
-        border: 2px solid $rosado;
+        border: 1px solid $rosado;
         width: 12rem;
         margin-bottom: 4rem;
     }

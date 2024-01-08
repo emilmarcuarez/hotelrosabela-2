@@ -30,5 +30,33 @@ class PaginaController{
 
         ]);  
     }
+    public static function salones(Router $router ){
+
+      
+        $router->render('paginas/salones', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+
+        ]);  
+    }
+    public static function eventos(Router $router ){
+
+      
+        $router->render('paginas/eventos', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+
+        ]);  
+    }
+    public static function empleados(Router $router ){
+
+      
+        $router->render('paginas/empleados', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+
+        ]);  
+    }
+    public static function contacto(Router $router ){
+
+      
+        $router->render('paginas/contacto', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+
+        ]);  
+    }
 }
 ?>

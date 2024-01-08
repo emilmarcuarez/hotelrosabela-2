@@ -1,0 +1,61 @@
+.salon_fondo{
+    background-color: #daccd0;
+    padding: 3rem;
+}
+.salones{
+    h4{
+        margin-top: 2rem;
+    
+    }
+    hr{
+        margin-bottom: 5rem;
+    }
+}
+.salones_card{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+   
+    padding: 1rem;
+    background-color: #f3efef;
+    border-radius: 20rem;
+    border: 1.3px solid $grisClaro;
+    .imagen_salon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            border-radius: 50%;
+            width: 20rem;
+            height: 19rem;
+        }
+        
+    }
+    .text_consumo{
+        margin-left: 1rem;
+        .titulo_consumo{
+            font-size: 2.6rem;
+            a{
+                color: $grisOscuro;
+            }
+            
+        }
+        .text_consumo2{
+            p{
+                font-size: 1.5rem;
+            }
+            
+            span{
+                color: $rosado;
+                font-weight: 600;
+            }
+            .text_final{
+                // font-weight: 600;
+                font-size: 1.3rem;
+                font-style: italic;
+                color: $rosado;
+                text-align: center;
+            }
+        }
+    }
+}

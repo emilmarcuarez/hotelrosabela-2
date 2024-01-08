@@ -80,4 +80,112 @@ class Usuario extends Activerecord
       }
       return self::$errores;
   }
+
+  public function setPassword($password){
+    $this->contrasenia= password_hash($password, PASSWORD_BCRYPT);
+    
+}
+public function getId(){
+    $query="SELECT id FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
+    $resultado=self::$db->query($query);
+    return $resultado;
+}
+public function existeUsuario(){
+    // revisamos si el susuario existe o no
+    $query="SELECT * FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
+ 
+    $resultado=self::$db->query($query);
+    // num_rows tiene un 1 si el usuario existe, asi que si no existe es que NO EXISTE
+    if(!$resultado->num_rows){
+        self::$errores[]='El Usuario no existe';
+        return; //se deja de ejecutar esta funcion
+    }
+    return $resultado;
+}
+public function existeUsuarioRegistro(){
+    // revisamos si el susuario existe o no
+    $query="SELECT * FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
+ 
+    $resultado=self::$db->query($query);
+    // num_rows tiene un 1 si el usuario existe, asi que si no existe es que NO EXISTE
+    if(!$resultado->num_rows){
+       
+        return; //se deja de ejecutar esta funcion
+    }
+    self::$errores[]='El Usuario YA existe';
+    return $resultado;
+}
+
+public function comprobarPassword($resultado){
+    $usuario=$resultado->fetch_object();
+
+    // verifica que la copntraseña que se escribio en el formulario es la misma que esta hasheada en la base de datos
+    $autenticado=password_verify($this->contrasenia, $usuario->contrasenia);
+    
+    if(!$autenticado){//es un bool, true o false
+        self::$errores[]='La contraseña es incorrecta'; //lo agrega al final del arreglo
+    }
+
+    return $autenticado;
+}
+
+public static function findId($email)
+{
+    $query = "SELECT * FROM ". static::$tabla. " WHERE email= '".$email."'";
+    // se sigue el principio de active record que es tener todo en objetos
+    $resultado = self::consultarSQL($query);
+    return array_shift($resultado); //Retornaa el primer elemento
+}
+
+public function autenticar(){
+    session_start();
+
+    // llenamos el arreglo de las sesiones establecidas
+    $_SESSION['usuario_pag']=$this->email;
+    $_SESSION['usuario_id']=$this->getId();
+    $_SESSION['login_pag']=true;
+
+    header('Location: /');
+}
+
+// para crear y guardar cada usuario
+
+public function guardar()
+{
+        // crear un nuevo registro
+        $this->crear();
+}
+public function crear()
+{
+   
+
+    // sanitizar los datos
+    $atributos = $this->sanitizarAtributos();
+
+
+    // insertar a la BASE DE DATOS
+    $query = "INSERT INTO ". static::$tabla. " (";
+    $query .= join(', ', array_keys($atributos));
+    $query .= " ) VALUES (' ";
+    $query .= join("', '", array_values($atributos));
+    $query .= " ') ";
+
+    $resultado = self::$db->query($query);
+    //   return es un false or true
+    // Mensaje de exito
+    if ($resultado) {
+
+        header('location: /siginusuario?resultado=1');
+    }
+}
+public static function getCorreos($id){
+    
+    $query = "SELECT usuario_pag.email
+    FROM comentario
+    JOIN usuario_pag ON comentario.usuario_pag_id = usuario_pag.id
+    WHERE comentario.locales_id = ".$id.";";
+    $resultado = static::consultarSQL($query);
+    return $resultado;
+}
+
 }
