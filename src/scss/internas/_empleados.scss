@@ -1,0 +1,86 @@
+
+.fondop_emple{
+    padding-top: 5rem;
+    background-color: $blanco;
+}
+.emple_dest{
+    text-align: center;
+    padding-bottom: 3rem;
+    font-size: 3rem;
+   
+}
+.emple1_cont{
+    background-color: #EAE8E8;
+}
+.emple2_cont{
+    background-color: #F5F5F5;
+}
+.emple1_cont,
+.emple2_cont{
+
+    .empleados_pag{
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        .img_empleado{
+            img{
+                border-radius: 50%;
+                width:16rem ;
+                height:16rem ;
+            }
+            
+        }
+        .text_empleado{
+            .tit_emple{
+                font-size: 3rem;
+                font-weight: 400;
+            }
+            .cargo_emple{
+                p{
+                    color: $rosado;
+                    font-style: italic;
+                }
+                
+            }
+            p{
+                font-size: 1.7rem;
+            }
+        }
+    }
+    
+}
+.empleado_cont2{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    padding-bottom: 5rem;
+    .empleado_cont3{
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+        .img_empleado_cont{
+            img{
+                border-radius: 50%;
+                width:16rem ;
+                height:16rem ;
+            }
+        }
+        .text_empleado_cont{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h3{
+                font-size: 2rem;
+                margin: 0;
+                font-style: italic;
+            }
+            p{
+                font-size: 1.5rem;
+                color: $rosado;
+            }
+        }
+    }
+}

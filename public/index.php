@@ -7,6 +7,7 @@ use Controllers\CentroconsumoController;
 use Controllers\EmpleadosController;
 use Controllers\SalonesController;
 use Controllers\PaginaController;
+use Controllers\UsuariosController;
 // use Model\Usuario;
 use MVC\Router;
 $router= new Router();
@@ -47,4 +48,16 @@ $router->post('/salones/eliminar', [SalonesController::class, 'eliminar']);
 // zona publica
 $router->get('/nosotros', [PaginaController::class, 'nosotros']);
 $router->get('/centros', [PaginaController::class, 'centros']);
+$router->get('/salones', [PaginaController::class, 'salones']);
+$router->get('/eventos', [PaginaController::class, 'eventos']);
+$router->get('/empleados', [PaginaController::class, 'empleados']);
+$router->get('/contacto', [PaginaController::class, 'contacto']);
+
+// login y sigin
+// $router->get('/login', [LoginController::class, 'login']);
+// $router->post('/login', [LoginController::class, 'login']);
+$router->get('/loginusuario', [UsuariosController::class, 'loginusuario']);
+$router->post('/loginusuario', [UsuariosController::class, 'loginusuario']);
+$router->get('/siginusuario', [UsuariosController::class, 'siginusuario']);
+$router->post('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->comprobarRutas();

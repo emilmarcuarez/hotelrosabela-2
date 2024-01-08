@@ -1,0 +1,83 @@
+.fondo_centros{
+    background: url(/build/img/centros2.webp);
+    background-position: center center;
+    background-size: cover;
+    padding: 2rem;
+}
+.centros_consumo{
+    padding: 3rem;
+    background-color: rgba(69, 66, 66, 0.62);
+    border-radius: 1rem;
+    h4{
+        color: $blanco !important;
+       }
+       
+   hr{
+    border: 1px solid $blanco;
+   }
+}
+.consumo_card{
+   
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+   
+    padding: 2rem;
+    background-color: #f3efef;
+    border-radius: 1rem;
+    border: 1.3px solid $grisClaro;
+    .imagen_consumo img{
+        width: 100%;
+    }
+    .text_consumo{
+        margin-left: 1rem;
+        .titulo_consumo{
+            font-size: 2.6rem;
+            color: $grisOscuro;
+        }
+        .text_consumo2{
+            p{
+                font-size: 1.5rem;
+            }
+            
+            span{
+                color: $rosado;
+                font-weight: 600;
+            }
+            .text_final{
+                // font-weight: 600;
+                font-size: 1.3rem;
+                font-style: italic;
+                color: $rosado;
+                text-align: center;
+            }
+        }
+    }
+
+    // botones
+    .botones_consumo{
+        .reputacion{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+            .valoracion{
+                font-weight: 600;
+                text-align: right;
+            }
+            .comentarios_btn{
+                font-size: 1.3rem;
+                text-align: right;
+            }
+            a{
+                display: inline-block;
+                padding: .5rem 1rem;
+                text-align: center;
+                background-color: $rosado;
+                color: $blanco;
+                font-weight: 600;
+                border-radius: .4rem;
+            }
+        }
+    }
+}
