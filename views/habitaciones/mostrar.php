@@ -13,15 +13,15 @@
     <div class="espacio"></div>
 <a href="/admin" class="boton boton-rosado">Volver</a> 
 <a href="/habitaciones/crear" class="boton boton-rosado">Nueva Habitacion</a>
-<h2>Eventos</h2>
+<h2>Habitaciones</h2>
 <div class="tabla_general contenedor">
     <div class="cabecera_tabla_general">
 
             <div class="cabecera_cont"><h2>Nro</h2></div>
             <div class="cabecera_cont"><h2>Nombre</h2></div>
-            <div class="cabecera_cont"><h2>descripcion</h2></div>
-            <div class="cabecera_cont"><h2>precio</h2></div>
-            <div class="cabecera_cont"><h2>servicios</h2></div>
+            <div class="cabecera_cont"><h2>Precio s/d</h2></div>
+            <div class="cabecera_cont"><h2>Precio c/d</h2></div>
+            <div class="cabecera_cont"><h2>Imagen</h2></div>
             <div class="cabecera_cont"><h2>Accioness</h2></div>
             
     </div>
@@ -37,17 +37,19 @@
            
                 <div class="body_infor_div"><p><?php echo $habitacion->id; ?> </p></div>
                 <div class="body_infor_div"><p><?php echo $habitacion->nombre; ?> </p></div>
-                <div><img src="../imagenes_e/<?php echo $habitacion->imagen; ?>" class="imagen-tabla" alt=""></div>
+                <div class="body_infor_div"><p> USD <?php echo $habitacion->preciosd; ?> </p></div>
+                <div class="body_infor_div"><p> USD <?php echo $habitacion->preciocd; ?> </p></div>
+                <div><img src="../imagenes_h/<?php echo $habitacion->imagen; ?>" class="imagen-tabla" alt=""></div>
                 <div>
-                    <form method="POST" class="w-100" action="/eventos/eliminar">
+                    <form method="POST" class="w-100" action="/habitaciones/eliminar">
                         <!-- ESTOS INPUT HIDDEN SIRVEN PARA MANDAR INFORMACION, QUE EN ESTE CASO ES EL ID -->
                         <input type="hidden" name="id" value="<?php echo $habitacion->id; ?>">
-                        <input type="hidden" name="tipo" value="eventos">
+                        <input type="hidden" name="tipo" value="habitaciones">
 
                         <input type="submit" class="boton-rojo-block" value="Eliminar">
                     </form>
 
-                    <a href="/eventos/actualizar?id=<?php echo $habitacion->id; ?>" class="boton-verde-block">Actualizar</a>
+                    <a href="/habitaciones/actualizar?id=<?php echo $habitacion->id; ?>" class="boton-verde-block">Actualizar</a>
                 </div>
             </div>
         <?php endforeach; ?>

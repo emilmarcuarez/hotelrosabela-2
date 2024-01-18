@@ -123,6 +123,13 @@ class Activerecord
             unlink(CARPETA_IMAGENES . $this->imagen);
         }
     }
+    public function borrarImagen2()
+    {
+        $existeArchivo = file_exists(CARPETA_IMAGENES . $this->setImagen2);
+        if ($existeArchivo) {
+            unlink(CARPETA_IMAGENES . $this->setImagen2);
+        }
+    }
 
     //subida de archivos
     public function setImagen($imagen)
@@ -136,6 +143,19 @@ class Activerecord
         // asignar al atributo de imagen el nombre de la imagen
         if ($imagen) {
             $this->imagen = $imagen;
+        }
+    }
+    public function setImagen2($imagen)
+    {
+        // elimina la imagen previa
+        if (!is_null($this->id)) { //isset que exista y tenga valor
+
+            $this->borrarImagen2();
+        }
+
+        // asignar al atributo de imagen el nombre de la imagen
+        if ($imagen) {
+            $this->imagen2 = $imagen;
         }
     }
    
@@ -171,6 +191,13 @@ class Activerecord
 public static function get($cantidad)
 {
     $query = "SELECT * FROM ". static::$tabla . " LIMIT ".$cantidad;
+  
+    $resultado = static::consultarSQL($query);
+    return $resultado;
+}
+public static function getEventosdif($cantidad, $id)
+{
+    $query = "SELECT * FROM ". static::$tabla . " WHERE id!= $id" . " LIMIT ".$cantidad;
   
     $resultado = static::consultarSQL($query);
     return $resultado;

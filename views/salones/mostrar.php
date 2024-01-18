@@ -38,7 +38,7 @@
                 <div class="body_infor_div"><p><?php echo $salon->id; ?> </p></div>
                 <div class="body_infor_div"><p><?php echo $salon->nombre; ?> </p></div>
                 <div><img src="../imagenes_s/<?php echo $salon->imagen; ?>" class="imagen-tabla" alt=""></div>
-                <div class="body_infor_div"><p> <?php echo $salon->descripcion; ?></p></div>
+                <div class="body_infor_div"><p class="descripcion"> <?php echo $salon->descripcion; ?></p></div>
                 <div class="body_infor_div"><p> <?php echo $salon->capacidad; ?></p></div>
 
                 <div>

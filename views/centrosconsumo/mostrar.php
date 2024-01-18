@@ -38,7 +38,7 @@
                 <div class="body_infor_div"><p><?php echo $centro->id; ?> </p></div>
                 <div class="body_infor_div"><p><?php echo $centro->nombre; ?> </p></div>
                
-                <div class="body_infor_div"><p><?php echo $centro->descripcion; ?></p></div>
+                <div class="body_infor_div"><p class="descripcion"><?php echo $centro->descripcion; ?></p></div>
                 <div class="body_infor_div"><p> <?php echo $centro->horario; ?></p></div>
                 <div><img src="../imagenes_r/<?php echo $centro->imagen; ?>" class="imagen-tabla" alt=""></div>
                 <div>

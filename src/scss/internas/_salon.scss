@@ -1,0 +1,71 @@
+.salon_pag_principal{
+    background: url(/build/img/fondop-01.webp);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0rem 25rem;
+    h5{
+        padding-bottom: 3rem;
+        padding-top: 7rem;
+        font-size: 4rem;
+        color: $grisOscuro;
+        font-weight: 400;
+    }
+
+
+    .cont_sal_img{
+        padding: 1rem 1rem 3rem;
+        background: #9f425a2e;
+        border-radius: .7rem;
+        img{
+            width: 100%;
+            border-radius: .7rem;
+        }
+    }
+    .cap_datos_sal{
+        align-items: center;
+        background-color: #dcdcdc66;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        margin-top: 2rem;
+        border-radius: 0.6rem;
+        .d_salon{
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            i{
+                color: $rosado;
+            }
+        }
+       
+    } 
+    .cont_sal_text{
+            h5{
+                font-size: 2rem;
+                font-weight: 400;
+                margin: 0;
+                text-align: left;
+                padding: 4rem 0 1rem 0;
+                font-style: italic;
+                color: #a63d61;
+            }
+        }
+    a{
+        background-color: #cf5a60;
+        color: #fff;
+        display: inline-block;
+        padding: .7rem .6rem;
+        margin-bottom: 4rem;
+        margin-top: 2rem;
+        border-radius: 1rem;
+    }
+    a:hover{
+        border: 1px solid #cf5a60;
+        background-color: #cf5a6000;
+        color: $rosado;
+        transition: .5s ease-in;
+    }
+}

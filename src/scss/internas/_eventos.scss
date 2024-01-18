@@ -1,10 +1,20 @@
 .fondo_evento{
-    background-color: #545050;
-}
-.f_evento2{
-    background-image: url(/build/img/fondo_e2.webp);
+    background: url(/build/img/fondop-01.webp);
+    background-attachment: fixed;
     background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
+}
+.f_evento2{
+    background-image: url(/build/img/quienes1.webp);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.f_eventos3{
+    background:rgba(98, 52, 64, 0.6);
     padding-bottom: 3rem;
 }
 .text_titulo_ev{
@@ -17,7 +27,8 @@
 .evento_proximo{
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
-    gap: 1rem;
+    gap: 2rem;
+    padding-bottom: 7rem;
 }
 .imagenes_cont{
     display: grid;
@@ -41,14 +52,17 @@
    
 }
 .tit2_eventos{
-    color: $blanco;
+    color: $grisOscuro;
     padding: 3rem;
     font-size: 4rem;
+    hr{
+        border: 1px solid #e3719d;
+    }
 }
 .evento_prox{
     display: grid;
     grid-template-columns: 50% 50%;
-    background-color: #767474;
+    background-color: #fff9f9;
     gap: 1rem;
     // padding: 1rem;
     border-radius: 1rem;
@@ -59,9 +73,10 @@
         }
     }
     .text_evento{
+        background-color: $blanco;
         width: 100%;
         p{
-            color: $blanco
+            color: $grisOscuro;
         }
         .text_titulo_ev2{
             font-weight: 700;
@@ -71,7 +86,11 @@
         .text_info_evento{
             display: flex;
             flex-direction: column;
-            gap: 4rem;
+            // gap: 2rem;
+            .part11_info_eve span
+                {
+                color: #ce1066;
+                }
             p{
                 font-size: 1.3rem;
             }
@@ -80,7 +99,7 @@
                 display: inline-block;
                 padding: .5rem .5rem;
                 text-align: center;
-                background-color: #731b3c;
+                background-color: #ec4e7a;
                 color: $blanco;
                 font-size: 1.3rem;
                 font-weight: 600;

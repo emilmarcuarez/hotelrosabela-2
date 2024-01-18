@@ -42,7 +42,8 @@ class Router{
             call_user_func($fn,$this);
 
         }else{
-            echo 'Error 404: Pagina No encontrada';
+            // echo 'Error 404: Pagina No encontrada';
+            header('Location: /error');
         }
     }
 

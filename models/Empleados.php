@@ -5,7 +5,7 @@
  class Empleados extends Activerecord{
     protected static $tabla = 'empleados';
     protected static $pagina='empleados/mostrar';
-    protected static $columnasDB=['id', 'nombre', 'cargo', 'apellido', 'imagen','descripcion'];
+    protected static $columnasDB=['id', 'nombre', 'cargo', 'apellido', 'imagen','descripcion','jerarquia'];
 
     public $id;
     public $nombre;
@@ -13,6 +13,7 @@
     public $apellido;
     public $imagen;
     public $descripcion;
+    public $jerarquia;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
       $this->nombre=$args['nombre'] ?? '';
@@ -20,6 +21,7 @@
       $this->apellido=$args['apellido'] ?? '';
       $this->imagen=$args['imagen'] ?? '';
       $this->descripcion=$args['descripcion'] ?? '';
+      $this->jerarquia=$args['jerarquia'] ?? '';
     }
 
     public function validar(){
@@ -31,6 +33,9 @@
       }
       if(!$this->cargo){
          self::$errores[]="Debes añadirle un cargo al empleado";
+      }
+      if(!$this->jerarquia){
+         self::$errores[]="La jerarquia es obligatoria";
       }
       return self::$errores;
     }

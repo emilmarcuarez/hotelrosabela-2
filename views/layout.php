@@ -22,34 +22,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Hotel Rosa bela</title>
 
-    <style>
-     .counter-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .counter-input {
-        font-size: 1.5rem;
-        text-align: center;
-  width: 17rem;
-  border-radius: 0.9rem;
-  border: .2rem solid #ecebeb;
-  padding: 0.4rem .2rem;
-  margin-bottom: 1rem;
-  background: #e6e6e6;
-    }
-    .counter-btn {
-        cursor: pointer;
-        font-size: 1.2em;
-        margin: 0 5px;
-        width: 3rem;
-        border-radius: 30rem;
-        background: #cf5a60;
-        border: 0;
-        height: 3rem;
-        color: white;
-    }
-  </style>
 </head>
 
 <body>
@@ -60,13 +32,18 @@
             <nav class="navegacion">
                 <a href="/"><img src="/build/img/logopng.webp" alt="logo"></a>
                 <a href="/nosotros">Nosotros</a>
+                <a href="/habitaciones">Habitaciones</a>
                 <a href="/centros">Centros de consumo</a>
                 <a href="/salones">Salones</a>
                 <a href="/eventos">Eventos</a>
                 <a href="/empleados">Empleados</a>
                 <a href="/contacto">Contacto</a>
             </nav>
-            <div class="redes">
+            
+        </div>
+    </header>
+    <section class="seccion_registrar">
+    <div class="redes">
                 <div class="redes_div">
                     <a href="https://www.instagram.com/hotelrosabela/?hl=es"><i class="fa-brands fa-instagram"></i></a>
                 </div>
@@ -77,11 +54,8 @@
                     <a href="https://twitter.com/hotelrosabela?lang=es"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
-        </div>
-    </header>
-    <section class="seccion_registrar">
         <a href="/loginusuario">Iniciar sesion</a>
-        <a href="#">Registrar</a>
+        <a href="/siginusuario">Registrar</a>
     </section>
 
     <!-- <div class="imagen_header">
@@ -89,64 +63,47 @@
         <img src="/build/img/inicio.webp" alt="imagen del header" class="img_header">
         <img src="/build/img/logopng.webp" alt="logo del hotel" class="logo_header">
     </div> -->
-<div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
-<div class="cuadro"></div>
+    <div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
+        <div class="cuadro"></div>
+            <div class="video">   
+                <video autoplay muted loop>
+                    <source src="/build/video/video1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="header-flex">
+                <div class="part1_header-flex">
+                    <img src="/build/img/logor.webp" alt="">
+                </div>
+                <div class="part2_header-flex">
+                   
+                    <p>Hotel & Covention center</p>
+                    <p>¡Siente la diferencia!</p>
+                    <p>En</p>
+                </div>
+            </div>
+    </div>
+
+
+<div class="video33 <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no2 ? 'no' : ''; ?>">
+    <div class="cuadro"></div>
         <div class="video">   
             <video autoplay muted loop>
-                <source src="/build/video/video1.mp4" type="video/mp4">
+                <source src="/build/video/habitaciones.mp4" type="video/mp4">
             </video>
         </div>
     <div class="header-flex">
-            <!-- <img src="/build/img/logotipo.webp" alt="logo del hotel" class="logo_header"> -->
-            <!-- <img src="/build/img/logo2.webp" alt="logo del hotel" class="logo_header"> -->
+        <div class="part1_header-flex">
+             <img src="/build/img/logor.webp" alt="">
+        </div>
+        <div class="part2_header-flex">
+            <p>Habitaciones</p>
+            <p>Hotel & Covention center</p>
+            <p>¡Siente la diferencia!</p>
+        </div>
     </div>
 </div>
-    <!-- <div class="slideshow">
-        <ul class="slider">
-            <li>
-                <img src="/build/img/inicio.webp" alt="" class="img_slider">
-                <div class="imagen_header">
-                    <div class="imagen_header_fondo"></div>
-                    <img src="/build/img/logopng.webp" alt="logo del hotel" class="logo_header">
-                </div>
-            </li>
-            <li>
-                <img src="/build/img/slider2.webp" alt="" class="img_slider">>
-                <div class="imagen_header">
-                    <div class="imagen_header_fondo"></div>
-                    <img src="/build/img/logopng.webp" alt="logo del hotel" class="logo_header">
-                </div>
-            </li>
-            <li>
-                <img src="/build/img/slider3.webp" alt="" class="img_slider">>
-                <div class="imagen_header">
-                    <div class="imagen_header_fondo"></div>
-                    <img src="/build/img/logopng.webp" alt="logo del hotel" class="logo_header">
-                </div>
-            </li> -->
-            <!-- <li>
-				<img src="build/img/4.png" alt="">
-	
-			</li> -->
-        <!-- </ul> -->
 
-        <!-- <ol class="pagination">
-			
-		</ol>
-	 -->
-     <!-- <div class="contenedor">
-           <div class="left">
-            <span class="fa fa-chevron-left"></span>
-        </div>
-
-        <div class="right">
-            <span class="fa fa-chevron-right"></span>
-        </div>
-     </div> -->
-     
-
-    <!-- </div> -->
-    <div class="inicio_info <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
+<div class="inicio_info  <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no ? 'no3' : ''; ?>">
     <div class="contenedor inicio_logos">
         <div class="logos_part_flex">
             <div class="l_partes2">
@@ -245,60 +202,10 @@
         </div>
 
     </footer>
-    <script>
-         
-  // Funciones para incrementar y decrementar la cantidad de personas y habitaciones
-  function incrementar(tipo) {
-    var inputElement = document.getElementById(tipo);
-    var cantidad = parseInt(inputElement.value);
-
-    if (tipo === 'habitaciones') {
-      inputElement.value = (cantidad + 1) + " habitación";
-    } else {
-      inputElement.value = (cantidad + 1) + " " + tipo;
-    }
-
-    // Verificar si se está incrementando el número de habitaciones
-    if (tipo === 'habitaciones') {
-      asignarAdultos(); // Asignar automáticamente adultos al incrementar habitaciones
-    }
-  }
-
-  function decrementar(tipo) {
-    var inputElement = document.getElementById(tipo);
-    var cantidad = parseInt(inputElement.value);
-
-    if (cantidad > 1) {
-      // Disminuir solo si la cantidad es mayor a 1
-      inputElement.value = (cantidad - 1) + (tipo === 'habitaciones' ? ' habitación' : ' ' + tipo);
-
-      // Verificar si se está decrementando el número de habitaciones
-      if (tipo === 'habitaciones') {
-        asignarAdultos(); // Asignar automáticamente adultos al decrementar habitaciones
-      }
-    }
-  }
-
-  function editar(tipo) {
-    var inputElement = document.getElementById(tipo);
-    inputElement.readOnly = false;
-    inputElement.focus();
-  }
-
-  // Función para asignar automáticamente adultos según el número de habitaciones
-  function asignarAdultos() {
-    var habitacionesElement = document.getElementById('habitaciones');
-    var adultosElement = document.getElementById('adultos');
-    var cantidadHabitaciones = parseInt(habitacionesElement.value);
-
-    // Asignar un adulto por cada habitación
-    adultosElement.value = cantidadHabitaciones + " adultos";
-  }
-</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
-    <script src="../build/js/bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
+<script src="../build/js/bundle.min.js"></script>
 </body>
 
 </html>

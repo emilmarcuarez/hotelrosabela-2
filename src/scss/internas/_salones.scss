@@ -1,10 +1,15 @@
 .salon_fondo{
-    background-color: #daccd0;
-    padding: 3rem;
+    background: url(/build/img/fondop-01.webp);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0rem 20rem;
 }
 .salones{
+    padding-bottom: 3rem;
     h4{
-        margin-top: 2rem;
+        padding-top: 2rem;
     
     }
     hr{

@@ -11,15 +11,17 @@ class Usuario extends Activerecord
   public $id;
   public $nombre;
   public $apellido;
+  public $fecha;
+  public $sexo;
+  public $identificacion;
   public $nro_telefono;
-  public $email;
-  public $contrasenia;
   public $pais;
   public $estado;
   public $ciudad;
   public $direccion;
-  public $codigo_postal;
-  public $identificacion;
+  public $codigo_postal; 
+  public $email;
+  public $contrasenia;
   public $n_empresa;
   public $i_fiscal;
 
