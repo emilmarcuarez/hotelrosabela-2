@@ -11,6 +11,9 @@ body {
     font-size: 1.6rem;
     line-height: 1.8;
 }
+.descripcion{
+        word-wrap: break-word;
+}
 p {
     color: $negro;
     font-size: 2rem;
@@ -26,7 +29,9 @@ p {
     // height: 2rem;
     margin-bottom: 7rem;
 }
-
+.espacio_p{
+    padding-bottom: 4rem;
+}
 a {
     text-decoration: none;
 }

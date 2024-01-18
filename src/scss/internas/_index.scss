@@ -1,5 +1,80 @@
+   .no-display{
+    display: none;
+   }
+   
+   /* Estilos para el diseño del formulario */
+   /* Estilos para el diseño del formulario */
+   .counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .counter-row {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    position: relative;
+  }
+  .counter-select {
+    font-size: 1.2em;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    user-select: none;
+  }
+  .counter-input {
+    font-size: 1.2em;
+    text-align: center;
+    width: 60px;
+    margin: 0 5px;
+  }
+  .counter-btn {
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 0 5px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .counter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+    width: 29rem; /* Ancho ajustable según sea necesario */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  .counter-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .counter-list li:hover {
+    background-color: #f5f5f5;
+  }
+
+  .list_plan{
+  display: grid;
+  grid-template-columns: 38% 20% 22% 20%;
+  justify-content: center;
+  align-items: center;
+  }
 body{
-    background-color: #e4e2e2;
+    background: url(/build/img/fondop-01.webp);
+    background-attachment: fixed;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .inicio_info{
     background-color: $vinotinto;
@@ -93,17 +168,20 @@ body{
 .imagen_evento{
         width: 100%;
         height: 100%;
-        background: #f7f2f6;;
+        background: #9f425a;;
         padding: 3rem;
         border-radius: 1rem;
+        box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
+        -webkit-box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
+        -moz-box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
         ul{
             li{
                 font-size: 1.3rem;
-                color: $grisMediano;
+                color: $blanco;
             }
         }
         h5{
-            color: $grisOscuro;
+            color: $blanco;
         }
     }
 .imagen_evento img
@@ -111,7 +189,7 @@ body{
   width: 100%;
 }
 .eventos_esta{
-    border: 1px solid $rosado;
+    border: 1px solid #cfcfcf;
     width: 14rem;
     margin-bottom: 4rem;
 }
@@ -128,23 +206,25 @@ body{
 }
 .card_hija{
     // background-color: #f2f0f0;
-    height: 21rem;
+    height: 22rem;
     display: grid;
-    grid-template-columns: 40% 65%;
+    grid-template-columns: 45% 60%;
     padding: 1rem;
     background: #f0f0f0;
      border-radius: 10px;
+     border: 1px solid #ccc9c9;
     .texto_card{
         padding: 2rem;
         p{
             font-size: 1.3rem;
             color: $grisMediano;
             span{
-                color: $rosado;
+                color: #ba0534;
                 font-weight: 600;
             }
         }
         h5{
+            font-size: 1.8rem;
             color: $grisOscuro;
         }
     }
@@ -156,8 +236,8 @@ body{
 .imagen_card img
 {
   width: 100%;
-  height: 19rem;
-
+  height: 20rem;
+    border-radius: .3rem;
 }
 
 // salones
@@ -237,96 +317,132 @@ h4{
 }
 
 // Habitaciones
+
+
 .habitaciones{
-    background-color: #787676;
+    // background-color: #787676;
+    background-color: #191717ad ;
+    // background: url(/build/img/hab1.webp);
     padding: 6rem 2rem 2rem 2rem;
-    
-    .hab_part{
-        display: grid;
-        grid-template-columns: 35% 40% 25%;
-        height: 25rem;
-        background-color: #E7E7E7;
-        border-radius: .5rem;
+    // background-position: center center;
+    // background-size: cover;
+    z-index: 1;
+}
+.hab{
+    padding-top: 4rem;
+}
+.hab_part{
+    display: grid;
+    grid-template-columns: 30% 45% 25%;
+    height: 25rem;
+    background-color: #E7E7E7;
+    border-radius: .5rem;
+    justify-content: center;
+     align-items: center;
+    margin-bottom: 3rem;
+    box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
+    .img_hab{
+        display: flex;
         justify-content: center;
-         align-items: center;
-        margin-bottom: 3rem;
-box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
-        .img_hab{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img{
-                height: 22rem;
-                width: 92%;
-            }
+        align-items: center;
+        img{
+            height: 22rem;
+            width: 92%;
         }
-        .info_hab{
-            display: grid;
-            grid-template-rows: 60% 40%;
-            row-gap: 3rem;
-            padding: 1rem;
-            .icono_info {
-                display: flex;
-                gap: 5rem;
-                margin-top: 1rem;
-                justify-content: center;
-                    .icono_info_part svg {
-                        width: 3rem;
-                    }
+    }
+    .info_hab{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        row-gap: 3rem;
+        padding: 1rem;
+        .icono_info {
+            display: flex;
+            gap: 5rem;
+            margin-top: 1rem;
+            justify-content: center;
+                .icono_info_part svg {
+                    width: 3rem;
                 }
-                .info_hab_3{
-                    .titulo_info h5{
+                .tooltip{
+                    i,svg{
                         color: $rosado;
                         font-size: 2rem;
                     }
-                    .info_adicional p{
-                        font-size: 1.3rem;
-                    }
-                    .info_parrafo p{
+                }
+            }
+            .info_hab_3{
+                .titulo_info h5{
+                    color: $rosado;
+                    font-size: 2rem;
+                }
+                .info_adicional p{
+                    font-size: 1.3rem;
+                }
+                    .info_parrafo{
+                        width: 60%;
+                        p{
                         font-size: 1.5rem;
                         color: $grisMediano;
                     }
                 }
-            
-        }
-        .precio_hab{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1.9rem;
-            font-weight: 700;
-            p{
-                font-size: 1rem;
-                text-align: center;
-                color: $grisOscuro;
-                margin: 0;
-                padding: 0;
-                .pre_nro{
-                    color: $fucsia;
-                    font-size: 2.9rem;
-                }
-                .des_hab{
-                    color: $fucsia;
-                    font-weight: 600;
-                }
             }
-        }
+        
     }
-    .hab{
-        .titulo_ha{
-            h4{
-                color: #f1f1f1;
+    .precio_hab{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.9rem;
+        font-weight: 700;
+        p{
+            font-size: 1rem;
+            text-align: center;
+            color: $grisOscuro;
+            margin: 0;
+            padding: 0;
+            .pre_nro{
+                color: $fucsia;
+                font-size: 2.9rem;
             }
-            .salones_hr{
-                border: 2px solid $rosado;
-                width: 19rem;
-                margin-bottom: 4rem;
+            .des_hab{
+                color: $fucsia;
+                font-weight: 600;
             }
         }
     }
 }
+.hab{
+    .titulo_ha{
+        h4{
+            color: #f1f1f1;
+        }
+        .salones_hr{
+            border: 2px solid $rosado;
+            width: 19rem;
+            margin-bottom: 4rem;
+        }
+    }
+    .titulo_ha2{
+        h4{
+            color: #2d2b2b;
+        }
+        .salones_hr{
+            border: 2px solid $rosado;
+            width: 19rem;
+            margin-bottom: 4rem;
+        }
+    }
+}
 
+.f_habitaciones{
+    background: url(/build/img/hab1.webp);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 // artistas
 .artista_fondo{
     background-color: #6D373A;

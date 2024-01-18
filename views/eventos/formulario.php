@@ -4,7 +4,7 @@
             </legend>
             <!-- el name sera el que se manda a la base de datos, lee los datos, por medio de esa variable que es el nombre que le coloquemos es name -->
             <label for="nombre">Nombre: </label>
-            <input type="text" name="evento[nombre]" id="nombre" placeholder="nombre del negocio" value="<?php echo s($evento->nombre); ?>">
+            <input type="text" name="evento[nombre]" id="nombre" placeholder="nombre del evento" value="<?php echo s($evento->nombre); ?>">
 
             <label for="descripcion">Descripcion</label>
             <textarea id="descripcion" name="evento[descripcion]" cols="30" rows="10"><?php echo s($evento->descripcion); ?></textarea>
@@ -32,7 +32,7 @@
                         value="<?php echo $centros->id; ?>"
                         <?php if (intval(s($evento->centros_consumo_id)) === intval($centros->id)):?> 
                                 checked
-                        <?php endif; ?>> 
+                        <?php endif; ?>>
                     </div>        
                 <?php endforeach; ?>
             </div>

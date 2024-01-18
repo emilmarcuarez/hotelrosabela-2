@@ -11,17 +11,21 @@ class EmpleadosController{
     public static function index(Router $router){
         $empleados=Empleados::all();
      
-        // $no=true;
+        $no=true;
+        $no2=true;
         // MUESTRA MENSAJE CONDICIONAL
         $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
         //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
         $router->render('empleados/mostrar',[
             'empleados'=>$empleados,
-            'resultado' =>$resultado
+            'resultado' =>$resultado,
+            'no'=>$no,
+            'no2'=>$no2
         ]);
 }
     public static function crear(Router $router){
-        // $no=true; //no mostrar el menu
+        $no=true; //no mostrar el menu
+        $no2=true; //no mostrar el menu
 
         // arreglo con mensaje de errores
         $erorres= Empleados::getErrores();
@@ -55,15 +59,17 @@ class EmpleadosController{
         }
         $router->render('empleados/crear',[
             'empleado'=>$empleado,
-            'errores'=>$erorres
-            // 'no'=>$no
+            'errores'=>$erorres,
+            'no'=>$no,
+            'no2'=>$no2
         ]);
     }
 
     // funcion actualizar centro de consumo
     public static function actualizar(Router $router){
         $id=validarORedireccionar('/admin');
-        // $no=true;
+        $no=true;
+        $no2=true;
         $empleado=Empleados::find($id);
 
         $errores=Empleados::getErrores();
@@ -95,7 +101,9 @@ class EmpleadosController{
         }
         $router->render('/empleados/actualizar',[
             'empleado'=>$empleado,
-            'errorres'=>$errores
+            'errorres'=>$errores,
+            'no'=>$no,
+            'no2'=>$no2
         ]);
     }
     

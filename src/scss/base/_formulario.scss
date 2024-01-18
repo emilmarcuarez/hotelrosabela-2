@@ -12,7 +12,36 @@
             background-color: $grisClaro2;
         }
 }
+// FORMULARIO DE HABITACIONES
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
 
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 1.3rem;
+  
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
 
 // eventos- formulario
 
@@ -20,8 +49,17 @@
     display: flex;
     justify-content: left;
     gap: 2rem;
+    flex-direction: column;
     .eventos_form_radio{
         display: flex;
+        flex-direction: row;
         gap: 1rem;
+        label{
+            font-weight: 400;
+        }
     }
+}
+
+.seccion{
+    padding: 2rem 0rem;
 }

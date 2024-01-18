@@ -1,9 +1,9 @@
 <main class="contenedor seccion">
 
 <div class="espacio"></div>
-<a href="/eventos/mostrar" class="boton boton-rosado">Volver</a> 
+<a href="/habitaciones/mostrar" class="boton boton-rosado">Volver</a> 
 
-    <h1>Actualizar evento</h1>
+    <h1>Actualizar habitacion</h1>
 
     <!-- <a href="/admin" class="boton boton-verde">Volver</a> -->
 
@@ -19,7 +19,7 @@
     <!-- enctype sirve para indicar al formulario que tendra archivos que enviar, como imagenes -->
     <form class="formulario" method="POST" enctype="multipart/form-data">
         <?php include 'formulario.php' ;?>
-        <input type="submit" id="btnEnviar" value="Actualizar evento" class="boton boton-rosado">
+        <input type="submit" id="btnEnviar" value="Actualizar habitacion" class="boton boton-rosado">
     </form>
 
 </main>

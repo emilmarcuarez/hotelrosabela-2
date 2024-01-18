@@ -21,6 +21,7 @@
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/salones/mostrar">Salones</a>
     <a href="/empleados/mostrar">Empleados</a>
+    <a href="/chef/mostrar">Chef</a>
     <a href="/usuarios/mostrar">Usuarios</a>
     <a href="/administradores/mostrar">Usuarios Administradores</a>
 </div>

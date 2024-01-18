@@ -67,4 +67,13 @@ class Evento extends Activerecord
             unlink(CARPETA_IMAGENES_EV . $this->imagen);
         }
     }
+    // para saber el nombre del restaurante del eventos
+    public static function findNombreCentro($id){
+        $query="SELECT centros_consumo.nombre
+        FROM eventos
+        JOIN centros_consumo ON eventos.centros_consumo_id = centros_consumo.id
+        WHERE eventos.id=".$id.";";
+       $resultado = self::consultarSQL($query);
+       return array_shift($resultado); //Retornaa el primer elemento
+    }
 }

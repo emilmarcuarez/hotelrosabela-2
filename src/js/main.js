@@ -1,18 +1,84 @@
 AOS.init();
-fetch('https://restcountries.com/v2/all')
-  .then(response => response.json())
-  .then(data => {
-    const countriesList = document.getElementById('countries-list');
-    data.forEach(country => {
-      const listItem = document.createElement('option');
-      listItem.textContent = country.name;
-      countriesList.appendChild(listItem);
-    });
-  });
+// fetch('https://restcountries.com/v2/all')
+//   .then(response => response.json())
+//   .then(data => {
+//     const countriesList = document.getElementById('countries-list');
+//     data.forEach(country => {
+//       const listItem = document.createElement('option');
+//       listItem.textContent = country.name;
+//       countriesList.appendChild(listItem);
+//     });
+//   });
 document.addEventListener('DOMContentLoaded', function() {
 	eventListeners();
-  });
-// contacto formulario
+	limitarCaracteres();
+
+  }); 
+
+  function limitarCaracteres() {
+    var parrafos = document.querySelectorAll(".descripcion");
+  
+    parrafos.forEach(parrafo => {
+      var texto = parrafo.innerHTML;
+      var limite =100; // Define el número máximo de caracteres que deseas mostrar
+  
+      if (texto.length > limite) {
+        // En el caso específico de la función slice(0, limite), el valor 0 indica que se desea comenzar desde el primer carácter de la cadena original. El parámetro limite representa el índice final, es decir, el carácter justo antes del cual deseas cortar la cadena.
+        var nuevoTexto = texto.slice(0, limite) + "...";
+        parrafo.innerHTML = nuevoTexto;
+      }
+    });
+  }
+// IMAGEN
+
+
+
+//   listaa que no funciona--- ARREGLAR----
+  function toggleLista() {
+	
+    let detalleReserva = document.querySelector('.counter-list');
+    detalleReserva.classList.toggle("no-display");
+  }
+
+  function incrementar(tipo) {
+    var inputElement = document.getElementById(tipo);
+    var inputElement2 = document.getElementById('adultos');
+    var inputElement3 = document.getElementById('habitaciones');
+    var cantidad = parseInt(inputElement.value);
+
+    if (tipo === 'habitaciones' || tipo === 'adultos') {
+      inputElement2.value = cantidad + 1;
+      inputElement3.value = cantidad + 1;
+    } else {
+      inputElement.value = cantidad + 1;
+    }
+
+    asignarValores();
+  }
+
+  function decrementar(tipo) {
+    var inputElement = document.getElementById(tipo);
+    var cantidad = parseInt(inputElement.value);
+	
+    if (cantidad > 1 && (tipo === 'habitaciones' || tipo === 'adultos')) {
+      inputElement.value = cantidad - 1;
+      asignarValores();
+    }else{
+		if(cantidad>0 && tipo === 'ninos'){
+			inputElement.value = cantidad - 1;
+			asignarValores();
+		}
+	}
+  }
+
+  function asignarValores() {
+    var detalleReserva = document.getElementById('detalleReserva');
+    var habitacionesElement = document.getElementById('habitaciones');
+    var adultosElement = document.getElementById('adultos');
+    var ninosElement = document.getElementById('ninos');
+
+    detalleReserva.innerHTML = `${adultosElement.value} adultos · ${ninosElement.value} niños · ${habitacionesElement.value} habitaciones`;
+  }
 
 
 function eventListeners() {

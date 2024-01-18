@@ -1,4 +1,4 @@
-<main class="contenedor2 seccion">
+<main class="contenedor seccion">
 <div class="espacio"></div>
 <a href="/eventos/mostrar" class="boton boton-rosado">Volver</a> 
 
@@ -20,5 +20,5 @@
         <?php include 'formulario.php' ;?>
         <input type="submit" id="btnEnviar" value="Registrar evento" class="boton boton-rosado">
     </form>
-
+    <div class="espacio"></div>
 </main>

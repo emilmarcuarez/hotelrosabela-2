@@ -1,3 +1,10 @@
+<div class="f_registro">
+     <div class="imagen_registro">
+        <!-- <img src="/build/img/hap5.webp" alt=""> -->
+</div>
+</div>   
+  
+
 <main class="contenedor seccion_slogin">
     <h3>Registro</h3>
         <?php
@@ -71,12 +78,12 @@
                         <input type="text" name="ciudad" placeholder="Tu ciudad" id="ciudad" require>
                     </div>
                     <div class="r_part2">
-                        <label for="c_postal">Codigo postal</label>
-                        <input type="number" name="codigo postal" placeholder="8050" id="c_postal" require>
-                    </div>
-                    <div class="r_part2">
                         <label for="direccion">Direccion</label>
                         <textarea type="text" name="direccion" placeholder="direccion" id="direccion" require></textarea>
+                    </div>
+                    <div class="r_part2">
+                        <label for="c_postal">Codigo postal</label>
+                        <input type="number" name="codigo postal" placeholder="8050" id="c_postal" require>
                     </div>
                 </div>
             </fieldset>

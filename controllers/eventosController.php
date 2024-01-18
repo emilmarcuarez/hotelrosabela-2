@@ -10,20 +10,23 @@ class eventosController{
  
     public static function index(Router $router){
         $eventos=Evento::all();
-     
+        $no=true;
+        $no2=true;
         // $no=true;
         // MUESTRA MENSAJE CONDICIONAL
         $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
         //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
         $router->render('eventos/mostrar',[
             'eventos'=>$eventos,
-            'resultado' =>$resultado
+            'resultado' =>$resultado,
+            'no'=>$no,
+            'no2'=>$no2
         ]);
 }
 public static function crear(Router $router){
    
-   
    $no=true;
+   $no2=true;
    // ARREGLO CON MENSAJE DE ERRORES
    
     $errores = Evento::getErrores();
@@ -47,7 +50,7 @@ public static function crear(Router $router){
     // Realiza un resize a la imagen con intervention
     // debuguear($_FILES['imagen']['tmp_name']);
     if ($_FILES['evento']['tmp_name']['imagen']) { //si existe la imagen
-        $image = Image::make($_FILES['evento']['tmp_name']['imagen'])->fit(800, 500);
+        $image = Image::make($_FILES['evento']['tmp_name']['imagen']);
         $evento->setImagen($nombreImagen);
     }
 
@@ -78,13 +81,15 @@ public static function crear(Router $router){
         'evento'=>$evento,
         'errores'=>$errores,
         'centro'=>$centro,
-        'no'=>$no
+        'no'=>$no,
+        'no2'=>$no2
     ]);
 }
 public static function actualizar(Router $router){
     // redireccionar al admin
     $id= validarORedireccionar("/admin");
     $no=true;
+    $no2=true;
     $evento=Evento::find($id);
     $centro= Centroconsumo::all();
     $errores=Evento::getErrores();
@@ -104,7 +109,7 @@ $errores = $evento->validar();
  $nombreImagen = md5(uniqid(rand(), true)) .  ".jpg"; //generan numeros aleatorios
 
 if ($_FILES['evento']['tmp_name']['imagen']) { //si existe la imagen
-    $image = Image::make($_FILES['evento']['tmp_name']['imagen'])->fit(800, 500);
+    $image = Image::make($_FILES['evento']['tmp_name']['imagen']);
     $evento->setImagen($nombreImagen);
 }
 
@@ -126,7 +131,8 @@ if (empty($errores)) { //en caso de que este vacio
         'evento'=>$evento,
         'centro'=>$centro,
         'errores'=>$errores,
-        'no'=>$no
+        'no'=>$no,
+        'no2'=>$no2
     ]);
 }
 public static function eliminar(){

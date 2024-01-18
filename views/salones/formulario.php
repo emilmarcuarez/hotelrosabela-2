@@ -17,5 +17,7 @@
             <textarea id="descripcion" name="salon[descripcion]" cols="30" rows="10"><?php echo s($salon->descripcion); ?></textarea>    
 
              <label for="capacidad">Capacidad (solo el NUMERO de personas maximas): </label>
-            <input type="text" name="salon[capacidad]" id="capacidad" placeholder="capacidad maxima del salon: 450" value="<?php echo s($salon->capacidad); ?>">
+            <input type="number" name="salon[capacidad]" id="capacidad" placeholder="capacidad maxima del salon: 450" value="<?php echo s($salon->capacidad); ?>">
+             <label for="precio">Precio de alquiler aprox (solo el NUMERO de personas maximas): </label>
+            <input type="number" name="salon[precio]" id="precio" placeholder="Precio en USD ($)" value="<?php echo s($salon->precio); ?>">
   </fieldset>

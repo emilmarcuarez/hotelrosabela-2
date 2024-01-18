@@ -36,6 +36,9 @@
     a:nth-child(8){
         background-color:   $rosado;
     }
+    a:nth-child(9){
+        background-color: #F85A69;
+    }
 }
 
 // hr
@@ -44,4 +47,27 @@
 }
 .esp{
     margin-bottom: 2rem;
+}
+
+// habitaciones
+
+
+.eventos_form_radio{
+        .tooltip{
+        i,svg{
+            color: #ce1066;
+            font-size: 2rem;
+        }
+    }
+}
+.flex_li{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex_li2{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1.4rem;
 }

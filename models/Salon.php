@@ -4,7 +4,7 @@ use Model\Activerecord;
 class Salon extends Activerecord{
     protected static $tabla='salones';
     protected static $pagina='salones/mostrar';
-    protected static $columnasDB=['id','nombre', 'imagen', 'descripcion', 'fecha_p', 'capacidad'];
+    protected static $columnasDB=['id','nombre', 'imagen', 'descripcion', 'fecha_p', 'capacidad', 'precio'];
 
 
     public $id;
@@ -13,14 +13,16 @@ class Salon extends Activerecord{
     public $descripcion;
     public $fecha_p;
     public $capacidad;
+    public $precio;
 
     public function __construct($args=[]){
         $this->id=$args['id'] ?? null;
-        $this->nombre=$args['nombre'] ?? null;
-        $this->imagen=$args['imagen'] ?? null;
-        $this->descripcion=$args['descripcion'] ?? null;
+        $this->nombre=$args['nombre'] ?? '';
+        $this->imagen=$args['imagen'] ?? '';
+        $this->descripcion=$args['descripcion'] ?? '';
         $this->fecha_p=date('Y/m/d');
-        $this->capacidad=$args['capacidad'] ?? null;
+        $this->capacidad=$args['capacidad'] ?? '';
+        $this->precio=$args['precio'] ?? '';
     }
     public function validar(){
         if(!$this->nombre){
