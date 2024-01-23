@@ -1,15 +1,17 @@
 <?php
 
 // SI NO EXISTE SESSION, LA INICIAMOS
-// if(!isset($_SESSION)){
-//     session_start();
-// }
+if(!isset($_SESSION)){
+    session_start();
+}
 
-// $auth=$_SESSION['login'] ?? false;
-// $auth2=$_SESSION['login_pag'] ?? false;
-// if(!isset($inicio)){
-//     $inicio =false;
-// }
+$auth=$_SESSION['login'] ?? false;
+$auth2=$_SESSION['login_pag'] ?? false;
+$nombre= $_SESSION['usuario_name'];
+$sexo= $_SESSION['usuario_sexo'];
+if(!isset($inicio)){
+    $inicio =false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +29,8 @@
 <body>
 
     <!-- HEADER -->
+    <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
+
     <header class="header">
         <div class="header_cont contenedor">
             <nav class="navegacion">
@@ -42,7 +46,7 @@
             
         </div>
     </header>
-    <section class="seccion_registrar">
+    <section class="seccion_registrar <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
     <div class="redes">
                 <div class="redes_div">
                     <a href="https://www.instagram.com/hotelrosabela/?hl=es"><i class="fa-brands fa-instagram"></i></a>
@@ -54,8 +58,19 @@
                     <a href="https://twitter.com/hotelrosabela?lang=es"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
-        <a href="/loginusuario">Iniciar sesion</a>
-        <a href="/siginusuario">Registrar</a>
+            <?php if(!$auth2){?>
+                    <a href="/loginusuario">Iniciar sesion</a>
+                    <a href="/siginusuario">Registrar</a>
+                <?php }else{?>
+                        <?php if($sexo==="F"){ ?>
+                            <p>Bienvenida <?php echo $nombre; ?></p>
+                        <?php }else if($sexo==="M"){?>
+                            <p>Bienvenido <?php echo $nombre; ?></p>
+                        <?php }else{?>
+                            <p>Bienvenid@ <?php echo $nombre; ?></p>
+                        <?php }?>
+                            <a href="/logout">Cerrar Sesion</a>
+                <?php }?>
     </section>
 
     <!-- <div class="imagen_header">
@@ -78,7 +93,7 @@
                    
                     <p>Hotel & Covention center</p>
                     <p>¡Siente la diferencia!</p>
-                    <p>En</p>
+                    <p>Te esperamos</p>
                 </div>
             </div>
     </div>
@@ -144,6 +159,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
     <?php echo $contenido; ?>
 

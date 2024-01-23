@@ -1,0 +1,102 @@
+.hab_seleccion{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.hab_part2{
+    height: 47rem;
+    background-color: #E7E7E7;
+    border-radius: .5rem;
+    justify-content: center;
+     align-items: center;
+    margin-bottom: 3rem;
+    box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
+    
+    &:hover{
+        transition: .5s ease;
+        transform: scale(1.02);
+        cursor: pointer;
+    }
+    .img_hab{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            height: 22rem;
+            width: 92%;
+        }
+    }
+
+    &.seleccionado{
+        background-color: #483e44;
+        p,h5{
+        color: $blanco !important;
+        }
+        
+    }
+    .info_hab{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        row-gap: 3rem;
+        padding: 1rem;
+        .icono_info {
+            display: flex;
+            gap: 5rem;
+            margin-top: 1rem;
+            justify-content: center;
+                .icono_info_part svg {
+                    width: 3rem;
+                }
+                .tooltip{
+                    i,svg{
+                        color: $rosado;
+                        font-size: 2rem;
+                    }
+                }
+            }
+            .info_hab_3{
+                .titulo_info h5{
+                    color: $rosado;
+                    font-size: 2rem;
+                    &:hover{
+                        color: $grisMediano;
+                    }
+                }
+               
+                .info_adicional p{
+                    font-size: 1.3rem;
+                }
+                    .info_parrafo{
+                        width: 60%;
+                        p{
+                        font-size: 1.5rem;
+                        color: $grisMediano;
+                    }
+                }
+            }
+        
+    }
+    .precio_hab{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.9rem;
+        font-weight: 700;
+        p{
+            font-size: 1rem;
+            text-align: center;
+            color: $grisOscuro;
+            margin: 0;
+            padding: 0;
+            .pre_nro{
+                color: $fucsia;
+                font-size: 2.9rem;
+            }
+            .des_hab{
+                color: $fucsia;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -102,6 +102,12 @@ class PaginaController{
             'no'=>$no
         ]);
     }
+    public static function habitaciones_s(Router $router){
+        session_start();
+        $router->render('paginas/habitaciones_s', [
+            'id'=>$_SESSION['usuario_id']
+        ]);
+    }
     public static function salon(Router $router ){
         $id=validarORedireccionar('/salones');
 

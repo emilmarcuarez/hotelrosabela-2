@@ -14,8 +14,8 @@
                 <label for="email">E-mail</label>
                 <input type="email" name="email" placeholder="Tu Email" id="email" require>
 
-                <label for="password">Contraseña</label>
-                <input type="password" name="password" placeholder="Tu password" id="password" require>
+                <label for="contrasenia">Contraseña</label>
+                <input type="contrasenia" name="contrasenia" placeholder="contraseña" id="contrasenia" require>
                 <input type="submit" value="Iniciar sesion" class="boton boton-verde">
                <a href="#">Olvide mi contraseña</a>
                <!-- <hr class="mi-contrasenia"> -->

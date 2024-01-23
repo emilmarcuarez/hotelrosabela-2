@@ -13,11 +13,11 @@ class Router{
     }
     public function comprobarRutas(){
 
-        // session_start();
-        // $auth=$_SESSION['login'] ?? null;
+        session_start();
+        $auth=$_SESSION['login'] ?? null;
 
         // ARREGLO DE RUTAS PROTEGIDAS
-        // $rutas_protegidas=['/admin', '/locales/crear', '/locales/actualizar', '/locales/eliminar'];
+        $rutas_protegidas=['/admin', '/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar',  '/empleados/crear', '/empleados/actualizar', '/empleados/eliminar',  '/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/chef/mostrar', '/eventos/mostrar', '/salones/mostrar', '/empleados/mostrar', '/centrosconsumo/mostrar'];
 
         // basada en la url que estoy visitando gracias al router, me busca la funcion asociada a ese url
         $urlActual=$_SERVER['PATH_INFO'] ?? '/';
@@ -31,9 +31,9 @@ class Router{
         }
 
         // PROTEGER LAS RUTAS
-        // if(in_array($urlActual, $rutas_protegidas)&& !$auth){ ///si no esta autenticado
-        //     header('location: /');
-        // }
+        if(in_array($urlActual, $rutas_protegidas)&& !$auth){ ///si no esta autenticado
+            header('location: /');
+        }
 
         if($fn){
             // la url existe y hay una funcion asociada
