@@ -104,8 +104,13 @@ class PaginaController{
     }
     public static function habitaciones_s(Router $router){
         session_start();
+        $no=true;
+        $no2=true;
+        $no3=true;
         $router->render('paginas/habitaciones_s', [
-            'id'=>$_SESSION['usuario_id']
+            'id'=>$_SESSION['usuario_id'],
+            'no'=>$no,
+            'no2'=>$no2
         ]);
     }
     public static function salon(Router $router ){

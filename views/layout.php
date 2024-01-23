@@ -73,11 +73,6 @@ if(!isset($inicio)){
                 <?php }?>
     </section>
 
-    <!-- <div class="imagen_header">
-        <div class="imagen_header_fondo"></div>
-        <img src="/build/img/inicio.webp" alt="imagen del header" class="img_header">
-        <img src="/build/img/logopng.webp" alt="logo del hotel" class="logo_header">
-    </div> -->
     <div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
         <div class="cuadro"></div>
             <div class="video">   
@@ -118,7 +113,7 @@ if(!isset($inicio)){
     </div>
 </div>
 
-<div class="inicio_info  <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no ? 'no3' : ''; ?>">
+<div class="inicio_info  <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
     <div class="contenedor inicio_logos">
         <div class="logos_part_flex">
             <div class="l_partes2">
