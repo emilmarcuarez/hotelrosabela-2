@@ -2,7 +2,10 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
-
+.hab_datos_seccion{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
 .hab_part2{
     height: 47rem;
     background-color: #E7E7E7;

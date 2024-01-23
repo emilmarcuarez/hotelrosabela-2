@@ -9,8 +9,11 @@
 <div class="seccion" id="habitaciones_t">
  
 </div>
-<div class="seccion" id="paso-1">
+<div class="seccion hab_datos_seccion" id="paso-1">
 	<div class="hab_seleccion" id="habitaciones">
+
+	</div>
+	<div class="datos_seleccion">
 
 	</div>
 </div>
@@ -64,7 +67,7 @@
 				</div>
 
 				<div class="footer">
-					<div id="seleccionar_hab_p">Seleccionar</div>
+					<!-- <div id="seleccionar_hab_p">Seleccionar</div> -->
 				</div>
 			</div>
 		</div>

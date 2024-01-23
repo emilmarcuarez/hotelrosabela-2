@@ -213,14 +213,15 @@ function seleccionarHabitacion2(habitacion){
 
 
    let textCantidad=document.createElement('p');
-   textCantidad.textContent='Cantidad de esta habitacion con desayuno:';
+   textCantidad.textContent='Habitaciones con desayuno incluido:';
    let inputCantidad=document.createElement('input');
    inputCantidad.type='number';
+//    inputCantidad.setAttribute('')
    inputCantidad.addEventListener('input', function () {
 	   re_habitacion.cantidad_d = parseInt(inputCantidad.value) || 0;
    });
    let textCantidad2=document.createElement('p');
-   textCantidad2.textContent='Cantidad de esta habitacion sin desayuno:';
+   textCantidad2.textContent='Habitaciones sin desayuno';
    let inputCantidad2=document.createElement('input');
    inputCantidad2.type='number';
    inputCantidad2.addEventListener('input', function () {
