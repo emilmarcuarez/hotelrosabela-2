@@ -5,7 +5,7 @@ class Usuario extends Activerecord
 {
   protected static $tabla='usuarios';
   protected static $pagina='usuarios/mostrar';
-  protected static $columnasDB = ['id', 'nombre', 'apellido','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal', 'identificacion' , 'n_empresa', 'i_fiscal'];
+  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'n_empresa', 'i_fiscal'];
 
   
   public $id;
@@ -41,11 +41,11 @@ class Usuario extends Activerecord
       $this->direccion = $args['direccion'] ?? '';
       $this->codigo_postal = $args['codigo_postal'] ?? '';
       $this->identificacion = $args['identificacion'] ?? '';
-      $this->n_empresa = $args['n_empresa'] ?? '';
-      $this->i_fiscal = $args['i_fiscal'] ?? '';
+      $this->n_empresa = $args['n_empresa'] ?? 'nada';
+      $this->i_fiscal = $args['i_fiscal'] ?? '1';
   }
 
-  public function validar()
+  public function validarRegistro()
   {
       if (!$this->nombre) {
           self::$errores[] = "El nombre es obligatorio";
@@ -83,6 +83,16 @@ class Usuario extends Activerecord
       return self::$errores;
   }
 
+  public function validar(){
+    if(!$this->email){
+        self::$errores[]='El email es obligatorio';
+    }
+    if(!$this->contrasenia){
+        self::$errores[]='El Password es obligatorio';
+    }
+
+    return self::$errores;
+}
   public function setPassword($password){
     $this->contrasenia= password_hash($password, PASSWORD_BCRYPT);
     
@@ -91,6 +101,11 @@ public function getId(){
     $query="SELECT id FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
     $resultado=self::$db->query($query);
     return $resultado;
+}
+public function getName(){
+    $query="SELECT * FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
+    $resultado = self::consultarSQL($query);
+    return array_shift($resultado); //Retornaa el primer elemento
 }
 public function existeUsuario(){
     // revisamos si el susuario existe o no
@@ -144,7 +159,10 @@ public function autenticar(){
 
     // llenamos el arreglo de las sesiones establecidas
     $_SESSION['usuario_pag']=$this->email;
-    $_SESSION['usuario_id']=$this->getId();
+    $usu=$this->getName();
+    $_SESSION['usuario_sexo']=$usu->sexo;
+    $_SESSION['usuario_name']=$usu->nombre;
+    $_SESSION['usuario_id']=$usu->id;
     $_SESSION['login_pag']=true;
 
     header('Location: /');

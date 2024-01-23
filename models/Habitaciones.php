@@ -31,25 +31,25 @@
     }
 
     public function validar(){
-      if(!$this->imagen){
-         self::$errores[]="La imagen es obligatoria";
-      }
-      if(!$this->nombre){
-         self::$errores[]="El nombre es obligatorio";
-      }
-      if(!$this->descripcion){
-         self::$errores[]="La descripcion es obligatoria";
-      }
-      if(!$this->servicios){
-         self::$errores[]="Losserviciosson obligatorios";
-      }
-      if(!$this->preciocd){
-         self::$errores[]="El precio con desayuno es obligatorio";
-      }
-      if(!$this->preciosd){
-         self::$errores[]="El precio sin desayuno es obligatorio";
-      }
-      return self::$errores;
+      // if(!$this->imagen){
+      //    self::$errores[]="La imagen es obligatoria";
+      // }
+      // if(!$this->nombre){
+      //    self::$errores[]="El nombre es obligatorio";
+      // }
+      // if(!$this->descripcion){
+      //    self::$errores[]="La descripcion es obligatoria";
+      // }
+      // if(!$this->servicios){
+      //    self::$errores[]="Losserviciosson obligatorios";
+      // }
+      // if(!$this->preciocd){
+      //    self::$errores[]="El precio con desayuno es obligatorio";
+      // }
+      // if(!$this->preciosd){
+      //    self::$errores[]="El precio sin desayuno es obligatorio";
+      // }
+      // return self::$errores;
     }
     
     public function eliminar(){

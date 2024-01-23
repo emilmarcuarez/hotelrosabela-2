@@ -6,6 +6,15 @@
   
 
 <main class="contenedor seccion_slogin">
+<?php 
+    if($resultado2){
+         $mensaje=mostrarNotificacion(intval($resultado2));
+        if($mensaje){?>
+            <p class="alerta exito"><?php echo s($mensaje); ?></p>
+        
+        
+        <?php } ?>
+    <?php } ?>
     <h3>Registro</h3>
         <?php
             foreach($errores as $error):        
@@ -14,7 +23,7 @@
                 <?php echo $error; ?>
             </div>
         <?php endforeach; ?>
-        <form method="POST" class="formulario_registro" action="/loginusuario">
+        <form method="POST" class="formulario_registro" action="/siginusuario">
         <fieldset>
                 <legend>Datos personales</legend>
                 <div class="field_registro">
@@ -35,35 +44,33 @@
                         <label for="sexo">Sexo</label>
                         <br>
                         <select name="sexo" id="sexo">
-                            <option value="F">Hombre</option>
+                            <option value="M">Hombre</option>
                             <option value="F">Mujer</option>
-                            <option value="F">Prefiero no decirlo</option>
+                            <option value="indefinido">Prefiero no decirlo</option>
                         </select>
                     </div>
                     <div class="r_part">
-                        <label for="cedula">Cedula o Pasaporte</label>
-                        <input type="cedula" name="cedula" placeholder="Tu cedula" id="cedula" require>
+                        <label for="identificacion">Cedula o Pasaporte</label>
+                        <input type="number" name="identificacion" placeholder="ciudla o pasaporte" id="identificacion" require>
                     </div>
-                 
                 </div>
-                
-            
-          
             </fieldset>
+
+
             <fieldset>
                 <legend>Datos de contacto</legend>
                 <div class="field_registro2">
                     <div class="r_part2">
-                        <label for="numero">Numero de telefono</label>
-                        <input type="text" name="numero" placeholder="+58 414-7678192" id="numero" require>
+                        <label for="nro_telefono">Numero de telefono</label>
+                        <input type="text" name="nro_telefono" placeholder="+58 414-7678192" id="nro_telefono" require>
                     </div>
                     <div class="r_part2">
 
                     </div>
                     <div class="r_part2">
-                        <label for="countries-list">Pais</label>
+                        <label for="pais">Pais</label>
                         <br>
-                        <select name="countries-list" id="countries-list">
+                        <select name="pais" id="countries-list">
                         
                         </select>
                     </div>
@@ -97,8 +104,8 @@
                         <input type="email" name="email" placeholder="prueba@prueba.com" id="email" require>
                     </div>
                     <div class="r_part2">
-                        <label for="password">Contarseña</label>
-                        <input type="text" name="password" placeholder="contraseña" id="password" require>
+                        <label for="contrasenia">Contarseña</label>
+                        <input type="text" name="contrasenia" placeholder="contraseña" id="contrasenia" require>
                     </div>
             </fieldset>
             <div class="espacio4">

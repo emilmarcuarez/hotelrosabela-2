@@ -50,6 +50,10 @@ class Activerecord
         $resultado = self::$db->query($query);
         //   return es un false or true
         // Mensaje de exito
+        return [
+            'resultado'=>$resultado,
+            'id'=>self::$db->insert_id
+        ];
         if ($resultado) {
 
             header('location: /'.static::$pagina.'?resultado=1');

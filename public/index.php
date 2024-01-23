@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\ApiController;
 use Controllers\eventosController;
 use Controllers\CentroconsumoController;
 use Controllers\EmpleadosController;
@@ -10,6 +11,7 @@ use Controllers\PaginaController;
 use Controllers\UsuariosController;
 use Controllers\HabitacionesController;
 use Controllers\ChefController;
+use Controllers\LoginController;
 use Model\Habitaciones;
 // use Model\Usuario;
 use MVC\Router;
@@ -30,7 +32,6 @@ $router->post('/centrosconsumo/crear', [CentroconsumoController::class, 'crear']
 $router->get('/centrosconsumo/actualizar', [CentroconsumoController::class, 'actualizar']);
 $router->post('/centrosconsumo/actualizar', [CentroconsumoController::class, 'actualizar']);
 $router->post('/centrosconsumo/eliminar', [CentroconsumoController::class, 'eliminar']);
-
 
 // empleados
 $router->get('/empleados/crear', [EmpleadosController::class, 'crear']);
@@ -70,6 +71,10 @@ $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'elimina
 $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
 
 
+// api
+// API de Citas
+$router->get('/api/servicios', [ApiController::class, 'index']);
+$router->post('/api/reservas', [ApiController::class, 'guardar']);
 // zona publica
 $router->get('/nosotros', [PaginaController::class, 'nosotros']);
 $router->get('/centros', [PaginaController::class, 'centros']);
@@ -82,10 +87,12 @@ $router->get('/empleados', [PaginaController::class, 'empleados']);
 $router->get('/contacto', [PaginaController::class, 'contacto']);
 $router->get('/habitacion', [PaginaController::class, 'habitacion']);
 $router->get('/habitaciones', [PaginaController::class, 'habitaciones']);
+$router->get('/habitaciones_s', [PaginaController::class, 'habitaciones_s']);
 
 // login y sigin
-// $router->get('/login', [LoginController::class, 'login']);
-// $router->post('/login', [LoginController::class, 'login']);
+$router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
+$router->get('/logout', [LoginController::class, 'logout']);
 $router->get('/loginusuario', [UsuariosController::class, 'loginusuario']);
 $router->post('/loginusuario', [UsuariosController::class, 'loginusuario']);
 $router->get('/siginusuario', [UsuariosController::class, 'siginusuario']);

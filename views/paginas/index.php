@@ -1,57 +1,67 @@
 
-<main class="contenedor">
-    <div class="espacio"></div>
-    <div class="texto_form_pre">
-        <h4>¡Reserva con nosotros!</h4>
-    </div>
-    <form action="" class="formulario_re">
-        <!-- <div class="form_reserva"> -->
-        <div class="par_label">
-            <label for="fecha">fecha de ingreso</label>
-            <input type="date" id="fechaReserva" name="fecha">
-        </div>
-        <div class="par_label">
-            <label for="fecha">fecha de egreso</label>
-            <input type="date" id="fechaEgreso" name="fecha">
-        </div>
+<div class="f_reservas">
+    <main class="contenedor">
 
-        <div class="par_label">
-        <label for="seleccionPersonas">Número de personas y habitaciones:</label>
-            <div id="seleccionPersonas" class="counter-container">
-                <div class="counter-row">
-                <div id="listaDesplegable" class="counter-select">
-                    <!-- Opciones preseleccionadas -->
-                    <!-- <button id="detalleReserva" onclick="toggleLista()">1 adulto · 0 niños · 1 habitación</button> -->
-                    
-                    <span id="detalleReserva" onclick="toggleLista()">1 adulto · 0 niños · 1 habitación</span>
-                    <div class="counter-list">
-                        <div class="list_plan">
-                            <label for="adultos">Adultos</label>
-                             <button type="button" class="counter-btn" onclick="incrementar('adultos')">+</button>
-                            <input id="adultos" class="counter-input" type="text" value="1 adultos">
-                            <button type="button" class="counter-btn" onclick="decrementar('adultos')">-</button>
+        <div class="texto_form_pre">
+            <h4>¡Reserva con nosotros!</h4>
+        </div>
+    
+        <div class="seccion55">
+        <form action="" class="formulario_re">
+            <!-- <div class="form_reserva"> -->
+            <div class="par_label">
+                <label for="fecha">fecha de ingreso</label>
+                <input type="date" id="fechaReserva" name="fechaReserva">
+            </div>
+            <div class="par_label">
+                <label for="fecha">fecha de egreso</label>
+                <input type="date" id="fechaEgreso" name="fechaEgreso">
+            </div>
+
+            <div class="par_label2">
+
+                <div id="seleccionPersonas" class="counter-container">
+                    <div class="counter-row">
+                    <div id="listaDesplegable" class="counter-select">
+                        <!-- Opciones preseleccionadas -->
+                        <!-- <button id="detalleReserva" onclick="toggleLista()">1 adulto · 0 niños · 1 habitación</button> -->
+                        
+                        <span id="detalleReserva" onclick="toggleLista()">1 adulto · 0 niños · 1 habitación</span>
+                        <div class="counter-list">
+                            <div class="list_plan">
+                                <label for="adultos">Adultos</label>
+                                <button type="button" class="counter-btn" onclick="incrementar('adultos')">+</button>
+                                <input id="adultos" class="counter-input" type="text" value="1">
+                                <button type="button" class="counter-btn" onclick="decrementar('adultos')">-</button>
+                            </div>
+                            <div class="list_plan">
+                                <label for="ninos">Niños</label>
+                                <button type="button" class="counter-btn" onclick="incrementar('ninos')">+</button>
+                                <input id="ninos" class="counter-input" type="text" value="0">
+                                <button type="button" class="counter-btn" onclick="decrementar('ninos')">-</button>
+                            </div>
+                            <div class="list_plan">
+                            <label for="adultos">Habitaciones</label>
+                                <button type="button" class="counter-btn" onclick="incrementar('habitaciones')">+</button>
+                                <input id="habitaciones" class="counter-input" type="text" value="1">
+                                <button type="button" class="counter-btn" onclick="decrementar('habitaciones')">-</button>
+                            </div>
                         </div>
-                        <div class="list_plan">
-                            <label for="ninos">Niños</label>
-                            <button type="button" class="counter-btn" onclick="incrementar('ninos')">+</button>
-                            <input id="ninos" class="counter-input" type="text" value="0 niños">
-                            <button type="button" class="counter-btn" onclick="decrementar('ninos')">-</button>
                         </div>
-                        <div class="list_plan">
-                        <label for="adultos">Habitaciones</label>
-                            <button type="button" class="counter-btn" onclick="incrementar('habitaciones')">+</button>
-                            <input id="habitaciones" class="counter-input" type="text" value="1 habitación">
-                            <button type="button" class="counter-btn" onclick="decrementar('habitaciones')">-</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+                <!-- <button type="button"  class="boton boton-rosado actual" id="btnEnviar">Reservar</button> -->
+                <a id="btnEnviar3" value="Reservar" class="boton boton-rosado" href="/habitaciones_s">Reservar</a>
 
-<!-- habitaciones -->
-</main>
+        </form>
+        </div>
+        <!-- PAGINACION DE ANTERIOR- -->
+        
+    <!-- habitaciones -->
+    </main>
+</div>
+
 <div class="f_habitaciones">
     <div class="habitaciones" data-aos="fade-up"
         data-aos-duration="3000">
@@ -233,3 +243,15 @@
     </div>
 </div>
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15793.049098834696!2d-62.7762222!3d8.276674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses-419!2sve!4v1704475270862!5m2!1ses-419!2sve" width="1423" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+       <div class="seccion" id="paso-2">
+            habitaciones
+        </div>
+        <div class="seccion" id="paso-3">
+            Forma de pago
+        </div>
+        <div class="seccion" id="paso-4">
+            Confirmacion
+        </div>
+        <div class="seccion" id="paso-3">
+            verificateeee
+        </div>
