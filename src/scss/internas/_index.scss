@@ -1,14 +1,17 @@
-   .f_reservas{
+
+
+.f_reservas{
     background: #483e44;
-  box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
-  -webkit-box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
-  -moz-box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
-  z-index: 2;
-  position: relative;
+    box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
+    -webkit-box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
+    -moz-box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
+    z-index: 2;
+    position: relative;
    }
    
    .no-display{
-    display: none;
+    transition: 1s ease;
+    display: block !important;
    }
    
    /* Estilos para el diseño del formulario */
@@ -50,7 +53,7 @@
   .counter-select span{
 //    border: 1px solid #000;
     color: $blanco;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 1rem;
     border: 2px solid #d0a3a5;
     border-radius: 1rem;
@@ -67,7 +70,7 @@
     width: 41rem; /* Ancho ajustable según sea necesario */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-
+    display: none;
   
     padding: 1rem;
   }
@@ -191,6 +194,13 @@ body{
 }
 #fechaReserva, 
 #fechaEgreso
+{
+  padding: 1rem;
+  border: 2px solid #d0a3a5;
+  border-radius: 1rem;
+}
+#fechaReserva2, 
+#fechaEgreso2
 {
   padding: 1rem;
   border: 2px solid #d0a3a5;

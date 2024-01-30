@@ -29,16 +29,17 @@
                 <div class="field_registro">
                     <div class="r_part">
                         <label for="Nombre">Nombre</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre" id="email" require>
+                        <input type="text" name="nombre" placeholder="Tu nombre" id="nombre" require>
                     </div>
                    
-                    <div class="r_part">
-                        <label for="fecha">Fecha de nacimiento</label>
-                        <input type="date" name="fecha" placeholder="21/02/2002" id="fecha" require>
-                    </div>
+           
                     <div class="r_part">
                         <label for="Apellido">Apellido</label>
                         <input type="apellido" name="apellido" placeholder="Apellido" id="apellido" require>
+                    </div>
+                    <div class="r_part">
+                        <label for="fecha">Fecha de nacimiento</label>
+                        <input type="date" name="fecha" placeholder="21/02/2002" id="fecha" require>
                     </div>
                     <div class="r_part">
                         <label for="sexo">Sexo</label>
@@ -51,7 +52,7 @@
                     </div>
                     <div class="r_part">
                         <label for="identificacion">Cedula o Pasaporte</label>
-                        <input type="number" name="identificacion" placeholder="ciudla o pasaporte" id="identificacion" require>
+                        <input type="number" name="identificacion" placeholder="cedula o pasaporte" id="identificacion" require>
                     </div>
                 </div>
             </fieldset>

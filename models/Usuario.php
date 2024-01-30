@@ -32,6 +32,8 @@ class Usuario extends Activerecord
       $this->id = $args['id'] ?? null;
       $this->nombre = $args['nombre'] ?? '';
       $this->apellido = $args['apellido'] ?? '';
+      $this->fecha = $args['fecha'] ?? '';
+      $this->sexo = $args['sexo'] ?? '';
       $this->nro_telefono = $args['nro_telefono'] ?? '';
       $this->email = $args['email'] ?? '';
       $this->contrasenia = $args['contrasenia'] ?? '';
@@ -164,7 +166,7 @@ public function autenticar(){
     $_SESSION['usuario_name']=$usu->nombre;
     $_SESSION['usuario_id']=$usu->id;
     $_SESSION['login_pag']=true;
-
+    
     header('Location: /');
 }
 

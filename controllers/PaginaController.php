@@ -9,6 +9,9 @@ use Model\Chef;
 use Intervention\Image\ImageManagerStatic as Image;
 use Model\Empleados;
 use Model\Centroconsumo;
+use Model\Chat;
+use Model\Reserva;
+use Model\ReservaHabitacion;
 use Model\Usuario;
 
 class PaginaController{
@@ -16,6 +19,8 @@ class PaginaController{
     //pagina index 
    
     public static function index(Router $router ){
+
+       
         $eventos=Evento::get(4);
         $habitaciones=Habitaciones::get(2);
         $salones=Salon::get(3);
@@ -106,11 +111,53 @@ class PaginaController{
         session_start();
         $no=true;
         $no2=true;
-        $no3=true;
         $router->render('paginas/habitaciones_s', [
             'id'=>$_SESSION['usuario_id'],
             'no'=>$no,
             'no2'=>$no2
+        ]);
+    }
+
+    // gestion del perfil
+    public static function gestion(Router $router){
+        $no=true;
+        $no2=true;
+        session_start();
+        $id=$_SESSION['usuario_id'];
+        $usuario=Usuario::find($id);
+        $router->render('paginas/gestion', [
+            'no'=>$no,
+            'no2'=>$no2,
+            'usuario'=>$usuario
+        ]);
+    }
+    public static function pdf(Router $router){
+       
+        $router->render('paginas/pdf', [
+           
+        ]);
+    }
+    public static function prueba2(Router $router){
+        $reserva=Reserva::getUltimo();
+        $id=Reserva::getId2();
+        $habitaciones=Habitaciones::all();
+        $habitacionesReserva=ReservaHabitacion::habitaciones_all($id->id);
+        $router->render('paginas/prueba2', [
+            'reserva'=>$reserva,
+            'habitacionesReserva'=>$habitacionesReserva,
+            'habitaciones'=>$habitaciones
+        ]);
+    }
+    public static function crearPdf(Router $router){
+        // $id=2;
+        $reserva=Reserva::getUltimo();
+        $id=Reserva::getId2();
+        $habitacionesReserva=ReservaHabitacion::habitaciones_all($id->id);
+        $habitaciones=Habitaciones::all();
+        $router->render('paginas/crearPdf', [
+            'reserva'=>$reserva,
+            'habitacionesReserva'=>$habitacionesReserva,
+            'habitaciones'=>$habitaciones
         ]);
     }
     public static function salon(Router $router ){
@@ -153,5 +200,18 @@ class PaginaController{
             'no2'=>$no2
         ]);
     }
+    // registra chats
+
+    // recibe chats
+    public static function getchat(Router $router){
+        $chat=new Chat;
+        session_start();
+        $id=$_SESSION['usuario_id'];
+        $chat->getChat($id);
+        $router->render('paginas/index', [
+            'chat'=>$chat
+        ]);
+    }
+
 }
 

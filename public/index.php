@@ -12,6 +12,7 @@ use Controllers\UsuariosController;
 use Controllers\HabitacionesController;
 use Controllers\ChefController;
 use Controllers\LoginController;
+use Controllers\chatController;
 use Model\Habitaciones;
 // use Model\Usuario;
 use MVC\Router;
@@ -26,6 +27,8 @@ $router->post('/eventos/crear', [eventosController::class, 'crear']);
 $router->get('/eventos/actualizar', [eventosController::class, 'actualizar']);
 $router->post('/eventos/actualizar', [eventosController::class, 'actualizar']);
 $router->get('/eventos/mostrar', [eventosController::class, 'index']);
+$router->post('/eventos/eliminar', [eventosController::class, 'eliminar']);
+
 $router->get('/centrosconsumo/crear', [CentroconsumoController::class, 'crear']);
 $router->get('/centrosconsumo/mostrar', [CentroconsumoController::class, 'index']);
 $router->post('/centrosconsumo/crear', [CentroconsumoController::class, 'crear']);
@@ -40,7 +43,6 @@ $router->get('/empleados/actualizar', [EmpleadosController::class, 'actualizar']
 $router->post('/empleados/actualizar', [EmpleadosController::class, 'actualizar']);
 $router->get('/empleados/mostrar', [EmpleadosController::class, 'index']);
 $router->post('/empleados/eliminar', [EmpleadosController::class, 'eliminar']);
-$router->post('/empleados/eliminar', [EmpleadosController::class, 'eliminar']);
 
 // chef
 $router->get('/chef/crear', [ChefController::class, 'crear']);
@@ -48,7 +50,6 @@ $router->post('/chef/crear', [ChefController::class, 'crear']);
 $router->get('/chef/actualizar', [ChefController::class, 'actualizar']);
 $router->post('/chef/actualizar', [ChefController::class, 'actualizar']);
 $router->get('/chef/mostrar', [ChefController::class, 'index']);
-$router->post('/chef/eliminar', [ChefController::class, 'eliminar']);
 $router->post('/chef/eliminar', [ChefController::class, 'eliminar']);
 
 
@@ -59,7 +60,6 @@ $router->get('/salones/actualizar', [SalonesController::class, 'actualizar']);
 $router->post('/salones/actualizar', [SalonesController::class, 'actualizar']);
 $router->get('/salones/mostrar', [SalonesController::class, 'index']);
 $router->post('/salones/eliminar', [SalonesController::class, 'eliminar']);
-$router->post('/salones/eliminar', [SalonesController::class, 'eliminar']);
 
 // habitaciones
 $router->get('/habitaciones/crear', [HabitacionesController::class, 'crear']);
@@ -67,7 +67,6 @@ $router->post('/habitaciones/crear', [HabitacionesController::class, 'crear']);
 $router->get('/habitaciones/actualizar', [HabitacionesController::class, 'actualizar']);
 $router->post('/habitaciones/actualizar', [HabitacionesController::class, 'actualizar']);
 $router->get('/habitaciones/mostrar', [HabitacionesController::class, 'index']);
-$router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
 $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
 
 
@@ -88,6 +87,17 @@ $router->get('/contacto', [PaginaController::class, 'contacto']);
 $router->get('/habitacion', [PaginaController::class, 'habitacion']);
 $router->get('/habitaciones', [PaginaController::class, 'habitaciones']);
 $router->get('/habitaciones_s', [PaginaController::class, 'habitaciones_s']);
+$router->get('/gestion', [PaginaController::class, 'gestion']);
+$router->post('/gestion', [PaginaController::class, 'gestion']);
+$router->get('/pdf', [PaginaController::class, 'pdf']);
+$router->get('/crearPdf', [PaginaController::class, 'crearPdf']);
+$router->get('/prueba2', [PaginaController::class, 'prueba2']);
+$router->post('/chat', [chatController::class, 'chat']);
+$router->post('/actualizar-chat', [chatController::class, 'actualizarChat']);
+$router->get('/actualizar-chat', [chatController::class, 'actualizarChat']);
+// $router->get('/getChat', [PaginaController::class, 'getChat']);
+// $router->get('/chat', [PaginaController::class, 'chat']);
+// $router->get('/prueba', [PaginaController::class, 'prueba']);
 
 // login y sigin
 $router->get('/login', [LoginController::class, 'login']);
@@ -97,4 +107,5 @@ $router->get('/loginusuario', [UsuariosController::class, 'loginusuario']);
 $router->post('/loginusuario', [UsuariosController::class, 'loginusuario']);
 $router->get('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->post('/siginusuario', [UsuariosController::class, 'siginusuario']);
+
 $router->comprobarRutas();

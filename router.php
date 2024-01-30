@@ -60,7 +60,13 @@ class Router{
         include __DIR__ . "/views/$view.php";
         
         $contenido=ob_get_clean();//limpia el buffer
+        if($view==='paginas/prueba2' || $view==='paginas/crearPdf'){
+            include __DIR__ . "/views/prueba.php";
+        }else{
+          
+            include __DIR__ . "/views/layout.php";
+        }
 
-        include __DIR__ . "/views/layout.php";
+        
     }
 }

@@ -1,17 +1,80 @@
 .hab_seleccion{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    margin: 0rem 3rem;
+}
+.descrip_precio
+{
+  display: flex;
+  gap: 1rem;
 }
 .hab_datos_seccion{
     display: grid;
     grid-template-columns: 70% 30%;
 }
+.part_resumen_reserva{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+}
+.contenido-resumen{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+.reserva_comp_resumen
+{
+  background: #b0aeae87;
+  padding: 2rem;
+  border-radius: 1rem;
+  .part_resumen_monto{
+    padding-top: 2rem;
+    p{
+         color: black !important;
+    }
+    span{
+        font-weight: 700;
+    }
+  }
+}
+.boton-reserva{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_reservar{
+    border: none;
+    background: $rosado;
+    color: $blanco;
+    padding: 1rem;
+    border-radius: .3rem;
+    margin: 2rem;
+}
+.btn_reservar:hover{
+    cursor: pointer;
+}
+.precio_habi{
+    p:nth-child(1),
+    p:nth-child(3){
+        color: $rosado;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    p:nth-child(2),
+    p:nth-child(4){
+        color: $rosado;
+        color: #ba0534;
+        font-size: 2.9rem;
+        font-weight: 600;
+    }
+}
 .hab_part2{
-    height: 47rem;
+    height: 53rem;
     background-color: #E7E7E7;
     border-radius: .5rem;
     justify-content: center;
-     align-items: center;
+    align-items: center;
     margin-bottom: 3rem;
     box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
     
@@ -101,5 +164,164 @@
                 font-weight: 600;
             }
         }
+    }
+}
+
+// datosss
+.tit_hab_reserva_cont{
+      align-items: center;
+      display: flex;
+      background: #3c3c3c;
+      border-bottom: .3rem solid #cf5a60;
+      padding: 1rem;
+
+    img{
+        width: 4rem;
+    }
+    h3{
+        padding: 0;
+        margin: 0;
+        font-size: 1.8rem;
+        color: #e8e8e8;
+    }
+    h4{
+        padding: 0;
+        margin: 0;
+        font-size: 1.3rem;
+        color: #e8e8e8;
+        font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  color: #fff;
+  font-style: italic;
+    }
+}
+
+#datos_seleccion
+{
+    background: rgba(175, 175, 175, 0.57);
+
+  .fecha_re
+{
+    input{
+  width: 100%;
+  height: 4rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  border: none;
+    }
+    p{
+        color: #000;
+        font-size: 1.5rem;
+    }
+}
+}
+.datos_seleccion_basic
+{
+    background: #8b8b8b;
+   
+    padding: 2rem 5rem;
+}
+.counter-list2
+{
+    background: #303030;
+    padding: 1.5rem 3rem;
+    .list_plan label
+    {
+    color: #fff;
+    text-align: center;
+    }
+    .counter-btn
+        {
+        background-color: #fff0;
+        border: 1px solid white;
+        border-radius: 33%;
+        color: #fff;
+        cursor: pointer;
+        height: 3rem;
+        margin: auto;
+        padding: 5px 10px;
+        width: 3rem;
+        font-weight: bolder;
+        }
+        
+}
+
+// paso 2
+.contenedor.hab_seleccion3
+{
+  padding-top: 5rem;
+  hr{
+    margin-top: 3rem;
+  border: 1px solid #cf5a60;
+  }
+
+  .metodo_pago{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15rem;
+    width: 100%;
+  }
+  p
+  {
+    font-size: 1.5rem;
+    color: gray;
+  }
+  h3
+  {
+    font-size: 3rem;
+    font-weight: 400;
+        color: #675b58;
+  }
+  #hora
+{
+  width: 15%;
+  height: 4rem;
+  padding: 1rem;
+  border: 1px solid #b5b2b2;
+  border-radius: 1rem;
+}
+.contenedor-habitacion
+{
+  background: #675b58;
+  padding: 1rem;
+  box-shadow: 9px 9px 24px -8px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 9px 9px 24px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 9px 9px 24px -8px rgba(0,0,0,0.75);
+}
+.contenedor-habitacion p{
+    color: $blanco;
+}
+.contenedor-habitacion p:nth-child(1){
+    font-weight: 700;
+    text-transform: uppercase;
+}
+  textarea
+{
+  overflow: auto;
+  width: 100%;
+  height: 24rem;
+  border: 1.4px solid #b5b2b2;
+  border-radius: 1rem;
+  margin-bottom: 5rem;
+}
+}
+
+.part_resumen_reserva{
+    .imagen_re{
+        width: 100%;
+        height: 100%;
+        background: url(/build/img/ubi.webp);
+        // background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        // img{
+        //     width: 100%;
+        //     height: 100%;
+        // }
     }
 }
