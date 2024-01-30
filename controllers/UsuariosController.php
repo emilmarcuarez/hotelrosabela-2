@@ -61,7 +61,6 @@ class UsuariosController{
          // crea una nueva instancia
          $Usuario=new Usuario($_POST);
          // VALIDAR
-        //  debuguear($Usuario->password);
          $Usuario->setPassword($Usuario->contrasenia);
          $errores = $Usuario->validarRegistro();
      

@@ -6,19 +6,61 @@
             <button type="button" data-paso="3">Paso 3</button>
         </nav>
 
-<div class="seccion" id="habitaciones_t">
- 
+<div class="seccion" id="icetab-content">
 </div>
-<div class="seccion hab_datos_seccion" id="paso-1">
-	<div class="hab_seleccion" id="habitaciones">
 
+<div class="seccion" id="paso-1">
+
+	<div class="tit_hab_reserva_cont">
+		<img src="build/img/logor.webp" alt="">
+		<div class="tit_part_reser">
+			<h3>Hotel & Convention</h3>
+		<h4 class="tit_hab_reserva">Selecciona las habitaciones</h4>
+		</div>
+		
 	</div>
-	<div class="datos_seleccion">
 
+	<div class="hab_datos_seccion">
+	
+		<div class="hab_seleccion" id="habitaciones">
+
+		</div>
+		<div class="datos_seleccion" id="datos_seleccion">
+
+		<div class="counter-list2">
+                            <div class="list_plan">
+                                <label for="adultos">Adultos</label>
+                                <button type="button" class="counter-btn" onclick="incrementar2('adultos')">+</button>
+                                <input id="adultos" class="counter-input" type="text">
+                                <button type="button" class="counter-btn" onclick="decrementar2('adultos')">-</button>
+                            </div>
+                            <div class="list_plan">
+                                <label for="ninos">Niños</label>
+                                <button type="button" class="counter-btn" onclick="incrementar2('ninos')">+</button>
+                                <input id="ninos" class="counter-input" type="text" value="0">
+                                <button type="button" class="counter-btn" onclick="decrementar2('ninos')">-</button>
+                            </div>
+                            <div class="list_plan">
+                            <label for="habitaciones">Habitaciones</label>
+                                <button type="button" class="counter-btn" onclick="incrementar2('habitaciones2')">+</button>
+                                <input id="habitaciones2" class="counter-input" type="text">
+                                <button type="button" class="counter-btn" onclick="decrementar2('habitaciones2')">-</button>
+                            </div>
+                        </div>
+		</div>
 	</div>
 </div>
+
 <div class="seccion" id="paso-2">
-		<div class="hab_seleccion3">
+<div class="tit_hab_reserva_cont">
+		<img src="build/img/logor.webp" alt="">
+		<div class="tit_part_reser">
+			<h3>Hotel & Convention</h3>
+		<h4 class="tit_hab_reserva">Complete la informacion y confirme</h4>
+		</div>
+		
+	</div>
+		<div class="contenedor hab_seleccion3">
 
 			<h4>Peticiones especiales</h4>
 			<p>Las peticiones especiales no se pueden garantizar, pero el alojamiento hará todo lo posible por satisfacerlas.</p>
@@ -29,32 +71,58 @@
 			<input type="time" name="hora_re" id="hora">
 			<p>Hora de la zona horaria de Puerto Ordaz</p>
 			<input type="hidden" id="id" value="<?php echo $id;?>">
+			<hr>
+			<h3>Resumen de la reserva</h3>
+		<div class="reserva_comp_resumen">
+
 			<div class="part_resumen_reserva">
-				<div class="contenido-resumen">
+				<div class="resumen_res_contenedor">
+					<div class="contenido-resumen">
 
+					</div>
+					<div class="part_resumen_monto">
+
+			</div>
 				</div>
+				
 				<div class="imagen_re">
-
+					<!-- <img src="build/img/ubi.webp" alt="imagen de resumen"> -->
 				</div>
 			</div>
+			
+			</div>
+			<div class="espacio">
+			</div>
+			<h4>Metodo de pago</h4>
 			<div class="metodo_pago">
-				<h5>Metodo de pago</h5>
-				<label for="transferencia">Transferencia</label>
+			
+			<div class="pago_part">
+					<label for="transferencia">Transferencia</label>
                     <input  type="radio" value="transferencia" id="transferencia" name="m_pago" required>
-
+			</div>
+			<div class="pago_part">
                     <label for="Bankofamerica">Bank of america</label>
                     <input  type="radio" value="Bankofamerica" id="Bankofamerica" name="m_pago" required>
-                    <label for="pagarHotel">Pagar en el hotel</label>
-                    <input  type="radio" value="pagarHotel" id="pagarHotel" name="m_pago" required>
 			</div>
+			<div class="pago_part">
+					<label for="pagarHotel">Pagar en el hotel</label>
+                    <input  type="radio" value="pagarHotel" id="pagarHotel" name="m_pago" required>
+			</div>	
+			</div>
+			<div class="boton-reserva">
+
+				</div>
 		</div>
 </div>
-<div class="seccion" id="paso-3">
-		<div class="hab_seleccion4">
-	gfghfghfgh
-	</div>
-</div>
 
+
+<div class="seccion" id="paso-3">
+
+		<div class="hab_seleccion4">
+		<a href="/crearPdf">click para descargar el reporte de la reserva</a>
+	</div>
+
+</div>
 <div id="miModal" class="modal">
 		<div class="flex" id="flex">
 			<div class="contenido-modal">
@@ -72,7 +140,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="paginacion">
+	<!-- <div class="paginacion">
             <button
             id="anterior"
             class="boton"
@@ -83,5 +151,5 @@
             class="boton"
             >siguiente
             </button>
-        </div>
+        </div> -->
 </div>

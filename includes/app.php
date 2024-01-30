@@ -9,5 +9,6 @@ $db=conectarDB();
 
 
 use Model\Activerecord;
+// use Paginas\chat;
 
 Activerecord::setDB($db);

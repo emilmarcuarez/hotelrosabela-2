@@ -6,21 +6,51 @@
 
   
     button{
-        background-color: aqua;
+        background-color: rgb(255, 255, 255);
         border: none;
+        color: gray;
+        display: inline-block;
+  width: 100%;
+  padding: .2rem;
     }
   .actual{
-    background-color: black;
+    background-color: #c7565c;
+
+  color: white;
   }
 }
 
+
+
 .seccion{
     display: none;
+}
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.seccion {
+  display: none;
+  transition: opacity 0.5s ease-in-out; /* Agregamos la transición aquí */
+}
 
+.mostrar {
+  display: block;
+  padding: 0;
+  opacity: 1; /* Ajustamos la opacidad a 1 para mostrar la sección */
 }
-.mostrar{
-    display: block;
-}
+
+// .mostrar {
+//   opacity: 1; 
+//   display: block;
+//   padding: 0;
+//   opacity: 1; /* Asegúrate de que la opacidad esté en 1 cuando la sección está visible */
+// }
+// .fade{
+  
+//   opacity: 0;
+//   transition: opacity 0.5s ease-in-out;
+// }
 
 .ocultar{
     display: none;

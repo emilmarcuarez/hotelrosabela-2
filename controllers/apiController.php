@@ -21,7 +21,7 @@ class ApiController{
             $idHabitacion = $habitacion['id'];
             $cantidad_d = $habitacion['cantidad_d'];
             $cantidad_s = $habitacion['cantidad_s'];
-    
+            
             // Aquí puedes almacenar las cantidades en la base de datos,
             // por ejemplo, utilizando la clase ReservaHabitacion
             $args = [

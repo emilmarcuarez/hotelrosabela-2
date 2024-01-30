@@ -1,21 +1,24 @@
+<div class="cont_chat_linea" id="abrir_modal">
+<i class="fa-regular fa-comments"></i>
+    <a>Chat en linea</a>
+</div>
 
 <div class="f_reservas">
     <main class="contenedor">
 
         <div class="texto_form_pre">
             <h4>¡Reserva con nosotros!</h4>
-        </div>
-    
+        </div> 
         <div class="seccion55">
         <form action="" class="formulario_re">
             <!-- <div class="form_reserva"> -->
             <div class="par_label">
                 <label for="fecha">fecha de ingreso</label>
-                <input type="date" id="fechaReserva" name="fechaReserva">
+                <input type="date" id="fechaReserva2" name="fechaReserva">
             </div>
             <div class="par_label">
                 <label for="fecha">fecha de egreso</label>
-                <input type="date" id="fechaEgreso" name="fechaEgreso">
+                <input type="date" id="fechaEgreso2" name="fechaEgreso">
             </div>
 
             <div class="par_label2">
@@ -30,21 +33,21 @@
                         <div class="counter-list">
                             <div class="list_plan">
                                 <label for="adultos">Adultos</label>
-                                <button type="button" class="counter-btn" onclick="incrementar('adultos')">+</button>
-                                <input id="adultos" class="counter-input" type="text" value="1">
-                                <button type="button" class="counter-btn" onclick="decrementar('adultos')">-</button>
+                                <button type="button" class="counter-btn" onclick="incrementar('adultos2')">+</button>
+                                <input id="adultos2" class="counter-input" type="text" value="1">
+                                <button type="button" class="counter-btn" onclick="decrementar('adultos2')">-</button>
                             </div>
                             <div class="list_plan">
                                 <label for="ninos">Niños</label>
-                                <button type="button" class="counter-btn" onclick="incrementar('ninos')">+</button>
-                                <input id="ninos" class="counter-input" type="text" value="0">
-                                <button type="button" class="counter-btn" onclick="decrementar('ninos')">-</button>
+                                <button type="button" class="counter-btn" onclick="incrementar('ninos2')">+</button>
+                                <input id="ninos2" class="counter-input" type="text" value="0">
+                                <button type="button" class="counter-btn" onclick="decrementar('ninos2')">-</button>
                             </div>
                             <div class="list_plan">
-                            <label for="adultos">Habitaciones</label>
-                                <button type="button" class="counter-btn" onclick="incrementar('habitaciones')">+</button>
-                                <input id="habitaciones" class="counter-input" type="text" value="1">
-                                <button type="button" class="counter-btn" onclick="decrementar('habitaciones')">-</button>
+                            <label for="habitacionnes">Habitaciones</label>
+                                <button type="button" class="counter-btn" onclick="incrementar('habitaciones3')">+</button>
+                                <input id="habitaciones3" class="counter-input" type="text" value="1">
+                                <button type="button" class="counter-btn" onclick="decrementar('habitaciones3')">-</button>
                             </div>
                         </div>
                         </div>
@@ -52,8 +55,7 @@
                 </div>
             </div>
                 <!-- <button type="button"  class="boton boton-rosado actual" id="btnEnviar">Reservar</button> -->
-                <a id="btnEnviar3" value="Reservar" class="boton boton-rosado" href="/habitaciones_s">Reservar</a>
-
+                <a id="btnEnviar3" value="Reservar" class="boton boton-rosado"  onclick="asignarValores()">Reservar</a>
         </form>
         </div>
         <!-- PAGINACION DE ANTERIOR- -->
@@ -255,3 +257,37 @@
         <div class="seccion" id="paso-3">
             verificateeee
         </div>
+
+      <div id="miModal2" class="modal2">
+		<div class="flex2" id="flex2">
+			<div class="contenido-modal2">
+				<div class="modal-header2 flex2" id="miModal2">
+					<div class="part_modal_header">
+                        <img src="build/img/logor.webp" alt="">    
+                    <h2>Hotel Rosa Bela</h2>
+                    </div>
+                   
+					<span class="close2" id="close2">&times;</span>
+				</div>
+				<div class="modal-body2" id="modal-body2">
+                <section class="chat-area">
+
+                    <div class="chat-box" id="chat-box" data-user-id="<?php echo $_SESSION['usuario_id']?>">
+                     
+                    </div>
+                    <form action="#" class="typing-area">
+                        <input type="text" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>" hidden>
+                        <textarea type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off"></textarea>
+                        <button id="btn_chat"><i class="fab fa-telegram-plane"></i></button>
+                            
+                        <!-- <input type="submit" id="btnEnviar"></i>"> -->
+                    </form>
+                </section>
+				</div>
+
+				<div class="footer2">
+					<div id="seleccionar_hab_p2">Seleccionar</div>
+				</div>
+			</div>
+		</div>
+	</div>

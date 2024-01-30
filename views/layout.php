@@ -23,7 +23,7 @@ if(!isset($inicio)){
     <link rel="stylesheet" href="../build/css/app.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Hotel Rosa bela</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -62,14 +62,15 @@ if(!isset($inicio)){
                     <a href="/loginusuario">Iniciar sesion</a>
                     <a href="/siginusuario">Registrar</a>
                 <?php }else{?>
+
                         <?php if($sexo==="F"){ ?>
                             <p>Bienvenida <?php echo $nombre; ?></p>
-                        <?php }else if($sexo==="M"){?>
+                            <?php }else if($sexo==="M"){?>
                             <p>Bienvenido <?php echo $nombre; ?></p>
                         <?php }else{?>
                             <p>Bienvenid@ <?php echo $nombre; ?></p>
                         <?php }?>
-                            <a href="/logout">Cerrar Sesion</a>
+                          <a href="/logout">Cerrar Sesion</a>
                 <?php }?>
     </section>
 
@@ -213,10 +214,13 @@ if(!isset($inicio)){
         </div>
 
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
 <script src="../build/js/bundle.min.js"></script>
+
 </body>
 
 </html>

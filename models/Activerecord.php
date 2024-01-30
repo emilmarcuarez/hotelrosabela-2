@@ -215,6 +215,33 @@ public static function getEventosdif($cantidad, $id)
         $resultado = self::consultarSQL($query);
         return array_shift($resultado); //Retornaa el primer elemento
     }
+    public static function getUltimo()
+    {
+        $query = "SELECT * FROM ". static::$tabla. " ORDER BY id DESC LIMIT 1";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado); //Retornaa el primer elemento
+    }
+    public static function getId2(){
+        $query = "SELECT id FROM ". static::$tabla. " ORDER BY id DESC LIMIT 1";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado); //Retornaa el primer elemento
+    }
+    public static function getChat($id){
+        $query = "SELECT * FROM ". static::$tabla. " WHERE usuarios_id=$id";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return $resultado; 
+    }
+   
+    public static function habitaciones_all($id)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE reserva_id= ".$id.";";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
    
     // busca un registro por TIPO
     public static function findTipo($tipo)
