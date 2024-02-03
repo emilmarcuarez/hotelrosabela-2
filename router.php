@@ -20,7 +20,8 @@ class Router{
         $rutas_protegidas=['/admin', '/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar',  '/empleados/crear', '/empleados/actualizar', '/empleados/eliminar',  '/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/chef/mostrar', '/eventos/mostrar', '/salones/mostrar', '/empleados/mostrar', '/centrosconsumo/mostrar'];
 
         // basada en la url que estoy visitando gracias al router, me busca la funcion asociada a ese url
-        $urlActual=$_SERVER['PATH_INFO'] ?? '/';
+        $urlActual=strtok($_SERVER['REQUEST_URI'],'?') ?? '/';
+        // $urlActual=$_SERVER['PATH_INFO'] ?? '/';
         $metodo =$_SERVER['REQUEST_METHOD'];
         //    para validar la ruta
         if($metodo==='GET'){

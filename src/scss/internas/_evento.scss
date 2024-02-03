@@ -58,3 +58,31 @@
         border: .1rem solid $rosado;
     }
 }
+
+@media screen and (max-width: 900px){
+    .evento_pagina_ind .cont_event_grid{
+        grid-template-columns: 100%;
+    }
+    .evento_pagina_ind.contenedor
+{
+  padding: 2rem;
+}
+.evento_pagina_ind .grid_event_part
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grid_img_event
+{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.evento_pagina_ind h5
+{
+  padding: 11rem 0rem 3rem 0rem;
+
+}
+}

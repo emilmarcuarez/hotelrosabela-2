@@ -88,7 +88,7 @@ class EmpleadosController{
             $nombreImagen=md5(uniqid(rand(),true)) . ".jpg"; 
 
             if($_FILES['empleado']['tmp_name']['imagen']){
-                $image=Image::make($_FILES['empleado']['tmp_name']['imagen'])->fit(800, 500);
+                $image=Image::make($_FILES['empleado']['tmp_name']['imagen']);
                 $empleado->setImagen($nombreImagen);
             }
 

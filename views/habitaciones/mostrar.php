@@ -1,5 +1,5 @@
 
-<main class="contenedor seccion">
+<main class="contenedor">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
     <?php 
     if($resultado){

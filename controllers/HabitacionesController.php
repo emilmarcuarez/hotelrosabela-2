@@ -9,6 +9,8 @@ class HabitacionesController{
     // funcion de crear Centro de consumo
 
     public static function index(Router $router){
+        $no2=true;
+            $no=true;
         $habitaciones=Habitaciones::all();
      
         // $no=true;
@@ -17,11 +19,14 @@ class HabitacionesController{
         //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
         $router->render('habitaciones/mostrar',[
             'habitaciones'=>$habitaciones,
-            'resultado' =>$resultado
+            'resultado' =>$resultado,
+            'no'=>$no,
+            'no2'=>$no2
         ]);
     }
     public static function crear(Router $router){
-        $no=true; //no mostrar el menu
+        $no2=true;
+        $no=true;
 
         // arreglo con mensaje de errores
         $erorres= Habitaciones::getErrores();
@@ -55,8 +60,9 @@ class HabitacionesController{
         }
         $router->render('habitaciones/crear',[
             'habitacion'=>$habitacion,
-            'errores'=>$erorres
-            // 'no'=>$no
+            'errores'=>$erorres,
+            'no'=>$no,
+            'no2'=>$no2,
         ]);
     }
 
@@ -64,6 +70,8 @@ class HabitacionesController{
     public static function actualizar(Router $router){
         $id=validarORedireccionar('/admin');
         // $no=true;
+        $no2=true;
+            $no=true;
         $habitacion=Habitaciones::find($id);
 
         $errores=Habitaciones::getErrores();
@@ -95,7 +103,9 @@ class HabitacionesController{
         }
         $router->render('/habitaciones/actualizar',[
             'habitacion'=>$habitacion,
-            'errorres'=>$errores
+            'errorres'=>$errores,
+            'no'=>$no,
+            'no2'=>$no2
         ]);
     }
     

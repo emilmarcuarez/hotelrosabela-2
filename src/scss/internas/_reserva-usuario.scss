@@ -1,0 +1,117 @@
+.re_usuario{
+    margin-top: 2rem;
+    h3{
+        color: #463232;
+    }
+}
+.reservas_usuario_flex{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    .cont_reserva_usu{
+       
+        p{
+            color: #4f4f4f;
+            font-weight: 500;
+            font-size: 1.7rem;
+        }
+        
+        background-color: #fbfbfb;
+        // padding: 2rem;
+        .cont_reserva_usu1{
+            border-bottom: 1px solid #dcdbdb;
+            padding: 1rem;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: .4rem;
+        }
+        .cont_reserva_usu2{
+            border-bottom: 1px solid #dcdbdb;
+            padding: 1rem 2rem;
+            .cont_reserva_fecha{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                span{
+                    font-weight: 700;
+                }
+            }
+            .cont_reserva_datos{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .boton_pdf_reserva{
+                    a{
+                        color: white;
+                        display: inline-block;
+                        background-color: #009988;
+                        padding: .5rem 1rem;
+                        border-radius: 5rem;
+                        &:hover{
+                            transition: .3s ease-in;
+                            background-color: #066358;
+                        }
+                    }
+                }
+            }
+        }
+        .cont_reserva_usu{
+            padding: 1.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .confirmada_r,
+            .pendiente_r{
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+            .confirmada_r{
+                color: green;
+            }
+            .pendiente_r{
+                color: rgb(239, 160, 1);
+            }
+            button{
+                border: none;
+                color: white;
+                display: inline-block;
+                padding: 1rem;
+                border-radius: 3rem;
+                background-color: rgb(178, 23, 23);
+                &:hover{
+                    cursor: pointer;
+                    transition: .3s ease-in;
+                    background-color: rgb(121, 9, 9);
+                }
+            }
+        }
+        &:hover{
+            cursor: pointer;
+            transition: .2s ease-in;
+            box-shadow: 9px 11px 16px -5px rgba(102,96,96,0.75);
+    -webkit-box-shadow: 9px 11px 16px -5px rgba(102,96,96,0.75);
+    -moz-box-shadow: 9px 11px 16px -5px rgba(102,96,96,0.75);
+        }
+    }
+}
+@media screen and (max-width: 900px){
+    .formulario_usuario_act{
+        padding: 2rem !important;
+    }
+    .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu2 .cont_reserva_datos{
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .re_usuario {
+        padding: 2rem;
+
+      }
+
+      .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu{
+        flex-direction: column;
+        align-items: baseline;
+       
+      }
+}

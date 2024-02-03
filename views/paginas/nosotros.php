@@ -1,4 +1,4 @@
-<main class="contenedor">
+<main class="contenedor margin_nosotros">
     <div class="quienessomos">
         <div class="quienes_imagen">
             <img src="/build/img/quienes1.webp" alt="quienessomos-imagen">
@@ -18,9 +18,6 @@
         </div>
     </div>
     <div class="vision">
-         <div class="imagen_vision">
-            <img src="/build/img/evento3.webp" alt="mision_imagen">
-        </div>
         <div class="vision_texto">
             <div class="vision_texto_alinear">
                   <h3>VISIÓN</h3>
@@ -31,14 +28,17 @@
                 <img src="/build/img/vision.webp" alt="">
             </div>
         </div>
+        <div class="imagen_vision">
+            <img src="/build/img/evento3.webp" alt="mision_imagen">
+        </div>
        
     </div>
 </main>
 
-<div class="contactanos_nosotros">
+<!-- <div class="contactanos_nosotros">
     <div class="text_contactanos_nosotros contenedor">
          <!-- <div class="text_contactanos_nosotros"> -->
-            <p class="titulo_contact_nos">Contactanos</p>
+            <!-- <p class="titulo_contact_nos">Contactanos</p>
             <div class="text_extra_cont">
                 <div class="part1_text_nos">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="42" viewBox="0 0 50 42" fill="none">
@@ -48,12 +48,12 @@
                     <a class="boton-rosado" href="#">Chat en vivo</a>
                 </div>
             <!-- </div> -->
-            <div class="part1_text_nos">
+            <!-- <div class="part1_text_nos">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="47" viewBox="0 0 60 47" fill="none">
                 <path d="M27.9514 15.0467L27.9518 15.0466C28.4395 14.895 29.0642 15.1278 29.3646 15.839L29.4006 15.9372L31.6661 22.1244L31.6663 22.1248C31.9231 22.8255 31.7269 23.6047 31.2671 24.0325C31.267 24.0325 31.267 24.0325 31.267 24.0325L28.4748 26.6298L27.9655 27.1035L28.2325 27.7458C30.1988 32.4761 33.5762 36.335 37.7837 38.5997L38.5563 39.0156L39.0691 38.3035L41.3573 35.1261L41.3573 35.1262L41.3604 35.1218C41.7311 34.6012 42.2894 34.4839 42.7393 34.6975L42.7397 34.6977L48.177 37.2757L48.1793 37.2768C48.7409 37.5414 49.1537 38.3328 48.9471 39.1936L48.947 39.194L47.5883 44.8631C47.5882 44.8635 47.5881 44.8639 47.588 44.8643C47.4041 45.6208 46.8501 46 46.3739 46C33.0314 46 22 33.6443 22 18.1263C22 17.333 22.4647 16.752 22.969 16.593C22.9695 16.5929 22.9699 16.5927 22.9703 16.5926L27.9514 15.0467Z" stroke="white" stroke-width="2"/>
                 </svg>
                 <p>Nuestros numeros telefonicos: +58 414-761272 y 0286-03929391</p>
             </div>
         </div>
-    </div>
-</div>
+    </div> --> 
+<!-- </div> -->

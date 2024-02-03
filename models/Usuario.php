@@ -5,7 +5,7 @@ class Usuario extends Activerecord
 {
   protected static $tabla='usuarios';
   protected static $pagina='usuarios/mostrar';
-  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'n_empresa', 'i_fiscal'];
+  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'n_empresa', 'i_fiscal','noches'];
 
   
   public $id;
@@ -24,7 +24,7 @@ class Usuario extends Activerecord
   public $contrasenia;
   public $n_empresa;
   public $i_fiscal;
-
+  public $noches;
   
 
   public function __construct($args = [])
@@ -45,6 +45,7 @@ class Usuario extends Activerecord
       $this->identificacion = $args['identificacion'] ?? '';
       $this->n_empresa = $args['n_empresa'] ?? 'nada';
       $this->i_fiscal = $args['i_fiscal'] ?? '1';
+      $this->noches = $args['noches'] ?? '0';
   }
 
   public function validarRegistro()
@@ -98,6 +99,11 @@ class Usuario extends Activerecord
   public function setPassword($password){
     $this->contrasenia= password_hash($password, PASSWORD_BCRYPT);
     
+}
+public function setNoches($noche){
+    session_start();
+    $id=$_SESSION['usuario_id'];
+    $query="UPDATE usuarios SET noches=".$noche." WHERE id=".$id;
 }
 public function getId(){
     $query="SELECT id FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
@@ -173,33 +179,38 @@ public function autenticar(){
 // para crear y guardar cada usuario
 
 public function guardar()
-{
-        // crear un nuevo registro
-        $this->crear();
-}
-public function crear()
-{
-   
+    {
+        if (!is_null($this->id)) {
+            // actualizar
+            $resultado=$this->actualizar();
 
-    // sanitizar los datos
-    $atributos = $this->sanitizarAtributos();
-
-
-    // insertar a la BASE DE DATOS
-    $query = "INSERT INTO ". static::$tabla. " (";
-    $query .= join(', ', array_keys($atributos));
-    $query .= " ) VALUES (' ";
-    $query .= join("', '", array_values($atributos));
-    $query .= " ') ";
-
-    $resultado = self::$db->query($query);
-    //   return es un false or true
-    // Mensaje de exito
-    if ($resultado) {
-
-        header('location: /siginusuario?resultado=1');
+        } else {
+            // crear un nuevo registro
+           $resultado= $this->crear();
+        }
+        return $resultado['id']; // Devolver el ID del mensaje creado
     }
-}
+    public function crear()
+    {
+        // sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // insertar a la BASE DE DATOS
+        $query = "INSERT INTO ". static::$tabla. " (";
+        $query .= join(', ', array_keys($atributos));
+        $query .= " ) VALUES ('";
+        $query .= join("', '",array_values($atributos));
+        $query .= "') ";
+
+        $resultado = self::$db->query($query);
+        //   return es un false or true
+        // Mensaje de exito
+        // debuguear($resultado);
+        return [
+            'resultado'=>$resultado,
+            'id'=>self::$db->insert_id
+        ];
+    }
 public static function getCorreos($id){
     
     $query = "SELECT usuario_pag.email

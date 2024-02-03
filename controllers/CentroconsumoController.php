@@ -11,23 +11,26 @@ class CentroconsumoController{
         public static function admin(Router $router){
             
             $no2=true;
-            $inicio=true;
-        $router->render('admin',[
+            $no=true;
+            // $inicio=true;
+        $router->render('/admin',[
            'no2'=>$no2,
-           'inicio'=>$inicio
+           'no'=>$no
+          
         ]);
     }
     public static function index(Router $router){
         $centros=Centroconsumo::all();
         $no2=true;
-        $inicio=true;
+        $no=true;
+        // $inicio=true;
         $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
         //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
         $router->render('centrosconsumo/mostrar',[
             'centros'=>$centros,
             'resultado' =>$resultado,
             'no2'=>$no2,
-           'inicio'=>$inicio
+            'no'=>$no
         ]);
     }
     public static function error(Router $router){

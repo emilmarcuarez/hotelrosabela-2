@@ -19,15 +19,15 @@
 .salones_card{
     margin-top: 2rem;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 25% 71%;
    
     padding: 1rem;
-    background-color: #f3efef;
-    border-radius: 20rem;
+    background-color: #fff;
+    border-radius: 19rem;
     border: 1.3px solid $grisClaro;
     .imagen_salon{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         img{
             border-radius: 50%;

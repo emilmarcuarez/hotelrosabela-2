@@ -94,6 +94,24 @@ class Activerecord
             header('location: /'.static::$pagina.'?resultado=3');
         }
     }
+    public function eliminar2()
+    {
+        // ELIMINAR el registro
+        $query = "DELETE FROM ". static::$tabla. " WHERE id= " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
+        if ($resultado) {
+            // despues del link se pone un '?' y posterior el nombre de la variable que uno quiere y se iguala a un numero
+            header('location: /reservas-usuario');
+        }
+    }
+    public function eliminare()
+    {
+        // ELIMINAR el registro
+        $query = "DELETE FROM ". static::$tabla. " WHERE id= " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
+       
+    }
+  
 
     // mapear, identificar y unir los atributos de la BD
     public function atributos()
@@ -214,6 +232,13 @@ public static function getEventosdif($cantidad, $id)
         // se sigue el principio de active record que es tener todo en objetos
         $resultado = self::consultarSQL($query);
         return array_shift($resultado); //Retornaa el primer elemento
+    }
+    public static function re_habitaciones_all($id)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE reserva_id=$id;";
+
+        $resultado = static::consultarSQL($query);
+        return $resultado;
     }
     public static function getUltimo()
     {

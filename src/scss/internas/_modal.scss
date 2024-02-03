@@ -82,7 +82,7 @@
     }
 
     .modal-body{
-        padding: 0px 69px 32px 69px;
+        padding: 0px 60px 32px 60px;
     }
 }
 .seleccionar_hab_p
@@ -94,7 +94,7 @@
   color: white;
   border-radius: 1rem;
   padding: .3rem;
- 
+  margin-top: 4rem;
 }
 .seleccionar_hab_p:hover{
     transition: .3s ease-in-out;
@@ -107,11 +107,23 @@
   height: 3.5rem;
   border: 2px solid #d6d1d1;
   border-radius: 1rem;
-  margin-bottom: 1rem;
   padding: 1rem;
+  height: 4.5rem;
+  text-align: center;
 }
-
-
+.seleccionar_numeros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .seleccionar_numeros button {
+    height: 4rem;
+    width: 7.2rem;
+    background: #ba0534 !important;
+    color: wheat;
+    font-weight: 700;
+  }
 @media screen and (max-width:900px){
 	.contenido-modal{
 		width: 70%;
@@ -132,7 +144,7 @@
 .modal2{
     display: none;
         position: fixed;
-        z-index:1;
+        z-index:20 !important;
         overflow: auto;
         left: 407px;
         top:0;
@@ -282,7 +294,7 @@
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     width: 179px;
-    z-index: 5;
+    z-index: 20;
     background: #403e3ea8;
     border: 3px solid #9f425a;
     i,a{
@@ -380,3 +392,15 @@
     color: #fff;
     border-radius: 18px 18px 0 18px;
   }
+
+  @media screen and (max-width: 900px){
+    .modal2{
+        left: 0rem;
+    }
+    .cont_chat_linea{
+        left: 73%;
+    }
+    .nav_menu_bg{
+        top: 15rem;
+    }
+}

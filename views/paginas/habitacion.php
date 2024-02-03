@@ -612,7 +612,7 @@
                     </div>
                </div>
             </div>  
-            <div class="btn_reservar">
+            <div class="btn_reservar2">
                 <a href="#">¡Reserva YA!</a>
             </div>    
         </div>

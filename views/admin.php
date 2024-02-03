@@ -1,18 +1,8 @@
 
-<main class="contenedor seccion">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
-    <?php 
-    if($resultado){
-         $mensaje=mostrarNotificacion(intval($resultado));
-        if($mensaje){?>
-            <p class="alerta exito"><?php echo s($mensaje); ?></p>
-        
-        
-        <?php } ?>
-    <?php } ?>
 
-<div class="espacio"></div>
-<h2>Bienvenida "@nombreusuario"</h2>
+<div class="cont_admi_grid">
+
 
 <div class="adm_btn">
     <a href="/centrosconsumo/mostrar">Centros de consumo</a>
@@ -26,4 +16,17 @@
     <a href="/administradores/mostrar">Usuarios Administradores</a>
 </div>
 
+
+<main class="cont_admi_iamgen">
+<h2>Bienvenida "<?php echo $_SESSION['usuario']?>"</h2>
+<?php 
+    if($resultado){
+         $mensaje=mostrarNotificacion(intval($resultado));
+        if($mensaje){?>
+            <p class="alerta exito"><?php echo s($mensaje); ?></p>
+        
+        
+        <?php } ?>
+    <?php } ?>
 </main>
+</div>

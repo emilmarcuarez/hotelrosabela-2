@@ -143,3 +143,46 @@
         
     }
 }
+.margin_nosotros{
+    padding-bottom: 3rem;
+}
+@media screen and (max-width: 900px){
+    .margin_nosotros{
+        margin-bottom: 24rem;
+        padding: 0;
+    }
+    .quienessomos{
+        grid-template-columns: 100%;
+    }
+    .quienessomos .texto_quienes h3{
+        color: #5d5b5b;
+      }
+    .texto_quienes{
+        padding: 2rem;
+        p{
+        color: #514c4c;
+        text-align: center;
+        }
+
+    }
+    .mision, .mision .imagen_mision{
+        height: auto;
+    }
+    .mision{
+        grid-template-columns: 100%;
+        p{
+            text-align: center;
+        }
+    }
+
+    .vision{
+        grid-template-columns: 100%;
+        p{
+            text-align: center;
+        }
+    }
+    .vision .vision_texto{
+        height: auto;
+    }
+   
+}
