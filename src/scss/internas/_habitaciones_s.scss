@@ -53,6 +53,8 @@
 }
 .btn_reservar:hover{
     cursor: pointer;
+    background-color: #ba0534;
+    transition: .2s ease-in;
 }
 .precio_habi{
     p:nth-child(1),
@@ -301,6 +303,7 @@
 }
   textarea
 {
+    padding:1rem;
   overflow: auto;
   width: 100%;
   height: 24rem;
@@ -319,9 +322,163 @@
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
-        // img{
-        //     width: 100%;
-        //     height: 100%;
-        // }
+     
     }
+}
+
+// fondo en el tab 3
+.bg_paso_3{
+    background-image: url(/build/img/hap5.webp);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3rem;
+}
+.fondo_paso3
+{
+  background: rgba(95, 68, 94, 0.92);;
+  padding: 9rem;
+  border-radius: 1rem;
+  p, h4{
+    color: white;
+  }
+  .p3
+{
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+.p2
+{
+  font-size: 1.7rem;
+  text-align: center;
+}
+span
+{
+  font-weight: bold;
+}
+.p1
+{
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+}
+
+.fondo_paso3 hr{
+  margin-bottom: 3rem;
+  border: 1px solid #a7a7a7;
+}
+
+.hab_seleccion4
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  a
+  {
+    color: white;
+    background: #e81656;
+    padding: 1rem;
+    border-radius: 1rem;
+    &:hover{
+        background-color: gray;
+        transition: .3s ease-in;
+    }
+  }
+
+}
+
+// econder tabs
+.esconder_tabs
+{
+  display: none;
+}
+
+// reserva- mq
+@media screen and (max-width: 900px){
+
+  .hab_datos_seccion, .part_resumen_reserva
+{
+  grid-template-columns: 100%;
+}
+.hab_seleccion{
+  grid-template-columns: 100%;
+}
+.hab_part2{
+  height: auto;
+}
+.contenedor.hab_seleccion3{
+  margin: 0 2rem;
+}
+.contenedor.hab_seleccion3 #hora{
+  width: 36%;
+}
+.contenedor.hab_seleccion3 .metodo_pago {
+  flex-direction: column;
+  gap: 1rem;
+}
+.modal{
+  z-index: 21 !important;
+}
+
+
+// habitaciones al darle click
+.hab_pag_principal{
+  padding: 0px 2rem;
+}
+.cont_hab{
+  grid-template-columns: 100%;
+}
+
+.cont_hab .cont_hab_p .hab_img_text .servicios_imp .elemento_imp .elem_hab_imp_p{
+  flex-direction: column;
+  p{
+    text-align: center;
+  font-size: 1.3rem;
+  }
+}
+
+.cont_hab .cont_hab_p .hab_img_text .text_hab_cant p
+{
+  font-size: 1.3rem;
+}
+.cont_hab .cont_hab_p .hab_info_text .hab_info_partes2{
+  flex-direction: column;
+}
+
+.cont_hab .cont_hab_p .hab_info_text .hab_info_partes .pre_part_info p
+{
+  font-size: 1.6rem;
+}
+.cont_hab .cont_hab_p2 .descrip_reg_hab p:nth-child(2)
+{
+
+  font-size: 1.4rem;
+}
+.galeria_imagenes{
+  grid-template-columns: 50% 50%;
+}
+.galeria_imagenes .f_gal_div p
+{
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+  .hab_seleccion4{
+    flex-direction: column;
+  }
+
+  .fondo_paso3 h4{
+    text-align: center;
+  }
+  .fondo_paso3 .p2 {
+      font-size: 1.7rem;
+      text-align: center;
+      background: #2b28284d;
+      padding: 1rem;
+      border-radius: 2rem;
+  }
 }

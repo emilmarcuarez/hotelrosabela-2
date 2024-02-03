@@ -26,7 +26,7 @@
       $this->fecha_e=$args['fecha_e'] ?? '';
       $this->cantidad=$args['cantidad'] ?? '21';
       $this->solicitudes=$args['solicitudes'] ?? '';
-      $this->monto=$args['monto'] ?? '';
+      $this->monto=$args['monto'] ?? 2;
       $this->usuarios_id=$args['usuarios_id'] ?? '';
       $this->ninos=$args['ninos'] ?? '1';
       $this->adultos=$args['adultos'] ?? '1';
@@ -78,5 +78,13 @@
 
          header('location: /'.static::$pagina.'?resultado=3');
       }
+    }
+    // busca todas las reservas de un usuario especifico
+    public static function reserva_hab($id)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE usuarios_id= ".$id." ORDER BY id DESC;";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return $resultado;
     }
  }

@@ -497,13 +497,14 @@
                 </div>
 
             </div>
-
+            
             <div class="precio_hab">
+                <p>Precio por noche</p>
                 <div class="precio_hab_p">
-                    <p class="precio1">Precio por noche<br> <span class="pre_nro">USD <?php echo $habitacion->preciocd?></span><span class="des_hab"><br> Incluye desayuno</span></p>
+                    <p class="precio1"> <span class="pre_nro">USD <?php echo $habitacion->preciocd?></span><span class="des_hab"><br> Incluye desayuno</span></p>
                     <p class="precio1"> <span class="pre_nro">USD <?php echo $habitacion->preciosd?></span><span class="des_hab"><br> Sin desayuno</span></p>
                 </div>
-                <a href="#" class="btn-rosado3">Reservar</a>
+                <!-- <a href="#" class="btn-rosado3">Reservar</a> -->
             </div>
 </div>
             <?php endforeach ?>

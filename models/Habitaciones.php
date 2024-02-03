@@ -68,4 +68,8 @@
          unlink(CARPETA_IMAGENES_HA . $this->imagen);
       }
     }
+
+    // buscar todas las reservas que hice un usuario en especifico
+
+   
  }

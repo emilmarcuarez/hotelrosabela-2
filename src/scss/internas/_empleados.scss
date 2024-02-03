@@ -84,3 +84,41 @@
         }
     }
 }
+
+@media screen and (max-width: 900px){
+    .fondop_emple{
+        padding-top: 10rem;
+    }
+    .emple1_cont .empleados_pag, .emple2_cont .empleados_pag{
+        grid-template-columns: 100%;
+    }
+    .img_empleado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .emple1_cont .empleados_pag .text_empleado .tit_emple, .emple2_cont .empleados_pag .text_empleado .tit_emple
+    {
+    font-size: 2rem;
+    font-weight: 400;
+    }
+    .emple1_cont .empleados_pag .text_empleado p, .emple2_cont .empleados_pag .text_empleado p
+    {
+    font-size: 1.3rem;
+    }
+    .empleado_cont2{
+        grid-template-columns: 50% 50%;
+    }
+    .empleado_cont2 .empleado_cont3 .text_empleado_cont h3
+        {
+        font-size: 1.5rem;
+        margin: 0;
+        }
+    
+        // contacto
+        .seccion_contacto
+        {
+        margin-top: 7rem !important;
+        padding: 3rem !important;
+        }
+}

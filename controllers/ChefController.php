@@ -15,6 +15,7 @@ class ChefController{
         $chef=Chef::all();
         $no=true;
         $no2=true;
+       
         // $no=true;
         // MUESTRA MENSAJE CONDICIONAL
         $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla

@@ -17,7 +17,7 @@
                     <p><?php echo $evento->descripcion ?></p>
                 </div>
                 <div class="grid_descripcion_event2">
-                    <p>Fecha: <span> <?php echo $evento->fecha ?></span></p>
+                    <p>Fecha: <span> <?php echo date('d-m-Y', strtotime($evento->fecha));?></span></p>
                 </div>
                 <div class="grid_descripcion_event2">
                     <p>Hora: <span> <?php echo $evento->horario ?> </span></p>

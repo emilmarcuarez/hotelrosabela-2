@@ -15,7 +15,7 @@
 		<img src="build/img/logor.webp" alt="">
 		<div class="tit_part_reser">
 			<h3>Hotel & Convention</h3>
-		<h4 class="tit_hab_reserva">Selecciona las habitaciones</h4>
+		<h4 class="tit_hab_reserva">Selecciona las habitaciones dando click en la imagen</h4>
 		</div>
 		
 	</div>
@@ -116,12 +116,22 @@
 </div>
 
 
-<div class="seccion" id="paso-3">
+<div class="seccion bg_paso_3" id="paso-3">
+	<div class="fondo_paso3">
 
-		<div class="hab_seleccion4">
-		<a href="/crearPdf">click para descargar el reporte de la reserva</a>
+
+	<h4>¡Gracias por realizar tu reserva!</h4>
+	<hr>
+	<p class="p1">Nos sentimos felices de que hayas confiado en nosotros. ¡Te esperamos!</p>
+	<p class="p2">Para acceder a tus reservas y hacerles un seguimiento constante puedes dirigirte en el menu superior y presionar click en: nombre de usuario > <span>reservas</span> </p>
+	<p class="p3">Recuerda que cualquier pregunta que tengas puedes escribirnos desde el chat en linea que esta disponible las 24 horas</p>	
+	<div class="hab_seleccion4">
+		<p>Descarga el reporte de la reserva: </p>
+			<a href="/crearPdf">Descargar</a>
 	</div>
+	<br>
 
+</div>
 </div>
 <div id="miModal" class="modal">
 		<div class="flex" id="flex">
@@ -131,7 +141,14 @@
 					<span class="close" id="close">&times;</span>
 				</div>
 				<div class="modal-body" id="modal-body">
-					<!-- <input type="number"> -->
+					<!-- <p>Habitaciones con desayuno incluido</p>
+					<button type="button" class="counter-btn" onclick="incrementar2('adultos')">+</button>
+                     <input id="cant_desayuno" class="counter-input" type="number">
+                   <button type="button" class="counter-btn" onclick="decrementar2('adultos')">-</button>
+					<p>Habitaciones sin desayuno incluio</p>	
+				   <button type="button" class="counter-btn" onclick="incrementar2('adultos')">+</button>
+                     <input id="cant_sdesayuno" class="counter-input" type="text">
+                   <button type="button" class="counter-btn" onclick="decrementar2('adultos')">-</button> -->
 				</div>
 
 				<div class="footer">
@@ -140,6 +157,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<!-- <div class="paginacion">
             <button
             id="anterior"

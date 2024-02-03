@@ -3,7 +3,7 @@
 namespace Model;
 
 class Admin extends Activerecord{
-    protected static $tabla='usuarios';
+    protected static $tabla='usuario_admi';
     protected static $columnasDB=['id', 'email', 'password'];
 
     public $id;
@@ -53,8 +53,7 @@ class Admin extends Activerecord{
     }
 
     public function autenticar(){
-        session_start();
-
+        // session_start();
         // llenamos el arreglo de las sesiones establecidas
         $_SESSION['usuario']=$this->email;
         $_SESSION['login']=true;

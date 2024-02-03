@@ -1,6 +1,6 @@
 <div class="contenedor salones">
         <h4>Salones</h4>
-        <hr>
+
         <?php foreach($salones as $salon):?>
         <div class="salones_card">
             <div class="imagen_salon">

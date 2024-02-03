@@ -69,3 +69,9 @@
         transition: .5s ease-in;
     }
 }
+
+@media screen and (max-width: 900px){
+    .salon_pag_principal{
+        padding: 0px 2rem;
+    }
+}

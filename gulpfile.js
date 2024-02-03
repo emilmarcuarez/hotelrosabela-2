@@ -72,3 +72,4 @@ function watchArchivos() {
 }
 exports.versionWebp=versionWebp;
 exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos);
+exports.build = parallel(css, javascript, imagenes, versionWebp);

@@ -107,3 +107,12 @@
         gap: 2rem;
     }
 }
+
+@media screen and (max-width: 900px){
+    .centro_pag.contenedor{
+        padding: 2rem;
+    }
+    .centro_pag .grid_cuadriculas_centros{
+        grid-template-columns: 100% !important;
+    }
+}

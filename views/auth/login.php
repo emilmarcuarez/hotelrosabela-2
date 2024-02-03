@@ -4,9 +4,11 @@
     <div class="part_panel_administrativo">
         <div class="contenedor">
 
-       
-        <img src="build/img/logor.webp" alt="">
-         <h2>Panel administrativo</h2>
+       <div class="cont_panel_2">
+            <img src="build/img/logor.webp" alt="">
+            <h2>Panel administrativo</h2>
+       </div>
+    
          <h3>Iniciar sesion</h3>
         <?php
             foreach($errores as $error):        
@@ -22,8 +24,8 @@
                 <label for="email">E-mail</label>
                 <input type="email" name="email" placeholder="Tu Email" id="email" require>
 
-                <label for="contrasenia">Contraseña</label>
-                <input type="contrasenia" name="contrasenia" placeholder="contraseña" id="contrasenia" require>
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" placeholder="password" id="password" require>
                 <input type="submit" value="Iniciar sesion" class="boton boton-verde">
               
                <!-- <hr class="mi-contrasenia"> -->
@@ -34,7 +36,7 @@
     </div>
 
     <!-- parte 2 -->
-    <div class="part_panel_administrativo">
+    <div class="part_panel_administrativo2">
         <img src="build/img/evento3.webp" alt="">
     </div>
 

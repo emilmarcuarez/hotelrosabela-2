@@ -40,10 +40,10 @@
                 if($indice===intval($emple->jerarquia) && intval($emple->jerarquia)!=0 ){?>
                     <div class="empleado_cont3">
                         <div class="img_empleado_cont">
-                            <img src="/build/img/chef.webp" alt="">
+                            <img src="/imagenes_t/<?php echo $emple->imagen;?>" alt="">
                         </div>
                         <div class="text_empleado_cont">
-                            <h3><?php echo $emple->nombre; ?></h3>
+                            <h3><?php echo $emple->nombre; ?> <?php echo $emple->apellido; ?></h3>
                             <p><?php echo $emple->cargo; ?></p>
                         </div>
                     </div>
@@ -52,10 +52,10 @@
                      if($indice===intval($emple2->jerarquia)  && intval($emple2->jerarquia)!=0 ){?>
                             <div class="empleado_cont3">
                                 <div class="img_empleado_cont">
-                                    <img src="/build/img/chef.webp" alt="">
+                                <img src="/imagenes_t/<?php echo $emple2->imagen;?>" alt="">
                                 </div>
                                 <div class="text_empleado_cont">
-                                    <h3><?php echo $emple2->nombre; ?></h3>
+                                    <h3><?php echo $emple2->nombre; ?> <?php echo $emple2->apellido; ?></h3>
                                     <p><?php echo $emple2->cargo; ?></p>
                                 </div>
                             </div>

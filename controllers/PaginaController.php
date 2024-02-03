@@ -23,7 +23,7 @@ class PaginaController{
        
         $eventos=Evento::get(4);
         $habitaciones=Habitaciones::get(2);
-        $salones=Salon::get(3);
+        $salones=Salon::get(2);
         $inicio=true;//para que aparezca el header
         $no2=true;
         $router->render('paginas/index', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
@@ -160,6 +160,18 @@ class PaginaController{
             'habitaciones'=>$habitaciones
         ]);
     }
+    public static function verPdf(Router $router){
+        $id=validarORedireccionar('/reservas-usuario');
+        $reserva=Reserva::find($id);
+        $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
+        $habitaciones=Habitaciones::all();
+        // debuguear();
+        $router->render('paginas/crearPdf', [
+            'reserva'=>$reserva,
+            'habitacionesReserva'=>$habitacionesReserva,
+            'habitaciones'=>$habitaciones
+        ]);
+    }
     public static function salon(Router $router ){
         $id=validarORedireccionar('/salones');
 
@@ -213,5 +225,34 @@ class PaginaController{
         ]);
     }
 
+    public static function reservasusu(Router $router){
+        session_start();
+        $id=$_SESSION['usuario_id'];
+        $no=true;
+        $no2=true;
+        $reservas=Reserva::reserva_hab($id);
+        $router->render('paginas/reservas-usuario', [
+            'no'=>$no,
+            'no2'=>$no2,
+            'reservas'=>$reservas
+        ]);
+    }
+
+    public static function cancelar_reserva(Router $router){
+        $no=true;
+        $no2=true;
+       
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+            $reserva=Reserva::find($id);
+            $reservahab=ReservaHabitacion::re_habitaciones_all($id);
+            foreach($reservahab as $reb){
+                $reb->eliminare();
+            }
+            $reserva->eliminare();
+
+        }
+    }
 }
 

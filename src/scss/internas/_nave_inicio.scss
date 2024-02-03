@@ -1,22 +1,25 @@
 .seccion_registrar{
-    background: #483e44;
+    background: #483e44b8;
     display: flex;
     height: 4.5rem;
     justify-content: right;
     align-items: center;
     padding-right: 14rem;
     gap: 3rem;
+    z-index: 18;
+  position: relative;
+  width: 100%;
     a{
         color: $blanco;
         display: inline-block;
         background-color: $blanco;
-        color: $rosado;
+        color: #ac1c43;
         padding: .3rem 1rem;
         border-radius: 20rem;
         font-size:1.3rem;
     }
     a:hover{
-        background-color: $rosado;
+        background-color: #ac1c43;
         color: $blanco;
         i{
             color: $blanco

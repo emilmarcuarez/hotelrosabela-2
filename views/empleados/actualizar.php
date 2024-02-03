@@ -1,4 +1,4 @@
-<main class="contenedor seccion">
+<main class="contenedor">
     <div class="espacio"></div>
     <a href="/empleados/mostrar" class="boton boton-rosado">Volver</a> 
 

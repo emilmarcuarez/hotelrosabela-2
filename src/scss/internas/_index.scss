@@ -1,13 +1,77 @@
+// panel administrativo
 
+.part_panel_administrativo2 img{
+    width: 100%;
+    height: 100%;
+}
+.part_panel_administrativo
+{
+  margin: 5rem 8rem;
+  h3{
+    text-align: center;
+  }
+}
+.cont_panel_2
+{
+  display: flex;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  img{
+    width: 8rem ;
+  }
+}
+// menu de opciones
+.btn_menu_usuario{
+    border: none;
+    background-color: #9f425a;
+    color: white;
+    padding: .7rem 2rem;
+    border-radius: 10rem;
+    &:hover{
+        transition: .2s ease-in;
+        background-color: #ac1c43;
+        cursor: pointer;
+    }
+}
+.active_menu{
+    display: block !important;
+}
+.nav_menu_bg
+{
+    display: none;
+    padding: 1rem;
+  position: absolute;
+    background-color: #9f425a;
+   border-radius: 1rem;
+  top: 4rem;
+  z-index: 9;
+  .nav_menu_usuario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    top: 13rem;
+    a{
+        color: white;
+        background-color: #9f425a;
+        &:hover{
+            transition: .2s ease-in;
+            border-radius: 1rem;
+            background-color: #95606d;
+        }
+    }
+  }
+}
 
 .f_reservas{
-    background: #483e44;
-    box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
-    -webkit-box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
-    -moz-box-shadow: 1px 19px 22px 1px rgba(72,62,68,1);
+    background: #2d292b;
+    box-shadow: 1px 19px 22px 1px #2d292b;
+    -webkit-box-shadow: 1px 19px 22px 1px #2d292b;
+    -moz-box-shadow: 1px 19px 22px 1px #2d292b;
     z-index: 2;
     position: relative;
-   }
+}
    
    .no-display{
     transition: 1s ease;
@@ -21,6 +85,9 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    // border: 2px solid #d0a3a5;
+    // border-radius: 1rem;
+    padding: 0.4rem;
   }
   .counter-row {
     display: flex;
@@ -108,6 +175,8 @@ body{
 }
 .inicio_info{
     background-color: $vinotinto;
+    margin-top: 0rem;
+//   display: block;
     .inicio_logos{
         display: flex;
         justify-content: space-evenly;
@@ -120,7 +189,17 @@ body{
         }
     }
 }
-
+#fechaEgreso, #fechaEgreso2, #fechaReserva, #fechaReserva2
+{
+  border: 2px solid #d0a3a5;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+.formulario_re .par_label input
+{
+  background-color: #2d292b;
+}
 .l_partes{
     display: flex;
     gap: 1rem;
@@ -178,7 +257,7 @@ body{
         
         }
         input{
-            background-color:#483e44;;
+            background-color:#2d292b;;
         }
     }
     
@@ -246,8 +325,8 @@ body{
 .card_padre{
     display: grid;
     gap: 2rem;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-    height: 20rem;
+    grid-template-columns: 50% 50%;
+    height: 22rem;
   
 }
 .padding_espa{
@@ -255,13 +334,10 @@ body{
 }
 .card_hija{
     // background-color: #f2f0f0;
-    height: 22rem;
     display: grid;
-    grid-template-columns: 45% 60%;
-    padding: 1rem;
-    background: #f0f0f0;
-     border-radius: 10px;
-     border: 1px solid #ccc9c9;
+  grid-template-columns: 56% 43%;
+  height: 25rem;
+  background: #fff;
     .texto_card{
         padding: 2rem;
         p{
@@ -275,6 +351,10 @@ body{
         h5{
             font-size: 1.8rem;
             color: $grisOscuro;
+            &:hover{
+                color: #ba0534;
+                transition: .2s ease-in;
+            }
         }
     }
     &:hover{
@@ -285,8 +365,7 @@ body{
 .imagen_card img
 {
   width: 100%;
-  height: 20rem;
-    border-radius: .3rem;
+  height: 25rem;
 }
 
 // salones
@@ -450,7 +529,7 @@ h4{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1.9rem;
+       
         font-weight: 700;
         p{
             font-size: 1rem;
@@ -546,9 +625,10 @@ h4{
 
 // ubicacion
 .ubicacion_fondo{
-    background-color: $vinotinto;
+    background-color: #fff;
     display: grid;
     grid-template-columns: 70% 30%;
+    border-top: 2px solid #dc143c;
     .imagen_ubi{
         img{
             width: 100%;
@@ -561,9 +641,9 @@ h4{
             align-items: center;
             gap: 1rem;
             p{
-                font-size: 5rem;
-                font-weight: 700;
-                color: $blanco;
+                font-size: 4rem;
+                font-weight: 600;
+                color: #060606;
             }
         }
     .text_ubi{
@@ -579,12 +659,323 @@ h4{
         justify-content: left;
         align-items: center;
         p{
-            color: $blanco;
+            color: #060606;
         }
         svg{
-            width: 40px;
-            height: 40px;
+            width: 20px;
+            height: 20px;
         }
     }
 }
+
+
+// areas de restaurantes
+.bg_areas{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+.areas_rest{
+    height: 40rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:5rem;
+}
+.area_rest_part{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+gap: 2rem;
+p{
+    color: #483e44;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+}
+}
+.img_area1{
+    height: 100%;
+    width: 100%;
+
+    background: url(/build/img/area1.webp);
+    // background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+    border-radius: 2rem;
+}
+.img_area2{
+    height: 100%;
+    width: 100%;
+    background: url(/build/img/area2.webp);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+border-radius: 2rem;
+}
+.img_area3{
+    height: 100%;
+    width: 100%;
+    background: url(/build/img/area3.webp);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 23px -3px rgba(0,0,0,0.75);
+border-radius: 2rem;
+}
+
+@media screen and (max-width: 900px){
+    .btn_reserva_lista{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        .boton-rosado{
+            padding: .4rem 1rem !important;
+        }
+    }
+    .inicio_info{
+        display: none;
+    }
+    .formulario_re{
+        grid-template-columns: 73%;
+    }
+    .texto_form_pre h4{
+        text-align: center;
+    }
+    .counter-row{
+        margin: 0;
+    }
+    .counter-list{
+        background-color: #393838;
+        border: none;
+        width: 31rem;
+        top: 3.7rem;
+        right: -4rem;
+    }
+    .list_plan label {
+        color: #fff;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    .counter-btn{
+        background-color: #d0a3a5;
+        border: none;
+        color: #373737;
+    }
+    .counter-input{
+        background: gray;
+  color: white;
+  border: none;
+    }
+    // habitaciones
+    .hab_part{
+        grid-template-columns: 100%;
+         height: auto;
+    }
+    .hab_part .precio_hab{
+        padding-bottom: 2rem;
+    }
+    .hab_part .info_hab .icono_info {
+        overflow: hidden;
+    }
+    .salon_fondo{
+        padding: 2rem !important;
+    }
+    .eventos_hr1 {
+        display: none;
+    }
+    .titulo_sal {
+        text-align: center;
+    }
+    .eventos_part{
+        grid-template-columns: 100%;
+        padding: 2rem;
+    }
+
+    // salones -index
+    .titulo_sal .salones_hr{
+        display: none;
+    }
+    .card_padre{
+        grid-template-columns: 100%;
+        height: auto;
+        padding: 2rem;
+    }
+    .card_hija{
+        grid-template-columns: 61% 39%;
+        height: auto;
+    }
+    .imagen_card img
+        {
+        height: 100%;
+        width: 100%;
+        }
+        .espacio_salon{
+            margin: 0rem 2rem;
+        }
+
+        // eventos -index
+        .text_titulo_ev{
+            font-size: 2.4rem !important;
+            padding: 5rem 2rem !important;
+            text-align: center !important;
+        }
+        .imagenes_cont{
+            grid-template-columns: repeat(2,1fr) !important;
+            padding: 2rem !important;
+        }
+        .imagenes_cont .img_ev_ img{
+            height: 28rem !important;
+        }
+
+        // areas-rest index
+
+        .areas_rest{
+            padding: 0rem 5rem;
+            grid-template-columns: 100%;
+            height: auto;
+        }
+        .area_rest_part{
+            height: 33rem;
+        }
+
+        // ubicacion mapa
+
+        .ubicacion_fondo{
+            grid-template-columns: 100%;
+        }
+
+        .ubicacion_fondo .info_ubi_av p{
+           color: #060606;
+           font-size: 1.5rem;
+        }
+        // footer
+        .footer_info{
+            grid-template-columns: 100%;
+        }
+        .footer .footer_todo .logo_footer{
+        width: 100%;
+        }
+
+        .contactanos_nosotros{
+            margin-top: 23rem;
+        }
+
+        // centros de consumo
+        .consumo_card .botones_consumo .reputacion
+            {
+            align-items: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            }
+            .consumo_card {
+                grid-template-columns: 100% !important;
+                gap: 2rem;
+                padding: 1rem !important;
+            }
+        .centros_consumo {
+            padding-top: 6rem;
+        }
+
+        // salones card
+        .salones_card{
+            background-color: #fff !important;
+            border-radius: 1rem !important;
+            grid-template-columns: 100% !important;
+        }
+        .salones_card .imagen_salon img{
+            height: 19rem !important;
+            width: 100% !important;
+            border-radius: 0 !important;
+        }
+        .salones h4{
+        padding-top: 6rem !important;
+        }
+
+    //    login
+
+    .seccion_login
+        {
+        margin-top: 16rem !important;
+        padding: 2rem !important;
+        }
+
+
+        // registro
+        .field_registro .r_part input, .field_registro .r_part select {
+            width: 100% !important;
+        }
+        .field_registro2 .r_part2 input{
+            width: 100% !important;
+        }
+        .field_registro2 .r_part2 select{
+            width: 100% !important;
+        }
+
+        .contenedor.seccion_slogin{
+            padding: 2rem;
+        }
+
+        .field_registro{
+            grid-template-columns: 100% !important;
+        }
+        .field_registro2{
+            grid-template-columns: 100% !important;
+        }
+
+        .precio_hab_p{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            gap: 4rem;
+        }
+}
+.login_usu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+ 
+
+.map-responsive{
+
+    overflow:hidden;
+
+    padding-bottom:56.25%;
+
+    position:relative;
+
+    height:0;
+
+}
+
+.map-responsive iframe{
+
+    left:0;
+
+    top:0;
+
+    height:100%;
+
+    width:100%;
+
+    position:absolute;
+
+}
+ 
 

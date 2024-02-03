@@ -66,9 +66,6 @@
                         <input type="text" name="nro_telefono" placeholder="+58 414-7678192" id="nro_telefono" require>
                     </div>
                     <div class="r_part2">
-
-                    </div>
-                    <div class="r_part2">
                         <label for="pais">Pais</label>
                         <br>
                         <select name="pais" id="countries-list">

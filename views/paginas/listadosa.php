@@ -1,6 +1,7 @@
 <div class="salones_cont">
+<div class="card_padre">
 <?php foreach($salones as $salon):?>
-    <div class="card_padre">
+    
         <div class="card_hija">
             <div class="imagen_card">
                 <img src="/imagenes_s/<?php echo $salon->imagen?>" alt="imagen del salon">
@@ -13,6 +14,7 @@
                 <p class="descripcion"> <?php echo $salon->descripcion ?></p>
             </div>
         </div>
-    </div>
+
     <?php endforeach; ?>
+    </div>
 </div>

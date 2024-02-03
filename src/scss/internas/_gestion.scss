@@ -1,0 +1,37 @@
+.formulario_usuario_act{
+    margin-top: 4rem;
+    h4{
+        span{
+            font-style: italic;
+        }
+        color: hsl(324, 7%, 26%);
+    }
+    p{
+        font-size: 1.5rem;
+        color: $grisOscuro;
+    }
+    fieldset{
+        border: 2px solid #c7c1c5;
+        border-radius: 9px;
+        margin-top: 2rem;
+        background-color:hsla(317.1, 28%, 85.3%, 0.25) ;
+    }
+
+    button{
+        border: none;
+        padding: 1rem 2rem;
+        background-color: $rosado;
+        color: $blanco;
+        margin-top: 3rem;
+        margin-bottom: 6rem;
+        border-radius: .7rem;
+        &:hover{
+            cursor: pointer;
+            color: $rosado;
+            background-color: white;
+            border: 1px solid $rosado;
+            transition: .3s ease-in;
+        }
+    }
+    
+}

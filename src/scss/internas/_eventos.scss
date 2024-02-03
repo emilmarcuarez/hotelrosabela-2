@@ -109,3 +109,11 @@
     }
 }
 
+@media screen and (max-width: 900px){
+   
+ // eventos
+    .evento_proximo{
+        grid-template-columns: 100%;
+        padding: 0rem 2rem 7rem 2rem;
+    }
+}

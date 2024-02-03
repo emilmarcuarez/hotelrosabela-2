@@ -1,3 +1,26 @@
+// menu respondive
+document.getElementById("btn_menu").addEventListener("click", mostrar_menu);
+
+document.getElementById("back_menu").addEventListener("click", ocultar_menu);
+
+nav = document.getElementById("nav");
+background_menu = document.getElementById("back_menu");
+
+function mostrar_menu(){
+
+    nav.style.right = "0px";
+    background_menu.style.display = "block";
+}
+
+function ocultar_menu(){
+
+    nav.style.right = "-250px";
+    background_menu.style.display = "none";
+}
+
+
+
+
 // AJAX
 
 // intento2
@@ -67,52 +90,151 @@ if(document.querySelector(".typing-area")){
 	}
 }
 
-  
+if(document.querySelector(".nav_menu_bg")){
+	const menu_div=document.querySelector(".nav_menu_bg");
+const btn_menu_opciones=document.querySelector("#menu_usuario");
+
+btn_menu_opciones.addEventListener("click", () => {
+	menu_div.classList.toggle("active_menu");
+  });
+}
+
 // la parte de gestion de usuario
+if(document.querySelector(".formulario_usuario_act")){
+	const form_gestion = document.querySelector(".formulario_usuario_act"),
+	id_usuario_act = form_gestion.querySelector(".id_usuario_act").value,
+	nombre_id = form_gestion.querySelector("#nombre_id"),
+	fecha_id = form_gestion.querySelector("#fecha_id"),
+	apellido_id = form_gestion.querySelector("#apellido_id"),
+	sexo_id = form_gestion.querySelector("#sexo_id"),
+	cedula_id = form_gestion.querySelector("#identificacion_id"),
+	nro_telefono_id = form_gestion.querySelector("#nro_telefono_id"),
+	pais_id = form_gestion.querySelector("#countries-list"),
+	estado_id = form_gestion.querySelector("#estado_id"),
+	ciudad_id = form_gestion.querySelector("#ciudad_id"),
+	direccion_id = form_gestion.querySelector("#direccion_id"),
+	c_postal_id = form_gestion.querySelector("#c_postal_id"),
+	email_id = form_gestion.querySelector("#email_id"),
+	contrasenia = form_gestion.querySelector("#contarsenia_id"),
+	sendBtn2 = form_gestion.querySelector("button");
 
-const form_gestion = document.querySelector(".formulario_usuario_act"),
-id_usuario_act = form_gestion.querySelector(".usuario_id").value,
-inputField = form_gestion.querySelector(".input-field"),
-inputField = form_gestion.querySelector(".input-field"),
-inputField = form_gestion.querySelector(".input-field"),
-inputField = form_gestion.querySelector(".input-field"),
-sendBtn = form_gestion.querySelector("button"),
+
+	form_gestion.onsubmit = (e)=>{
+		e.preventDefault();
+	}
+
+	// inputField.focus();
 
 
-form.onsubmit = (e)=>{
-    e.preventDefault();
+	sendBtn2.onclick = ()=>{
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/actualizar-usuario", true);
+		xhr.onload = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				Swal.fire({
+					position: "top-end",
+					icon: "success",
+					title: "Sus datos han sido actualizados con exito",
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}else{
+				Swal.fire({
+					icon: 'info',
+					title: 'Revise su conexion a internet',
+					text: 'No se actualizaron sus datos, por favor, intente mas tarde.'
+				})
+			}
+		}
+		}
+		let formData = new FormData(form_gestion);
+		xhr.send(formData);
+	}
 }
 
-inputField.focus();
-inputField.onkeyup = ()=>{
-    if(inputField.value != ""){
-        sendBtn.classList.add("active");
-    }else{
-        sendBtn.classList.remove("active");
-    }
+if(document.querySelector(".form_eliminar_reserva")){
+	const form_eliminar_reserva = document.querySelector(".form_eliminar_reserva"),
+	id = form_eliminar_reserva.querySelector("#id_reserva2").value,
+	sendBtn3 = form_eliminar_reserva.querySelector("button");
+
+	form_eliminar_reserva.onsubmit = (e)=>{
+		e.preventDefault();
+	}
+
+	// inputField.focus();
+
+
+	sendBtn3.onclick = ()=>{
+		const swalWithBootstrapButtons = Swal.mixin({
+			customClass: {
+			  confirmButton: "btn btn-success",
+			  cancelButton: "btn btn-danger"
+			},
+			buttonsStyling: false
+		  });
+		Swal.fire({
+			title: "¿Estas seguro de eliminar la reserva?",
+			text: "No podras revertir esto",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonText: "Si, eliminar.",
+ 			 cancelButtonText: "No, mejor no",
+			  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+			  reverseButtons: true
+			
+		  }).then((result) => {
+					if (result.isConfirmed) {
+						let xhr = new XMLHttpRequest();
+				xhr.open("POST", "/cancelar_reserva", true);
+				xhr.onload = ()=>{
+				if(xhr.readyState === XMLHttpRequest.DONE){
+					if(xhr.status === 200){
+						Swal.fire({
+							position: "top-end",
+							icon: "success",
+							title: "La reserva ha sido eliminada con exito",
+							showConfirmButton: false,
+							timer: 1500
+						}).then( () => {
+							setTimeout(() => {
+								window.location.reload();
+							}, 2000);
+						})
+					}else{
+						Swal.fire({
+							icon: 'info',
+							title: 'Revise su conexion a internet',
+							text: 'No se elimino la reserva. Por favor, intente mas tarde.'
+						})
+					}
+				}
+				}
+				let formData = new FormData(form_eliminar_reserva);
+				xhr.send(formData);
+			}else if (
+				result.dismiss === Swal.DismissReason.cancel
+			  ) {
+				Swal.fire({
+				  title: "Operacion cancelada",
+				  text: "Su reserva no ha sido cancelada",
+				  icon: "error"
+				});
+			  }
+			});
+		}
 }
 
-sendBtn.onclick = ()=>{
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/chat", true);
-    xhr.onload = ()=>{
-      if(xhr.readyState === XMLHttpRequest.DONE){
-          if(xhr.status === 200){
-              inputField.value = "";
-              scrollToBottom();
-          }
-      }
-    }
-    let formData = new FormData(form);
-    xhr.send(formData);
-}
-chatBox.onmouseenter = ()=>{
-    chatBox.classList.add("active");
-}
 
-chatBox.onmouseleave = ()=>{
-    chatBox.classList.remove("active");
-}
+
+// chatBox.onmouseenter = ()=>{
+//     chatBox.classList.add("active");
+// }
+
+// chatBox.onmouseleave = ()=>{
+//     chatBox.classList.remove("active");
+// }
 
 
 
@@ -187,21 +309,31 @@ if(document.getElementById('fechaReserva2')){
 	fechaEgresoInput.min = formattedFechaEgreso;
 	});
 }
-
+if(document.querySelector('#fechaReserva2')){
+	const fechaReserva=document.querySelector('#fechaReserva2');
+const fechaEgreso=document.querySelector('#fechaEgreso2');
+fechaReserva.min = new Date().toISOString().split("T")[0];
+fechaEgreso.min = fechaReserva.value;
+fechaReserva.addEventListener('input', function(){
+  fechaEgreso.min = fechaReserva.value;
+})
+}
 
 
 document.addEventListener('DOMContentLoaded', function() {
 	eventListeners();
 	limitarCaracteres();
 	iniciarApp();
-
-	const fechaReserva=document.querySelector('#fechaReserva2');
+	if(document.querySelector('#fechaReserva2')){
+		const fechaReserva=document.querySelector('#fechaReserva2');
 	const fechaEgreso=document.querySelector('#fechaEgreso2');
 	fechaReserva.min = new Date().toISOString().split("T")[0];
 	fechaEgreso.min = fechaReserva.value;
-	// fechaReserva.addEventListener('input', function(){
-	//   fechaEgreso.min = fechaReserva.value;
-	// })
+	fechaReserva.addEventListener('input', function(){
+	  fechaEgreso.min = fechaReserva.value;
+	})
+	}
+	
   
   }); 
 var  cantidadTotalHabitaciones='';
@@ -223,37 +355,40 @@ var  cantidadTotalHabitaciones='';
 }
 
 // MODAL
+if(document.getElementById('abrir_modal')){
+	let modal2 = document.getElementById('miModal2');
+	let flex2 = document.getElementById('flex2');
+	let abrir2=document.getElementById('abrir_modal');
+	let cerrar2 = document.getElementById('close2');
+	abrir2.addEventListener('click', function(){
+		modal2.style.display = 'block';
+		modal2.style.zIndex=5;
+	});
 
-let modal2 = document.getElementById('miModal2');
-let flex2 = document.getElementById('flex2');
-let abrir2=document.getElementById('abrir_modal');
-let cerrar2 = document.getElementById('close2');
-abrir2.addEventListener('click', function(){
-    modal2.style.display = 'block';
-	modal2.style.zIndex=5;
-});
+	cerrar2.addEventListener('click', function(){
+		modal2.style.display = 'none';
+	});
 
-cerrar2.addEventListener('click', function(){
-    modal2.style.display = 'none';
-});
+	window.addEventListener('click', function(e){
+		// console.log(e.target);
+		if(e.target == flex){
+			modal.style.display = 'none';
+		}
+	});
+}
 
-window.addEventListener('click', function(e){
-    // console.log(e.target);
-    if(e.target == flex){
-        modal.style.display = 'none';
-    }
-});
 let modal = document.getElementById('miModal');
 let flex = document.getElementById('flex');
 // let abrir=document.getE
-let cerrar = document.getElementById('close');
-// abrir.addEventListener('click', function(){
-//     modal.style.display = 'block';
-// });
+if(document.getElementById('close')){
+	let cerrar = document.getElementById('close');
 
-cerrar.addEventListener('click', function(){
-    modal.style.display = 'none';
-});
+
+	cerrar.addEventListener('click', function(){
+		modal.style.display = 'none';
+	});
+}
+
 
 
 // consultar Api
@@ -265,7 +400,7 @@ async function consultarApi(){
         const adultos = urlParams.get('adultos');
         const fecha_i = urlParams.get('fechaReserva');
         const fecha_e = urlParams.get('fechaEgreso');
-        const url = 'http://localhost:3000/api/servicios';
+        const url = '/api/servicios';
         const resultado = await fetch(url);
         const habitaciones = await resultado.json();
 		reserva_cant.cant=0;
@@ -465,20 +600,48 @@ function seleccionarHabitacion2(habitacion){
    let textCantidad=document.createElement('p');
    textCantidad.textContent='Habitaciones con desayuno incluido:';
    let inputCantidad=document.createElement('input');
-   inputCantidad.type='number';
-//    inputCantidad.setAttribute('')
-   inputCantidad.addEventListener('input', function () {
+    inputCantidad.setAttribute('id', 'cant_desayuno');
+   inputCantidad.type='text';
+   inputCantidad.value=0;
+   // Inhabilitar el input
+	inputCantidad.disabled = true;
+   let btn_cant=document.createElement('button');
+   btn_cant.type='button';
+   btn_cant.classList.add('counter-btn');
+   btn_cant.setAttribute('onclick', "incrementar3('cant_desayuno')");
+   btn_cant.textContent='+';
+   let btn_cant2=document.createElement('button');
+   btn_cant2.type='button';
+   btn_cant2.classList.add('counter-btn');
+   btn_cant2.setAttribute('onclick', "decrementar3('cant_desayuno')");
+   btn_cant2.textContent='-';
+   
+   inputCantidad.addEventListener('change', function () {
 	   re_habitacion.cantidad_d = parseInt(inputCantidad.value) || 0;
 	});
+	let btn_cant3=document.createElement('button');
+	btn_cant3.type='button';
+	btn_cant3.classList.add('counter-btn');
+	btn_cant3.setAttribute('onclick', "incrementar3('cant_sdesayuno')");
+	btn_cant3.textContent='+';
    let textCantidad2=document.createElement('p');
    textCantidad2.textContent='Habitaciones sin desayuno';
    let inputCantidad2=document.createElement('input');
-   inputCantidad2.type='number';
+   inputCantidad2.type='text';
+   inputCantidad2.setAttribute('id', 'cant_sdesayuno');
+   inputCantidad2.value=0;
+   // Inhabilitar el input
+inputCantidad2.disabled = true;
+   let btn_cant4=document.createElement('button');
+   btn_cant4.type='button';
+   btn_cant4.classList.add('counter-btn');
+   btn_cant4.setAttribute('onclick', "decrementar3('cant_sdesayuno')");
+   btn_cant4.textContent='-';
 //    if(indexprueba!==-1 && reserva.[]){
 // 		inputCantidad2.value=re_habitacion.cantidad_s;
 //    }
    
-   inputCantidad2.addEventListener('input', function () {
+   inputCantidad2.addEventListener('change', function () {
 	   re_habitacion.cantidad_s = parseInt(inputCantidad2.value) || 0;
 	   
 	});
@@ -486,11 +649,28 @@ function seleccionarHabitacion2(habitacion){
    const seleccionar_hab_p = document.createElement('DIV');
    seleccionar_hab_p.classList.add('seleccionar_hab_p');
    seleccionar_hab_p.textContent='Seleccionar';
+   const seleccionar_numeros = document.createElement('DIV');
+   seleccionar_numeros.classList.add('seleccionar_numeros');
+   seleccionar_numeros.appendChild(btn_cant);
+   seleccionar_numeros.appendChild(inputCantidad);
+   seleccionar_numeros.appendChild(btn_cant2);
+
+   const seleccionar_numeros2 = document.createElement('DIV');
+   seleccionar_numeros2.classList.add('seleccionar_numeros');
+   seleccionar_numeros2.appendChild(btn_cant3);
+   seleccionar_numeros2.appendChild(inputCantidad2);
+   seleccionar_numeros2.appendChild(btn_cant4);
 
    modal_body.appendChild(textCantidad);
-   modal_body.appendChild(inputCantidad);
+   modal_body.appendChild(seleccionar_numeros);
+//    modal_body.appendChild(btn_cant);
+//    modal_body.appendChild(inputCantidad);
+//    modal_body.appendChild(btn_cant2);
    modal_body.appendChild(textCantidad2);
-   modal_body.appendChild(inputCantidad2);
+   modal_body.appendChild(seleccionar_numeros2);
+//    modal_body.appendChild(btn_cant3);
+//    modal_body.appendChild(inputCantidad2);
+//    modal_body.appendChild(btn_cant4);
    modal_body.appendChild(seleccionar_hab_p);
    let abrir = document.getElementById(`abrir${id}`);
    modal.style.display = 'block';
@@ -515,10 +695,13 @@ function validarCantidad(){
 		return true;
 	}
 }
-function validarCantidadTotal(ult) {
+function validarCantidadTotal(ult,valida) {
 	let cantidadTotalHabitaciones=0;
 	cantidadTotalHabitaciones=reserva.cantidad;
 	console.log('la cantidad actual: '+reserva_cant.cant );
+	if(valida===2){
+		reserva_cant.cant-=ult;
+	}
 	if (reserva_cant.cant > parseInt(cantidadTotalHabitaciones)) {
 		// Limitar las cantidades para que no superen la cantidad total
 		Swal.fire({
@@ -541,10 +724,15 @@ function validarCantidadTotal(ult) {
 		paso = 2;
 		mostrarSeccion();
 	}
+	if(reserva_cant.cant<0){
+		reserva_cant.cant=0;
+		console.log('la cantidad actual PERO AHORA: '+reserva_cant.cant );
+	}
 }
 function seleccionarHabitacion(habitacion,re_habitacion){
 		const { id } = habitacion;
 		let ult=0;
+		let valida=0;
 		const { nombre } = habitacion;
 		const { habitaciones, habitaciones_re } = reserva;
 
@@ -559,17 +747,19 @@ function seleccionarHabitacion(habitacion,re_habitacion){
 				console.log('index: '+indexprueba);
 				if(indexprueba!==-1){
 					console.log(habitaciones_re[indexprueba]);
-					if(isNaN(reserva.habitaciones_re[indexprueba].cantidad_s) && parseInt(reserva.habitaciones_re[indexprueba].cantidad_d)){
+					if((reserva.habitaciones_re[indexprueba].cantidad_s===0) && reserva.habitaciones_re[indexprueba].cantidad_d!==0){
 						console.log('if1');
-						reserva_cant.cant = reserva_cant.cant-habitaciones_re[indexprueba].cantidad_d;
-				}else if(reserva.habitaciones_re[indexprueba].cantidad_s && !reserva.habitaciones_re[indexprueba].cantidad_d){
+									reserva_cant.cant = reserva_cant.cant-habitaciones_re[indexprueba].cantidad_d;
+				
+				}else if(reserva.habitaciones_re[indexprueba].cantidad_s!==0 && reserva.habitaciones_re[indexprueba].cantidad_d===0){
 					console.log('if2');
 					reserva_cant.cant -= parseInt(reserva.habitaciones_re[indexprueba].cantidad_s);
-				}else if(reserva.habitaciones_re[indexprueba].cantidad_s && reserva.habitaciones_re[indexprueba].cantidad_d){
+				}else if(reserva.habitaciones_re[indexprueba].cantidad_s!==0 && reserva.habitaciones_re[indexprueba].cantidad_d!==0){
 					console.log('if3');
 					reserva_cant.cant -= parseInt(reserva.habitaciones_re[indexprueba].cantidad_s)+parseInt(reserva.habitaciones_re[indexprueba].cantidad_d);
 				}else{
 					console.log('no entraron a los ifs: '+reserva.habitaciones_re[indexprueba].cantidad_s + reserva.habitaciones_re[indexprueba].cantidad_d)
+					
 				}
 			}
 				reserva.habitaciones = habitaciones.filter( agregado => agregado.id !== id );
@@ -593,26 +783,68 @@ function seleccionarHabitacion(habitacion,re_habitacion){
 						reserva_cant.cant += parseInt(re_habitacion.cantidad_d);
 						
 					  }
-				  if(validarCantidad()){
-
-					
-					reserva.habitaciones = [...habitaciones, habitacion];
-					reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
-					
-					divServicio.classList.add('seleccionado');
-					console.log('seleccionadoo');
-					console.log(re_habitacion.cantidad_s);
-					console.log(re_habitacion.cantidad_d);
-					console.log('----------------');
 					}
-				}
-				   
+				  if(validarCantidad()){
+					valida=0;
+					console.log('seleccionadoo');
+						console.log(re_habitacion.cantidad_s);
+						console.log(re_habitacion.cantidad_d);
+						console.log('----------------');
+					if(re_habitacion.cantidad_d!==0 && re_habitacion.cantidad_s!==0){
+						reserva.habitaciones = [...habitaciones, habitacion];
+						reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
+						
+						divServicio.classList.add('seleccionado');
+						console.log('seleccionadoo');
+						console.log(re_habitacion.cantidad_s);
+						console.log(re_habitacion.cantidad_d);
+						console.log('----------------');
+						valida=1;
+						}
+					
+					if(re_habitacion.cantidad_s!==0 && re_habitacion.cantidad_d===0 ){
+						// re_habitacion.cantidad_d=0;
+						reserva.habitaciones = [...habitaciones, habitacion];
+						reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
+						
+						divServicio.classList.add('seleccionado');
+						console.log('seleccionadoo');
+						console.log(re_habitacion.cantidad_s);
+						console.log(re_habitacion.cantidad_d);
+						console.log('----------------');
+						valida=1;
+					}
+					if(re_habitacion.cantidad_d!==0 && re_habitacion.cantidad_s===0){
+						// re_habitacion.cantidad_s=0;
+						reserva.habitaciones = [...habitaciones, habitacion];
+						reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
+						
+						divServicio.classList.add('seleccionado');
+						console.log('seleccionadoo');
+						console.log(re_habitacion.cantidad_s);
+						console.log(re_habitacion.cantidad_d);
+						console.log('----------------');
+						valida=1;
+					} 
+					if((isNaN(re_habitacion.cantidad_s) && isNaN(re_habitacion.cantidad_d)) || (re_habitacion.cantidad_s===0 && re_habitacion.cantidad_d===0)){
+						// mostrar un aviso que no se selecciono porque ambos espacios estan en nulo
+					
+						Swal.fire({
+							icon: 'info',
+							title: 'Por favor, ingrese una cantidad valida',
+							text: 'No puede seleccionar una habitacion hasta indicar cuantas quiere con desayuno o sin desayuno'
+						})
+						valida=2;
+
+					}
 
 			}
 			
-			validarCantidadTotal(ult);
+			
+	}
+	validarCantidadTotal(ult,valida);
 
-			mostrarResumen();
+	mostrarResumen();
 }
 // Función para ocultar el aviso después de 6 segundos
 
@@ -620,6 +852,12 @@ function seleccionarHabitacion(habitacion,re_habitacion){
   function mostrarSeccion(){
 	// ocultar la seccion que tenga la clase de mostrar
    // ocultar la seccion que tenga la clase de mostrar
+   let tab2=document.querySelector('.tabs');
+   if(paso===3){
+	tab2.classList.add("esconder_tabs");
+   }else{
+	tab2.classList.remove("esconder_tabs");;
+   }
    const seccionAnterior = document.querySelector('.mostrar');
    if (seccionAnterior) {
 	   seccionAnterior.classList.remove('mostrar');
@@ -670,7 +908,9 @@ function seleccionarHora(){
         
     });
 }
+function finalreserva(){
 
+}
 function mostrarResumen(){
 	const resumen = document.querySelector('.contenido-resumen');
 	const boton_reserva = document.querySelector('.boton-reserva');
@@ -722,17 +962,34 @@ function mostrarResumen(){
 			const{id_habitacion, cantidad_d, cantidad_s}=habitacionr;
 			if(parseInt(id_habitacion)===parseInt(id)){
 				
-				const cantidads = document.createElement('P');
-				cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). USD ${preciosd} Cada una`;
-				const cantidadd = document.createElement('P');
 				
-				cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). USD ${preciocd} Cada una`;
+				if(!isNaN(cantidad_s) && cantidad_s!== 0){
+					// if(cantidad_s!== 0){
+							const cantidads = document.createElement('P');
+					let preciocant=0;
+					preciocant=cantidad_s*preciosd;
+					cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
+					contenedorHabitacion.appendChild(cantidads);
+					reserva.monto=reserva.monto+(parseFloat(preciosd)*parseFloat(cantidad_s));
+					// }
 				
-				reserva.monto=reserva.monto+(parseFloat(preciocd)*parseFloat(cantidad_d));
-				reserva.monto=reserva.monto+(parseFloat(preciosd)*parseFloat(cantidad_s));
-
-				contenedorHabitacion.appendChild(cantidads);
-				contenedorHabitacion.appendChild(cantidadd);
+					// contenedorHabitacion.appendChild(cantidads);
+				}else{
+					habitacionr.cantidad_s=0;
+				}
+				if(!isNaN(cantidad_d) && cantidad_d!== 0){
+					// if(cantidad_d!== 0){
+					const cantidadd = document.createElement('P');
+					let preciocant2=0;
+					preciocant2=cantidad_d*preciocd;
+					cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). <br> Total: USD ${preciocant2} por noche`;
+					reserva.monto=reserva.monto+(parseFloat(preciocd)*parseFloat(cantidad_d));
+					contenedorHabitacion.appendChild(cantidadd);
+					// }
+				}else{
+					habitacionr.cantidad_d=0;
+				}			
+				
 			}
 		});
         resumen.appendChild(contenedorHabitacion);
@@ -749,15 +1006,35 @@ function mostrarResumen(){
     botonReservar.classList.add('btn_reservar');
     botonReservar.textContent = 'Enviar reserva';
     botonReservar.onclick = reservarHabitacion   // resumen.appendChild(nombreCliente);
-    // resumen.appendChild(fechaCita);
-    // resumen.appendChild(horaCita);
+
+// formatear fecha ingreso:
+    // Formatear la fecha en español
+    const fechaObj = new Date(fecha_i);
+    const mes = fechaObj.getMonth();
+    const dia = fechaObj.getDate() + 2;
+    const year = fechaObj.getFullYear();
+
+    const fechaUTC = new Date( Date.UTC(year, mes, dia));
+    
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
+    const fechaFormateada = fechaUTC.toLocaleDateString('es-MX', opciones);
+// formatear fecha de salida:
+const fechaObj2 = new Date(fecha_e);
+    const mes2 = fechaObj2.getMonth();
+    const dia2 = fechaObj2.getDate() + 2;
+    const year2 = fechaObj2.getFullYear();
+
+    const fechaUTC2 = new Date( Date.UTC(year2, mes2, dia2));
+    
+    const opciones2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
+    const fechaFormateada2 = fechaUTC2.toLocaleDateString('es-MX', opciones2);
 
 	const fecha_parrafo_i=document.createElement('P');
 	fecha_parrafo_i.classList.add('fecha_parrafo_i');
-	fecha_parrafo_i.innerHTML=` <span>ENTRADA:</span> ${fecha_i}`;
+	fecha_parrafo_i.innerHTML=` <span>ENTRADA:</span> ${fechaFormateada}`;
 	const fecha_parrafo_e=document.createElement('P');
 	fecha_parrafo_e.classList.add('fecha_parrafo_e');
-	fecha_parrafo_e.innerHTML=`<span>SALIDA:</span> ${fecha_e}`;
+	fecha_parrafo_e.innerHTML=`<span>SALIDA:</span> ${fechaFormateada2}`;
 	const adultos_parrafo=document.createElement('P');
 	adultos_parrafo.classList.add('adultos_parrafo');
 	adultos_parrafo.innerHTML=`<span>ADULTOS: </span>(${adultos})`;
@@ -775,11 +1052,10 @@ function mostrarResumen(){
     boton_reserva.appendChild(botonReservar);
 }
 function uuidv4() {
-	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-	  var r = Math.random() * 16 | 0,
-		  v = c == 'x' ? r : (r & 0x3 | 0x8);
-	  return v.toString(16);
-	});
+
+	return 'xxxxxxxxxxxx4xxx'.replace(/[x]/g, function() {
+		return Math.floor(Math.random() * 10); // Números del 0 al 9
+	  });
   }
 async function reservarHabitacion(){
 	
@@ -813,7 +1089,7 @@ async function reservarHabitacion(){
     });
 	console.log(reserva);
 	reserva.codigo = codigo2;
-	if((Object.values(reserva).includes('') || reserva.habitaciones.length === 0 )) {
+	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
 		Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -824,7 +1100,7 @@ async function reservarHabitacion(){
     }else{ 
     try {
         // Petición hacia la api
-        const url = 'http://localhost:3000/api/reservas'
+        const url = '/api/reservas'
         const respuesta = await fetch(url, {
             method: 'POST',
             body: datos
@@ -843,11 +1119,12 @@ async function reservarHabitacion(){
                 button: 'OK'
             })
 			
-			// .then(() => {
-            //     setTimeout(() => {
-            //         window.location.reload();
-            //     }, 3000);
-            // });
+			.then(() => {
+                setTimeout(() => {
+                    paso=3;
+					mostrarSeccion();
+                }, 3000);
+            });
         }
     } catch (error) {
         Swal.fire({
@@ -893,12 +1170,24 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 	botones.forEach(boton=>{
 		boton.addEventListener('click',function(e){
 			paso=parseInt(e.target.dataset.paso);
-			mostrarSeccion();
-			// botonesPaginas();
-
-			if(paso===3){
-				mostrarResumen();
+			if(paso===2 && reserva_cant.cant!==parseInt(reserva.cantidad) || (paso===3 && reserva_cant.cant!==parseInt(reserva.cantidad) )){
+				paso=1;
+				mostrarSeccion();
+				Swal.fire({
+					icon: 'info',
+					title: 'Seleccione las habitaciones',
+					text: `Por favor, seleccione las (${reserva.cantidad}) habitaciones para habilitar el paso 2`
+				})
+			}else{
+				
+				if(paso===2){
+					mostrarResumen();
+					mostrarSeccion();
+				}else if(paso===1){
+					mostrarSeccion();
+				}
 			}
+			
 		})
 	});
   }
@@ -972,7 +1261,7 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
     let inputElement3 = document.getElementById('habitaciones3');
     let cantidad = parseInt(inputElement.value);
 
-    if (tipo === 'habitaciones3' || tipo === 'adultos2') {
+    if (tipo === 'habitaciones3') {
       inputElement2.value = cantidad + 1;
       inputElement3.value = cantidad + 1;
     } else {
@@ -987,14 +1276,33 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
     let inputElement3 = document.getElementById('habitaciones2');
     let cantidad = parseInt(inputElement.value);
 
-    if (tipo === 'habitaciones2' || tipo === 'adultos') {
+    if (tipo === 'habitaciones2') {
       inputElement2.value = cantidad + 1;
       inputElement3.value = cantidad + 1;
     } else {
       inputElement.value = cantidad + 1;
     }
+	// if(tipo==='adultos'){
+	// 	let cantidadprueba= inputElement3.value*
+	// 	if(){
 
+	// 	}
+	// }
     asignarValores2();
+  }
+
+//   incrementar del modal
+  function incrementar3(tipo) {
+    let inputElement = document.getElementById(tipo);
+
+		inputElement.value = parseInt(inputElement.value) + 1;
+  }
+  function decrementar3(tipo) {
+    let inputElement = document.getElementById(tipo);
+		if(inputElement.value>0){
+			inputElement.value = parseInt(inputElement.value) - 1;
+		}
+		
   }
 
   function decrementar(tipo) {
@@ -1034,10 +1342,10 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
     var ninosElement = document.getElementById('ninos2');
     var fechaReserva = document.getElementById('fechaReserva2');
     var fechaEgreso = document.getElementById('fechaEgreso2');
-   
+   let id_usuario_valor=document.getElementById('id_usuario_valor');
 
 	enlaceReserva.onclick = function(){
-		if(parseInt(habitacionesElement.value)!==0 && parseInt(adultosElement.value)!==0 && parseInt(ninosElement.value)!==0 && fechaReserva.value!=='' && fechaEgreso.value!==''){
+		if(parseInt(habitacionesElement.value)!==0 && parseInt(adultosElement.value)!==0 && fechaReserva.value!=='' && fechaEgreso.value!=='' & id_usuario_valor.value!==''){
 			detalleReserva.innerHTML = `${adultosElement.value} adultos · ${ninosElement.value} niños · ${habitacionesElement.value} habitaciones`;
 				
 				enlaceReserva.href = `/habitaciones_s?adultos=${adultosElement.value}&ninos=${ninosElement.value}&habitaciones=${habitacionesElement.value}&fechaEgreso=${fechaEgreso.value}&fechaReserva=${fechaReserva.value}`;
@@ -1045,7 +1353,7 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Error',
-				text: 'Completa todos los campos'
+				text: 'Completa todos los campos y recuerde iniciar sesion primero'
 			})
 		}
    }

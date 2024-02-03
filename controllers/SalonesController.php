@@ -9,18 +9,21 @@ class SalonesController{
  
     public static function index(Router $router){
         $salones=Salon::all();
-    
+        $no2=true;
+            $no=true;
         $resultado = $_GET['resultado'] ?? null;
      
         $router->render('salones/mostrar',[
             'salones'=>$salones,
-            'resultado' =>$resultado
+            'resultado' =>$resultado,
+            'no'=>$no,
+            'no2'=>$no2,
         ]);
 }
 public static function crear(Router $router){
+    $no2=true;
+    $no=true;
    
-   
-   $no=true;
    // ARREGLO CON MENSAJE DE ERRORES
    
     $errores = Salon::getErrores();
@@ -63,13 +66,15 @@ public static function crear(Router $router){
     // render es metodo para crear una vista
     $router->render('salones/crear',[
         'salon'=>$salon,
-        'no'=>$no
+        'no'=>$no,
+        'no2'=>$no2
     ]);
 }
 public static function actualizar(Router $router){
     // redireccionar al admin
     $id= validarORedireccionar("/admin");
-    $no=true;
+    $no2=true;
+     $no=true;
     $salon=Salon::find($id);
     $errores=Salon::getErrores();
 
@@ -108,7 +113,9 @@ if (empty($errores)) { //en caso de que este vacio
     // pasar a la vista
     $router->render('/salones/actualizar',[
         'salon'=>$salon,
-        'errores'=>$errores
+        'errores'=>$errores,
+        'no'=>$no,
+        'no2'=>$no2
     ]);
 }
 public static function eliminar(){

@@ -7,8 +7,8 @@ if(!isset($_SESSION)){
 
 $auth=$_SESSION['login'] ?? false;
 $auth2=$_SESSION['login_pag'] ?? false;
-$nombre= $_SESSION['usuario_name'];
-$sexo= $_SESSION['usuario_sexo'];
+// $nombre= $_SESSION['usuario_name'];
+// $sexo= $_SESSION['usuario_sexo'];
 if(!isset($inicio)){
     $inicio =false;
 }
@@ -33,17 +33,22 @@ if(!isset($inicio)){
 
     <header class="header">
         <div class="header_cont contenedor">
-            <nav class="navegacion">
-                <a href="/"><img src="/build/img/logopng.webp" alt="logo"></a>
-                <a href="/nosotros">Nosotros</a>
-                <a href="/habitaciones">Habitaciones</a>
-                <a href="/centros">Centros de consumo</a>
-                <a href="/salones">Salones</a>
-                <a href="/eventos">Eventos</a>
-                <a href="/empleados">Empleados</a>
-                <a href="/contacto">Contacto</a>
-            </nav>
-            
+            <a href="/"><img src="/build/img/logopng.webp" alt="logo"></a>
+            <div class="menu">
+                <i class="fas fa-bars" id="btn_menu"></i>
+                <!-- <a href="/"><img src="/build/img/logopng.webp" alt="logo"></a> -->
+                    <div id="back_menu"></div>
+                        <nav class="navegacion" id="nav">
+                                
+                                <a href="/nosotros">Nosotros</a>
+                                <a href="/habitaciones">Habitaciones</a>
+                                <a href="/centros">Centros de consumo</a>
+                                <a href="/salones">Salones</a>
+                                <a href="/eventos">Eventos</a>
+                                <a href="/empleados">Empleados</a>
+                                <a href="/contacto">Contacto</a>
+                            </nav>
+            </div>    
         </div>
     </header>
     <section class="seccion_registrar <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
@@ -58,11 +63,14 @@ if(!isset($inicio)){
                     <a href="https://twitter.com/hotelrosabela?lang=es"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
-            <?php if(!$auth2){?>
-                    <a href="/loginusuario">Iniciar sesion</a>
+            <?php if(!$auth2 && !$auth){?>
+                <div class="login_usu">
+                     <a href="/loginusuario">Iniciar sesion</a>
                     <a href="/siginusuario">Registrar</a>
+                </div>
+                  
                 <?php }else{?>
-
+                    <?php if(!$auth){?>
                         <?php if($sexo==="F"){ ?>
                             <p>Bienvenida <?php echo $nombre; ?></p>
                             <?php }else if($sexo==="M"){?>
@@ -70,7 +78,19 @@ if(!isset($inicio)){
                         <?php }else{?>
                             <p>Bienvenid@ <?php echo $nombre; ?></p>
                         <?php }?>
+                        
+                        <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> Opciones</button>
+                       
+                       <div class="nav_menu_bg">
+                            <div class="nav_menu_usuario">
+                                <a href="/logout">Cerrar Sesion</a>
+                                <a href="/gestion">Gestion de usuario</a>
+                                <a href="/reservas-usuario">Reservas</a>
+                            </div>
+                        </div>
+                        <?php }else if($auth){?>
                           <a href="/logout">Cerrar Sesion</a>
+                    <?php }?>
                 <?php }?>
     </section>
 
