@@ -13,6 +13,7 @@ use Model\Chat;
 use Model\Reserva;
 use Model\ReservaHabitacion;
 use Model\Usuario;
+use Model\Comentarios;
 
 class PaginaController{
 
@@ -202,6 +203,7 @@ class PaginaController{
     public static function centro(Router $router ){
         $id=validarORedireccionar('/centros');
         $no2=true;
+     
         $centro=Centroconsumo::find($id);
         $chefs=Chef::findChef($id);
         $eventos=Evento::get(3);
@@ -215,7 +217,14 @@ class PaginaController{
     // registra chats
 
     // recibe chats
-    public static function getchat(Router $router){
+    public static function recibe_chat(Router $router){
+        $chat=new Chat;
+        $chat->getChat($id);
+        $router->render('paginas/index', [
+            'chat'=>$chat
+        ]);
+    }
+    public static function getchat2(Router $router){
         $chat=new Chat;
         session_start();
         $id=$_SESSION['usuario_id'];

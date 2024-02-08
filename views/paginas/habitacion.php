@@ -612,8 +612,8 @@
                     </div>
                </div>
             </div>  
-            <div class="btn_reservar2">
-                <a href="#">¡Reserva YA!</a>
+            <div class="btn_reservar4">
+                <a href="/">¡Reserva YA!</a>
             </div>    
         </div>
     </div>

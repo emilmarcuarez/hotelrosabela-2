@@ -42,6 +42,48 @@
             </div>
         </div>
 
+        <h4>Comentarios</h4>
+            <hr class="tit_comen">
+            <div class="comentarios">
+
+            </div>                
+
+
+                <form class="formulario form_comentario">
+                <!-- calificacion estrella -->
+                <span class="gl-star-rating">
+                <select class="star-rating" value="valor">
+                    <option value="">Seleccione una opcion</option>
+                    <option value="5">Excelente</option>
+                    <option value="4">Muy buena</option>
+                    <option value="3">Esperaba mas</option>
+                    <option value="2">No me gusto</option>
+                    <option value="1">Horrible</option>
+                </select>
+                <span class="gl-star-rating--stars">
+                    <span data-value="1"></span>
+                    <span data-value="2"></span>
+                    <span data-value="3"></span>
+                    <span data-value="4"></span>
+                    <span data-value="5"></span>
+                </span> 
+            </span>
+                <!-- comentario -->
+                    <label for="mensaje">Comentario:</label>
+                    <textarea id="mensaje" name="mensaje" cols="30" rows="10" class="mensaje_comentario"></textarea> 
+                    <input type="hidden" name="centros_consumo_id" id="centros_consumo_id" value="<?php echo $centro->id; ?>">
+                    <?php if($_SESSION['usuarios_id']){?>
+                    <button id="btnEnviar_comentario" class="boton boton-verde">Enviar comentario</button>
+                    <?php }else{; ?>
+                    <div class="else_comen">
+                    <button id="btnEnviar_comentario" class="boton boton-verde" disabled >Enviar comentario</button>
+                    <p>Inicia sesion para poder habilitar el espacio para realizar un comentario.</p>
+                </div>
+            <?php } ?>
+                </form>
+           
+
+<!-- proximos eventos - extra -->
         <h3 class="eventos_centro_h3">Proximos eventos en el hotel</h3>
  
         <?php include 'listadoev2.php' ?>

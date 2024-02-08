@@ -17,7 +17,7 @@
       $this->mensaje=$args['mensaje'] ?? '';
       $this->usuarios_id=$args['usuarios_id'] ?? '';
       $this->usuario_admi_id=$args['usuario_admi_id'] ?? '1';
-      $this->codigo=$args['codigo'] ?? '2';
+      $this->codigo=$args['codigo'] ?? '';
     }
     public function guardar()
     {
@@ -29,6 +29,9 @@
            $resultado= $this->crear();
         }
         return $resultado['id']; // Devolver el ID del mensaje creado
+    }
+    public function setCodigo($codo){
+        $this->codigo=$codo;
     }
     public function crear()
     {
@@ -52,6 +55,9 @@
             'resultado'=>$resultado,
             'id'=>self::$db->insert_id
         ];
+    }
+    public function getIdUsuario(){
+        return $this->usuarios_id;
     }
     
 }

@@ -22,6 +22,7 @@ if(!isset($inicio)){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../build/css/app.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../build/dist//star-rating.css">
     <title>Hotel Rosa bela</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -177,6 +178,29 @@ if(!isset($inicio)){
     </div>
 </div>
 </div>
+<div class="chatbot">
+
+    <div class="chatbot_2">
+         <div class="part_chatbot_img">
+            <img src="build/img/logopng.webp" alt="logo_hotel">                    
+         </div>
+         <div class="part_chatbot_ia">
+            <img src="build/img/bela-01.webp" alt="logo_hotel">    
+         </div>
+    </div>
+
+    <div class="chatbot_part2">
+        <div class="chatbot_text">
+
+        </div>                   
+        <form action="#" class="typing-area5">
+        <input type="hidden" class="incoming_id5" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
+        <input type="text" name="mensaje[mensaje]" class="input-field5" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+        <button id="btn_chat5"><i class="fab fa-telegram-plane"></i></button>
+        </form>
+    </div>
+       
+</div>
     <?php echo $contenido; ?>
 
 
@@ -234,13 +258,18 @@ if(!isset($inicio)){
         </div>
 
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../build/dist/star-rating.min.js?ver=4.3.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
 <script src="../build/js/bundle.min.js"></script>
-
+<script>
+    var stars = new StarRating('.star-rating');
+    var stars2 = new StarRating('.star-rating2');
+</script>
 </body>
 
 </html>

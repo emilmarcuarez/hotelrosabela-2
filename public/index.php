@@ -13,7 +13,7 @@ use Controllers\HabitacionesController;
 use Controllers\ChefController;
 use Controllers\LoginController;
 use Controllers\chatController;
-use Model\Habitaciones;
+use Controllers\ComentarioController;
 // use Model\Usuario;
 use MVC\Router;
 $router= new Router();
@@ -76,6 +76,7 @@ $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'elimina
 $router->get('/api/servicios', [ApiController::class, 'index']);
 $router->post('/api/reservas', [ApiController::class, 'guardar']);
 // zona publica
+// $router->get('/', [PaginaController::class, 'index']);
 $router->get('/nosotros', [PaginaController::class, 'nosotros']);
 $router->get('/centros', [PaginaController::class, 'centros']);
 $router->get('/centro', [PaginaController::class, 'centro']);
@@ -98,9 +99,25 @@ $router->get('/prueba2', [PaginaController::class, 'prueba2']);
 $router->get('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 $router->post('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 $router->get('/verPdf', [PaginaController::class, 'verPdf']);
+
+// chats
 $router->post('/chat', [chatController::class, 'chat']);
 $router->post('/actualizar-chat', [chatController::class, 'actualizarChat']);
 $router->get('/actualizar-chat', [chatController::class, 'actualizarChat']);
+$router->post('/chat2', [chatController::class, 'chat2']);
+$router->post('/actualizarChatServidor', [chatController::class, 'actualizarChatServidor']);
+$router->get('/actualizarChatServidor', [chatController::class, 'actualizarChatServidor']);
+$router->get('/chats/mostrar', [chatController::class, 'index']);
+$router->get('/chats/mostrar2', [chatController::class, 'index2']);
+$router->get('/chats/responder', [chatController::class, 'chatresponder']);
+$router->post('/chats/responder', [chatController::class, 'chatresponder']);
+$router->get('/responder', [chatController::class, 'responder']);
+$router->post('/responder', [chatController::class, 'responder']);
+
+// comentarios
+$router->post('/crear', [ComentarioController::class, 'crear']);
+$router->get('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
+$router->post('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 
 // $router->get('/getChat', [PaginaController::class, 'getChat']);
 // $router->get('/chat', [PaginaController::class, 'chat']);

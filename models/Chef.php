@@ -3,7 +3,7 @@
  use Model\Activerecord;
 
  class Chef extends Activerecord{
-    protected static $tabla = 'Chef';
+    protected static $tabla = 'chef';
     protected static $pagina='chef/mostrar';
     protected static $columnasDB=['id', 'nombre', 'apellido','centros_consumo_id', 'imagen', 'descripcion'];
 

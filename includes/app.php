@@ -7,11 +7,7 @@ $dotenv->safeLoad();
 require 'funciones.php';
 require 'config/database.php';
 
-
-// copnectar a la base de datos
 $db=conectarDB();
-
-
 
 // use Paginas\chat;
 

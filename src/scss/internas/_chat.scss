@@ -1,0 +1,189 @@
+.cont_chat_usuario{
+    background-color: rgba(26, 54, 45, 0.82);
+    margin: 5rem 25rem;
+    padding-bottom: 2rem;
+    .chat-box3{
+        height: 50rem;
+        padding: 2rem;
+    }
+    .usuario{
+        background-color: #c8c8c8;
+        padding: 1rem;
+        p{
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.cont_msj{
+    margin-top: 5rem;
+}
+
+// chat_mostrar
+.cont_chat_mostrar{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    min-height: 62rem;
+
+    .usuarios_mostrar {
+        padding: 1rem;
+        display: flex;
+       flex-direction: column;
+        background: #f0f8ff85;
+    //    gap: 1rem;
+    }
+}
+.nom_usuario{
+    display: block;
+    background-color: #fff0;
+  border: none;
+  border-bottom: 1px solid #aea8a8;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  &:hover{
+    cursor: pointer;
+  }
+    .n_usuario{
+        p{
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-align: left;
+        }
+    }
+    .identificacion{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p{
+            font-size: 1.4rem;
+            color: gray;
+        }
+        .cant_msj_noleidos{
+            background-color: #4ea54b;
+            border-radius: 50%;
+            padding: .4rem;
+            width: 3rem;
+            height: 3rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-bottom: 1em;
+            p{
+                color: white;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.weight{
+    font-weight: 600 !important;
+}
+.chats{
+    background-image: url(../img/inicio.webp);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    .p_chat{
+        background-color: #278062e8;
+        color: #fff;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .chat-box3{
+        .outgoing .details p {
+            background: #676262;
+            border-radius: 18px 18px 0 18px;
+            color: #fff;
+            display: inline-block;
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            margin-top: .5rem;
+            word-wrap: break-word;
+          }
+          .incoming .details p {
+            background: #fff;
+            border-radius: 18px 18px 18px 0;
+            color: #333;
+            display: inline-block;
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            margin-top: .5rem;
+          }
+    }
+
+    .input-field3 {
+        width: 100%;
+        height: 4rem;
+        border: none;
+        padding: 1rem;
+        border-radius: 2rem;
+        word-wrap: break-word;
+  overflow-y: auto;
+      }
+      #btn_chat4 {
+        border: none;
+        background: #fff0;
+        color: white;
+        .fab.fa-telegram-plane {
+      
+            font-size: 3rem;
+          }
+        &:hover{
+            cursor: pointer;
+        }
+      }
+
+      .typing-area2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        gap: 1.4rem;
+      }
+}
+
+
+// barra de scroll
+.chat-box3::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.chat-box3::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.chat-box3::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.chat-box3::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.chat-box3::-webkit-scrollbar-thumb {
+
+    background-color: #108323;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.chat-box3::-webkit-scrollbar-track {
+    border-radius: 10px; 
+}
+.chat-box3 {
+    // scrollbar-color: rgba(86, 84, 84, 0.5) rgba(0, 0, 0, 0);
+    scrollbar-color:#757575 rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+    border-radius: 2rem;
+    overflow-y: auto;
+}

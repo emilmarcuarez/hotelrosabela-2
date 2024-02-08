@@ -1,3 +1,5 @@
+
+
 // menu respondive
 document.getElementById("btn_menu").addEventListener("click", mostrar_menu);
 
@@ -23,7 +25,7 @@ function ocultar_menu(){
 
 // AJAX
 
-// intento2
+// intento2 -chat
 if(document.querySelector(".typing-area")){
 	const form = document.querySelector(".typing-area"),
 	incoming_id = form.querySelector(".incoming_id").value,
@@ -90,6 +92,106 @@ if(document.querySelector(".typing-area")){
 	}
 }
 
+// chat de la parye del servidor. Panel administrativo
+
+if(document.querySelector(".typing-area2")){
+	const form_chat_admi = document.querySelector(".typing-area2"),
+	incoming_id3 = form_chat_admi.querySelector(".incoming_id2").value,
+	inputField3 = form_chat_admi.querySelector(".input-field3"),
+	sendBtn3 = form_chat_admi.querySelector("button"),
+	chatBox3 = document.querySelector(".chat-box3");
+
+	form_chat_admi.onsubmit = (e)=>{
+		e.preventDefault();
+	}
+
+	inputField3.focus();
+	inputField3.onkeyup = ()=>{
+		if(inputField3.value != ""){
+			sendBtn3.classList.add("active");
+		}else{
+			sendBtn3.classList.remove("active");
+		}
+	}
+
+	sendBtn3.onclick = ()=>{
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/chat2", true);
+		xhr.onload = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				inputField3.value = "";
+				scrollToBottom();
+			}
+		}
+		}
+		let formData = new FormData(form_chat_admi);
+		xhr.send(formData);
+	}
+	chatBox3.onmouseenter = ()=>{
+		chatBox3.classList.add("active");
+	}
+
+	chatBox3.onmouseleave = ()=>{
+		chatBox3.classList.remove("active");
+	}
+
+	setInterval(() =>{
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/actualizarChatServidor", true);
+		xhr.onload = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				let data = xhr.response;
+				chatBox3.innerHTML = data;
+				if(!chatBox3.classList.contains("active")){
+					scrollToBottom();
+				}
+			}
+		}
+		}
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("usuarios_id="+incoming_id3);
+
+	}, 500);
+
+	function scrollToBottom(){
+		chatBox3.scrollTop = chatBox3.scrollHeight;
+	}
+}
+
+// ------------------------------------------
+// recargar los usuarios
+if(document.querySelector(".usuarios_mostrar")){
+	const usuarios_mostrar = document.querySelector(".usuarios_mostrar"),
+	incoming_id4 = document.querySelector(".incoming_id4").value;
+
+	setInterval(() =>{
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/responder", true);
+		xhr.onload = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				let data = xhr.response;
+				usuarios_mostrar.innerHTML = data;
+				if(!usuarios_mostrar.classList.contains("active")){
+					scrollToBottom();
+				}
+			}
+		}
+		}
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("usuarios_id="+incoming_id4);
+
+	}, 500);
+
+	function scrollToBottom(){
+		usuarios_mostrar.scrollTop = usuarios_mostrar.scrollHeight;
+	}
+}
+
+
+// -----------------------------------------
 if(document.querySelector(".nav_menu_bg")){
 	const menu_div=document.querySelector(".nav_menu_bg");
 const btn_menu_opciones=document.querySelector("#menu_usuario");
@@ -138,7 +240,11 @@ if(document.querySelector(".formulario_usuario_act")){
 					title: "Sus datos han sido actualizados con exito",
 					showConfirmButton: false,
 					timer: 1500
-				});
+				}).then( () => {
+					setTimeout(() => {
+						window.location.reload();
+					}, 2000);
+				})
 			}else{
 				Swal.fire({
 					icon: 'info',
@@ -152,6 +258,75 @@ if(document.querySelector(".formulario_usuario_act")){
 		xhr.send(formData);
 	}
 }
+
+// comentarios
+if(document.querySelector(".comentarios")){
+	const form_comentario = document.querySelector(".form_comentario"),
+	centros_consumo_id = form_comentario.querySelector("#centros_consumo_id").value,
+	inputField2 = form_comentario.querySelector(".mensaje_comentario"),
+	chatBox2 = document.querySelector(".comentarios"),
+	sendBtnCentro = form_comentario.querySelector("button");
+
+
+	form_comentario.onsubmit = (e)=>{
+		e.preventDefault();
+	}
+	inputField2.focus();
+	inputField2.onkeyup = ()=>{
+		if(inputField2.value != ""){
+			sendBtnCentro.classList.add("active");
+		}else{
+			sendBtnCentro.classList.remove("active");
+		}
+	}
+	sendBtnCentro.onclick = ()=>{
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/crear-comentario", true);
+		xhr.onload = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				inputField2.value = "";
+				scrollToBottom();
+			}
+		}
+		}
+		let formData = new FormData(form_comentario);
+		xhr.send(formData);
+	}
+	
+	chatBox2.onmouseenter = ()=>{
+		chatBox2.classList.add("active");
+	}
+
+	chatBox2.onmouseleave = ()=>{
+		chatBox2.classList.remove("active");
+	}
+
+	setInterval(() =>{
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/actualizar-comentarios", true);
+		xhr.onload = ()=>{
+		if(xhr.readyState === XMLHttpRequest.DONE){
+			if(xhr.status === 200){
+				let data = xhr.response;
+				chatBox2.innerHTML = data;
+				if(!chatBox2.classList.contains("active")){
+					scrollToBottom();
+				}
+			}
+		}
+		}
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("centros_consumo_id="+centros_consumo_id);
+
+	}, 500);
+
+	function scrollToBottom(){
+		chatBox2.scrollTop = chatBox2.scrollHeight;
+	}
+}
+// ----cerrar comentarios---
+
 
 if(document.querySelector(".form_eliminar_reserva")){
 	const form_eliminar_reserva = document.querySelector(".form_eliminar_reserva"),
@@ -323,6 +498,7 @@ fechaReserva.addEventListener('input', function(){
 document.addEventListener('DOMContentLoaded', function() {
 	eventListeners();
 	limitarCaracteres();
+	limitarCaracteres2();
 	iniciarApp();
 	if(document.querySelector('#fechaReserva2')){
 		const fechaReserva=document.querySelector('#fechaReserva2');
@@ -336,6 +512,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	
   
   }); 
+
+
 var  cantidadTotalHabitaciones='';
   function iniciarApp(){
 	cantidadTotalHabitaciones='';
@@ -345,12 +523,8 @@ var  cantidadTotalHabitaciones='';
 	seleccionarPago();
 	mostrarResumen();
 	idUsuario();
-	// seleccionarFecha();//añade la fehca
 	mostrarSeccion(); //muestra y oculta las secciones
-	tabs(); //cambiar la seccicon cuando se presionen los tabs
-	// botonesPaginas();
-	// paginaSiguiente();
-	// paginaAnterior();
+	tabs(); 
 
 }
 
@@ -360,9 +534,19 @@ if(document.getElementById('abrir_modal')){
 	let flex2 = document.getElementById('flex2');
 	let abrir2=document.getElementById('abrir_modal');
 	let cerrar2 = document.getElementById('close2');
+	let is_usuario=document.getElementById('id_usuario_acti');
 	abrir2.addEventListener('click', function(){
-		modal2.style.display = 'block';
-		modal2.style.zIndex=5;
+		if(is_usuario.value===''){
+			Swal.fire({
+				icon: 'info',
+				title: 'Inicie sesion',
+				text: 'Por favor, iniciar sesion o registrarse para poder habilitar el chat en linea con el hotel'
+			})
+		}else{
+			modal2.style.display = 'block';	
+			modal2.style.zIndex=5;
+		}
+		
 	});
 
 	cerrar2.addEventListener('click', function(){
@@ -400,7 +584,7 @@ async function consultarApi(){
         const adultos = urlParams.get('adultos');
         const fecha_i = urlParams.get('fechaReserva');
         const fecha_e = urlParams.get('fechaEgreso');
-        const url = '/api/servicios';
+        const url = `${location.origin}/api/servicios`;
         const resultado = await fetch(url);
         const habitaciones = await resultado.json();
 		reserva_cant.cant=0;
@@ -1077,7 +1261,6 @@ async function reservarHabitacion(){
 	datos.append('opcion_pago', opcion_pago);
 	datos.append('adultos', adultos);
 	datos.append('ninos', ninos);
-	
     datos.append('hora_ll', hora_ll);
     datos.append('codigo', codigo2);
     // datos.append('habitaciones', idHabitaciones);
@@ -1100,7 +1283,7 @@ async function reservarHabitacion(){
     }else{ 
     try {
         // Petición hacia la api
-        const url = '/api/reservas'
+        const url = `${location.origin}/api/reservas`
         const respuesta = await fetch(url, {
             method: 'POST',
             body: datos
@@ -1243,6 +1426,23 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
         parrafo.innerHTML = nuevoTexto;
       }
     });
+  }
+
+  function limitarCaracteres2() {
+	if( document.querySelectorAll(".descripcion2")){
+		var parrafos = document.querySelectorAll(".descripcion2");
+  
+		parrafos.forEach(parrafo => {
+		  var texto = parrafo.innerHTML;
+		  var limite =15; // Define el número máximo de caracteres que deseas mostrar
+	  
+		  if (texto.length > limite) {
+			// En el caso específico de la función slice(0, limite), el valor 0 indica que se desea comenzar desde el primer carácter de la cadena original. El parámetro limite representa el índice final, es decir, el carácter justo antes del cual deseas cortar la cadena.
+			var nuevoTexto = texto.slice(0, limite) + "...";
+			parrafo.innerHTML = nuevoTexto;
+		  }
+		});
+	}
   }
 // IMAGEN
 
