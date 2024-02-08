@@ -53,7 +53,7 @@
         justify-content: center;
         align-items: center;
         background-color: #CF5A60;
-        height: 41rem;
+        height: auto;
         padding: 2rem;
         h3{
             font-weight: 700;
@@ -147,21 +147,27 @@
     padding-bottom: 3rem;
 }
 @media screen and (max-width: 900px){
+    .quienessomos .texto_quienes p {
+        font-size: 1.4rem;
+      }
     .margin_nosotros{
-        margin-bottom: 24rem;
-        padding: 0;
+        margin-bottom: 32rem;
+        padding: 2rem;
     }
     .quienessomos{
         grid-template-columns: 100%;
     }
     .quienessomos .texto_quienes h3{
         color: #5d5b5b;
+        font-size: 2.3rem;
+    text-align: center;
       }
     .texto_quienes{
         padding: 2rem;
         p{
         color: #514c4c;
         text-align: center;
+        font-size: 1.4rem !important;
         }
 
     }
@@ -172,6 +178,7 @@
         grid-template-columns: 100%;
         p{
             text-align: center;
+            font-size: 1.4rem !important;
         }
     }
 
@@ -179,6 +186,7 @@
         grid-template-columns: 100%;
         p{
             text-align: center;
+            font-size: 1.4rem !important;
         }
     }
     .vision .vision_texto{

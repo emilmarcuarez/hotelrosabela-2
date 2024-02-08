@@ -5,13 +5,25 @@
         </div>
         <div class="texto_quienes">
             <h3>¿QUIÉNES SOMOS?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed justo sapien, sodales nec consequat quis, laoreet vitae turpis. Donec malesuada placerat neque ut ullamcorper. Nam ante augue, venenatis non tellus vitae, placerat varius est. Sed turpis enim, sollicitudin in lacinia id, molestie ut destibulum porttitor faucibus massa et varius. Nam vehicula ac felis s</p>
+            <p>Rosa Bela Hotel &amp; Convention Center nació como una respuesta al
+creciente turismo en el estado Bolívar. Es el hotel más grande del suroriente
+del país, con 319 habitaciones. Su ubicación, pensada estratégicamente, no
+solo permite el fácil acceso y salida a la ciudad, sino que localiza a cada
+visitante en el mejor lugar para hacer turismo en toda la región Guayana.
+Se encarga de ofrecer un servicio de hospedaje para todos los visitantes de la
+ciudad, el cual contiene cuatros restaurantes, piscina, área empresarial y siete
+salones de fiesta.</p>
         </div>
     </div>
     <div class="mision">
         <div class="mision_texto">
             <h3>MISIÓN</h3>
-            <p>In in arcu sed ipsum consequat luctus vel ac massa. Aenean nec sagittis ex, et iaculis mauris. Suspendisse vel ipsum pellentesque, laoreet nisl posuere, malesuada nisi. Ut sodales ante id porta vulputate. Nunc bibendum maximus malesuada. Nulla tristique placerat ex, ut sodales elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore cumque a in consequuntur dignissimos, dolorem libero totam reprehenderit deserunt culpa, natus hic, quis blanditiis </p>
+            <p>IBrindar a los huéspedes y/o clientes una gama de servicios que les
+permitan satisfacer todas sus necesidades o requerimientos sin salir de las
+instalaciones del hotel; practicando la excelencia en la calidad de servicio en
+todo momento, contribuyendo con un desarrollo socioeconómico y profesional
+de todo el talento humano, aplicando y fomentando siempre las practicas de un
+desarrollo sostenible.</p>
         </div>
         <div class="imagen_mision">
             <img src="/build/img/mision.webp" alt="mision_imagen">
@@ -21,7 +33,12 @@
         <div class="vision_texto">
             <div class="vision_texto_alinear">
                   <h3>VISIÓN</h3>
-            <p>In in arcu sed ipsum consequat luctus vel ac massa. Aenean nec sagittis ex, et iaculis mauris. Suspendisse vel ipsum pellentesque, laoreet nisl posuere, malesuada nisi. Ut sodales ante id porta vulputate. Nunc bibendum maximus malesuada. Nulla tristique placerat ex, ut sodales elit.</p>
+            <p>Ser innovadores y vanguardistas, marcando pauta por la gama y alta
+calidad de los servicios y la excelente atención al cliente; procurando en todo
+momento el bienestar integral de nuestro talento humano y de la organización
+
+en general, trabajando bajo las premisas de un desarrollo sostenible; y asi,
+convertirnos en una organización líder a nivel nacional e internacional.</p>
             </div>
           
             <div class="imag_texto_vision">

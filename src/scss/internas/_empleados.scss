@@ -108,13 +108,17 @@
     }
     .empleado_cont2{
         grid-template-columns: 50% 50%;
+        padding: 1rem;
     }
     .empleado_cont2 .empleado_cont3 .text_empleado_cont h3
         {
-        font-size: 1.5rem;
+        font-size: 1.2rem !important;
         margin: 0;
         }
-    
+        .empleado_cont2 .empleado_cont3 .text_empleado_cont p {
+       
+            font-size: 1.2rem !important;
+          }
         // contacto
         .seccion_contacto
         {

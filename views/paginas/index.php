@@ -1,3 +1,4 @@
+<input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id']?>">
 <div class="cont_chat_linea" id="abrir_modal">
 <i class="fa-regular fa-comments"></i>
     <a>Chat en linea</a>
@@ -294,7 +295,7 @@
 				<div class="modal-header2 flex2" id="miModal2">
 					<div class="part_modal_header">
                         <img src="build/img/logor.webp" alt="">    
-                    <h2>Hotel Rosa Bela</h2>
+                        <h2>Hotel Rosa Bela</h2>
                     </div>
                    
 					<span class="close2" id="close2">&times;</span>
@@ -302,15 +303,14 @@
 				<div class="modal-body2" id="modal-body2">
                 <section class="chat-area">
 
+                   
                     <div class="chat-box" id="chat-box" data-user-id="<?php echo $_SESSION['usuario_id']?>">
                      
                     </div>
                     <form action="#" class="typing-area">
-                        <input type="text" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>" hidden>
-                        <textarea type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off"></textarea>
+                        <input type="hidden" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
+                        <input type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
                         <button id="btn_chat"><i class="fab fa-telegram-plane"></i></button>
-                            
-                        <!-- <input type="submit" id="btnEnviar"></i>"> -->
                     </form>
                 </section>
 				</div>

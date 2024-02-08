@@ -392,13 +392,30 @@
     color: #fff;
     border-radius: 18px 18px 0 18px;
   }
-
+  .chat-box .incoming{
+    display: flex;
+    align-items: flex-end;
+  }
+  .chat-box .incoming img{
+    height: 35px;
+    width: 35px;
+  }
+  .chat-box .incoming .details{
+    margin-right: auto;
+    margin-left: 10px;
+    max-width: calc(100% - 130px);
+  }
+  .incoming .details p{
+    background: #fff;
+    color: #333;
+    border-radius: 18px 18px 18px 0;
+  }
   @media screen and (max-width: 900px){
     .modal2{
         left: 0rem;
     }
     .cont_chat_linea{
-        left: 73%;
+        left: 68%;
     }
     .nav_menu_bg{
         top: 15rem;

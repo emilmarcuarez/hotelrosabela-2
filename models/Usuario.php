@@ -25,6 +25,8 @@ class Usuario extends Activerecord
   public $n_empresa;
   public $i_fiscal;
   public $noches;
+  public $no_leidos;
+  public $no_leidos_admi;
   
 
   public function __construct($args = [])
@@ -46,6 +48,8 @@ class Usuario extends Activerecord
       $this->n_empresa = $args['n_empresa'] ?? 'nada';
       $this->i_fiscal = $args['i_fiscal'] ?? '1';
       $this->noches = $args['noches'] ?? '0';
+      $this->no_leidos= $args['no_leidos'] ?? '0';
+      $this->no_leidos_admi= $args['no_leidos_admi'] ?? '0';
   }
 
   public function validarRegistro()
@@ -96,9 +100,21 @@ class Usuario extends Activerecord
 
     return self::$errores;
 }
+
+public function setNoleidos(){
+    $this->no_leidos+=1;
+}
+public function reiniciar_noleidos(){
+    $this->no_leidos=0;
+}
+public function setNoleidosAdmi(){
+    $this->no_leidos_admi+=1;
+}
+public function reiniciar_noleidosAdmi(){
+    $this->no_leidos_admi=0;
+}
   public function setPassword($password){
     $this->contrasenia= password_hash($password, PASSWORD_BCRYPT);
-    
 }
 public function setNoches($noche){
     session_start();
@@ -190,6 +206,7 @@ public function guardar()
         }
         return $resultado['id']; // Devolver el ID del mensaje creado
     }
+    
     public function crear()
     {
         // sanitizar los datos
@@ -211,14 +228,27 @@ public function guardar()
             'id'=>self::$db->insert_id
         ];
     }
-public static function getCorreos($id){
-    
-    $query = "SELECT usuario_pag.email
-    FROM comentario
-    JOIN usuario_pag ON comentario.usuario_pag_id = usuario_pag.id
-    WHERE comentario.locales_id = ".$id.";";
-    $resultado = static::consultarSQL($query);
-    return $resultado;
-}
+    public static function getNombres($id){
+        $query = "SELECT usuarios.*
+        FROM comentarios
+        JOIN usuarios ON comentarios.usuarios_id = usuarios.id
+        WHERE comentarios.centros_consumo_id = ".$id.";";
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
+    public static function updateNo_leidos($id){
+
+        $query = "UPDATE usuarios SET no_leidos = no_leidos + 1 WHERE id =".$id.";";
+        $resultado =self::$db->query($query);
+        return $resultado;
+    }
+    public static function reiniciarNo_leidos($id){
+        $query = "UPDATE usuarios SET no_leidos = 0 WHERE id =".$id.";";
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
+// para traerse el usuario segun el id
+
 
 }

@@ -4,6 +4,14 @@
     gap: 2rem;
     margin: 0rem 3rem;
 }
+.btn_reservar4 a {
+  color: white;
+  display: inline-block;
+  padding: .5rem;
+  background: #ba0534;
+  border-radius: 1rem;
+  margin: 1rem;
+}
 .descrip_precio
 {
   display: flex;
@@ -481,4 +489,11 @@ span
       padding: 1rem;
       border-radius: 2rem;
   }
+
+  .cont_hab .cont_hab_p .hab_info_text .hab_info_partes2 .pre_part_info {
+    overflow: hidden !important;
+}
+.centro_pag .img_centro_consumo img {
+  height: 37rem !important;
+}
 }

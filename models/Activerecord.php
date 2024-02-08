@@ -182,11 +182,11 @@ class Activerecord
     }
    
     public function setIdLocal($id){
-        $this->locales_id=$id;
+        $this->centros_consumo_id=$id;
     }
    
     public function setUser($id){
-        $this->usuario_pag_id=$id;
+        $this->usuarios_id=$id;
     }
     // validacion
     public static function getErrores()
@@ -204,6 +204,13 @@ class Activerecord
     public static function all()
     {
         $query = "SELECT * FROM ". static::$tabla;
+
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
+    public static function all_desc()
+    {
+        $query = "SELECT * FROM ". static::$tabla." order by id desc;";
 
         $resultado = static::consultarSQL($query);
         return $resultado;
@@ -260,6 +267,18 @@ public static function getEventosdif($cantidad, $id)
         return $resultado; 
     }
    
+    public static function getUltimomsj(){
+        $query = "SELECT id, usuarios_id, mensaje
+        FROM chat
+        WHERE (usuarios_id, id) IN (
+            SELECT usuarios_id, MAX(id) AS last_id
+            FROM chat
+            GROUP BY usuarios_id
+        );";
+        $resultado = self::consultarSQL($query);
+        return $resultado; 
+    }
+   
     public static function habitaciones_all($id)
     {
         $query = "SELECT * FROM ". static::$tabla. " WHERE reserva_id= ".$id.";";
@@ -293,10 +312,13 @@ public static function getEventosdif($cantidad, $id)
     }
     public static function findComentario($id)
     {
-        $query = "SELECT * FROM ". static::$tabla. " WHERE locales_id= $id";
+        $query = "SELECT * FROM ". static::$tabla. " WHERE centros_consumo_id= $id";
         // se sigue el principio de active record que es tener todo en objetos
+        // debuguear($query);
         $resultado = self::consultarSQL($query);
+      
         return $resultado;
+      
     }
 
     public static function consultarSQL($query)
