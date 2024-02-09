@@ -15,6 +15,7 @@ use Controllers\LoginController;
 use Controllers\chatController;
 use Controllers\ComentarioController;
 use Controllers\chatbotController;
+use Controllers\ReservaController;
 // use Model\Usuario;
 use MVC\Router;
 $router= new Router();
@@ -73,6 +74,12 @@ $router->get('/habitaciones/mostrar', [HabitacionesController::class, 'index']);
 $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
 
 // reservas
+$router->get('/reservas/crear', [ReservaController::class, 'crear']);
+$router->get('/reservas/mostrar', [ReservaController::class, 'index']);
+$router->post('/reservas/crear', [ReservaController::class, 'crear']);
+$router->get('/reservas/confirmar', [ReservaController::class, 'confirmar']);
+$router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
+$router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 
 
 // api
