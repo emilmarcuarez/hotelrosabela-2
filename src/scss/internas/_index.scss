@@ -172,6 +172,7 @@ body{
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 .inicio_info{
     background-color: $vinotinto;
@@ -958,15 +959,9 @@ border-radius: 2rem;
  
 
 .map-responsive{
-
+    height: 40rem;
     overflow:hidden;
-
-    padding-bottom:56.25%;
-
     position:relative;
-
-    height:0;
-
 }
 
 .map-responsive iframe{
@@ -983,4 +978,9 @@ border-radius: 2rem;
 
 }
  
-
+html, body, #mapDiv {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+  }

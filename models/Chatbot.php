@@ -15,4 +15,5 @@
       $this->queries=$args['queries'] ?? '';
       $this->replies=$args['replies'] ?? '';
     }
+    
 }

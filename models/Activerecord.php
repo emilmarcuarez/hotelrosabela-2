@@ -208,6 +208,17 @@ class Activerecord
         $resultado = static::consultarSQL($query);
         return $resultado;
     }
+    // mensajes desde el chatbot
+    public static function msjchatbot($getMesg)
+    {
+        // $query = "SELECT replies FROM chatbot WHERE queries LIKE '%$getMesg%'";
+        $query = "SELECT replies 
+        FROM chatbot 
+        WHERE MATCH(queries) AGAINST ('$getMesg' IN NATURAL LANGUAGE MODE) LIMIT 1;";
+
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
     public static function all_desc()
     {
         $query = "SELECT * FROM ". static::$tabla." order by id desc;";

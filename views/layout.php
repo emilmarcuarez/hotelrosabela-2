@@ -178,28 +178,72 @@ if(!isset($inicio)){
     </div>
 </div>
 </div>
-<div class="chatbot">
+<div class="chatbot" id="chatbot">
+    
 
     <div class="chatbot_2">
          <div class="part_chatbot_img">
-            <img src="build/img/logopng.webp" alt="logo_hotel">                    
+            <img src="build/img/logopng.webp" alt="logo_hotel">  
+            <i class="fa-solid fa-xmark cerrar_chatbot"></i>                  
          </div>
          <div class="part_chatbot_ia">
             <img src="build/img/bela-01.webp" alt="logo_hotel">    
          </div>
+         <div class="part_chatbot_ia2">
+            <img src="build/img/rosa-01.webp" alt="logo_hotel">    
+         </div>
+    </div>
+    <div class="elegir_chatbot">
+        <p>¿Quien quieres que te atienda hoy?</p>
+        <p>Elige a un recepcioista para que sea tu asistente virtual</p>
+        <button id="bela_ia" class="bela_ia"> 
+            <img src="build/img/bela-01.webp" alt="bela_hotel">
+            <p>Rose</p>                  
+        </button>
+        <button id="rose_ia" class="rose_ia"> 
+            <img src="build/img/rosa-01.webp" alt="logo_hotel"> 
+            <p>Bela</p>                 
+        </button> 
+        <p>¡Ambos estaremos felices de atenderte!</p>
     </div>
 
-    <div class="chatbot_part2">
+    <div class="chatbot_part2" id="chat_display2">
         <div class="chatbot_text">
-
+            <div class="msg-header">
+            
+             <p>¡Hola!, me llamo bela &#128075; y soy tu asistente virtual, ¿cómo puedo ayudarte?</p>
+            </div>
         </div>                   
-        <form action="#" class="typing-area5">
-        <input type="hidden" class="incoming_id5" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
-        <input type="text" name="mensaje[mensaje]" class="input-field5" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
-        <button id="btn_chat5"><i class="fab fa-telegram-plane"></i></button>
+        <form class="typing-area5">
+            <input type="hidden" class="incoming_id5" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
+            <input id="data" type="text" name="mensaje[mensaje]" class="input-field5" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+            <button id="btn_chat5"><i class="fab fa-telegram-plane"></i></button>
         </form>
-    </div>
+    </div> 
+
+    <div class="chatbot_part2" id="chat_display">
+        <div class="chatbot_text">
+            <div class="msg-header">
+            
+             <p>¡Hola!, me llamo bela &#128075; y soy tu asistente virtual, ¿cómo puedo ayudarte?</p>
+            </div>
+        </div>                   
+        <form class="typing-area5">
+            <input type="hidden" class="incoming_id5" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
+            <input id="data" type="text" name="mensaje[mensaje]" class="input-field5" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+            <button id="btn_chat5"><i class="fab fa-telegram-plane"></i></button>
+        </form>
+    </div> 
        
+</div>
+<div class="chatbot_abrir_btn" id="abrirChatbot">
+<div class="text_chatbot">
+        <p>Chatea con nosotros</p>
+   </div>
+    <div class="img_chatbot_portada">
+        <img src="build/img/bela-01.webp" alt="logo_hotel">                         
+    </div>
+   
 </div>
     <?php echo $contenido; ?>
 

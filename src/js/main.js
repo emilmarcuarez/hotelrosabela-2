@@ -1,5 +1,30 @@
+//----------------------- chatbot-----------------------
 
+$(document).ready(function() {
+	const form_chatbot = document.querySelector(".typing-area5");
+	form_chatbot.onsubmit = (e)=>{
+		e.preventDefault();
+	}
+	$("#btn_chat5").on("click", function() {
+		$value = $("#data").val();
+		$msg = '<div class="user-inbox inbox"><div class="msg-header"><p>' + $value + '</p></div></div>';
+		$(".chatbot_text").append($msg);
+		$("#data").val('');
 
+		// iniciar el código ajax
+		$.ajax({
+			url: `${location.origin}/chatbot`,
+			type: 'POST',
+			data: 'text=' + $value,
+			success: function(result) {
+				$replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>' + result + '</p></div></div>';
+				$(".chatbot_text").append($replay);
+				// cuando el chat baja, la barra de desplazamiento llega automáticamente al final
+				$(".chatbot_text").scrollTop($(".chatbot_text")[0].scrollHeight);
+			}
+		});
+	});
+});
 // menu respondive
 document.getElementById("btn_menu").addEventListener("click", mostrar_menu);
 
@@ -259,6 +284,22 @@ if(document.querySelector(".formulario_usuario_act")){
 	}
 }
 
+// bela asistente virtual y rose
+if(document.querySelector("#bela_ia")){
+	const bela_ia=document.querySelector("#bela_ia");
+	const rose_ia=document.querySelector("#rose_ia");
+	const elegir_chatbot=document.querySelector(".elegir_chatbot");
+	const part_chatbot_ia=document.querySelector(".part_chatbot_ia");
+	const part_chatbot_ia2=document.querySelector(".part_chatbot_ia2");
+    const chat_display=document.querySelector("#chat_display");
+    const chat_display2=document.querySelector("#chat_display2");
+	bela_ia.addEventListener("click", function() {
+		elegir_chatbot.classList.add("ocultar_elegir");
+		part_chatbot_ia.classList.add("activar_chat");
+		chat_display.classList.add("activar_chat");
+    });
+}
+
 // comentarios
 if(document.querySelector(".comentarios")){
 	const form_comentario = document.querySelector(".form_comentario"),
@@ -496,6 +537,28 @@ fechaReserva.addEventListener('input', function(){
 
 
 document.addEventListener('DOMContentLoaded', function() {
+	const chatbot = document.getElementById("chatbot");
+    const abrirBoton = document.getElementById("abrirChatbot");
+	
+
+	if(document.querySelector(".cerrar_chatbot")){
+		const cerrarBoton = document.querySelector(".cerrar_chatbot");
+		cerrarBoton.addEventListener("click", function() {
+			chatbot.classList.add("cerrado");
+			chatbot.classList.remove("abierto");
+			abrirBoton.classList.remove("cerrarbtn_chat");
+			
+		});
+	}
+	
+   
+
+    abrirBoton.addEventListener("click", function() {
+        chatbot.classList.remove("cerrado");
+        chatbot.classList.add("abierto");
+		abrirBoton.classList.add("cerrarbtn_chat");
+    });
+	
 	eventListeners();
 	limitarCaracteres();
 	limitarCaracteres2();
@@ -1613,6 +1676,8 @@ function eventListeners() {
 
 
 $(document).ready(function(){
+
+
 	var imgItems = $('.slider li').length; // Numero de Slides
 	var imgPos = 1;
 
@@ -1675,11 +1740,9 @@ $(document).ready(function(){
 		$('.slider li:nth-child('+ imgPos +')').fadeIn(); // Mostramos el Slide seleccionado
 	}
 
-});
+	// slider dos
 
 
-// segundo slider
-$(document).ready(function(){
 	var imgItems2 = $('.slider2 li').length; // Numero de Slides
 	var imgPos2 = 1;
 
@@ -1742,10 +1805,8 @@ $(document).ready(function(){
 		$('.slider2 li:nth-child('+ imgPos2 +')').fadeIn(); // Mostramos el Slide seleccionado
 	}
 
-});
 
-// tercer slider
-$(document).ready(function(){
+	// slider 3
 	var imgItems3 = $('.slider3 li').length; // Numero de Slides
 	var imgPos3 = 1;
 
@@ -1809,4 +1870,5 @@ $(document).ready(function(){
 	}
 
 });
+
 
