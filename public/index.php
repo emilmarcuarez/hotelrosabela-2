@@ -14,6 +14,7 @@ use Controllers\ChefController;
 use Controllers\LoginController;
 use Controllers\chatController;
 use Controllers\ComentarioController;
+use Controllers\chatbotController;
 // use Model\Usuario;
 use MVC\Router;
 $router= new Router();
@@ -114,14 +115,14 @@ $router->post('/chats/responder', [chatController::class, 'chatresponder']);
 $router->get('/responder', [chatController::class, 'responder']);
 $router->post('/responder', [chatController::class, 'responder']);
 
+// chatbot
+$router->get('/chatbot', [chatbotController::class, 'actualizarChat']);
+$router->post('/chatbot', [chatbotController::class, 'actualizarChat']);
 // comentarios
 $router->post('/crear', [ComentarioController::class, 'crear']);
 $router->get('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 $router->post('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 
-// $router->get('/getChat', [PaginaController::class, 'getChat']);
-// $router->get('/chat', [PaginaController::class, 'chat']);
-// $router->get('/prueba', [PaginaController::class, 'prueba']);
 
 // login y sigin
 $router->get('/login', [LoginController::class, 'login']);

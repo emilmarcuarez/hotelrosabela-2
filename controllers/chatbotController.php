@@ -3,37 +3,32 @@
 namespace Controllers;
 use MVC\Router;
 use Model\Chat;
+use Model\Chatbot;
 use Model\Usuario;
 
-class chatController{
+class chatbotController{
 
     
     public static function actualizarChat(Router $router){
+        $getMesg = $_POST['text'];
+            $mensajes = Chatbot::msjchatbot($getMesg);
+            // $replay = $mensajes['replies'];
+        
+            if(!empty($mensajes)){
+                // debuguear($mensajes);
+                foreach($mensajes as $msj):
+                
+                    $replay = $msj->replies;
+                    echo $replay;
 
-
-            $id = $_SESSION['usuario_id'];
-            $output = "";
-            
-            $mensajes = Chat::getChat($id);
-            // Devolver la respuesta como HTML
-           foreach($mensajes as $msj):
-                if ($msj->codigo === "2") {
-                    $output .= '<div class="chat outgoing">
-                                    <div class="details">
-                                        <p>' . $msj->mensaje. '</p>
-                                    </div>
-                                    </div>';
-                }else if($msj->codigo === "1"){
-                    $output .= '<div class="chat incoming">
-                        <div class="details">
-                            <p>' . $msj->mensaje. '</p>
-                        </div>
-                        </div>';
-                }            endforeach;
-            echo $output;
+                endforeach;
+                
+            }else {
+                echo "¡Lo siento, no puedo ayudarte con este inconveniente! Favor comunícate con nosotros en el siguiente enlace:
+                
+                </br><a href='/contacto'>Contacto</a>";
             }
-            // 
-            // echo $output;
-    
+            
+    }
 
 }
