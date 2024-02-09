@@ -12,7 +12,6 @@
         </div> 
         <div class="seccion55">
         <form action="" class="formulario_re">
-            <!-- <div class="form_reserva"> -->
             <div class="par_label">
                 <label for="fecha">fecha de ingreso</label>
                 <input type="date" id="fechaReserva2" name="fechaReserva">
@@ -28,8 +27,6 @@
                     <div class="counter-row">
                     <div id="listaDesplegable" class="counter-select">
                         <!-- Opciones preseleccionadas -->
-                        <!-- <button id="detalleReserva" onclick="toggleLista()">1 adulto · 0 niños · 1 habitación</button> -->
-                        
                         <span id="detalleReserva" onclick="toggleLista()">1 adulto · 0 niños · 1 habitación</span>
                         <div class="counter-list">
                             <div class="list_plan">
@@ -105,36 +102,28 @@
                         <img src="/build/img/evento1.webp" alt="" class="img_slider">
                         <div class="imagen_header2">
                             <div class="imagen_header_fondo"></div>
-                            <!-- <div class="texto_overlay"><span>Kai canta contigo</span> <br><br> Excelente musica, ambiente, Lorem ipsum, dolor sit amet consectetur adipisicing elit Necessitatibus cum doloribus, consec y mas... <a href="" class="enlace_evento">Leer mas</a></div> -->
-                           
                         </div>
                     </li>
                     <li>
                         <img src="/build/img/evento2.webp" alt="" class="img_slider">>
                         <div class="imagen_header2">
                             <div class="imagen_header_fondo"></div>
-                            <!-- <div class="texto_overlay"><span>Kai canta contigo</span> <br><br> Excelente musica, ambienteLorem ipsum, dolor sit amet consectetur adipisicing elit Necessitatibus cum doloribus, consec y mas... <a href="" class="enlace_evento">Leer mas</a></div> -->
-                            <!-- <img src="/build/img/logopng.webp" alt="logo del hotel" class="logo_header"> -->
+                          
                         </div>
                     </li>
                     <li>
                         <img src="/build/img/evento3.webp" alt="" class="img_slider">
                         <div class="imagen_header2">
                             <div class="imagen_header_fondo"></div>
-                            <!-- <div class="texto_overlay"><span>Kai canta contigo</span> <br><br> Excelente musica, ambiente Lorem ipsum, dolor sit amet consectetur adipisicing elit Necessitatibus cum doloribus, consec y mas... <a href="" class="enlace_evento">Leer mas</a></div> -->
+                       
                             
                         </div>
                     </li>
-                    <!-- <li>
-				<img src="build/img/4.png" alt="">
-	
-			</li> -->
                 </ul>
 
             </div>
         </div>
         <div class="imagen_evento">
-            <!-- <img src="/build/img/fiesta.webp" alt=""> -->
             <h5>Disfrute su estadia</h5>
             <hr class="eventos_esta">
             <ul>
@@ -194,55 +183,10 @@
         </div>
      
     </div>
-    <!-- <div class="contenedor restaurantes">
-        <div class="rest_inicio_cont1">
-            <img src="/build/img/rest1.webp" alt="">
-        </div>
-        <div class="rest_inicio_cont">
-            <p>¡Contamos con los mejores RESTAURANTES de la ciudad!</p>
-            <a href="#">Ver mas</a>
-        </div>
-        <div class="rest_inicio_cont-im">
-            <img src="/build/img/rest2.webp" alt="">
-            <img src="/build/img/rest3.webp" alt="">
-        </div>
-    </div> -->
 
 </div>
 
 
-<!-- artistas que nos han visitado -->
-<!-- <div class="artista_fondo" data-aos="fade-up"
-     data-aos-duration="3000">
-     <h3>Artistas que nos han visitado</h3> -->
-
-    <!-- <div class="cont_grid_art contenedor">
-        <div class="artistas_cont_titulo">
-            <p>Artistas que nos han visitado</p>
-            <img src="/build/img/logopng.webp" alt="">
-        </div>
-        <div class="artistas_card">
-            <div class="art_part">
-                <div class="img_art">
-                    <img src="/build/img/liz.webp" alt="">
-                </div>
-                <div class="text_art">
-                    <p>Liz</p>
-                </div>
-            </div>
-            <div class="art_part">
-                <div class="img_art">
-                    <img src="/build/img/vozveis.webp" alt="">
-                </div>
-                <div class="text_art">
-                    <p>Voz Veis</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
-<!-- </div> -->
-
-<!-- ubicacion -->
 
 <div class="ubicacion_fondo">
     <div class="contenedor">
