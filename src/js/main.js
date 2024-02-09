@@ -5,6 +5,10 @@ $(document).ready(function() {
 	form_chatbot.onsubmit = (e)=>{
 		e.preventDefault();
 	}
+	const form_chatbot2 = document.querySelector(".typ2");
+	form_chatbot2.onsubmit = (e)=>{
+		e.preventDefault();
+	}
 	$("#btn_chat5").on("click", function() {
 		$value = $("#data").val();
 		$msg = '<div class="user-inbox inbox"><div class="msg-header"><p>' + $value + '</p></div></div>';
@@ -21,6 +25,26 @@ $(document).ready(function() {
 				$(".chatbot_text").append($replay);
 				// cuando el chat baja, la barra de desplazamiento llega automáticamente al final
 				$(".chatbot_text").scrollTop($(".chatbot_text")[0].scrollHeight);
+			}
+		});
+	});
+
+	$("#btn_chat6").on("click", function() {
+		$value = $("#data2").val();
+		$msg = '<div class="user-inbox inbox"><div class="msg-header"><p>' + $value + '</p></div></div>';
+		$(".chat_2").append($msg);
+		$("#data2").val('');
+
+		// iniciar el código ajax
+		$.ajax({
+			url: `${location.origin}/chatbot`,
+			type: 'POST',
+			data: 'text=' + $value,
+			success: function(result) {
+				$replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>' + result + '</p></div></div>';
+				$(".chat_2").append($replay);
+				// cuando el chat baja, la barra de desplazamiento llega automáticamente al final
+				$(".chat_2").scrollTop($(".chat_2")[0].scrollHeight);
 			}
 		});
 	});
@@ -297,6 +321,11 @@ if(document.querySelector("#bela_ia")){
 		elegir_chatbot.classList.add("ocultar_elegir");
 		part_chatbot_ia.classList.add("activar_chat");
 		chat_display.classList.add("activar_chat");
+    });
+	rose_ia.addEventListener("click", function() {
+		elegir_chatbot.classList.add("ocultar_elegir");
+		part_chatbot_ia2.classList.add("activar_chat");
+		chat_display2.classList.add("activar_chat");
     });
 }
 
