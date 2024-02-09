@@ -26,7 +26,7 @@ class chatbotController{
             }else {
                 echo "¡Lo siento, no puedo ayudarte con este inconveniente! Favor comunícate con nosotros en el siguiente enlace:
                 
-                </br><a href='/contacto'>Contacto</a>";
+                </br><a href='/contacto' class='link_chatbot'>Contacto</a>";
             }
             
     }

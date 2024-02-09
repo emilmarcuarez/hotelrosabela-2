@@ -31,6 +31,7 @@ $router->post('/eventos/actualizar', [eventosController::class, 'actualizar']);
 $router->get('/eventos/mostrar', [eventosController::class, 'index']);
 $router->post('/eventos/eliminar', [eventosController::class, 'eliminar']);
 
+// centros de consumo
 $router->get('/centrosconsumo/crear', [CentroconsumoController::class, 'crear']);
 $router->get('/centrosconsumo/mostrar', [CentroconsumoController::class, 'index']);
 $router->post('/centrosconsumo/crear', [CentroconsumoController::class, 'crear']);
@@ -70,6 +71,8 @@ $router->get('/habitaciones/actualizar', [HabitacionesController::class, 'actual
 $router->post('/habitaciones/actualizar', [HabitacionesController::class, 'actualizar']);
 $router->get('/habitaciones/mostrar', [HabitacionesController::class, 'index']);
 $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
+
+// reservas
 
 
 // api
@@ -134,4 +137,5 @@ $router->get('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->post('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->get('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
 $router->post('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
+
 $router->comprobarRutas();

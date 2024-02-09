@@ -226,7 +226,7 @@
     }
 
     .modal-body2{
-        padding: 0px 38px 32px ;
+        padding: 0px 38px 0px ;
     }
 }
 .input-field
@@ -278,7 +278,10 @@
   align-content: center;
   gap: 1rem;
 }
-
+.input-field:focus {
+    outline: none;
+    border: 1px solid azure;
+  }
 // chat en vivo
 .cont_chat_linea{
     align-content: center;

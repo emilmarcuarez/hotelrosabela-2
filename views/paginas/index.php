@@ -239,7 +239,7 @@
 				<div class="modal-header2 flex2" id="miModal2">
 					<div class="part_modal_header">
                         <img src="build/img/logor.webp" alt="">    
-                        <h2>Hotel Rosa Bela</h2>
+                        <h2>Hotel Rosa Bela - chat en vivo</h2>
                     </div>
                    
 					<span class="close2" id="close2">&times;</span>
