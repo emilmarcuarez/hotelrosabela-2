@@ -236,6 +236,14 @@ public function guardar()
         $resultado = static::consultarSQL($query);
         return $resultado;
     }
+    public static function getUsarioReserva($id){
+        $query = "SELECT usuarios.*
+        FROM reserva
+        JOIN usuarios ON reserva.usuarios_id = usuarios.id
+        WHERE reserva.id = ".$id.";";
+        $resultado = static::consultarSQL($query);
+        return array_shift($resultado);
+    }
     public static function updateNo_leidos($id){
 
         $query = "UPDATE usuarios SET no_leidos = no_leidos + 1 WHERE id =".$id.";";

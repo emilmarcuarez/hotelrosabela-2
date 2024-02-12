@@ -4,6 +4,28 @@
     gap: 2rem;
     margin: 0rem 3rem;
 }
+.opcion_traslado {
+  font-weight: 500;
+  padding-top: 2rem;
+}
+#pago {
+  padding-top: 3rem;
+}
+#pago p {
+  color: #4f4d4d;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.datos_banco {
+  background: #1f1f1f;
+  padding: 1rem;
+  border: 1px solid #c2c2c2;
+  border-radius: 1.4rem;
+  margin: 1rem;
+  color: white !important;
+  display: inline-block;
+}
 .btn_reservar4 a {
   color: white;
   display: inline-block;
@@ -267,13 +289,17 @@
     margin-top: 3rem;
   border: 1px solid #cf5a60;
   }
-
+  .pago_part label {
+    font-weight: 600;
+    color: #494747;
+  }
   .metodo_pago{
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 15rem;
     width: 100%;
+    padding-top: 2rem;
   }
   p
   {

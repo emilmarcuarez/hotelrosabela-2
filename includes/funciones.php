@@ -8,6 +8,7 @@ define('CARPETA_IMAGENES_HA', $_SERVER['DOCUMENT_ROOT'] . '/imagenes_h/');
 define('CARPETA_IMAGENES_SA', $_SERVER['DOCUMENT_ROOT'] . '/imagenes_s/');
 define('CARPETA_IMAGENES_TR', $_SERVER['DOCUMENT_ROOT'] . '/imagenes_t/');
 define('CARPETA_IMAGENES_CH', $_SERVER['DOCUMENT_ROOT'] . '/imagenes_c/');
+define('CARPETA_IMAGENES_RESERVA', $_SERVER['DOCUMENT_ROOT'] . '/imagenes_reserva/'); //pagos de la reserva
 function incluirTemplate($nombre, $inicio=false){
 
     include TEMPLATES_URL . "/$nombre.php";
@@ -27,8 +28,7 @@ function s($html){
 
 // validar tipo de contenido
 function validarTipoContenido($tipo){
-    $tipos=['centro', 'eventos', 'empleado', 'salon', 'habitaciones','chef'];
-
+    $tipos=['centro', 'eventos', 'empleado', 'salon', 'habitaciones','re_habitaciones','chef', 'reserva', 'comentarios', 'chatbot'];
     // busca un elemento en un arreglo, primero el elemento a buscar y el segundo es el arreglo en donde va a buscar
     return in_array($tipo, $tipos);
 }

@@ -5,7 +5,7 @@
  class Reserva extends Activerecord{
     protected static $tabla = 'reserva';
     protected static $pagina='Reservas/mostrar';
-    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'usuarios_id', 'ninos','adultos', 'hora_ll','opcion_pago','codigo'];
+    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'usuarios_id', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado'];
 
 
     public $id;
@@ -20,6 +20,9 @@
     public $hora_ll;
     public $opcion_pago;
     public $codigo;
+    public $status;
+    public $imagen;
+    public $traslado;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
       $this->fecha_i=$args['fecha_i'] ?? '';
@@ -33,6 +36,9 @@
       $this->hora_ll=$args['hora_ll'] ?? '';
       $this->opcion_pago=$args['opcion_pago'] ?? '';
       $this->codigo=$args['codigo'] ?? '';
+      $this->status=$args['status'] ?? 2;
+      $this->imagen=$args['imagen'] ?? '';
+      $this->traslado=$args['traslado'] ?? '';
     }
 
    
@@ -61,7 +67,7 @@
         $query .= " ) VALUES ('";
         $query .= join("', '",array_values($atributos));
         $query .= "') ";
-
+        // debuguear($query);
         $resultado = self::$db->query($query);
         //   return es un false or true
         // Mensaje de exito
@@ -76,7 +82,6 @@
       if($resultado){
          $this->borrarImagen();
 
-         header('location: /'.static::$pagina.'?resultado=3');
       }
     }
     // busca todas las reservas de un usuario especifico
@@ -87,4 +92,22 @@
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
+    public static function reservas(){
+        $query = "UPDATE reserva SET status = 3 WHERE fecha_i < CURDATE() AND status!=1;";
+        $resultado =self::$db->query($query);
+        return $resultado;
+    }
+
+    public static function actstatus($id){
+        $query = "UPDATE reserva SET status = 1 WHERE id=".$id.";";
+        $resultado =self::$db->query($query);
+        return $resultado;
+    }
+  
+      public function borrarImagen(){
+        $existeArchivo=file_exists(CARPETA_IMAGENES_RESERVA . $this->imagen);
+        if($existeArchivo){
+           unlink(CARPETA_IMAGENES_RESERVA . $this->imagen);
+        }
+      }
  }
