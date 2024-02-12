@@ -5,6 +5,7 @@ namespace Controllers;
 use Model\Habitaciones;
 use Model\Reserva;
 use Model\ReservaHabitacion;
+use Intervention\Image\ImageManagerStatic as Image;
 class ApiController{
     public static function index(){
         $habitaciones = Habitaciones::all();
@@ -13,6 +14,22 @@ class ApiController{
     public static function guardar() {
       
         $cita = new Reserva($_POST);
+        
+        // reserva- imagen
+        $nombreImagen=md5(uniqid(rand(), true)) . ".jpg";
+                
+        if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
+                $image=Image::make($_FILES['imagen']['tmp_name'])->fit(800, 500);
+                $cita->setImagen($nombreImagen);
+        
+                if(!is_dir(CARPETA_IMAGENES_RESERVA)){
+                    mkdir(CARPETA_IMAGENES_RESERVA); 
+            }
+                // guardar la imagen en el servidor
+              $image->save(CARPETA_IMAGENES_RESERVA. $nombreImagen);
+        }
+
+
         $resultado = $cita->guardar();
         $id = $resultado['id'];
     
@@ -40,40 +57,7 @@ class ApiController{
     
         echo json_encode($respuesta);
 
+    // }
 
-        // // almacena la reserva y devuelve el id
-        // $cita = new Reserva($_POST);
-        // $habitacion_re = $_POST['habitaciones_re'];
-    
-        // $resultado = $cita->guardar();
-     
-        // $id = $resultado['id'];
-
-        // // Almacena la Cita y el Servicio
-        
-        //     $resultado=[
-        //         'habitaciones'=>$_POST['habitaciones']
-              
-        //     ];
-        // // Almacena los Servicios con el ID de la reserva
-        // $idHabitaciones = explode(",", $_POST['habitaciones']);
-        // foreach($idHabitaciones as $idHabitacion) {
-        //     $args = [
-        //         'reserva_id' => $id,
-        //         'habitaciones_id' => $idHabitacion,
-        //         // 'cantidad_d' => $_POST['cantidad_d'], // Modifica según tu estructura de datos
-        //         // 'cantidad_s' => $_POST['cantidad_s']  // Modifica según tu estructura de datos
-        //     ];
-        //     $reservaHabitacion = new ReservaHabitacion($args);
-        //     $reservaHabitacion->guardar();
-        // }
-
-        // // echo json_encode($resultado);
-        // $respuesta=[
-        //     'resultado'=>$resultado
-        // ];
-        // // echo json_encode(['resultado' => $resultado]);
-        // echo json_encode($respuesta);
-    }
-
+}
 }

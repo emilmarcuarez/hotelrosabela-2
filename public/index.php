@@ -21,6 +21,7 @@ use MVC\Router;
 $router= new Router();
 
 $router->get('/', [PaginaController::class, 'index']);
+
 // zona privada
 $router->get('/error', [CentroconsumoController::class, 'error']);
 $router->get('/admin', [CentroconsumoController::class, 'admin']);
@@ -73,10 +74,17 @@ $router->post('/habitaciones/actualizar', [HabitacionesController::class, 'actua
 $router->get('/habitaciones/mostrar', [HabitacionesController::class, 'index']);
 $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
 
+$router->post('/reserva/recibida', [ReservaController::class, 'actReserva']);
+// $router->get('/reserva/recibida', [ReservaController::class, 'actReserva']);
+
 // reservas
-// $router->get('/reservas/crear', [ReservaController::class, 'crear']);
+
+
 $router->get('/reservas/mostrar', [ReservaController::class, 'index']);
+// $router->get('/reservas/ver', [ReservaController::class, 'reservadatos']);
+// $router->post('/reservas/ver', [ReservaController::class, 'reservadatos']);
 $router->get('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
+$router->post('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
 $router->post('/reservas/crear', [ReservaController::class, 'crear']);
 $router->get('/reservas/confirmar', [ReservaController::class, 'confirmar']);
 $router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
@@ -87,8 +95,8 @@ $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 // API de Citas
 $router->get('/api/servicios', [ApiController::class, 'index']);
 $router->post('/api/reservas', [ApiController::class, 'guardar']);
+
 // zona publica
-// $router->get('/', [PaginaController::class, 'index']);
 $router->get('/nosotros', [PaginaController::class, 'nosotros']);
 $router->get('/centros', [PaginaController::class, 'centros']);
 $router->get('/centro', [PaginaController::class, 'centro']);

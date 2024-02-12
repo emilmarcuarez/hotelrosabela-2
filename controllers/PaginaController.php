@@ -23,6 +23,7 @@ class PaginaController{
 
        
         $eventos=Evento::get(4);
+        $result=Reserva::reservas();
         $habitaciones=Habitaciones::get(2);
         $salones=Salon::get(2);
         $inicio=true;//para que aparezca el header
@@ -143,10 +144,12 @@ class PaginaController{
         $id=Reserva::getId2();
         $habitaciones=Habitaciones::all();
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id->id);
+        $usuario=Usuario::getUsarioReserva($id);
         $router->render('paginas/prueba2', [
             'reserva'=>$reserva,
             'habitacionesReserva'=>$habitacionesReserva,
-            'habitaciones'=>$habitaciones
+            'habitaciones'=>$habitaciones,
+            'usuario'=>$usuario
         ]);
     }
     public static function crearPdf(Router $router){
@@ -155,10 +158,13 @@ class PaginaController{
         $id=Reserva::getId2();
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id->id);
         $habitaciones=Habitaciones::all();
+        $usuario=Usuario::getUsarioReserva($id->id);
+        // debuguear($usuario);
         $router->render('paginas/crearPdf', [
             'reserva'=>$reserva,
             'habitacionesReserva'=>$habitacionesReserva,
-            'habitaciones'=>$habitaciones
+            'habitaciones'=>$habitaciones,
+            'usuario'=>$usuario
         ]);
     }
     public static function verPdf(Router $router){
@@ -166,11 +172,12 @@ class PaginaController{
         $reserva=Reserva::find($id);
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
         $habitaciones=Habitaciones::all();
-        // debuguear();
+        $usuario=Usuario::getUsarioReserva($id);
         $router->render('paginas/crearPdf', [
             'reserva'=>$reserva,
             'habitacionesReserva'=>$habitacionesReserva,
-            'habitaciones'=>$habitaciones
+            'habitaciones'=>$habitaciones,
+            'usuario'=>$usuario
         ]);
     }
     public static function salon(Router $router ){
@@ -239,6 +246,7 @@ class PaginaController{
         $id=$_SESSION['usuario_id'];
         $no=true;
         $no2=true;
+        $result=Reserva::reservas();
         $reservas=Reserva::reserva_hab($id);
         $router->render('paginas/reservas-usuario', [
             'no'=>$no,
@@ -262,6 +270,10 @@ class PaginaController{
             $reserva->eliminare();
 
         }
+    }
+
+    public static function datosReserva(Router $router){
+            
     }
 }
 

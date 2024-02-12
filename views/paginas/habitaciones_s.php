@@ -10,7 +10,6 @@
 </div>
 
 <div class="seccion" id="paso-1">
-
 	<div class="tit_hab_reserva_cont">
 		<img src="build/img/logor.webp" alt="">
 		<div class="tit_part_reser">
@@ -71,6 +70,9 @@
 			<input type="time" name="hora_re" id="hora">
 			<p>Hora de la zona horaria de Puerto Ordaz</p>
 			<input type="hidden" id="id" value="<?php echo $id;?>">
+			<p class="opcion_traslado">¿Desea que la opcion del traslado al hotel? (No incluye un costo adicional)</p>
+			<input type="checkbox" id="traslado" name="traslado" value="si" checked />
+    		<label for="traslado">Si deseo usar este servicio</label>
 			<hr>
 			<h3>Resumen de la reserva</h3>
 		<div class="reserva_comp_resumen">
@@ -95,23 +97,26 @@
 			</div>
 			<h4>Metodo de pago</h4>
 			<div class="metodo_pago">
+				<div class="pago_part">
+						<label for="Transferencia">Transferencia</label>
+						<input  type="radio" value="Transferencia" id="transferencia" name="m_pago" required>
+				</div>
+				<div class="pago_part">
+						<label for="Bankofamerica">Bank of america</label>
+						<input  type="radio" value="Bank of America" id="Bankofamerica" name="m_pago" required>
+				</div>
+				<div class="pago_part">
+						<label for="pagarHotel">Pagar en el hotel</label>
+						<input  type="radio" value="Pagar en el hotel" id="pagarHotel" name="m_pago" required>
+				</div>	
+
+			</div>
 			
-			<div class="pago_part">
-					<label for="transferencia">Transferencia</label>
-                    <input  type="radio" value="transferencia" id="transferencia" name="m_pago" required>
-			</div>
-			<div class="pago_part">
-                    <label for="Bankofamerica">Bank of america</label>
-                    <input  type="radio" value="Bankofamerica" id="Bankofamerica" name="m_pago" required>
-			</div>
-			<div class="pago_part">
-					<label for="pagarHotel">Pagar en el hotel</label>
-                    <input  type="radio" value="pagarHotel" id="pagarHotel" name="m_pago" required>
-			</div>	
-			</div>
+			<div id="pago"></div>
+			
 			<div class="boton-reserva">
 
-				</div>
+			</div>
 		</div>
 </div>
 
@@ -141,15 +146,7 @@
 					<span class="close" id="close">&times;</span>
 				</div>
 				<div class="modal-body" id="modal-body">
-					<!-- <p>Habitaciones con desayuno incluido</p>
-					<button type="button" class="counter-btn" onclick="incrementar2('adultos')">+</button>
-                     <input id="cant_desayuno" class="counter-input" type="number">
-                   <button type="button" class="counter-btn" onclick="decrementar2('adultos')">-</button>
-					<p>Habitaciones sin desayuno incluio</p>	
-				   <button type="button" class="counter-btn" onclick="incrementar2('adultos')">+</button>
-                     <input id="cant_sdesayuno" class="counter-input" type="text">
-                   <button type="button" class="counter-btn" onclick="decrementar2('adultos')">-</button> -->
-				</div>
+			</div>
 
 				<div class="footer">
 					<!-- <div id="seleccionar_hab_p">Seleccionar</div> -->

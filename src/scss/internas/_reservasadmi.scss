@@ -1,0 +1,44 @@
+.form_reservas {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+  }
+
+  .boton-rojo-block_reservas {
+    background-color: #ba0534;
+    border: none;
+    border-radius: .5rem;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400 !important;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+  height: 100%;
+  }
+
+  .boton-verde-block-conf,
+  .boton-block-ver,
+  .boton-block-recibido{
+    border: none;
+    border-radius: .5rem;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400 !important;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .boton-verde-block-conf{
+    background-color: #74b33d;
+  }
+  .boton-block-ver{
+    background-color: #0572ba;
+  }
+  .boton-block-recibido{
+    background-color: rgb(254, 123, 8);
+  }
