@@ -56,6 +56,7 @@ class ComposerStaticInit8878ce77638cbf8805c4dea7681bf280
         'C' => 
         array (
             'Controllers\\' => 12,
+            'Classes\\' => 8,
         ),
     );
 
@@ -136,6 +137,10 @@ class ComposerStaticInit8878ce77638cbf8805c4dea7681bf280
         'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controllers',
+        ),
+        'Classes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes',
         ),
     );
 

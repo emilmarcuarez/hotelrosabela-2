@@ -12,8 +12,8 @@
             "Model\\": "./models",
             "MVC\\": "./",
             "Controllers\\": "./controllers",
-            "Paginas\\": "./views/paginas"
-            
+            "Paginas\\": "./views/paginas",
+            "Classes\\":"./classes"
         }
     },
     "require": {

@@ -74,22 +74,16 @@ $router->post('/habitaciones/actualizar', [HabitacionesController::class, 'actua
 $router->get('/habitaciones/mostrar', [HabitacionesController::class, 'index']);
 $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'eliminar']);
 
-$router->post('/reserva/recibida', [ReservaController::class, 'actReserva']);
-// $router->get('/reserva/recibida', [ReservaController::class, 'actReserva']);
 
+// confirmar cuenta por el token del email
+$router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
 // reservas
-
-
+$router->post('/reserva/recibida', [ReservaController::class, 'actReserva']);
 $router->get('/reservas/mostrar', [ReservaController::class, 'index']);
-// $router->get('/reservas/ver', [ReservaController::class, 'reservadatos']);
-// $router->post('/reservas/ver', [ReservaController::class, 'reservadatos']);
 $router->get('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
 $router->post('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
 $router->post('/reservas/crear', [ReservaController::class, 'crear']);
-// $router->get('/reservas/confirmar', [ReservaController::class, 'confirmar']);
 $router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
-// $router->get('/reservas/inhouse', [ReservaController::class, 'inhouse']);
-// $router->post('/reservas/inhouse', [ReservaController::class, 'inhouse']);
 $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 
 

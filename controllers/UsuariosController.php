@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-
+use Classes\Email;
 use MVC\Router;
 use Model\Usuario;
 
@@ -74,7 +74,14 @@ class UsuariosController
                 // si NO existe el usuario se muestra el error
                 if (!$resultado) {
                     // verificar si el usuario existe o no (mensaje de erorr)
+                     //creo el token
                     $Usuario->crearToken();
+
+                    // enviando el email
+                    $email=new Email($Usuario->email, $Usuario->nombre,
+                    $Usuario->apellido, $Usuario->token);
+                   
+                    $email->enviarConfirmacion();
                     
                     $Usuario->guardar();
                 } else { //si  existe el usuario
