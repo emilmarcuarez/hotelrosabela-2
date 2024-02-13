@@ -38,11 +38,13 @@
             </div>
             <div class="cont_reserva_usu">
                 <?php if($reserva->status === 1){ ?>
-                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="confirmada_r">Confirmada</span></p>
+                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="in_house">In house</span></p>
                 <?php }else if($reserva->status === 2){?>
-                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="pendiente_r">Pendiente</span></p>
+                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="pendiente_p">Pendiente</span></p>
                 <?php }else if(intval($reserva->status) === 3){?>
-                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="pendiente_r">Cancelada</span></p>
+                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="cancelada_p">Cancelada</span></p>
+                <?php }else if(intval($reserva->status) === 4){?>
+                    <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="confirmadas_p">Confirmada</span></p>
                 <?php }?>
                     <form action="" class="form_eliminar_reserva">
                     <input type="hidden" name="id" value="<?php echo $reserva->id; ?>" id="id_reserva2">

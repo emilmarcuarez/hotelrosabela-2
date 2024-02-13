@@ -155,6 +155,56 @@ if (document.querySelector(".typing-area")) {
 		chatBox.scrollTop = chatBox.scrollHeight;
 	}
 }
+// captar la imagen
+function crearGaleria(){
+	if(document.querySelector('.img_datosreserva')){
+		const galeria=document.querySelector('.img_datosreserva');
+	const imagen2 = galeria.querySelector('img');
+	const id = imagen2.src;
+	imagen2.onclick=function(){
+		mostrarImagen(id);
+	}
+	}
+	
+}
+
+// mostrar imagen
+function mostrarImagen(id){
+	
+    const imagen=document.createElement('picture');
+	imagen.classList.add("picture_edit");
+    imagen.innerHTML=`
+     <img class="img_picture" loading="lazy" width="100%" height="100%" src="${id}" alt="imagen galeria">
+    `;
+// crear el overlay con la imagen
+    const overlay=document.createElement('DIV');
+    overlay.appendChild(imagen);
+    overlay.classList.add('overlay');
+    overlay.onclick=function(){
+        const body=document.querySelector('body');
+        // para poder cerrar una foto de la galeria al darle click en cualquier parte
+        body.classList.remove('fijar-body');
+        overlay.remove();
+    }
+// Boton para cerrar el modal
+const cerrarModal=document.createElement('P');
+cerrarModal.textContent='X';
+cerrarModal.classList.add('btn-cerrar');
+cerrarModal.onclick=function(){
+    const body=document.querySelector('body');
+    // para poder darle scroll luego de cerrar una foto de la galeria
+    body.classList.remove('fijar-body');
+    overlay.remove();
+}
+overlay.appendChild(cerrarModal);
+
+// añadirlo al html
+    const body=document.querySelector('body');
+    body.appendChild(overlay);
+    // para no darle scroll
+    body.classList.add('fijar-body');
+}
+
 
 // chat de la parye del servidor. Panel administrativo
 
@@ -322,6 +372,7 @@ if (document.querySelector(".formulario_usuario_act")) {
 		xhr.send(formData);
 	}
 }
+
 // IN HOUSE LA RESERVA
 if (document.querySelectorAll(".form_reservas")) {
 
@@ -348,7 +399,7 @@ if (document.querySelectorAll(".form_reservas")) {
 						Swal.fire({
 							position: "top-end",
 							icon: "success",
-							title: "La reserva ha sido marcada como recibida",
+							title: "La reserva ha sido marcada como 'in house'",
 							showConfirmButton: false,
 							timer: 1500
 						}).then(() => {
@@ -374,7 +425,56 @@ if (document.querySelectorAll(".form_reservas")) {
 }
 
 
+// Confirmada LA RESERVA
+if (document.querySelector(".form_confirmada_reserva")) {
 
+	let form_reserva = document.querySelector(".form_confirmada_reserva");
+
+
+	// reservas_btn.forEach(function (form_reserva) {
+		// let	form_reserva = document.querySelector(".form_recibida_reserva"),
+		let id_reserva_conf = form_reserva.querySelector("input").value,
+			sendBtn_reserva = form_reserva.querySelector(".boton-verde_confirmado");
+
+
+		form_reserva.onsubmit = (e) => {
+			e.preventDefault();
+		}
+
+
+		sendBtn_reserva.onclick = () => {
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "/reservas/confirmar", true);
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						Swal.fire({
+							position: "top-end",
+							icon: "success",
+							title: "La reserva ha sido marcada como 'confirmada'",
+							showConfirmButton: false,
+							timer: 1500
+						}).then(() => {
+							setTimeout(() => {
+								window.location.reload();
+							}, 2000);
+						})
+					} else {
+						Swal.fire({
+							icon: 'info',
+							title: 'Revise su conexion a internet',
+							text: 'No se pudo cambiar el estado de la reserva, por favor, intente mas tarde.'
+						})
+					}
+				}
+			}
+			let formData = new FormData(form_reserva);
+			xhr.send(formData);
+			// xhr.send("id_reserva="+id_reserva);
+		}
+	// });
+
+}
 
 
 // bela asistente virtual y rose
@@ -542,6 +642,7 @@ if (document.querySelector(".form_eliminar_reserva")) {
 
 // -----------------------------------------------------------------------FIN
 AOS.init();
+// api de los paises
 if (document.getElementById('countries-list')) {
 	fetch('https://restcountries.com/v2/all')
 		.then(response => response.json())
@@ -551,11 +652,72 @@ if (document.getElementById('countries-list')) {
 				const listItem = document.createElement('option');
 				listItem.textContent = country.name;
 				countriesList.appendChild(listItem);
+				
+		
 			});
 		});
 }
 
+// fecha en la gestion de usuario y registro
+if(document.getElementById('fecha_id')){
+	// Obtener el selector de fecha y el selector de año
+	const fechaInput = document.getElementById('fecha_id');
+	const yearSelect = document.getElementById('year-select');
 
+	// Obtener el año actual y el año de nacimiento del usuario
+	const fechaActual = new Date();
+	const añoActual = fechaActual.getFullYear();
+	const añoNacimiento = parseInt(fechaInput.value.substring(0, 4));
+
+	// Llenar el selector de año con los últimos 100 años
+	for (let i = añoActual; i >= añoActual - 100; i--) {
+		const option = document.createElement('option');
+		option.text = i;
+		option.value = i;
+		if (i === añoNacimiento) {
+			option.selected = true;
+		}
+		yearSelect.add(option);
+	}
+
+	// Actualizar la fecha de nacimiento cuando se selecciona un año
+	yearSelect.addEventListener('change', function() {
+		const nuevoAño = yearSelect.value;
+		const nuevoMes = fechaInput.value.substring(5, 7);
+		const nuevoDia = fechaInput.value.substring(8, 10);
+		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
+	});
+}
+// fecha en el registro
+if(document.getElementById('fecha')){
+	// Obtener el selector de fecha y el selector de año
+	const fechaInput = document.getElementById('fecha');
+	const yearSelect = document.getElementById('year-select2');
+
+	// Obtener el año actual y el año de nacimiento del usuario
+	const fechaActual = new Date();
+	const añoActual = fechaActual.getFullYear();
+	const añoNacimiento = parseInt(fechaInput.value.substring(0, 4));
+
+	// Llenar el selector de año con los últimos 100 años
+	for (let i = añoActual; i >= añoActual - 100; i--) {
+		const option = document.createElement('option');
+		option.text = i;
+		option.value = i;
+		if (i === añoNacimiento) {
+			option.selected = true;
+		}
+		yearSelect.add(option);
+	}
+
+	// Actualizar la fecha de nacimiento cuando se selecciona un año
+	yearSelect.addEventListener('change', function() {
+		const nuevoAño = yearSelect.value;
+		const nuevoMes = fechaInput.value.substring(5, 7);
+		const nuevoDia = fechaInput.value.substring(8, 10);
+		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
+	});
+}
 let paso = 1;
 const pasoInicial = 1;
 const pasoFinal = 3;
@@ -643,7 +805,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		chatbot.classList.add("abierto");
 		abrirBoton.classList.add("cerrarbtn_chat");
 	});
-
+	crearGaleria();
 	eventListeners();
 	limitarCaracteres();
 	limitarCaracteres2();

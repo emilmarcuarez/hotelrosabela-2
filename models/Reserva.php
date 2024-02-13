@@ -92,6 +92,7 @@
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
+    // cancela las reservas automaticamente
     public static function reservas(){
         $query = "UPDATE reserva SET status = 3 WHERE fecha_i < CURDATE() AND status!=1;";
         $resultado =self::$db->query($query);
@@ -100,6 +101,11 @@
 
     public static function actstatus($id){
         $query = "UPDATE reserva SET status = 1 WHERE id=".$id.";";
+        $resultado =self::$db->query($query);
+        return $resultado;
+    }
+    public static function actstatus2($id){
+        $query = "UPDATE reserva SET status = 4 WHERE id=".$id.";";
         $resultado =self::$db->query($query);
         return $resultado;
     }

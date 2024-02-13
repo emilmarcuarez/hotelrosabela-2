@@ -86,8 +86,10 @@ $router->get('/reservas/mostrar', [ReservaController::class, 'index']);
 $router->get('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
 $router->post('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
 $router->post('/reservas/crear', [ReservaController::class, 'crear']);
-$router->get('/reservas/confirmar', [ReservaController::class, 'confirmar']);
+// $router->get('/reservas/confirmar', [ReservaController::class, 'confirmar']);
 $router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
+// $router->get('/reservas/inhouse', [ReservaController::class, 'inhouse']);
+// $router->post('/reservas/inhouse', [ReservaController::class, 'inhouse']);
 $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 
 

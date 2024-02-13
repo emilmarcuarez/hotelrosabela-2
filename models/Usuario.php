@@ -5,7 +5,7 @@ class Usuario extends Activerecord
 {
   protected static $tabla='usuarios';
   protected static $pagina='usuarios/mostrar';
-  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'n_empresa', 'i_fiscal','noches'];
+  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'n_empresa', 'i_fiscal','noches','no_leidos','no_leidos_admi','token','confirmado'];
 
   
   public $id;
@@ -27,7 +27,8 @@ class Usuario extends Activerecord
   public $noches;
   public $no_leidos;
   public $no_leidos_admi;
-  
+  public $token;
+  public $confirmado;
 
   public function __construct($args = [])
   {
@@ -47,9 +48,11 @@ class Usuario extends Activerecord
       $this->identificacion = $args['identificacion'] ?? '';
       $this->n_empresa = $args['n_empresa'] ?? 'nada';
       $this->i_fiscal = $args['i_fiscal'] ?? '1';
-      $this->noches = $args['noches'] ?? '0';
-      $this->no_leidos= $args['no_leidos'] ?? '0';
-      $this->no_leidos_admi= $args['no_leidos_admi'] ?? '0';
+      $this->noches = $args['noches'] ?? 0;
+      $this->no_leidos= $args['no_leidos'] ?? 0;
+      $this->no_leidos_admi= $args['no_leidos_admi'] ?? 0;
+      $this->token= $args['token'] ?? '';
+      $this->token= $args['confirmado'] ?? '';
   }
 
   public function validarRegistro()
@@ -258,5 +261,8 @@ public function guardar()
 
 // para traerse el usuario segun el id
 
+public function crearToken(){
+    $this->token=uniqid();
+}
 
 }
