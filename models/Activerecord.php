@@ -13,7 +13,7 @@ class Activerecord
 
     // errores
     protected static $errores = [];
-
+    protected static $alertas = [];
 
 
     // definir la conexion a la base de datos
@@ -22,7 +22,19 @@ class Activerecord
         self::$db = $database;
     }
 
+    public static function setAlerta($tipo, $mensaje) {
+        static::$alertas[$tipo][] = $mensaje;
+    }
 
+    // Validación
+    public static function getAlertas() {
+        return static::$alertas;
+    }
+
+    public function validar2() {
+        static::$alertas = [];
+        return static::$alertas;
+    }
     public function guardar()
     {
         if (!is_null($this->id)) {
@@ -247,6 +259,15 @@ public static function getEventosdif($cantidad, $id)
     public static function find($id)
     {
         $query = "SELECT * FROM ". static::$tabla. " WHERE id= $id";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado); //Retornaa el primer elemento
+    }
+
+    // buscar por el token
+    public static function where($columna,$token)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE ".$columna."='". $token."'";
         // se sigue el principio de active record que es tener todo en objetos
         $resultado = self::consultarSQL($query);
         return array_shift($resultado); //Retornaa el primer elemento

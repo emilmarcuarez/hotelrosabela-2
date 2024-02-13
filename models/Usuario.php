@@ -48,11 +48,11 @@ class Usuario extends Activerecord
       $this->identificacion = $args['identificacion'] ?? '';
       $this->n_empresa = $args['n_empresa'] ?? 'nada';
       $this->i_fiscal = $args['i_fiscal'] ?? '1';
-      $this->noches = $args['noches'] ?? 0;
-      $this->no_leidos= $args['no_leidos'] ?? 0;
-      $this->no_leidos_admi= $args['no_leidos_admi'] ?? 0;
+      $this->noches = $args['noches'] ?? '0';
+      $this->no_leidos= $args['no_leidos'] ?? '0';
+      $this->no_leidos_admi= $args['no_leidos_admi'] ?? '0';
       $this->token= $args['token'] ?? '';
-      $this->token= $args['confirmado'] ?? '';
+      $this->confirmado= $args['confirmado'] ?? '0';
   }
 
   public function validarRegistro()
@@ -197,19 +197,30 @@ public function autenticar(){
 
 // para crear y guardar cada usuario
 
-public function guardar()
-    {
-        if (!is_null($this->id)) {
-            // actualizar
-            $resultado=$this->actualizar();
+// public function guardar()
+//     {
+//         if (!is_null($this->id)) {
+//             // actualizar
+//             $resultado=$this->actualizar();
 
-        } else {
-            // crear un nuevo registro
-           $resultado= $this->crear();
-        }
-        return $resultado['id']; // Devolver el ID del mensaje creado
-    }
+//         } else {
+//             // crear un nuevo registro
+//            $resultado= $this->crear();
+//         }
+//         return $resultado['id']; // Devolver el ID del mensaje creado
+//     }
     
+public function guardar() {
+    $resultado = '';
+    if(!is_null($this->id)) {
+        // actualizar
+        $resultado = $this->actualizar();
+    } else {
+        // Creando un nuevo registro
+        $resultado = $this->crear();
+    }
+    return $resultado;
+}
     public function crear()
     {
         // sanitizar los datos
@@ -230,6 +241,26 @@ public function guardar()
             'resultado'=>$resultado,
             'id'=>self::$db->insert_id
         ];
+    }
+    public function actualizar() {
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Iterar para ir agregando cada campo de la BD
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 "; 
+
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
     }
     public static function getNombres($id){
         $query = "SELECT usuarios.*
@@ -263,6 +294,16 @@ public function guardar()
 
 public function crearToken(){
     $this->token=uniqid();
+}
+public function comprobarPasswordAndVerificado($contrasenia) {
+    $resultado = password_verify($contrasenia, $this->contrasenia);
+    
+    if(!$resultado || !$this->confirmado) {
+        self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada';
+        self::$errores[]='La contraseña es incorrecta o tu cuenta no ha sido confirmada';
+    } else {
+        return true;
+    }
 }
 
 }

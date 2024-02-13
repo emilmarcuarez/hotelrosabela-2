@@ -21,6 +21,7 @@ use MVC\Router;
 $router= new Router();
 
 $router->get('/', [PaginaController::class, 'index']);
+$router->post('/', [PaginaController::class, 'index']);
 
 // zona privada
 $router->get('/error', [CentroconsumoController::class, 'error']);
@@ -77,6 +78,7 @@ $router->post('/habitaciones/eliminar', [HabitacionesController::class, 'elimina
 
 // confirmar cuenta por el token del email
 $router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
+$router->get('/mensaje', [LoginController::class, 'mensaje']);
 // reservas
 $router->post('/reserva/recibida', [ReservaController::class, 'actReserva']);
 $router->get('/reservas/mostrar', [ReservaController::class, 'index']);
@@ -138,6 +140,7 @@ $router->post('/crear', [ComentarioController::class, 'crear']);
 $router->get('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 $router->post('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 
+// Recuperar password
 
 // login y sigin
 $router->get('/login', [LoginController::class, 'login']);
