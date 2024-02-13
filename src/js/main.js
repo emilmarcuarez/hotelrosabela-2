@@ -639,7 +639,6 @@ if (document.querySelector(".form_eliminar_reserva")) {
 		});
 	}
 }
-
 // -----------------------------------------------------------------------FIN
 AOS.init();
 // api de los paises
@@ -718,6 +717,33 @@ if(document.getElementById('fecha')){
 		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
 	});
 }
+
+// alertas de exito
+// function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
+
+//     // Previene que se generen más de 1 alerta
+//     const alertaPrevia = document.querySelector('.alerta');
+//     if(alertaPrevia) {
+//         alertaPrevia.remove();
+//     }
+
+//     // Scripting para crear la alerta
+//     const alerta = document.createElement('DIV');
+//     alerta.textContent = mensaje;
+//     alerta.classList.add('alerta');
+//     alerta.classList.add(tipo);
+
+//     const referencia = document.querySelector(elemento);
+//     referencia.appendChild(alerta);
+
+//     if(desaparece) {
+//         // Eliminar la alerta
+//         setTimeout(() => {
+//             alerta.remove();
+//         }, 3000);
+//     }
+  
+// }
 let paso = 1;
 const pasoInicial = 1;
 const pasoFinal = 3;

@@ -20,24 +20,48 @@ class UsuariosController
 
             if (empty($errores)) {
                 // verificar si el usuario existe
-                $resultado = $auth->existeUsuario();
+                // $resultado = $auth->existeUsuario();
+                $usuario = Usuario::where('email', $auth->email);
                 // si NO existe el usuario se muestra el error
-                if (!$resultado) {
+                if (!$usuario) {
                     // verificar si el usuario existe o no (mensaje de erorr)
                     $errores = Usuario::getErrores();
                 } else { //si  existe el usuario
 
-                    // verificar el password
-                    $autenticado = $auth->comprobarPassword($resultado);
-
-                    if ($autenticado) {
-                        // autenticar el usuario
-
-                        $auth->autenticar();
-                    } else {
+                    if( $usuario->comprobarPasswordAndVerificado($auth->contrasenia) ) {
+                        // Autenticar el usuario
+                        session_start();
+                        // llenamos el arreglo de las sesiones establecidas
+                        $_SESSION['usuario_pag']=$usuario->email;
+                        // $usu=$usuario->getName();
+                        $_SESSION['usuario_sexo']=$usuario->sexo;
+                        $_SESSION['usuario_name']=$usuario->nombre;
+                        $_SESSION['usuario_id']=$usuario->id;
+                        $_SESSION['login_pag']=true;
+                        // debuguear($_SESSION);
+                        // Redireccionamiento
+                     
+                            header('Location: /');
+            
+                    }else {
                         // Password incorrecto: mensaje de error.
                         $errores = Usuario::getErrores(); //si no coincide la contraseña, se muestra el error
                     }
+
+
+
+                    // para borrar-----------------------
+                    // verificar el password
+                    // $autenticado = $auth->comprobarPassword($resultado);
+
+                    // if ($autenticado) {
+                    //     // autenticar el usuario
+
+                    //     $auth->autenticar();
+                    // } else {
+                    //     // Password incorrecto: mensaje de error.
+                    //     $errores = Usuario::getErrores(); //si no coincide la contraseña, se muestra el error
+                    // }
                 }
             }
         }
@@ -82,8 +106,12 @@ class UsuariosController
                     $Usuario->apellido, $Usuario->token);
                    
                     $email->enviarConfirmacion();
-                    
-                    $Usuario->guardar();
+
+                    // debuguear($Usuario);
+                    $resultado=$Usuario->guardar();
+                    if($resultado){
+                       header('Location: /mensaje');
+                    }
                 } else { //si  existe el usuario
                     $errores = Usuario::getErrores();
                 }

@@ -3,6 +3,7 @@
 namespace Controllers;
 use MVC\Router;
 use Model\Admin;
+use Model\Usuario;
 
 class LoginController{
     public static function login(Router $router){
@@ -54,5 +55,45 @@ class LoginController{
         session_start();
         $_SESSION=[]; //cerramos sesion
         header('Location: /');
+    }
+
+    public static function mensaje(Router $router){
+        $no2 =true;
+        $no =true;
+        $router->render('auth/mensaje',[
+            'no'=>$no,
+            'no2'=>$no2
+        ]);
+        // $router->render('auth/mensaje');
+    }
+    public static function confirmar(Router $router){
+        $no2 =true;
+        $no =true;
+        $alertas= [];
+        $token=s($_GET['token']);
+        $usuario=Usuario::where('token',$token);
+        if(empty($usuario) || $usuario->token === ''){
+            // mostrar mensaje de error
+            // echo "token no valido";
+            Usuario::setAlerta('error', 'Token No Valido');
+        }else{
+            // modificar a usuario confirmado
+            $usuario->confirmado="1";
+            $usuario->token='';
+            // debuguear($usuario);
+            $usuario->guardar();
+            Usuario::setAlerta('exito', 'Cuenta comprobada correctamente');
+        }
+
+        // obtener alertas
+        $alertas=Usuario::getAlertas();
+
+        // renderizar la vista
+        $router->render('auth/confirmar-cuenta',[
+            'alertas'=>$alertas,
+            'no'=>$no,
+            'no2'=>$no2
+        ]);
+        // $router->render('auth/mensaje');
     }
 }
