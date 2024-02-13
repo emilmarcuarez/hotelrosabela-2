@@ -74,6 +74,8 @@ class UsuariosController
                 // si NO existe el usuario se muestra el error
                 if (!$resultado) {
                     // verificar si el usuario existe o no (mensaje de erorr)
+                    $Usuario->crearToken();
+                    
                     $Usuario->guardar();
                 } else { //si  existe el usuario
                     $errores = Usuario::getErrores();

@@ -272,8 +272,6 @@ class PaginaController{
         }
     }
 
-    public static function datosReserva(Router $router){
-            
-    }
+ 
 }
 

@@ -15,7 +15,12 @@
                     </div>
                     <div class="r_part">
                         <label for="fecha">Fecha de nacimiento</label>
-                        <input type="date" name="fecha" placeholder="21/02/2002" id="fecha_id" value="<?php echo s($usuario->fecha); ?>" require>
+                       <div class="fecha_sencilla">
+                            <select id="year-select"></select>
+                            <input type="date" name="fecha" placeholder="21/02/2002" id="fecha_id" value="<?php echo s($usuario->fecha); ?>" require>
+                       </div>
+                      
+                       
                     </div>
                     <div class="r_part">
                         <label for="Apellido">Apellido</label>
@@ -25,9 +30,9 @@
                         <label for="sexo">Sexo</label>
                         <br>
                         <select name="sexo" id="sexo_id">
-                            <option value="M">Hombre</option>
-                            <option value="F">Mujer</option>
-                            <option value="indefinido">Prefiero no decirlo</option>
+                            <option value="M" <?php echo $usuario->sexo === 'M' ? 'selected' : ''; ?>>Hombre</option>
+                            <option value="F" <?php echo $usuario->sexo === 'F' ? 'selected' : ''; ?>>Mujer</option>
+                            <option value="indefinido" <?php echo $usuario->sexo === 'indefinido' ? 'selected' : ''; ?>>Prefiero no decirlo</option>
                         </select>
                     </div>
                     <div class="r_part">
@@ -48,8 +53,8 @@
                     <div class="r_part2">
                         <label for="pais">Pais</label>
                         <br>
-                        <select name="pais" id="countries-list">
-                        
+                        <select name="pais" id="countries-list2">
+                      
                         </select>
                     </div>
                     <div class="r_part2">

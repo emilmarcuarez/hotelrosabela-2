@@ -8,7 +8,7 @@ if (!isset($_SESSION)) {
 $auth = $_SESSION['login'] ?? false;
 $auth2 = $_SESSION['login_pag'] ?? false;
 // $nombre= $_SESSION['usuario_name'];
-// $sexo= $_SESSION['usuario_sexo'];
+$sexo= $_SESSION['usuario_sexo'] ?? false;
 if (!isset($inicio)) {
     $inicio = false;
 }
@@ -314,6 +314,33 @@ if (!isset($inicio)) {
     <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
     <script src="../build/js/bundle.min.js"></script>
     <script>
+    //    que aparezca el pais en lapagina de gestion de usuario
+if (document.getElementById('countries-list2')) {
+    fetch('https://restcountries.com/v2/all')
+        .then(response => response.json())
+        .then(data => {
+            const countriesList = document.getElementById('countries-list2');
+            data.forEach(country => {
+                const listItem = document.createElement('option');
+                listItem.textContent = country.name;
+                countriesList.appendChild(listItem);
+            });
+            
+            // Luego de construir las opciones, seleccionamos el país del usuario si coincide
+            const usuarioPais = '<?php echo s($usuario->pais); ?>';
+			
+			if (usuarioPais) {
+                const options = countriesList.options;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].textContent === usuarioPais) {
+                        options[i].selected = true;
+                        break;
+                    }
+                }
+            }
+        });
+}
+
         var stars = new StarRating('.star-rating');
         var stars2 = new StarRating('.star-rating2');
     </script>

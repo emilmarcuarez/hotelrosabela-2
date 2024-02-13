@@ -17,7 +17,7 @@
 <div class="tabla_general contenedor">
     <div class="cabecera_tabla_general">
 
-            <div class="cabecera_cont"><h2>Nro</h2></div>
+            <div class="cabecera_cont"><h2>Usuario</h2></div>
             <div class="cabecera_cont"><h2>Codigo</h2></div>
             <div class="cabecera_cont"><h2>Opcion de pago</h2></div>
             <div class="cabecera_cont"><h2>Solicitudes especiales</h2></div>
@@ -34,8 +34,12 @@
             <?php } else {?>
                 <div class="body_tabla_info f_griso">
             <?php }?>
-           
-                <div class="body_infor_div"><p><?php echo $reserva->id; ?> </p></div>
+                <?php foreach($usuarios as $usuario){ ?>
+                    <?php if($usuario->id===$reserva->usuarios_id){?>
+                        <div class="body_infor_div"><p><?php echo $usuario->nombre; ?> <?php echo $usuario->apellido; ?> </p></div>
+                    <?php }?>
+                <?php } ?>
+                
                 <div class="body_infor_div"><p><?php echo $reserva->codigo; ?> </p></div>
                 <div class="body_infor_div"><p> <?php echo $reserva->opcion_pago; ?></p></div>
                 <?php if(!$reserva->solicitudes){?>
@@ -45,19 +49,39 @@
                 
                     <?php }?>
                 <?php if(intval($reserva->status)===2){ ?>
-                    <div class="body_infor_div"><p>Pendiente</p></div>
-                <?php }else if(intval($reserva->status)===1){ ?>
-                    <div class="body_infor_div"><p>Confirmada</p></div>
-                <?php }else if(intval($reserva->status)===3){ ?>
-                    <div class="body_infor_div"><p>Cancelada</p></div>
-                <?php } ?>
-                
-                <div class="form_reservas">
+                    <div class="body_infor_div"><p class="pendiente_p">Pendiente</p></div>
+                    <div class="form_reservas">
                     <form class="form_recibida_reserva" action="">
                         <input type="hidden" name="id_reserva" value="<?php echo $reserva->id;?>" id="id_reserva">
-                        <button class="boton-rojo-block_reservas" value="Recibida">Recibida</button>
+                        <button class="boton-rojo-block_reservas" value="Recibida">In house</button>
                     </form> 
+                    <a href="/reservas/datosReserva?id=<?php echo $reserva->id; ?>" >Ver reserva</a>
                 </div>
+                <?php }else if(intval($reserva->status)===1){ ?>
+                    <div class="body_infor_div"><p class="in_house">In house</p></div>
+                    <div class="form_reservas">
+                    
+                    <a href="/reservas/datosReserva?id=<?php echo $reserva->id; ?>" >Ver reserva</a>
+                </div>
+                <?php }else if(intval($reserva->status)===3){ ?>
+                    <div class="body_infor_div"><p class="cancelada_p">Cancelada</p></div>
+                    <div class="form_reservas">
+                    
+                    <a href="/reservas/datosReserva?id=<?php echo $reserva->id; ?>" >Ver reserva</a>
+                </div>
+                    <?php }else if(intval($reserva->status)===4){ ?>
+                    <div class="body_infor_div"><p class="confirmadas_p">Confirmada</p></div>
+                    <div class="form_reservas">
+                    <form class="form_recibida_reserva" action="">
+                        <input type="hidden" name="id_reserva" value="<?php echo $reserva->id;?>" id="id_reserva">
+                        <button class="boton-rojo-block_reservas" value="Recibida">In house</button>
+                    </form> 
+                    <a href="/reservas/datosReserva?id=<?php echo $reserva->id; ?>" >Ver reserva</a>
+                </div>
+                <?php } ?>
+                
+
+  
             </div>
         <?php endforeach; ?>
     </div>

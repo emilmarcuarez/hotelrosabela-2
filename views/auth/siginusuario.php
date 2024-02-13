@@ -39,7 +39,10 @@
                     </div>
                     <div class="r_part">
                         <label for="fecha">Fecha de nacimiento</label>
-                        <input type="date" name="fecha" placeholder="21/02/2002" id="fecha" require>
+                        <div class="fecha_sencilla">
+                            <select id="year-select2"></select>
+                            <input type="date" name="fecha" placeholder="21/02/2002" id="fecha" value="<?php echo s($usuario->fecha); ?>" require>
+                       </div>
                     </div>
                     <div class="r_part">
                         <label for="sexo">Sexo</label>
