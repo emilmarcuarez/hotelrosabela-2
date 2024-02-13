@@ -25,4 +25,5 @@ return array(
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Dompdf\\' => array($vendorDir . '/dompdf/dompdf/src'),
     'Controllers\\' => array($baseDir . '/controllers'),
+    'Classes\\' => array($baseDir . '/classes'),
 );

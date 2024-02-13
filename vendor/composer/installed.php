@@ -3,7 +3,7 @@
         'name' => 'pascualina/hotelrosabela',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '43a1f3be819b43780a1b582e6fa47f5d482a2849',
+        'reference' => 'bc7c453658628fd368ced9e7eb527100c5a57a2f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -58,7 +58,7 @@
         'pascualina/hotelrosabela' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '43a1f3be819b43780a1b582e6fa47f5d482a2849',
+            'reference' => 'bc7c453658628fd368ced9e7eb527100c5a57a2f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
