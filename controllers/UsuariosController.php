@@ -144,13 +144,13 @@ class UsuariosController
     }
      //  noches de los usuarios
      public static function noches(Router $router){
-        $usuarios=Admin::all();
+        $usuarios=Usuarios::all();
         $no=true;
         $no2=true;
         // // MUESTRA MENSAJE CONDICIONAL
         $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
         //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
-        $router->render('auth/mostrar',[
+        $router->render('auth/noches',[
             'resultado'=>$resultado,
             'usuarios' =>$usuarios,
             'no'=>$no,
