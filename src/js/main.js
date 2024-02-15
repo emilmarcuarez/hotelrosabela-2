@@ -1,6 +1,48 @@
 //----------------------- chatbot-----------------------
 
 $(document).ready(function () {
+	// contraseña
+	// $('#togglePassword').click(function() {
+    //     const passwordInput = $('#contrasenia');
+    //     const passwordIcon = $(this);
+
+    //     // Cambiar entre los tipos de entrada "password" y "text"
+    //     const tipoActual = passwordInput.attr('type');
+    //     const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
+    //     passwordInput.attr('type', nuevoTipo);
+
+    //     // Cambiar el icono del ojo según el tipo de entrada
+    //     passwordIcon.toggleClass('fa-eye fa-eye-slash');
+    // });
+	$('#togglePassword').click(function() {
+        const passwordInput = $('#contrasenia');
+        const passwordIcon = $(this);
+
+        // Cambiar entre los tipos de entrada "password" y "text"
+        const tipoActual = passwordInput.attr('type');
+        const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
+        passwordInput.attr('type', nuevoTipo);
+
+        // Cambiar el icono del ojo según el tipo de entrada
+        passwordIcon.toggleClass('fa-eye fa-eye-slash');
+    });
+
+    $('#registroForm').submit(function(event) {
+        const contrasenia = $('#contrasenia').val();
+        const message = $('#passwordMessage');
+
+        if (contrasenia.length < 8) {
+            message.text('La contraseña debe tener al menos 8 caracteres');
+            message.addClass('error');
+            event.preventDefault(); // Evita que el formulario se envíe
+        } else {
+            message.text('');
+            message.removeClass('error');
+            // Aquí puedes agregar más validaciones si es necesario
+        }
+    });
+	//----fin----
+
 	const form_chatbot = document.querySelector(".typing-area5");
 	form_chatbot.onsubmit = (e) => {
 		e.preventDefault();
@@ -85,6 +127,7 @@ if (document.getElementById('file-label')) {
     });
 }
 
+// la contraseña
 
 
 

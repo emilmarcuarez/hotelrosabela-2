@@ -1,3 +1,29 @@
+// contraseña
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container input{
+    &:focus{
+    background-color: white;
+    outline: none;
+  }
+}
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #e8526c;
+}
+
+.password-input-container {
+    background: white;
+    padding: .2rem;
+    border-radius: 1.2rem;
+    width: 94%;
+  }
 
 .imagen_registro{
     background-color: #331427ab;
