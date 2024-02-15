@@ -2,3 +2,8 @@
     display:grid;
     grid-template-columns: 50% 50%;
 }
+
+// panel de los usuarios administrativos
+.form_botones input, .form_botones a {
+    font-size: 1.4rem;
+  }

@@ -17,17 +17,19 @@ class UsuariosController
 
             $auth = new Usuario($_POST);
             $errores = $auth->validar(); //sintaxi de flecha porque no es estatico
-
+            // debuguear($auth);
             if (empty($errores)) {
+                
                 // verificar si el usuario existe
                 // $resultado = $auth->existeUsuario();
-                $usuario = Usuario::where('email', $auth->email);
+                $resultado = $auth->existeUsuario();
+                // $usuario = Usuario::where('email', $auth->email);
                 // si NO existe el usuario se muestra el error
-                if (!$usuario) {
+                if (!$resultado) {
                     // verificar si el usuario existe o no (mensaje de erorr)
                     $errores = Usuario::getErrores();
                 } else { //si  existe el usuario
-
+                    $usuario = Usuario::where('email', $auth->email);
                     if( $usuario->comprobarPasswordAndVerificado($auth->contrasenia) ) {
                         // Autenticar el usuario
                         session_start();

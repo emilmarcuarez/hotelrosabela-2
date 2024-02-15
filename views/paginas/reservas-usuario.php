@@ -37,9 +37,9 @@
                 </div>
             </div>
             <div class="cont_reserva_usu">
-                <?php if($reserva->status === 1){ ?>
+                <?php if(intval($reserva->status) === 1){ ?>
                     <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="in_house">In house</span></p>
-                <?php }else if($reserva->status === 2){?>
+                <?php }else if(intval($reserva->status) === 2){?>
                     <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="pendiente_p">Pendiente</span></p>
                 <?php }else if(intval($reserva->status) === 3){?>
                     <p>Forma de pago: <?php echo $reserva->opcion_pago?> - <span class="cancelada_p">Cancelada</span></p>

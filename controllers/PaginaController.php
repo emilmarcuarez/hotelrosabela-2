@@ -263,6 +263,7 @@ class PaginaController{
             $id = $_POST['id'];
             $id = filter_var($id, FILTER_VALIDATE_INT);
             $reserva=Reserva::find($id);
+           
             $reservahab=ReservaHabitacion::re_habitaciones_all($id);
             foreach($reservahab as $reb){
                 $reb->eliminare();

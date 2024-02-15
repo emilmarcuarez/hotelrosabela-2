@@ -1,17 +1,42 @@
-.alerta {
-    padding: calc( $separacion / 4);
-    color: $blanco;
-    width: 100%;
-    display: block;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-weight: $bold;
-    text-transform: uppercase;
+.acciones {
+    display: flex;
+    justify-content: center;
+    gap: 11rem;
+    margin-bottom: 3rem;
+  }
 
-    &.error {
-        background-color: $rojo;
-    }
-    &.exito {
-        background-color: $verde;
-    }
-}
+//   recuperar contraseña
+.contenedor.recuperar_pagina h1 {
+    font-size: 2.4rem;
+    color: #403e3e;
+  }
+  .recuperar_pagina p {
+    font-size: 1.7rem;
+  }
+  .campo2 input {
+    width: 38rem !important;
+  }
+  .campo2 label {
+    text-transform: full-size-kana;
+    margin-top: 1.4rem;
+    color: #525353;
+  }
+  .form-recuperar .boton {
+    border: none;
+    background: #ac1c43;
+    color: white;
+    padding: 1rem;
+    border-radius: 3rem;
+    margin-bottom: 5rem;
+  }
+  @media screen and (max-width: 900px){
+    .campo2 input {
+        width: 100% !important;
+      }
+      .acciones{
+        flex-direction:column;
+        gap: 4rem;
+  justify-content: center;
+        align-items: center;
+        }
+  }

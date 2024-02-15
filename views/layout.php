@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 }
 
 $auth = $_SESSION['login'] ?? false;
+$auth_recepcion = $_SESSION['login_recepcion'] ?? false;
 $auth2 = $_SESSION['login_pag'] ?? false;
 // $nombre= $_SESSION['usuario_name'];
 $sexo= $_SESSION['usuario_sexo'] ?? false;
@@ -64,14 +65,14 @@ if (!isset($inicio)) {
                     <a href="https://twitter.com/hotelrosabela?lang=es"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
-            <?php if (!$auth2 && !$auth) { ?>
+            <?php if (!$auth2 && !$auth && !$auth_recepcion) { ?>
                 <div class="login_usu">
                     <a href="/loginusuario">Iniciar sesion</a>
                     <a href="/siginusuario">Registrar</a>
                 </div>
 
             <?php } else { ?>
-                <?php if (!$auth) { ?>
+                <?php if (!$auth && !$auth_recepcion) { ?>
                     <?php if ($sexo === "F") { ?>
                         <p>Bienvenida <?php echo $nombre; ?></p>
                     <?php } else if ($sexo === "M") { ?>
@@ -89,7 +90,7 @@ if (!isset($inicio)) {
                             <a href="/reservas-usuario">Reservas</a>
                         </div>
                     </div>
-                <?php } else if ($auth) { ?>
+                <?php } else if ($auth || $auth_recepcion ) { ?>
                     <a href="/logout">Cerrar Sesion</a>
                 <?php } ?>
             <?php } ?>
@@ -239,6 +240,7 @@ if (!isset($inicio)) {
         </div>
 
     </div>
+    <?php if(!$auth){?>
     <div class="chatbot_abrir_btn" id="abrirChatbot">
         <div class="text_chatbot">
             <p>Chatea con nosotros</p>
@@ -248,6 +250,7 @@ if (!isset($inicio)) {
         </div>
 
     </div>
+    <?php }?>
     <?php echo $contenido; ?>
 
 

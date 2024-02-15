@@ -14,7 +14,18 @@
     font-weight: 400 !important;
     @include boton($fucsia, inline-block);
     margin-bottom: 1rem;
+    width: 100% !important;
 }
+
+.volver_simple {
+  color: white;
+  padding: 1rem;
+  background: black;
+  display: inline-block;
+  border-radius: 1rem;
+  margin: 2rem;
+}
+
 .boton-verde-block{
  
     border-radius: .5rem;

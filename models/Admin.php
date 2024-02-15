@@ -4,16 +4,21 @@ namespace Model;
 
 class Admin extends Activerecord{
     protected static $tabla='usuario_admi';
-    protected static $columnasDB=['id', 'email', 'password'];
+    protected static $pagina='auth/mostrar';
+    protected static $columnasDB=['id', 'email', 'password','tipo','nombre'];
 
     public $id;
     public $email;
     public $password;
+    public $tipo;
+    public $nombre;
 
     public function __construct($args =[]){
         $this->id=$args['id'] ?? null;
         $this->email=$args['email'] ?? null;
         $this->password=$args['password'] ?? null;
+        $this->tipo=$args['tipo'] ?? '';
+        $this->nombre=$args['nombre'] ?? '';
     }
     public function validar(){
         if(!$this->email){
@@ -22,6 +27,9 @@ class Admin extends Activerecord{
         if(!$this->password){
             self::$errores[]='El Password es obligatorio';
         }
+        // if(!$this->tipo){
+        //     self::$errores[]='El tipo es obligatorio';
+        // }
 
         return self::$errores;
     }
@@ -53,11 +61,49 @@ class Admin extends Activerecord{
     }
 
     public function autenticar(){
-        // session_start();
-        // llenamos el arreglo de las sesiones establecidas
-        $_SESSION['usuario']=$this->email;
-        $_SESSION['login']=true;
-
-        header('Location: /admin');
+       
+        // debuguear(intval($this->tipo) ===1);
+        if(intval($this->tipo) ===1){
+             $_SESSION['usuario']=$this->email;
+            $_SESSION['login']=true;
+            header('Location: /admin');
+        }else if(intval($this->tipo) ===2){
+            $_SESSION['usuario']=$this->email;
+            $_SESSION['login_recepcion']=true;
+            header('Location: /admin');
+        }
+       
     }
+    public function setPassword($password){
+        $this->password= password_hash($password, PASSWORD_BCRYPT);
+    }
+    public function validarRegistro()
+  {
+      if (!$this->nombre) {
+          self::$errores[] = "El nombre es obligatorio";
+      }
+      if (!$this->email) {
+        self::$errores[] = "El email es obligatorio";
+      }
+      if (!$this->tipo) {
+        self::$errores[] = "El tipo de usuario es obligatorio";
+      }
+      if (!$this->password) {
+        self::$errores[] = "La contrasenia es obligatorio";
+      }
+      return self::$errores;
+  }
+  public function existeUsuarioRegistro(){
+    // revisamos si el susuario existe o no
+    $query="SELECT * FROM ".self::$tabla. " WHERE email = '".$this->email ."' LIMIT 1";
+ 
+    $resultado=self::$db->query($query);
+    // num_rows tiene un 1 si el usuario existe, asi que si no existe es que NO EXISTE
+    if(!$resultado->num_rows){
+       
+        return; //se deja de ejecutar esta funcion
+    }
+    self::$errores[]='El Usuario YA existe';
+    return $resultado;
+}
 }

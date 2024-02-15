@@ -15,9 +15,11 @@ class Router{
 
         session_start();
         $auth=$_SESSION['login'] ?? null;
+        $auth_recepcion=$_SESSION['login_recepcion'] ?? null;
 
         // ARREGLO DE RUTAS PROTEGIDAS
-        $rutas_protegidas=['/admin', '/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar',  '/empleados/crear', '/empleados/actualizar', '/empleados/eliminar',  '/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/chef/mostrar', '/eventos/mostrar', '/salones/mostrar', '/empleados/mostrar', '/centrosconsumo/mostrar'];
+        $rutas_protegidas=['/admin','/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar',  '/empleados/crear', '/empleados/actualizar', '/empleados/eliminar',  '/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/chef/mostrar', '/eventos/mostrar', '/salones/mostrar', '/empleados/mostrar', '/centrosconsumo/mostrar'];
+        $rutas_protegidas_recepcion=['/admin', '/chats/mostrar2','/chats/responder', '/chat2','/actualizarChatServidor','/reserva/recibida','/reservas/mostrar', '/reservas/datosReserva','/reservas/crear','/reservas/confirmar','/reservas/eliminar','/reservas/buscar', '/responder'];
 
         // basada en la url que estoy visitando gracias al router, me busca la funcion asociada a ese url
         $urlActual=strtok($_SERVER['REQUEST_URI'],'?') ?? '/';
@@ -32,9 +34,19 @@ class Router{
         }
 
         // PROTEGER LAS RUTAS
-        if(in_array($urlActual, $rutas_protegidas)&& !$auth){ ///si no esta autenticado
+        // $protegida=0;
+
+        if(in_array($urlActual, $rutas_protegidas) && !$auth && !$auth_recepcion){ ///si no esta autenticado
+            header('location: /');
+            // $protegida=1;
+        }
+        else if(in_array($urlActual, $rutas_protegidas)&& !$auth && $urlActual!=='/admin' && $auth_recepcion){
             header('location: /');
         }
+        
+        // else if($urlActual==='/admin' && !$auth && !$auth_recepcion){
+        //     header('location: /');
+        // }
 
         if($fn){
             // la url existe y hay una funcion asociada

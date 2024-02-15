@@ -24,6 +24,8 @@
        <?php endforeach;?>
     </div>
     <div class="chats">
+      
         <p class="p_chat">Elige un chat</p>
+        <a href="/admin" class="volver_simple">Volver</a>
     </div>
 </div>

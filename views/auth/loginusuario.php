@@ -17,7 +17,8 @@
                 <label for="contrasenia">Contraseña</label>
                 <input type="contrasenia" name="contrasenia" placeholder="contraseña" id="contrasenia" require>
                 <input type="submit" value="Iniciar sesion" class="boton boton-verde">
-               <a href="#">Olvide mi contraseña</a>
+               <a href="/olvide">Olvide mi contraseña</a>
+               <a href="/siginusuario">¿No tienes cuenta? Registrate aqui</a>
                <!-- <hr class="mi-contrasenia"> -->
             </fieldset>
             

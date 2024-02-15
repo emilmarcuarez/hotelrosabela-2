@@ -62,10 +62,10 @@ class Activerecord
         $resultado = self::$db->query($query);
         //   return es un false or true
         // Mensaje de exito
-        return [
-            'resultado'=>$resultado,
-            'id'=>self::$db->insert_id
-        ];
+        // return [
+        //     'resultado'=>$resultado,
+        //     'id'=>self::$db->insert_id
+        // ];
         if ($resultado) {
 
             header('location: /'.static::$pagina.'?resultado=1');
@@ -216,6 +216,33 @@ class Activerecord
     public static function all()
     {
         $query = "SELECT * FROM ". static::$tabla;
+
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
+    // usuarios-busqueda
+    public static function allUsuarios($valor)
+    {
+        $query = "SELECT *
+        FROM usuarios 
+        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR identificacion LIKE '%".$valor."%';";
+        //  debuguear($query);
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
+    // reservas- busqueda por codigo
+    public static function allReservasBusqueda($codigo)
+    {
+        $query = "SELECT *
+        FROM reserva 
+        WHERE codigo LIKE '".$codigo."' ORDER BY id DESC;";
+
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
+    public static function allDesc()
+    {
+        $query = "SELECT * FROM ". static::$tabla. " ORDER BY id DESC;";
 
         $resultado = static::consultarSQL($query);
         return $resultado;

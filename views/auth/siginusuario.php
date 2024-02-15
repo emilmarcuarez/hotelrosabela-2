@@ -29,13 +29,13 @@
                 <div class="field_registro">
                     <div class="r_part">
                         <label for="Nombre">Nombre</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre" id="nombre" require>
+                        <input type="text" name="nombre" placeholder="Tu nombre" id="nombre" value="<?php echo s($usuario->fecha); ?>" require>
                     </div>
                    
            
                     <div class="r_part">
                         <label for="Apellido">Apellido</label>
-                        <input type="apellido" name="apellido" placeholder="Apellido" id="apellido" require>
+                        <input type="apellido" name="apellido" placeholder="Apellido" id="apellido" value="<?php echo s($usuario->apellido); ?>" require>
                     </div>
                     <div class="r_part">
                         <label for="fecha">Fecha de nacimiento</label>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="r_part">
                         <label for="identificacion">Cedula o Pasaporte</label>
-                        <input type="number" name="identificacion" placeholder="cedula o pasaporte" id="identificacion" require>
+                        <input type="number" name="identificacion" placeholder="cedula o pasaporte" id="identificacion" value="<?php echo s($usuario->identificacion); ?>" require>
                     </div>
                 </div>
             </fieldset>
@@ -66,7 +66,7 @@
                 <div class="field_registro2">
                     <div class="r_part2">
                         <label for="nro_telefono">Numero de telefono</label>
-                        <input type="text" name="nro_telefono" placeholder="+58 414-7678192" id="nro_telefono" require>
+                        <input type="text" name="nro_telefono" placeholder="+58 414-7678192" id="nro_telefono" value="<?php echo s($usuario->nro_telefono); ?>" require>
                     </div>
                     <div class="r_part2">
                         <label for="pais">Pais</label>
@@ -77,21 +77,21 @@
                     </div>
                     <div class="r_part2">
                         <label for="Estado">Estado</label>
-                        <input type="text" name="estado" placeholder="Estado bolivar" id="estado" require>
+                        <input type="text" name="estado" placeholder="Estado bolivar" id="estado" value="<?php echo s($usuario->estado); ?>" require>
                     </div>
                 </div>
                 <div class="field_registro3">
                     <div class="r_part2">
                         <label for="ciudad">Ciudad</label>
-                        <input type="text" name="ciudad" placeholder="Tu ciudad" id="ciudad" require>
+                        <input type="text" name="ciudad" placeholder="Tu ciudad" id="ciudad" value="<?php echo s($usuario->ciudad); ?>" require>
                     </div>
                     <div class="r_part2">
                         <label for="direccion">Direccion</label>
-                        <textarea type="text" name="direccion" placeholder="direccion" id="direccion" require></textarea>
+                        <textarea type="text" name="direccion" placeholder="direccion" id="direccion" value="<?php echo s($usuario->direccion); ?>" require></textarea>
                     </div>
                     <div class="r_part2">
                         <label for="c_postal">Codigo postal</label>
-                        <input type="number" name="codigo postal" placeholder="8050" id="c_postal" require>
+                        <input type="number" name="codigo postal" placeholder="8050" id="c_postal" value="<?php echo s($usuario->codigo_postal); ?>" require>
                     </div>
                 </div>
             </fieldset>

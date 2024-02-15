@@ -710,40 +710,24 @@ if(document.getElementById('fecha')){
 	}
 
 	// Actualizar la fecha de nacimiento cuando se selecciona un año
+	
+	if(fechaInput.value===''){
+		const nuevoAño = yearSelect.value;
+		const nuevoMes = '01';
+		const nuevoDia = '01';
+		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
+	}
 	yearSelect.addEventListener('change', function() {
 		const nuevoAño = yearSelect.value;
 		const nuevoMes = fechaInput.value.substring(5, 7);
 		const nuevoDia = fechaInput.value.substring(8, 10);
 		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
+		console.log("n dia: "+nuevoDia);
+		console.log("n mes: "+nuevoMes);
+		console.log("n año: "+nuevoAño);
 	});
 }
 
-// alertas de exito
-// function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
-
-//     // Previene que se generen más de 1 alerta
-//     const alertaPrevia = document.querySelector('.alerta');
-//     if(alertaPrevia) {
-//         alertaPrevia.remove();
-//     }
-
-//     // Scripting para crear la alerta
-//     const alerta = document.createElement('DIV');
-//     alerta.textContent = mensaje;
-//     alerta.classList.add('alerta');
-//     alerta.classList.add(tipo);
-
-//     const referencia = document.querySelector(elemento);
-//     referencia.appendChild(alerta);
-
-//     if(desaparece) {
-//         // Eliminar la alerta
-//         setTimeout(() => {
-//             alerta.remove();
-//         }, 3000);
-//     }
-  
-// }
 let paso = 1;
 const pasoInicial = 1;
 const pasoFinal = 3;
@@ -825,12 +809,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 
-
+if (document.getElementById("abrirChatbot")) {
 	abrirBoton.addEventListener("click", function () {
 		chatbot.classList.remove("cerrado");
 		chatbot.classList.add("abierto");
 		abrirBoton.classList.add("cerrarbtn_chat");
 	});
+}
 	crearGaleria();
 	eventListeners();
 	limitarCaracteres();

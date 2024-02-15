@@ -25,7 +25,9 @@
         color: $grisOscuro;
     }
 }
-
+.acciones a {
+    color: #3e3d3d;
+  }
 .formulario_iniciar {
     margin-bottom: 4rem;
     width: 100%;
@@ -40,7 +42,7 @@
     }
 
     legend {
-        font-size: 2rem;
+        font-size: 1.4rem;
         color: $grisOscuro;
     }
 
@@ -85,13 +87,16 @@
         border-radius: 1rem;
     }
     input[type="submit"]:hover{
-        background-color: #ffffff;
-        color: $rosado;
+        background-color: #8f2e47;
+        transition: .2 ease-in;
+        cursor: pointer;
+        // color: $rosado;
     }
     fieldset{
         border: .1px solid #b9b3b3;
         width: 45rem;
         border-radius: 1rem;
+        font-size: 1.3rem;
         a{
             margin-top: 2.5rem;
             display: inline-block;
@@ -105,3 +110,46 @@
         }
     }
 }
+
+// confirmar cuenta
+.contenedor.conf_cuenta {
+    margin-bottom: 4rem;
+    width: 49% !important;
+  }
+  .contenedor.conf_cuenta h1 {
+    font-size: 2rem;
+    color: #514d4d;
+   
+  }
+  .descripcion-pagina_conf {
+    font-size: 1.5rem;
+    text-align: center;
+
+
+  }
+  
+
+  .conf_cuenta_2{
+    h1{
+        font-size: 2rem;
+  color: #353434;
+  text-align: center;
+    }
+    p:nth-child(3) {
+        text-align: center;
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-top: 3rem;
+        color: #ac1c43;
+      }
+  }
+  .espacio23{
+    margin-top: 3rem;
+  }
+
+  @media screen and (max-width: 900px){
+    .contenedor.conf_cuenta {
+        // margin-bottom: 4rem;
+        width: 86% !important;
+      }
+  }

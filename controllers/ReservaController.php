@@ -11,10 +11,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 class ReservaController{
     public static function index(Router $router){
       
-        $reservashabitaciones=ReservaHabitacion::all();
-        $reservas=Reserva::all();
+        $reservashabitaciones=ReservaHabitacion::allDesc();
+        $reservas=Reserva::allDesc();
         $usuarios=Usuario::all();
         $result=Reserva::reservas();
+       
         $no2=true;
         $no=true;
         $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
@@ -33,7 +34,22 @@ class ReservaController{
     public static function actReserva(){
         $id=$_POST['id_reserva'];
         // debuguear($id);
+        //  $reserva=new Reserva;
+        $reserva=Reserva::find($id);
+        $usuario = Usuario::where('id', $reserva->usuarios_id);
+        // reserva- imagen
+        $fechaInicio = strtotime($reserva->fecha_i);
+        $fechaFin = strtotime($reserva->fecha_e);
+        
+        // Calcula la diferencia entre las dos fechas
+        $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
+        
+        $usuario->noches+=$diferencia->days;
+         $usuario->guardar();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+        //  debuguear($usuario);
+         
             $result=Reserva::actstatus($id);
         }
         
@@ -42,6 +58,7 @@ class ReservaController{
     public static function confirmar(){
         $id=$_POST['id_reserva_conf'];
         // debuguear($id);
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $result=Reserva::actstatus2($id);
         }
@@ -65,4 +82,33 @@ class ReservaController{
             'habitaciones'=>$habitaciones
         ]);
     }
+       public static function buscar(Router $router){
+        $valor=$_POST['buscador'];
+        $reservashabitaciones=ReservaHabitacion::allDesc();
+       
+        
+        $reservas=Reserva::allReservasBusqueda($valor);
+        if(!$reservas){
+            $reservas=Reserva::allDesc();
+        }
+        $usuarios=Usuario::allUsuarios($valor);
+        
+        if(!$usuarios){
+             $usuarios=Usuario::all();
+        }
+        
+        $result=Reserva::reservas();
+        $no2=true;
+        $no=true;
+        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
+        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $router->render('reservas/mostrar',[
+            'reservas'=>$reservas,
+            'resultado' =>$resultado,
+            'usuarios'=>$usuarios,
+            'reservashabitaciones'=>$reservashabitaciones,
+            'no2'=>$no2,
+            'no'=>$no
+        ]);
+}
 }
