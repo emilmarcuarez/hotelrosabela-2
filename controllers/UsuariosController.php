@@ -49,21 +49,7 @@ class UsuariosController
                         // Password incorrecto: mensaje de error.
                         $errores = Usuario::getErrores(); //si no coincide la contraseña, se muestra el error
                     }
-
-
-
-                    // para borrar-----------------------
-                    // verificar el password
-                    // $autenticado = $auth->comprobarPassword($resultado);
-
-                    // if ($autenticado) {
-                    //     // autenticar el usuario
-
-                    //     $auth->autenticar();
-                    // } else {
-                    //     // Password incorrecto: mensaje de error.
-                    //     $errores = Usuario::getErrores(); //si no coincide la contraseña, se muestra el error
-                    // }
+               
                 }
             }
         }
@@ -156,4 +142,19 @@ class UsuariosController
             $usuario->guardar();
         }
     }
+     //  noches de los usuarios
+     public static function noches(Router $router){
+        $usuarios=Admin::all();
+        $no=true;
+        $no2=true;
+        // // MUESTRA MENSAJE CONDICIONAL
+        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
+        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $router->render('auth/mostrar',[
+            'resultado'=>$resultado,
+            'usuarios' =>$usuarios,
+            'no'=>$no,
+            'no2'=>$no2
+        ]);
+    } 
 }

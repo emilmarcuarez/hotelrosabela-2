@@ -123,7 +123,7 @@ $router->get('/prueba2', [PaginaController::class, 'prueba2']);
 $router->get('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 $router->post('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 $router->get('/verPdf', [PaginaController::class, 'verPdf']);
-
+// $router->get('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 // chats
 $router->post('/chat', [chatController::class, 'chat']);
 $router->post('/actualizar-chat', [chatController::class, 'actualizarChat']);
@@ -162,8 +162,12 @@ $router->post('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->get('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
 $router->post('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
 
+// usuarios administradores
 $router->get('/auth/mostrar', [LoginController::class, 'index']);
 $router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
+// noches de los usuarios
+$router->get('/noches', [UsuariosController::class, 'noches']);
+
 
 $router->comprobarRutas();
