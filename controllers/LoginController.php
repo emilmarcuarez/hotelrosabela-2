@@ -22,7 +22,9 @@ class LoginController{
             'no'=>$no,
             'no2'=>$no2
         ]);
-}
+    }   
+
+  
     public static function login(Router $router){
        $no =true;
        $no2 =true;
