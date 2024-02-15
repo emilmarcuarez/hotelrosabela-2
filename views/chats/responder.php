@@ -5,8 +5,11 @@
     
     
     </div>
+    
     <div class="chats">
+    <a href="/admin" class="volver_simple">Volver</a>
         <div class="cont_chat_usuario">
+    
             <div class="usuario">
                 <p><?php echo $usu->nombre?> <?php echo $usu->apellido ?></p>
             </div>

@@ -67,17 +67,18 @@ h4 {
 // mensajes de exito y alerta
 .alerta{
 
-    padding: .5rem;
+    padding: .5rem 1rem;
     text-align: center;
-    color: $blanco;
+    // color: $blanco;
     font-weight: $bold;
     text-transform: uppercase;
     margin: 1rem 0;
     border-radius: 1rem;
     &.error{
-        background-color: $fucsia;
+        color: $fucsia;
     }
     &.exito{
-        background-color: $vinotinto;
+        // background-color: $vinotinto;
+        color: #9f425a;
     }
 }

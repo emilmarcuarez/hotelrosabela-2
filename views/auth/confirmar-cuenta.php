@@ -1,3 +1,5 @@
+<main class="contenedor conf_cuenta_2">
+
 
 <?php
     foreach($alertas as $key => $mensajes):
@@ -11,8 +13,10 @@
     endforeach;
 ?>
     <h1 class="nombre-pagina">Confirmar cuenta</h1>
-    
-    <div class="acciones">
-        <a href="/loginusuario">Inicia sesion</a>
+    <p>Ya puedes cerrar esta pagina o dirigirte a iniciar sesion si ya fue confirmada tu cuenta</p>
+    <div class="acciones espacio23">
+        <a href="/loginusuario">¿Tu cuenta fue confirmada? Inicia sesion</a>
         <a href="/olvide">Olvide mi contarseña</a>
     </div>
+
+    </main>

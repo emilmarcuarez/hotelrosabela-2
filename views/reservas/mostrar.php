@@ -1,5 +1,5 @@
 
-<main class="contenedor">
+<main class="contenedor reservas_administrador">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
     <?php 
     if($resultado){
@@ -14,7 +14,15 @@
 <a href="/admin" class="boton boton-rosado">Volver</a> 
 <!-- <a href="/centrosconsumo/crear" class="boton boton-rosado">Nuevo Centro de Consumo</a> -->
 <h2>Reservas</h2>
-<div class="tabla_general contenedor">
+<p>Se puede buscar por: nombre, apellido y numero de identificacion del usuario. Al igual que por el codigo de la reserva.</p>
+    <form class="buscador_reservar" method="POST" action="/reservas/buscar">
+        <input type="text" name="buscador" id="buscador">
+        <input type="submit" class="boton-rosado" value="Buscar">
+    </form>
+    <form action="/reservas/mostrar">
+        <input type="submit" class="boton-rosado" value="Recargar">
+    </form>
+<div class="tabla_general">
     <div class="cabecera_tabla_general">
 
             <div class="cabecera_cont"><h2>Usuario</h2></div>
@@ -29,16 +37,18 @@
     <div class="body_tabla_general">
         <!-- MOSTRAR RESULTADOS DE LA BD EN LA TABLA -->
         <?php foreach ($reservas as $indice => $reserva) : ?>
+            <?php foreach($usuarios as $usuario){ ?>
+                <?php if($usuario->id===$reserva->usuarios_id){?>
             <?php if($indice%2===0){ ?>
                 <div class="body_tabla_info f_grisc">
             <?php } else {?>
                 <div class="body_tabla_info f_griso">
             <?php }?>
-                <?php foreach($usuarios as $usuario){ ?>
-                    <?php if($usuario->id===$reserva->usuarios_id){?>
+                
+
                         <div class="body_infor_div"><p><?php echo $usuario->nombre; ?> <?php echo $usuario->apellido; ?> </p></div>
-                    <?php }?>
-                <?php } ?>
+                    
+              
                 
                 <div class="body_infor_div"><p><?php echo $reserva->codigo; ?> </p></div>
                 <div class="body_infor_div"><p> <?php echo $reserva->opcion_pago; ?></p></div>
@@ -83,6 +93,8 @@
 
   
             </div>
+            <?php } ?>
+            <?php } ?>
         <?php endforeach; ?>
     </div>
 </div>

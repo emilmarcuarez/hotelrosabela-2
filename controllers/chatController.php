@@ -1,6 +1,7 @@
 <?php 
 
 namespace Controllers;
+use Classes\Email;
 use MVC\Router;
 use Model\Chat;
 use Model\Usuario;
@@ -49,7 +50,8 @@ class chatController{
             // debuguear($_POST['mensaje']);
                 $chat=new Chat($_POST['mensaje']); //nombre del arreglo que SE VA A MANDAR
                 $chat->setCodigo(2);
-
+                $email=new Email('','','','');
+                $email->enviarChat();
                 $chat->guardar();
         }
     }

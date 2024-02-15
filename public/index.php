@@ -87,7 +87,13 @@ $router->post('/reservas/datosReserva', [ReservaController::class, 'datosReserva
 $router->post('/reservas/crear', [ReservaController::class, 'crear']);
 $router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
 $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
+$router->post('/reservas/buscar', [ReservaController::class, 'buscar']);
 
+// administrador --- desde el panel
+// $router->post('/auth/mostrar', [LoginController::class, 'index']);
+$router->get('/auth/mostrar', [LoginController::class, 'index']);
+$router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
+$router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 
 // api
 // API de Citas
@@ -141,7 +147,10 @@ $router->get('/actualizar-comentarios', [ComentarioController::class, 'actualiza
 $router->post('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 
 // Recuperar password
-
+$router->get('/olvide', [LoginController::class, 'olvide']);
+$router->post('/olvide', [LoginController::class, 'olvide']);
+$router->get('/recuperar', [LoginController::class, 'recuperar']);
+$router->post('/recuperar', [LoginController::class, 'recuperar']);
 // login y sigin
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
@@ -152,5 +161,9 @@ $router->get('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->post('/siginusuario', [UsuariosController::class, 'siginusuario']);
 $router->get('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
 $router->post('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
+
+$router->get('/auth/mostrar', [LoginController::class, 'index']);
+$router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
+$router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 
 $router->comprobarRutas();

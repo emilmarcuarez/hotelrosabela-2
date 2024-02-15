@@ -306,4 +306,29 @@ public function comprobarPasswordAndVerificado($contrasenia) {
     }
 }
 
+// validar email
+public function validarEmail() {
+    if(!$this->email) {
+        self::$alertas['error'][] = 'El email es Obligatorio';
+        self::$errores[]='El email es Obligatorio';
+    }
+    return self::$alertas;
+}
+
+
+// validar la contraseña de los usuarios
+public function validarPassword() {
+    if(!$this->contrasenia) {
+        self::$alertas['error'][] = 'La contraseña es obligatorio';
+    }
+    if(strlen($this->contrasenia) < 6) {
+        self::$alertas['error'][] = 'La contraseña debe tener al menos 6 caracteres';
+    }
+
+    return self::$alertas;
+}
+
+public function hashPassword() {
+    $this->contrasenia = password_hash($this->contrasenia, PASSWORD_BCRYPT);
+}
 }
