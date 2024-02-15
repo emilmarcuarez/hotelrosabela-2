@@ -1,11 +1,11 @@
 
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
-
+<?php session_start();?>
 <div class="cont_admi_grid">
 
 
 <div class="adm_btn">
-<?php if ($auth) { ?>
+<?php if ($_SESSION['login']) { ?>
     <a href="/centrosconsumo/mostrar">Centros de consumo</a>
     <a href="/eventos/mostrar">Eventos</a>
     <a href="/habitaciones/mostrar">Habitaciones</a>
