@@ -173,6 +173,13 @@ public function comprobarPassword($resultado){
     return $autenticado;
 }
 
+
+// TRAERME A LOS USUARIOS PERO ORDENANDOLOS POR NOCHE
+public static function usuarios_noches(){
+    $query="SELECT * FROM usuarios ORDER BY noches DESC;";
+    $resultado = self::consultarSQL($query);
+    return $resultado;
+}
 public static function findId($email)
 {
     $query = "SELECT * FROM ". static::$tabla. " WHERE email= '".$email."'";
