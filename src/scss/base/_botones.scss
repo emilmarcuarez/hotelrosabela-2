@@ -95,3 +95,22 @@
     color: white;
     border-radius: 1rem;
   }
+
+  .boton-rojo-block_usuarios {
+    background-color: #ba0534;
+    border: none;
+    border-radius: .5rem;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400 !important;
+   
+    padding: 1.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100% !important;
+    height: 100%;
+    &:hover {
+      background-color: #a1042d;
+      cursor: pointer;
+    }
+  }

@@ -1,0 +1,1 @@
+prueba desde permisos con el id =<?php echo $usario->id?>

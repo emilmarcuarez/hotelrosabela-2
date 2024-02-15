@@ -168,6 +168,7 @@ $router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 // noches de los usuarios
 $router->get('/noches', [UsuariosController::class, 'noches']);
+// 
 
 
 $router->comprobarRutas();

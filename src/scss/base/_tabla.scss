@@ -22,6 +22,24 @@
         }
     }
 }
+.cabecera_tabla_general_noches{
+    margin-top: 2rem;
+    background-color: #675455;
+    display: grid;
+    grid-template-columns: repeat(6,1fr) 23%;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    .cabecera_cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2{
+            font-size: 1.5rem;
+            color: $blanco;
+            text-align: center;
+        }
+    }
+}
 
 .cabecera_tabla_general_chef{
     margin-top: 2rem;
@@ -69,6 +87,28 @@
         }
     }
   
+}
+.body_tabla_general_noches{
+    .body_tabla_info{
+        display: grid;
+        grid-template-columns: repeat(6,1fr) 23%;
+        align-items: center;
+        justify-items: center;
+        padding: 2rem;
+        // background-color: $grisfondo;
+        .body_infor_div{
+            p{
+                font-size: 1.4rem;
+            }
+        }
+    }
+  
+}
+.botones_tabla{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
 }
   .f_grisc{
         background-color: $grisClaro2;

@@ -28,7 +28,7 @@ function s($html){
 
 // validar tipo de contenido
 function validarTipoContenido($tipo){
-    $tipos=['centro', 'eventos', 'empleado', 'salon', 'habitaciones','re_habitaciones','chef', 'reserva', 'comentarios', 'chatbot','usuario_admin'];
+    $tipos=['centro', 'eventos', 'empleado', 'salon', 'habitaciones','re_habitaciones','chef', 'reserva', 'comentarios', 'chatbot','usuario_admin', 'usuario'];
     // busca un elemento en un arreglo, primero el elemento a buscar y el segundo es el arreglo en donde va a buscar
     return in_array($tipo, $tipos);
 }
