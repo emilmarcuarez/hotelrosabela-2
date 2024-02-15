@@ -240,7 +240,7 @@ if (!isset($inicio)) {
         </div>
 
     </div>
-    <?php if(!$auth){?>
+    <?php if(!$auth && !$auth_recepcion){?>
     <div class="chatbot_abrir_btn" id="abrirChatbot">
         <div class="text_chatbot">
             <p>Chatea con nosotros</p>
