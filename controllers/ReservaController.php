@@ -44,7 +44,7 @@ class ReservaController{
         // Calcula la diferencia entre las dos fechas
         $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
         
-        $usuario->noches+=$diferencia->days;
+        $usuario->noches=intval($usuario->noches)+$diferencia->days;
          $usuario->guardar();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
