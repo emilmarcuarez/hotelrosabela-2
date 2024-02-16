@@ -3,31 +3,35 @@
 namespace Model;
 class Premios extends Activerecord
 {
-  protected static $tabla='premios';
+  protected static $tabla='premio';
   protected static $pagina='auth/noches';
-  protected static $columnasDB = ['id', 'premio', 'usuarios_id'];
+  protected static $columnasDB = ['id', 'descripcion', 'mensaje','cant_noches'];
 
   
   public $id;
-  public $premio;
-  public $usuarios_id;
+  public $descripcion;
+  public $mensaje;
+  public $cant_noches;
 
   public function __construct($args = [])
   {
       $this->id = $args['id'] ?? null;
-      $this->premio = $args['nombre'] ?? '';
-      $this->usuarios_id = $args['descripcion'] ?? '';
+      $this->descripcion = $args['descripcion'] ?? '';
+      $this->mensaje = $args['mensaje'] ?? '';
+      $this->cant_noches = $args['cant_noches'] ?? '0';
   }
 
   public function validar()
   {
-      if (!$this->premio) {
-          self::$errores[] = "Debes añadir un premio";
+      if (!$this->descripcion) {
+          self::$errores[] = "Debes añadir una descripcion";
       }
-      if (!$this->usuarios_id) {
-          self::$errores[] = "No se puede registrar un premio si no hay un usuario";
+      if (!$this->mensaje) {
+          self::$errores[] = "Debe añadir un mensaje para el premio";
       }
-
+      if (!$this->cant_noches) {
+          self::$errores[] = "Ingrese la cantidad de noches minimas para recibir este regalo";
+      }
       return self::$errores;
   }
 

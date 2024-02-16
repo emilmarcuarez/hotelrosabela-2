@@ -170,5 +170,7 @@ $router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->get('/noches', [UsuariosController::class, 'noches']);
 // premios de los usuarios
 $router->get('/premios', [UsuariosController::class, 'premios']);
+// registrar premio
+$router->post('/crearPremio', [UsuariosController::class, 'crearPremio']);
 
 $router->comprobarRutas();

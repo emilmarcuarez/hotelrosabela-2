@@ -47,6 +47,9 @@ function mostrarNotificacion($codigo){
         case 3:
             $mensaje="Eliminado correctamente";
             break;
+        case 4:
+            $mensaje="Enviado correctamente";
+            break;
         default:
             $mensaje=false;
             break;
