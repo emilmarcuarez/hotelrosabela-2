@@ -52,13 +52,13 @@
                 <div class="botones_tabla">
                     <form method="POST" class="w-100" action="/usuario/eliminar">
                         <!-- ESTOS INPUT HIDDEN SIRVEN PARA MANDAR INFORMACION, QUE EN ESTE CASO ES EL ID -->
-                        <input type="hidden" name="id" value="<?php echo $empelado->id; ?>">
+                        <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
                         <input type="hidden" name="tipo" value="usuario">
 
                         <input type="submit" class="boton-rojo-block_usuarios" value="Eliminar">
                     </form>
 
-                    <a href="/premios?id=<?php echo $empleado->id; ?>" class="boton-verde-block">Premios</a>
+                    <a href="/premios?id=<?php echo $usuario->id; ?>" class="boton-verde-block">Premios</a>
                 </div>
             </div>
         <?php endforeach; ?>

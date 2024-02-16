@@ -2,8 +2,11 @@
 
 namespace Controllers;
 use Classes\Email;
+use Model\Premios;
 use MVC\Router;
 use Model\Usuario;
+use Model\Reserva;
+use Model\Premios_usuario;
 
 class UsuariosController
 {
@@ -156,5 +159,56 @@ class UsuariosController
             'no'=>$no,
             'no2'=>$no2
         ]);
+    } 
+     public static function premios(Router $router){
+        $id=validarORedireccionar('/noches');
+        $usuario=Usuario::find($id);
+        $no=true;
+        $no2=true;
+
+        $errores=Usuario::getErrores();
+        // todos los premioa registrados de ese usuario
+        $premios_usu=Premios_usuario::where2('usuarios_id', $id);
+       
+        $premios=Premios::all();
+        // me trae todas las reservas de ese usuario
+        $reservas=Reserva::where2('usuarios_id', $id);
+        $resultado = $_GET['resultado'] ?? null; 
+        $router->render('auth/premios',[
+            'resultado'=>$resultado,
+            'premios_usu'=>$premios_usu,
+            'errores'=>$errores,
+            'reservas'=>$reservas,
+            'usuario' =>$usuario,
+            'premios' =>$premios,
+            'no'=>$no,
+            'no2'=>$no2
+        ]);
+    } 
+     public static function crearPremio(Router $router){
+        // $id=validarORedireccionar('/noches');
+        // $usuario=Usuario::find($id);
+        $no=true;
+        $no2=true;
+        $Premios_usuario=new Premios_usuario;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $errores = Premios_usuario::getErrores();
+            $Premios_usuario = new Premios_usuario($_POST['premio']);
+            // debuguear($Premios_usuario);
+            // VALIDAR
+            $errores = $Premios_usuario->validar();
+        // $id=$Premios_usuario->usuarios_id;
+            // REVISAR QUE EL ARREGLO ESTE VACIO. ISSET REVISA QUE UNA VARIABLE ESTE CREADA Y EMPTY SI ESTA VACIO
+            if (empty($errores)) { 
+                $Premios_usuario->guardar();
+            }
+        }
+        // $router->render('auth/premios',[
+        //     // 'id'=>$id,
+        //     'errores'=>$errores,
+        //     'no'=>$no,
+        //     'no2'=>$no2
+        // ]);
     } 
 }

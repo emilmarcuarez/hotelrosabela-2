@@ -225,7 +225,7 @@ class Activerecord
     {
         $query = "SELECT *
         FROM usuarios 
-        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR identificacion LIKE '%".$valor."%';";
+        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR identificacion LIKE '%".$valor."%' OR id=".$valor.";";
         //  debuguear($query);
         $resultado = static::consultarSQL($query);
         return $resultado;
@@ -292,6 +292,14 @@ public static function getEventosdif($cantidad, $id)
     }
 
     // buscar por el token
+    public static function where2($columna,$token)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE ".$columna."='". $token."'";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+    // where pero que envie varios
     public static function where($columna,$token)
     {
         $query = "SELECT * FROM ". static::$tabla. " WHERE ".$columna."='". $token."'";
