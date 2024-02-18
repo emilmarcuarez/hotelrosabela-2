@@ -24,7 +24,7 @@
 // menu de opciones
 .btn_menu_usuario{
     border: none;
-    background-color: #9f425a;
+    background-color: #ba0534;
     color: white;
     padding: .7rem 2rem;
     border-radius: 10rem;
@@ -42,7 +42,7 @@
     display: none;
     padding: 1rem;
   position: absolute;
-    background-color: #9f425a;
+    background-color: #ba0534;
    border-radius: 1rem;
   top: 4rem;
   z-index: 9;
@@ -54,7 +54,7 @@
     top: 13rem;
     a{
         color: white;
-        background-color: #9f425a;
+        background-color: #ba0534;
         &:hover{
             transition: .2s ease-in;
             border-radius: 1rem;
@@ -175,7 +175,7 @@ body{
   overflow-x: hidden;
 }
 .inicio_info{
-    background-color: $vinotinto;
+    background-color: #86263e;
     margin-top: 0rem;
 //   display: block;
     .inicio_logos{

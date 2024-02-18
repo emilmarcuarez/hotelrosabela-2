@@ -1,5 +1,22 @@
 <div class="re_usuario contenedor">
-    <h3>¡Observa el status de cada una de tus reservas!</h3>
+    <?php if($premios_usuarios){?>
+        <h3>¡Has conseguido los siguientes premios!</h3>
+        <div class="premio_cliente_flex">
+        <?php foreach($premios as $premio){ ?>
+             <?php foreach($premios_usuarios as $pre){  ?>
+               <?php if($premio->id===$pre->premio_id){ ?>
+                    <div class="premio_cliente">
+                        <h5><?php echo $premio->descripcion ?></h5>
+                        <p class="p_break"><?php echo $premio->mensaje ?></p>
+                    </div>
+                <?php } ?>
+                
+            <?php }?>
+        <?php }?>
+        </div>
+    <?php }?>
+
+    <h3>Observa el status de cada una de tus reservas</h3>
     <div class="reservas_usuario_flex">
 
     <?php foreach($reservas as $reserva): ?>

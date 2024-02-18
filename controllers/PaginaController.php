@@ -1,6 +1,7 @@
 <?php 
 
 namespace Controllers;
+use Model\Premios;
 use MVC\Router;
 use Model\Evento;
 use Model\Habitaciones;
@@ -14,6 +15,7 @@ use Model\Reserva;
 use Model\ReservaHabitacion;
 use Model\Usuario;
 use Model\Comentarios;
+use Model\Premios_usuario;
 
 class PaginaController{
 
@@ -26,9 +28,11 @@ class PaginaController{
         $result=Reserva::reservas();
         $habitaciones=Habitaciones::get(2);
         $salones=Salon::get(2);
+        $premios_usu=Premios_usuario::all();
         $inicio=true;//para que aparezca el header
         $no2=true;
         $router->render('paginas/index', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+            'premios_usu'=>$premios_usu,
             'eventos'=> $eventos,
             'habitaciones'=> $habitaciones,
             'salones'=> $salones,
@@ -40,17 +44,21 @@ class PaginaController{
     public static function nosotros(Router $router ){
         $inicio=true;//para que aparezca el header
         $no2=true;
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/nosotros', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'inicio'=>$inicio,
-            'no2'=>$no2
+            'no2'=>$no2,
+            'premios_usu'=>$premios_usu
         ]);  
     }
     public static function centros(Router $router ){
         $centros=Centroconsumo::all();
         $chefs=Chef::all();
+        $premios_usu=Premios_usuario::all();
         $no2=true;
         $router->render('paginas/centros', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'centros'=>$centros,
+            'premios_usu'=>$premios_usu,
             'chefs'=>$chefs,
             'no2'=>$no2
         ]);  
@@ -59,32 +67,40 @@ class PaginaController{
 
         $salones=Salon::all();
         $no2=true;
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/salones', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'salones'=>$salones,
+            'premios_usu'=>$premios_usu,
             'no2'=>$no2
         ]);  
     }
     public static function eventos(Router $router ){
         $eventos=Evento::all();
         $no2=true;
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/eventos', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'eventos'=>$eventos,
+            'premios_usu'=>$premios_usu,
             'no2'=>$no2
         ]);  
     }
     public static function empleados(Router $router ){
         $empleados=Empleados::all();
         $no2=true;
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/empleados', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'empleados'=>$empleados,
+            'premios_usu'=>$premios_usu,
             'no2'=>$no2
         ]);  
     }
     public static function contacto(Router $router ){
 
         $no2=true;
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/contacto', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
-            'no2'=>$no2
+            'no2'=>$no2,
+            'premios_usu'=>$premios_usu
         ]);  
     }
     public static function habitacion(Router $router){
@@ -92,9 +108,11 @@ class PaginaController{
         $imghabitaciones=true;
         $no=true;
         $habitacion=Habitaciones::find($id);
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/habitacion', [
             'habitacion'=>$habitacion,
             'imghabitaciones'=>$imghabitaciones,
+            'premios_usu'=>$premios_usu,
             'no'=>$no
         ]);
     }
@@ -102,10 +120,11 @@ class PaginaController{
         $habitaciones=Habitaciones::all();
         $imghabitaciones=true;
         $no=true;
-       
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/habitaciones', [
             'habitaciones'=>$habitaciones,
             'imghabitaciones'=>$imghabitaciones,
+            'premios_usu'=>$premios_usu,
             'no'=>$no
         ]);
     }
@@ -113,9 +132,11 @@ class PaginaController{
         session_start();
         $no=true;
         $no2=true;
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/habitaciones_s', [
             'id'=>$_SESSION['usuario_id'],
             'no'=>$no,
+            'premios_usu'=>$premios_usu,
             'no2'=>$no2
         ]);
     }
@@ -127,10 +148,12 @@ class PaginaController{
         session_start();
         $id=$_SESSION['usuario_id'];
         $usuario=Usuario::find($id);
+        $premios_usu=Premios_usuario::all();
         $router->render('paginas/gestion', [
             'no'=>$no,
             'no2'=>$no2,
-            'usuario'=>$usuario
+            'usuario'=>$usuario,
+            'premios_usu'=>$premios_usu
         ]);
     }
     public static function pdf(Router $router){
@@ -182,26 +205,25 @@ class PaginaController{
     }
     public static function salon(Router $router ){
         $id=validarORedireccionar('/salones');
-
+        $premios_usu=Premios_usuario::all();
         $no2=true;
         $salon=Salon::find($id);
         $router->render('paginas/salon', [
             'salon'=>$salon,
-            // 'imghabitaciones'=>$imghabitaciones,
+            'premios_usu'=>$premios_usu,
             'no2'=>$no2
-            // 'comentarios'=>$comentarios,
-            // 'correos'=>$correos
         ]);
     }
     public static function evento(Router $router ){
         $id=validarORedireccionar('/eventos');
-
+        $premios_usu=Premios_usuario::all();
         $no2=true;
         $evento=Evento::find($id);
         $eventos=Evento::getEventosdif(3,$id);
         $centroConsumo=Evento::findNombreCentro($id);
         $router->render('paginas/evento', [
             'evento'=>$evento,
+            'premios_usu'=>$premios_usu,
             'eventos'=>$eventos,
             'centroConsumo'=>$centroConsumo,
             'no2'=>$no2
@@ -210,12 +232,13 @@ class PaginaController{
     public static function centro(Router $router ){
         $id=validarORedireccionar('/centros');
         $no2=true;
-     
+        $premios_usu=Premios_usuario::all();
         $centro=Centroconsumo::find($id);
         $chefs=Chef::findChef($id);
         $eventos=Evento::get(3);
         $router->render('paginas/centro', [
             'centro'=>$centro,
+            'premios_usu'=>$premios_usu,
             'chefs'=>$chefs,
             'eventos'=>$eventos,
             'no2'=>$no2
@@ -248,10 +271,21 @@ class PaginaController{
         $no2=true;
         $result=Reserva::reservas();
         $reservas=Reserva::reserva_hab($id);
+        $premios_usuarios=Premios_usuario::where2('usuarios_id', $id);
+        $premios=Premios::all();
+        
+        if($premios_usuarios){
+            foreach($premios_usuarios as $prem){
+                $prem->status=1;
+                $prem->actualizar2();
+            }
+        }
         $router->render('paginas/reservas-usuario', [
             'no'=>$no,
             'no2'=>$no2,
-            'reservas'=>$reservas
+            'reservas'=>$reservas,
+            'premios_usuarios'=>$premios_usuarios,
+            'premios'=>$premios
         ]);
     }
 

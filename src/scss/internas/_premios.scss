@@ -1,0 +1,101 @@
+.premios_partes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 3rem 0rem;
+    align-items: first baseline;
+  }
+  .premio_part_div {
+    background: rgba(0, 0, 0, 0.69);
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+  }
+  .premio_part_div p:nth-child(1) {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .premio_part_div p:nth-child(2) {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .premios {
+    margin-top: 3rem;
+  }
+  .premios h3 {
+    margin: 0;
+    font-size: 2.3rem;
+    color: #4a4848;
+    font-style: italic;
+  }
+  .premios_cont {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .ver_reservas_premios {
+    background: #458787;
+    color: white;
+    display: inline-block;
+    padding: 1rem .6rem;
+    border-radius: 1rem;
+  }
+
+.premios_disponibles li{
+    list-style: none;
+ }
+
+ .premios_disponibles h5 {
+    color: #515151;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+.premios_disponibles ul{
+   display: flex;
+   flex-direction: column;
+   gap: 3rem;
+   height: 100%;
+}
+.premios_disponibles ul li {
+    background: #c9c8c8;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 80%;
+    color: #5a5757;
+    font-weight: 500;
+  }
+  .premios_disponibles ul li h4 {
+    font-size: 1.4rem;
+    color: #5a5a5a;
+  }
+  .premios_disponibles ul li p {
+    color: #5a5757;
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
+  .premios_disponibles ul li input {
+    border: none;
+    padding: .5rem 1rem;
+    font-size: 1.3rem;
+    background: #458787;
+    color: snow;
+    border-radius: 1rem;
+    &:hover{
+        cursor: pointer;
+        transition: .2s ease-in;
+        background: #2c5e5e;
+    }
+  }
+
+  .premios_partes .no-premio {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+    color: #635e5e;
+  }

@@ -7,6 +7,7 @@ use Model\ReservaHabitacion;
 use Model\Usuario;
 use Model\Habitaciones;
 use Intervention\Image\ImageManagerStatic as Image;
+use Model\Premios_usuario;
 
 class ReservaController{
     public static function index(Router $router){
@@ -47,9 +48,7 @@ class ReservaController{
         $usuario->noches=intval($usuario->noches)+$diferencia->days;
          $usuario->guardar();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
         //  debuguear($usuario);
-         
             $result=Reserva::actstatus($id);
         }
         
@@ -73,6 +72,7 @@ class ReservaController{
         $usuario=Usuario::getUsarioReserva($id);
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
         $habitaciones=Habitaciones::all();
+       
         $router->render('/reservas/datosReserva', [
             'no'=>$no,
             'no2'=>$no2,
