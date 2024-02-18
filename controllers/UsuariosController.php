@@ -160,6 +160,7 @@ class UsuariosController
             'no2'=>$no2
         ]);
     } 
+
      public static function premios(Router $router){
         $id=validarORedireccionar('/noches');
         $usuario=Usuario::find($id);
@@ -204,11 +205,15 @@ class UsuariosController
                 $Premios_usuario->guardar();
             }
         }
-        // $router->render('auth/premios',[
-        //     // 'id'=>$id,
-        //     'errores'=>$errores,
-        //     'no'=>$no,
-        //     'no2'=>$no2
-        // ]);
     } 
+
+    public static function actPremio(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+             $id=$_POST['id_premio_usu'];
+             $premio_usuario=Premios_usuario::find($id);
+             $premio_usuario->usado=1;
+             $premio_usuario->fecha=date('Y-m-d');
+             $premio_usuario->guardar();
+        }
+    }
 }

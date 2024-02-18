@@ -129,3 +129,19 @@
   .contenedor.reservas_administrador p {
     font-size: 1.4rem;
   }
+
+  .premio_cliente {
+    background: white;
+    color: #595757;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  .premio_cliente_flex{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .premio_cliente p {
+    font-size: 1.4rem;
+    color: #4f4c4c;
+  }

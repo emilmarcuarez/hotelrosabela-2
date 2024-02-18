@@ -89,6 +89,7 @@
     {
         $query = "SELECT * FROM ". static::$tabla. " WHERE usuarios_id= ".$id." ORDER BY id DESC;";
         // se sigue el principio de active record que es tener todo en objetos
+        // debuguear($query);
         $resultado = self::consultarSQL($query);
         return $resultado;
     }

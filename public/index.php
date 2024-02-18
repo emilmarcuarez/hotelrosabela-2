@@ -166,6 +166,7 @@ $router->post('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
 $router->get('/auth/mostrar', [LoginController::class, 'index']);
 $router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
+$router->post('/actualizar-premio', [UsuariosController::class, 'actPremio']); //se uso el premio
 // noches de los usuarios
 $router->get('/noches', [UsuariosController::class, 'noches']);
 // premios de los usuarios

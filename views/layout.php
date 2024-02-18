@@ -8,8 +8,9 @@ if (!isset($_SESSION)) {
 $auth = $_SESSION['login'] ?? false;
 $auth_recepcion = $_SESSION['login_recepcion'] ?? false;
 $auth2 = $_SESSION['login_pag'] ?? false;
+$login_id = $_SESSION['usuario_id'] ?? false;
 // $nombre= $_SESSION['usuario_name'];
-$sexo= $_SESSION['usuario_sexo'] ?? false;
+$sexo = $_SESSION['usuario_sexo'] ?? false;
 if (!isset($inicio)) {
     $inicio = false;
 }
@@ -33,7 +34,25 @@ if (!isset($inicio)) {
     <!-- HEADER -->
     <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
 
+        <?php if ($premios_usu) {
+            $trofeo = 0;
+            foreach ($premios_usu as $premio) :
+                if ($premio->usuarios_id === $login_id && intval($premio->status) === 0) { ?>
+                <?php
+                    $trofeo = 1;
+                } ?>
+            <?php endforeach; ?>
+            <?php if($trofeo===1){?>
+            <div class="aviso_premio_header">
+                <div class="contenedor">
+                    <p>¡HAZ OBTENIDO UN PREMIO! Revisa en la pagina de reservas</p>
+                </div>
+
+            </div>
+        <?php } ?>
+    <?php } ?>
         <header class="header">
+
             <div class="header_cont contenedor">
                 <a href="/"><img src="/build/img/logopng.webp" alt="logo"></a>
                 <div class="menu">
@@ -83,14 +102,25 @@ if (!isset($inicio)) {
 
                     <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> Opciones</button>
 
+                    <?php if ($trofeo === 1) { ?>
+                        <div class="icono_1">
+                            <i class="fa-solid fa-trophy"></i></p>
+                        </div>
+                    <?php  }  ?>
+
                     <div class="nav_menu_bg">
                         <div class="nav_menu_usuario">
                             <a href="/logout">Cerrar Sesion</a>
+                            <?php if ($trofeo === 1) { ?>
+                                <div class="icono_2">
+                                    <i class="fa-solid fa-trophy"></i></p>
+                                </div>
+                            <?php } ?>
                             <a href="/gestion">Gestion de usuario</a>
                             <a href="/reservas-usuario">Reservas</a>
                         </div>
                     </div>
-                <?php } else if ($auth || $auth_recepcion ) { ?>
+                <?php } else if ($auth || $auth_recepcion) { ?>
                     <a href="/logout">Cerrar Sesion</a>
                 <?php } ?>
             <?php } ?>
@@ -240,17 +270,17 @@ if (!isset($inicio)) {
         </div>
 
     </div>
-    <?php if(!$auth && !$auth_recepcion){?>
-    <div class="chatbot_abrir_btn" id="abrirChatbot">
-        <div class="text_chatbot">
-            <p>Chatea con nosotros</p>
-        </div>
-        <div class="img_chatbot_portada">
-            <img src="build/img/bela-01.webp" alt="logo_hotel">
-        </div>
+    <?php if (!$auth && !$auth_recepcion) { ?>
+        <div class="chatbot_abrir_btn" id="abrirChatbot">
+            <div class="text_chatbot">
+                <p>Chatea con nosotros</p>
+            </div>
+            <div class="img_chatbot_portada">
+                <img src="build/img/bela-01.webp" alt="logo_hotel">
+            </div>
 
-    </div>
-    <?php }?>
+        </div>
+    <?php } ?>
     <?php echo $contenido; ?>
 
 
@@ -317,32 +347,32 @@ if (!isset($inicio)) {
     <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
     <script src="../build/js/bundle.min.js"></script>
     <script>
-    //    que aparezca el pais en lapagina de gestion de usuario
-if (document.getElementById('countries-list2')) {
-    fetch('https://restcountries.com/v2/all')
-        .then(response => response.json())
-        .then(data => {
-            const countriesList = document.getElementById('countries-list2');
-            data.forEach(country => {
-                const listItem = document.createElement('option');
-                listItem.textContent = country.name;
-                countriesList.appendChild(listItem);
-            });
-            
-            // Luego de construir las opciones, seleccionamos el país del usuario si coincide
-            const usuarioPais = '<?php echo s($usuario->pais); ?>';
-			
-			if (usuarioPais) {
-                const options = countriesList.options;
-                for (let i = 0; i < options.length; i++) {
-                    if (options[i].textContent === usuarioPais) {
-                        options[i].selected = true;
-                        break;
+        //    que aparezca el pais en lapagina de gestion de usuario
+        if (document.getElementById('countries-list2')) {
+            fetch('https://restcountries.com/v2/all')
+                .then(response => response.json())
+                .then(data => {
+                    const countriesList = document.getElementById('countries-list2');
+                    data.forEach(country => {
+                        const listItem = document.createElement('option');
+                        listItem.textContent = country.name;
+                        countriesList.appendChild(listItem);
+                    });
+
+                    // Luego de construir las opciones, seleccionamos el país del usuario si coincide
+                    const usuarioPais = '<?php echo s($usuario->pais); ?>';
+
+                    if (usuarioPais) {
+                        const options = countriesList.options;
+                        for (let i = 0; i < options.length; i++) {
+                            if (options[i].textContent === usuarioPais) {
+                                options[i].selected = true;
+                                break;
+                            }
+                        }
                     }
-                }
-            }
-        });
-}
+                });
+        }
 
         var stars = new StarRating('.star-rating');
         var stars2 = new StarRating('.star-rating2');
