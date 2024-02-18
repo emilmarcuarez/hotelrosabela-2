@@ -29,6 +29,8 @@ class Usuario extends Activerecord
   public $no_leidos_admi;
   public $token;
   public $confirmado;
+  public $profesion;
+  public $ocupacion;
 
   public function __construct($args = [])
   {
@@ -53,6 +55,8 @@ class Usuario extends Activerecord
       $this->no_leidos_admi= $args['no_leidos_admi'] ?? '0';
       $this->token= $args['token'] ?? '';
       $this->confirmado= $args['confirmado'] ?? '0';
+      $this->profesion= $args['profesion'] ?? '';
+      $this->ocupacion= $args['ocupacion'] ?? '0';
   }
 
   public function validarRegistro()

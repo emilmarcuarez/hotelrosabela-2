@@ -35,7 +35,7 @@
 
                 <div class="r_part">
                     <label for="Apellido">Apellido</label>
-                    <input type="apellido" name="apellido" placeholder="Apellido" id="apellido" value="<?php echo s($usuario->apellido); ?>" require>
+                    <input type="text" name="apellido" placeholder="Apellido" id="apellido" value="<?php echo s($usuario->apellido); ?>" require>
                 </div>
                 <div class="r_part">
                     <label for="fecha">Fecha de nacimiento</label>
@@ -56,6 +56,42 @@
                 <div class="r_part">
                     <label for="identificacion">Cedula o Pasaporte</label>
                     <input type="number" name="identificacion" placeholder="cedula o pasaporte" id="identificacion" value="<?php echo s($usuario->identificacion); ?>" require>
+                </div>
+                <div class="r_part">
+                <label for="profesion">Selecciona tu profesión:</label>
+                 
+                        <select id="profesion" name="profesion">
+                            <option value="abogado">Abogado</option>
+                            <option value="administrador_empresas">Administrador de Empresas</option>
+                            <option value="arquitecto">Arquitecto</option>
+                            <option value="biologo">Biólogo</option>
+                            <option value="contador">Contador</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="geologo">Geólogo</option>
+                            <option value="ingeniero_aeroespacial">Ingeniero Aeroespacial</option>
+                            <option value="ingeniero_ambiental">Ingeniero Ambiental</option>
+                            <option value="ingeniero_biomedico">Ingeniero Biomédico</option>
+                            <option value="ingeniero_civil">Ingeniero Civil</option>
+                            <option value="ingeniero_de_software">Ingeniero de Software</option>
+                            <option value="ingeniero_electricista">Ingeniero Electricista</option>
+                            <option value="ingeniero_en_minas">Ingeniero en Minas</option>
+                            <option value="ingeniero_en_sistemas">Ingeniero en Sistemas</option>
+                            <option value="ingeniero_en_telecomunicaciones">Ingeniero en Telecomunicaciones</option>
+                            <option value="ingeniero_informatica">Ingeniero Informático</option>
+                            <option value="ingeniero_industrial">Ingeniero Industrial</option>
+                            <option value="ingeniero_mecanico">Ingeniero Mecánico</option>
+                            <option value="licenciado_turismo">Licenciado en Turismo</option>
+                            <option value="odontologo">Odontólogo</option>
+                            <option value="industriologo">Industriologo</option>
+                            <option value="profesor">Profesor</option>
+                            <option value="veterinario">Veterinario</option>
+                            <option value="psicologo">Psicólogo</option>
+                            <option value="otra">Otra</option>
+                    </select>
+                </div>
+                <div class="r_part">
+                    <label for="ocupacion">Ocupacion</label>
+                    <input type="text" name="ocupacion" placeholder="Ocupacion" id="ocupacion" value="<?php echo s($usuario->ocupacion); ?>" require>
                 </div>
             </div>
         </fieldset>
