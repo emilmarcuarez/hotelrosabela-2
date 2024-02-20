@@ -15,6 +15,7 @@ use Controllers\LoginController;
 use Controllers\chatController;
 use Controllers\ComentarioController;
 use Controllers\chatbotController;
+use Controllers\PremiosController;
 use Controllers\ReservaController;
 // use Model\Usuario;
 use MVC\Router;
@@ -84,16 +85,24 @@ $router->post('/reserva/recibida', [ReservaController::class, 'actReserva']);
 $router->get('/reservas/mostrar', [ReservaController::class, 'index']);
 $router->get('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
 $router->post('/reservas/datosReserva', [ReservaController::class, 'datosReserva']);
+$router->get('/reservas/datosReserva2', [ReservaController::class, 'datosReserva2']);
+$router->post('/reservas/datosReserva2', [ReservaController::class, 'datosReserva2']);
 $router->post('/reservas/crear', [ReservaController::class, 'crear']);
 $router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
 $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 $router->post('/reservas/buscar', [ReservaController::class, 'buscar']);
-
+$router->get('/mostrar_usuario', [ReservaController::class, 'mostrar_usuario']);
 // administrador --- desde el panel
 // $router->post('/auth/mostrar', [LoginController::class, 'index']);
 $router->get('/auth/mostrar', [LoginController::class, 'index']);
 $router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
+$router->get('/auth/actualizarAdmin', [LoginController::class, 'actualizarAdmin']);
+$router->post('/auth/actualizarAdmin', [LoginController::class, 'actualizarAdmin']);
+// $router->get('/auth/actualizarUsuario', [LoginController::class, 'actualizarUsuario']);
+
+$router->post('/auth/eliminar', [LoginController::class, 'eliminar']);
+
 
 // api
 // API de Citas
@@ -142,7 +151,7 @@ $router->post('/responder', [chatController::class, 'responder']);
 $router->get('/chatbot', [chatbotController::class, 'actualizarChat']);
 $router->post('/chatbot', [chatbotController::class, 'actualizarChat']);
 // comentarios
-$router->post('/crear', [ComentarioController::class, 'crear']);
+$router->post('/crear-comentario', [ComentarioController::class, 'crear']);
 $router->get('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 $router->post('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
 
@@ -164,14 +173,28 @@ $router->post('/actualizar-usuario', [UsuariosController::class, 'actualizar']);
 
 // usuarios administradores
 $router->get('/auth/mostrar', [LoginController::class, 'index']);
+$router->get('/auth/mostrarusuarios', [LoginController::class, 'mostrarusuarios']);
 $router->get('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->post('/auth/crearlogin', [LoginController::class, 'crearlogin']);
 $router->post('/actualizar-premio', [UsuariosController::class, 'actPremio']); //se uso el premio
+$router->post('/auth/eliminarUsuario', [UsuariosController::class, 'eliminar']);
+$router->get('/auth/actualizarUsuario', [UsuariosController::class, 'actualizarUsuario']);
+$router->post('/auth/actualizarUsuario', [UsuariosController::class, 'actualizarUsuario']);
+
 // noches de los usuarios
 $router->get('/noches', [UsuariosController::class, 'noches']);
 // premios de los usuarios
 $router->get('/premios', [UsuariosController::class, 'premios']);
 // registrar premio
 $router->post('/crearPremio', [UsuariosController::class, 'crearPremio']);
+
+
+// premios registrados
+$router->get('/premios/mostrar', [PremiosController::class, 'index']);
+$router->get('/premios/crear', [PremiosController::class, 'crear']);
+$router->post('/premios/crear', [PremiosController::class, 'crear']);
+$router->get('/premios/actualizar', [PremiosController::class, 'actualizar']);
+$router->post('/premios/actualizar', [PremiosController::class, 'actualizar']);
+$router->post('/premios/eliminar', [PremiosController::class, 'eliminar']);
 
 $router->comprobarRutas();

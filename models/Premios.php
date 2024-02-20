@@ -4,7 +4,7 @@ namespace Model;
 class Premios extends Activerecord
 {
   protected static $tabla='premio';
-  protected static $pagina='auth/noches';
+  protected static $pagina='premios/mostrar';
   protected static $columnasDB = ['id', 'descripcion', 'mensaje','cant_noches'];
 
   

@@ -43,11 +43,15 @@
                 <div class="body_infor_div"><p> <?php echo $usuario->identificacion; ?></p></div>
                 <div class="body_infor_div"><p class="bold"><?php echo $usuario->noches; ?></p></div>
                 <div class="body_infor_div">
-                    <?php foreach($premios as $premio):
-                            if($premio->usuarios_id === $usuario->id){?>
-                                <p><?php echo $premio->premio; ?></p>
-                            <?php } ?>
+                    <?php 
+                    $con=0;
+                    foreach($premios as $premio):
+                            if($premio->usuarios_id === $usuario->id){
+                                $con++;
+                            } ?>
+                  
                     <?php endforeach; ?>
+                    <p><?php echo $con ?></p>
                  </div>
                 <div class="botones_tabla">
                     <form method="POST" class="w-100" action="/usuario/eliminar">

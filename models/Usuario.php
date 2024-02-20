@@ -4,8 +4,8 @@ namespace Model;
 class Usuario extends Activerecord
 {
   protected static $tabla='usuarios';
-  protected static $pagina='usuarios/mostrar';
-  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'n_empresa', 'i_fiscal','noches','no_leidos','no_leidos_admi','token','confirmado'];
+  protected static $pagina='auth/mostrarusuarios';
+  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'noches','no_leidos','token','confirmado', 'profesion','ocupacion'];
 
   
   public $id;
@@ -22,11 +22,8 @@ class Usuario extends Activerecord
   public $codigo_postal; 
   public $email;
   public $contrasenia;
-  public $n_empresa;
-  public $i_fiscal;
   public $noches;
   public $no_leidos;
-  public $no_leidos_admi;
   public $token;
   public $confirmado;
   public $profesion;
@@ -48,15 +45,14 @@ class Usuario extends Activerecord
       $this->direccion = $args['direccion'] ?? '';
       $this->codigo_postal = $args['codigo_postal'] ?? '';
       $this->identificacion = $args['identificacion'] ?? '';
-      $this->n_empresa = $args['n_empresa'] ?? 'nada';
-      $this->i_fiscal = $args['i_fiscal'] ?? '1';
+
       $this->noches = $args['noches'] ?? '0';
       $this->no_leidos= $args['no_leidos'] ?? '0';
-      $this->no_leidos_admi= $args['no_leidos_admi'] ?? '0';
+  
       $this->token= $args['token'] ?? '';
       $this->confirmado= $args['confirmado'] ?? '0';
       $this->profesion= $args['profesion'] ?? '';
-      $this->ocupacion= $args['ocupacion'] ?? '0';
+      $this->ocupacion= $args['ocupacion'] ?? '';
   }
 
   public function validarRegistro()
@@ -114,12 +110,6 @@ public function setNoleidos(){
 public function reiniciar_noleidos(){
     $this->no_leidos=0;
 }
-public function setNoleidosAdmi(){
-    $this->no_leidos_admi+=1;
-}
-public function reiniciar_noleidosAdmi(){
-    $this->no_leidos_admi=0;
-}
   public function setPassword($password){
     $this->contrasenia= password_hash($password, PASSWORD_BCRYPT);
 }
@@ -163,6 +153,9 @@ public function existeUsuarioRegistro(){
     self::$errores[]='El Usuario YA existe';
     return $resultado;
 }
+
+// al actualizar un usuario administrador
+
 
 public function comprobarPassword($resultado){
     $usuario=$resultado->fetch_object();
@@ -341,5 +334,13 @@ public function validarPassword() {
 
 public function hashPassword() {
     $this->contrasenia = password_hash($this->contrasenia, PASSWORD_BCRYPT);
+}
+
+public static function allDesc_msj()
+{
+    $query = "SELECT * FROM ". static::$tabla. " ORDER BY no_leidos DESC;";
+
+    $resultado = static::consultarSQL($query);
+    return $resultado;
 }
 }

@@ -16,7 +16,7 @@
 
         <?php } ?>
     <?php } ?>
-    <a href="/reservas/buscar" class="ver_reservas_premios">Ver reservas</a>
+    <a href="/mostrar_usuario?id=<?php echo $usuario->id ?>" class="ver_reservas_premios">Ver reservas</a>
     <div class="premios">
         <h3>Premios otorgados</h3>
         
@@ -28,7 +28,7 @@
                             <div class="premio_part_div">
                                 
                                 <p><?php echo $premio->descripcion ?> - Por tener mas de: <?php echo $premio->cant_noches?> noches</p>
-                                <?php if($premio_usu->usado===0){?>
+                                <?php if(intval($premio_usu->usado)===0){?>
                                         <form action="/actualizar-premio" method="POST">
                                         <input type="hidden" name="id_premio_usu" id="id_premio_usu" value="<?php echo $premio_usu->id ?>">
                                         
@@ -51,7 +51,7 @@
 </div><!--premios-->
 <div class="premios_disponibles">
     <!-- mayor a 10 noches pero menor a 15 -->
-    <?php if ($usuario->noches < 10 && $usuario->noches < 15) { ?>
+    <?php if ($usuario->noches > 10 && $usuario->noches < 15) { ?>
         <h5>Para mayor a 10 noches tiene disponible: </h5>
         <ul>
         <?php if ($premios_usu) { ?>

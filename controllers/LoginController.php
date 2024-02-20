@@ -23,6 +23,20 @@ class LoginController{
             'no2'=>$no2
         ]);
     }   
+    public static function mostrarusuarios(Router $router){
+        $usuarios=Usuario::all();
+        $no=true;
+        $no2=true;
+        // // MUESTRA MENSAJE CONDICIONAL
+        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
+        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $router->render('auth/mostrarusuarios',[
+            'resultado'=>$resultado,
+            'usuarios' =>$usuarios,
+            'no'=>$no,
+            'no2'=>$no2
+        ]);
+    }   
 
   
     public static function login(Router $router){
@@ -36,14 +50,13 @@ class LoginController{
              $errores=$auth->validar();//sintaxi de flecha porque no es estatico
         
              if(empty($errores)){
-                 // verificar si el usuario existe
+               
                  $resultado = $auth->existeUsuario();
-                // debuguear($auth->existeUsuario());
-                 // si existe el usuario se muestra el error
+             
                  if(!$resultado){
-                     // verificar si el usuario existe o no (mensaje de erorr)
+                    
                      $errores=Admin::getErrores();
-                 }else{ //si no existe el usuario
+                 }else{ 
                  
                      // verificar el password
                      $autenticado= $auth->comprobarPassword($resultado);
@@ -102,6 +115,44 @@ class LoginController{
           }
   
           $router->render('auth/crearlogin',[
+              'usuario'=>$usuario,
+              'errores'=>$errores,
+              'no'=>$no,
+              'no2'=>$no2
+          ]);
+      }
+// actualizar usuario administrador
+     public static function actualizarAdmin(Router $router){
+        $id=validarORedireccionar('/admin');
+        $no =true;
+        $no2 =true;
+        $no3 =true;
+       $errores= [];
+        // $usuario = new Admin;
+        $usuario=Admin::find($id);
+        $errores=Admin::getErrores();
+
+         if($_SERVER['REQUEST_METHOD']==='POST'){
+             $args=$_POST['usuario'];
+              $usuario->sincronizar($args);
+              $usuario->setPassword($usuario->password);
+              $errores = $usuario->validarRegistro();
+              if(empty($errores)){
+                  // verificar si el usuario existe
+                  $resultado = $usuario->existeUsuarioRegistrado();
+  
+                  // si existe el usuario se muestra el error
+                  if(!$resultado){
+                      // verificar si el usuario existe o no (mensaje de erorr)
+                      $usuario->guardar();
+                      
+                  }else{ //si no existe el usuario
+                    $errores=Admin::getErrores();
+                  }
+              }
+          }
+  
+          $router->render('auth/actualizaradmin',[
               'usuario'=>$usuario,
               'errores'=>$errores,
               'no'=>$no,

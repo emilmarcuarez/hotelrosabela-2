@@ -106,4 +106,6 @@ class Admin extends Activerecord{
     self::$errores[]='El Usuario YA existe';
     return $resultado;
 }
+
+
 }

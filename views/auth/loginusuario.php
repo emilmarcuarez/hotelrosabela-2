@@ -14,8 +14,14 @@
                 <label for="email">E-mail</label>
                 <input type="email" name="email" placeholder="Tu Email" id="email" require>
 
+                <!-- <label for="contrasenia">Contraseña</label> -->
+                <!-- <input type="contrasenia" name="contrasenia" placeholder="contraseña" id="contrasenia" require> -->
                 <label for="contrasenia">Contraseña</label>
-                <input type="contrasenia" name="contrasenia" placeholder="contraseña" id="contrasenia" require>
+                    <div class="password-input-container2">
+                        <input type="password" name="contrasenia" placeholder="Contraseña" id="contrasenia2" required>
+                        <i class="fas fa-eye" id="togglePassword2"></i>
+                    </div>
+                <!-- <div id="passwordMessage" class="password-message"></div> -->
                 <input type="submit" value="Iniciar sesion" class="boton boton-verde">
                <a href="/olvide">Olvide mi contraseña</a>
                <a href="/siginusuario">¿No tienes cuenta? Registrate aqui</a>

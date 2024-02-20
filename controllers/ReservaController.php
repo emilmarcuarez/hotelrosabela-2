@@ -44,8 +44,8 @@ class ReservaController{
         
         // Calcula la diferencia entre las dos fechas
         $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
-        
-        $usuario->noches=intval($usuario->noches)+$diferencia->days;
+        $cantidad_noches= intval($usuario->noches)+$diferencia->days;
+        $usuario->noches= $cantidad_noches*$reserva->cantidad;
          $usuario->guardar();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //  debuguear($usuario);
@@ -82,6 +82,24 @@ class ReservaController{
             'habitaciones'=>$habitaciones
         ]);
     }
+       public static function datosReserva2(Router $router){
+        $no=true;
+        $no2=true;
+        $id=$_GET['id'];
+        $reserva=Reserva::find($id);
+        $usuario=Usuario::getUsarioReserva($id);
+        $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
+        $habitaciones=Habitaciones::all();
+       
+        $router->render('/reservas/datosReserva2', [
+            'no'=>$no,
+            'no2'=>$no2,
+            'reserva'=>$reserva,
+            'usuario'=>$usuario,
+            'habitacionesReserva'=>$habitacionesReserva,
+            'habitaciones'=>$habitaciones
+        ]);
+    }
        public static function buscar(Router $router){
         $valor=$_POST['buscador'];
         $reservashabitaciones=ReservaHabitacion::allDesc();
@@ -110,5 +128,26 @@ class ReservaController{
             'no2'=>$no2,
             'no'=>$no
         ]);
-}
+    }
+    public static function mostrar_usuario(Router $router){
+        $id=$_GET['id'];
+        $reservashabitaciones=ReservaHabitacion::allDesc();
+        $reservas=Reserva::where2('usuarios_id',$id);
+        // $usuarios=Usuario::all();
+        $usuario=Usuario::find($id);
+       
+        $result=Reserva::reservas();
+        $no2=true;
+        $no=true;
+        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
+        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $router->render('reservas/mostrar_usuario',[
+            'reservas'=>$reservas,
+            'resultado' =>$resultado,
+            'usuario'=>$usuario,
+            'reservashabitaciones'=>$reservashabitaciones,
+            'no2'=>$no2,
+            'no'=>$no
+        ]);
+    }
 }

@@ -19,7 +19,7 @@ class Comentarios extends Activerecord{
         $this->centros_consumo_id=$args['centros_consumo_id'] ?? '';
         $this->usuarios_id=$args['usuarios_id'] ?? '';
         $this->mensaje=$args['mensaje'] ?? '';
-        $this->valor =$args['valor'] ?? '';
+        $this->valor =$args['valor'] ?? '5';
         $this->creado = date('Y/m/d');
     
     }

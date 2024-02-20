@@ -16,7 +16,7 @@ body {
 }
 p {
     color: $negro;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .contenedor {
     // width: 95%;
@@ -68,9 +68,9 @@ h4 {
 .alerta{
 
     padding: .5rem 1rem;
-    text-align: center;
+    // text-align: center;
     // color: $blanco;
-    font-weight: $bold;
+    font-weight: 500;
     text-transform: uppercase;
     margin: 1rem 0;
     border-radius: 1rem;

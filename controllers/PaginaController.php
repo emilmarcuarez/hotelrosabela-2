@@ -292,7 +292,6 @@ class PaginaController{
     public static function cancelar_reserva(Router $router){
         $no=true;
         $no2=true;
-       
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $id = filter_var($id, FILTER_VALIDATE_INT);

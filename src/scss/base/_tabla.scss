@@ -41,9 +41,10 @@
     }
 }
 
+
 .cabecera_tabla_general_chef{
     margin-top: 2rem;
-    background-color: $rosado;
+    background-color: #675455;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     padding: 1.5rem;
@@ -115,4 +116,26 @@
     }
     .f_griso{
         background-color: $grisClaro;
+    }
+
+    @media screen and (max-width: 900px) {
+        .body_tabla_general .body_tabla_info {
+            align-items: center;
+            display: grid;
+            grid-template-rows: 100%;
+            justify-items: center;
+            padding: 1rem;
+            grid-template-columns: 100%;
+            gap: 2rem;
+            }
+            .cabecera_tabla_general, .cabecera_tabla_general_emple {
+                background-color: #675455;
+                border-radius: .5rem;
+                display: grid;
+                grid-template-rows: 100%;
+                grid-template-columns: 100%;
+                margin-top: 2rem;
+                padding: 1.5rem;
+                gap: 1rem;
+              }
     }

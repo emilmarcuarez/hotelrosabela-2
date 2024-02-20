@@ -1,8 +1,4 @@
-<input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id']?>">
-<div class="cont_chat_linea" id="abrir_modal">
-<i class="fa-regular fa-comments"></i>
-    <a>Chat en linea</a>
-</div>
+
 
 <div class="f_reservas">
     <main class="contenedor">
@@ -233,35 +229,4 @@
             verificateeee
         </div>
 
-      <div id="miModal2" class="modal2">
-		<div class="flex2" id="flex2">
-			<div class="contenido-modal2">
-				<div class="modal-header2 flex2" id="miModal2">
-					<div class="part_modal_header">
-                        <img src="build/img/logor.webp" alt="">    
-                        <h2>Hotel Rosa Bela - chat en vivo</h2>
-                    </div>
-                   
-					<span class="close2" id="close2">&times;</span>
-				</div>
-				<div class="modal-body2" id="modal-body2">
-                <section class="chat-area">
-
-                   
-                    <div class="chat-box" id="chat-box" data-user-id="<?php echo $_SESSION['usuario_id']?>">
-                     
-                    </div>
-                    <form action="#" class="typing-area">
-                        <input type="hidden" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
-                        <input type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
-                        <button id="btn_chat"><i class="fab fa-telegram-plane"></i></button>
-                    </form>
-                </section>
-				</div>
-
-				<div class="footer2">
-					<div id="seleccionar_hab_p2">Seleccionar</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  

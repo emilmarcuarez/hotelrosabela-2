@@ -94,7 +94,7 @@ class chatController{
     }
     public static function index2(Router $router){
         $chats=Chat::all();
-        $usuarios=Usuario::all();
+        $usuarios=Usuario::allDesc_msj();
         $no=true;
         $no2=true;
        

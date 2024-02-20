@@ -9,13 +9,12 @@
     <a href="/centrosconsumo/mostrar">Centros de consumo</a>
     <a href="/eventos/mostrar">Eventos</a>
     <a href="/habitaciones/mostrar">Habitaciones</a>
-    <a href="/reservas/mostrar">Reservas</a>
-    <a href="/chats/mostrar2">Chats</a>
     <a href="/salones/mostrar">Salones</a>
     <a href="/empleados/mostrar">Empleados</a>
     <a href="/chef/mostrar">Chef</a>
-    <a href="/usuarios/mostrar">Usuarios</a>
+    <a href="/auth/mostrarusuarios">Usuarios</a>
     <a href="/auth/mostrar">Usuarios Administradores</a>
+    <a href="/premios/mostrar">Premios disponibles</a>
   <?php } ?>
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/chats/mostrar2">Chats</a>

@@ -6,7 +6,9 @@
     font-size: 1.3rem;
     text-align: center;
   }
-
+.header_cont{
+    margin: auto;
+}
 .no{
     display: none !important;
 }
@@ -444,6 +446,10 @@ to {
 }
 
 @media screen and (max-width: 900px){
+    video {
+        width: auto;
+        height: 100%;
+      }
     // registrar /inciiar
 .seccion_registrar{
     flex-direction: column;
@@ -560,6 +566,12 @@ to {
         height: 75rem;
         top: 9rem;
     }
+    .cuadro, .video {
+        height: 75rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
     .video33{
         height:  59rem;
     }

@@ -1,3 +1,5 @@
+
+
 <?php
 
 // SI NO EXISTE SESSION, LA INICIAMOS
@@ -30,9 +32,42 @@ if (!isset($inicio)) {
 </head>
 
 <body>
+<div id="miModal2" class="modal2">
+		<div class="flex2" id="flex2">
+			<div class="contenido-modal2">
+				<div class="modal-header2 flex2" id="miModal2">
+					<div class="part_modal_header">
+                        <img src="build/img/logor.webp" alt="">    
+                        <h2>Hotel Rosa Bela - chat en vivo</h2>
+                    </div>
+                   
+					<span class="close2" id="close2">&times;</span>
+				</div>
+				<div class="modal-body2" id="modal-body2">
+                <section class="chat-area">
 
+                   
+                    <div class="chat-box" id="chat-box" data-user-id="<?php echo $_SESSION['usuario_id']?>">
+                     
+                    </div>
+                    <form action="#" class="typing-area">
+                        <input type="hidden" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
+                        <input type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off" required>
+                        <button id="btn_chat"><i class="fab fa-telegram-plane"></i></button>
+                    </form>
+                </section>
+				</div>
+
+				<div class="footer2">
+					<div id="seleccionar_hab_p2">Seleccionar</div>
+				</div>
+			</div>
+		</div>
+	</div>
     <!-- HEADER -->
     <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
+
+
 
         <?php if ($premios_usu) {
             $trofeo = 0;
@@ -53,7 +88,7 @@ if (!isset($inicio)) {
     <?php } ?>
         <header class="header">
 
-            <div class="header_cont contenedor">
+            <div class="header_cont">
                 <a href="/"><img src="/build/img/logopng.webp" alt="logo"></a>
                 <div class="menu">
                     <i class="fas fa-bars" id="btn_menu"></i>
@@ -68,6 +103,11 @@ if (!isset($inicio)) {
                         <a href="/eventos">Eventos</a>
                         <a href="/empleados">Empleados</a>
                         <a href="/contacto">Contacto</a>
+                        <input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id']?>">
+                        <div class="cont_chat_linea" id="abrir_modal">
+                        <i class="fa-regular fa-comments"></i>
+                            <a>Chat en linea</a>
+                        </div>
                     </nav>
                 </div>
             </div>
@@ -353,6 +393,32 @@ if (!isset($inicio)) {
                 .then(response => response.json())
                 .then(data => {
                     const countriesList = document.getElementById('countries-list2');
+                    data.forEach(country => {
+                        const listItem = document.createElement('option');
+                        listItem.textContent = country.name;
+                        countriesList.appendChild(listItem);
+                    });
+
+                    // Luego de construir las opciones, seleccionamos el país del usuario si coincide
+                    const usuarioPais = '<?php echo s($usuario->pais); ?>';
+
+                    if (usuarioPais) {
+                        const options = countriesList.options;
+                        for (let i = 0; i < options.length; i++) {
+                            if (options[i].textContent === usuarioPais) {
+                                options[i].selected = true;
+                                break;
+                            }
+                        }
+                    }
+                });
+        }
+
+        if (document.getElementById('countries-list3')) {
+            fetch('https://restcountries.com/v2/all')
+                .then(response => response.json())
+                .then(data => {
+                    const countriesList = document.getElementById('countries-list3');
                     data.forEach(country => {
                         const listItem = document.createElement('option');
                         listItem.textContent = country.name;

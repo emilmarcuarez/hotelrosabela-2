@@ -139,12 +139,14 @@
 	}
 }
 
+
+
 // modal del index
 
 .modal2{
     display: none;
         position: fixed;
-        z-index:20 !important;
+        z-index:33 !important;
         overflow: auto;
         left: 407px;
         top:0;
@@ -290,14 +292,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
-    left: 92%;
-    padding: .7rem 1.8rem;
-    position: fixed;
-    top: 170px;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    width: 179px;
-    z-index: 20;
+    padding: .2rem 1.8rem;
     background: #403e3ea8;
     border: 3px solid #9f425a;
     i,a{
@@ -358,8 +353,8 @@
 // chat-box
 .chat-box{
     position: relative;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 50rem;
+    max-height: 42rem;
     overflow-y: auto;
     padding: 10px 30px 20px 30px;
     background: #f7f7f7;

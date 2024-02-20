@@ -1,19 +1,8 @@
 //----------------------- chatbot-----------------------
 
 $(document).ready(function () {
-	// contraseña
-	// $('#togglePassword').click(function() {
-    //     const passwordInput = $('#contrasenia');
-    //     const passwordIcon = $(this);
 
-    //     // Cambiar entre los tipos de entrada "password" y "text"
-    //     const tipoActual = passwordInput.attr('type');
-    //     const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
-    //     passwordInput.attr('type', nuevoTipo);
-
-    //     // Cambiar el icono del ojo según el tipo de entrada
-    //     passwordIcon.toggleClass('fa-eye fa-eye-slash');
-    // });
+	// CONTRASEÑA DEL REGISTRO DE USUARIO
 	$('#togglePassword').click(function() {
         const passwordInput = $('#contrasenia');
         const passwordIcon = $(this);
@@ -42,6 +31,23 @@ $(document).ready(function () {
         }
     });
 	//----fin----
+
+	// CONTRASEÑA DE INICIO DE SESION
+	$('#togglePassword2').click(function() {
+        const passwordInput = $('#contrasenia2');
+        const passwordIcon = $(this);
+
+        // Cambiar entre los tipos de entrada "password" y "text"
+        const tipoActual = passwordInput.attr('type');
+        const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
+        passwordInput.attr('type', nuevoTipo);
+
+        // Cambiar el icono del ojo según el tipo de entrada
+        passwordIcon.toggleClass('fa-eye fa-eye-slash');
+    });
+
+
+	//----FIN-----
 
 	const form_chatbot = document.querySelector(".typing-area5");
 	form_chatbot.onsubmit = (e) => {
@@ -127,7 +133,6 @@ if (document.getElementById('file-label')) {
     });
 }
 
-// la contraseña
 
 
 
@@ -154,6 +159,12 @@ if (document.querySelector(".typing-area")) {
 	}
 
 	sendBtn.onclick = () => {
+		if (inputField.value.trim() === "") {
+			// Si el campo está vacío, no hagas nada
+			return;
+		}
+		sendBtn.disabled = true;
+
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "/chat", true);
 		xhr.onload = () => {
@@ -161,6 +172,9 @@ if (document.querySelector(".typing-area")) {
 				if (xhr.status === 200) {
 					inputField.value = "";
 					scrollToBottom();
+					setTimeout(() => {
+						sendBtn.disabled = false;
+					}, 3000);
 				}
 			}
 		}
@@ -377,7 +391,6 @@ if (document.querySelector(".formulario_usuario_act")) {
 		contrasenia = form_gestion.querySelector("#contarsenia_id"),
 		sendBtn2 = form_gestion.querySelector("button");
 
-
 	form_gestion.onsubmit = (e) => {
 		e.preventDefault();
 	}
@@ -544,7 +557,7 @@ if (document.querySelector("#bela_ia")) {
 // comentarios
 if (document.querySelector(".comentarios")) {
 	const form_comentario = document.querySelector(".form_comentario"),
-		centros_consumo_id = form_comentario.querySelector("#centros_consumo_id").value,
+	centros_consumo_id = form_comentario.querySelector("#centros_consumo_id").value,
 		inputField2 = form_comentario.querySelector(".mensaje_comentario"),
 		chatBox2 = document.querySelector(".comentarios"),
 		sendBtnCentro = form_comentario.querySelector("button");
@@ -562,6 +575,15 @@ if (document.querySelector(".comentarios")) {
 		}
 	}
 	sendBtnCentro.onclick = () => {
+		 // Obtener el valor de la estrella seleccionada
+		 const valorEstrella = form_comentario.querySelector(".star-rating").value;
+
+		 // Crear un objeto FormData para enviar los datos del formulario
+		 let formData = new FormData(form_comentario);
+ 
+		 // Agregar el valor de la estrella al FormData
+		 formData.append('valor', valorEstrella);
+
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "/crear-comentario", true);
 		xhr.onload = () => {
@@ -572,7 +594,7 @@ if (document.querySelector(".comentarios")) {
 				}
 			}
 		}
-		let formData = new FormData(form_comentario);
+		// let formData = new FormData(form_comentario);
 		xhr.send(formData);
 	}
 
@@ -791,7 +813,9 @@ const reserva = {
 	habitaciones_re: [], // Nuevo campo para almacenar re_habitacion asociadas a habitaciones seleccionadas
 	status: 2,
 	imagen: '',
-	traslado: ''
+	traslado: '',
+	i_fiscal: '',
+	n_empresa: '',
 };
 
 const re_habitacion = {
@@ -1605,12 +1629,16 @@ function uuidv4() {
 }
 async function reservarHabitacion() {
 
-	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, id, codigo, status, imagen, traslado } = reserva;
+	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, id, codigo, status, imagen, traslado, i_fiscal , n_empresa } = reserva;
 	// Generar código único para la reserva
 	const codigo2 = uuidv4();
 	const idHabitaciones = habitaciones.map(habitacion => habitacion.id);
 	const checkbox = document.getElementById('traslado');
 	const interestChecked = checkbox.checked;
+	const i_fiscal3 = document.getElementById('i_fiscal');
+	const i_fiscal_2 = i_fiscal3.value;
+	const n_empresa3 = document.getElementById('n_empresa');
+	const n_empresa2 = n_empresa3.value;
 	console.log(idHabitaciones);
 
 	const datos = new FormData();
@@ -1638,6 +1666,10 @@ async function reservarHabitacion() {
 	}
 	datos.append('traslado',interestChecked);
 	reserva.traslado=interestChecked;
+	datos.append('i_fiscal',i_fiscal_2);
+	reserva.i_fiscal=i_fiscal_2;
+	datos.append('n_empresa',n_empresa2);
+	reserva.n_empresa=n_empresa2;
 	// datos.append('habitaciones', idHabitaciones);
 	console.log(datos);
 	habitaciones_re.forEach(habitacionre => {
@@ -1647,7 +1679,7 @@ async function reservarHabitacion() {
 	});
 	console.log(reserva);
 	reserva.codigo = codigo2;
-	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
+	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && key!=='i_fiscal' && key!=='n_empresa' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
 		Swal.fire({
 			icon: 'error',
 			title: 'Error',
