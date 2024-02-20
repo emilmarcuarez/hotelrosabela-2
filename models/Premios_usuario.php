@@ -85,7 +85,7 @@ class Premios_usuario extends Activerecord
         if ($resultado) {
             //    redirecciona al usuario para que se borra la info cuando se envie
             // esto se debe hacer poco, se puede hacer un loop de muchas redirecciones
-            header('location: /'.static::$pagina.'?id='.$atributos["usuarios_id"].'&resultado=4');
+            header('location: /'.static::$pagina.'?id='.$atributos["usuarios_id"].'&resultado=5');
         }
         return $resultado;
     }

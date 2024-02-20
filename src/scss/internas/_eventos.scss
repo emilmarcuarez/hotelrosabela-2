@@ -26,7 +26,7 @@
 }
 .evento_proximo{
     display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: repeat(2,1fr);
     gap: 2rem;
     padding-bottom: 7rem;
 }
@@ -59,6 +59,12 @@
         border: 1px solid #e3719d;
     }
 }
+.text_info_evento {
+    display: grid;
+    grid-template-rows: 70% 20%;
+    height: 100%;
+    padding: 1rem;
+  }
 .evento_prox{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -69,7 +75,7 @@
     .img_eventos{
         img{
             width: 100%;
-            height: 28rem;
+            height: 31rem;
         }
     }
     .text_evento{
@@ -84,8 +90,7 @@
             padding-top: 1rem;
         }
         .text_info_evento{
-            display: flex;
-            flex-direction: column;
+           
             // gap: 2rem;
             .part11_info_eve span
                 {

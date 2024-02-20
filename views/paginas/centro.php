@@ -42,8 +42,8 @@
             </div>
         </div>
 
-        <h4>Comentarios</h4>
-            <hr class="tit_comen">
+        <h4 class="comentario_titulo">Comentarios</h4>
+            <!-- <hr class="tit_comen"> -->
             <div class="comentarios">
 
             </div>                
@@ -71,8 +71,9 @@
                 <!-- comentario -->
                     <label for="mensaje">Comentario:</label>
                     <textarea id="mensaje" name="mensaje" cols="30" rows="10" class="mensaje_comentario"></textarea> 
-                    <input type="hidden" name="centros_consumo_id" id="centros_consumo_id" value="<?php echo $centro->id; ?>">
-                    <?php if($_SESSION['usuarios_id']){?>
+                    <input type="hidden" name="centros_consumo_id" id="centros_consumo_id" class="centros_consumo_id" value="<?php echo $centro->id; ?>">
+                    <input type="hidden" name="usuarios_id" id="usuarios_id"  value="<?php echo $_SESSION['usuario_id']?>">
+                    <?php if($_SESSION['usuario_id']){?>
                     <button id="btnEnviar_comentario" class="boton boton-verde">Enviar comentario</button>
                     <?php }else{; ?>
                     <div class="else_comen">

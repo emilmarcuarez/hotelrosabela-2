@@ -59,5 +59,5 @@
     public function getIdUsuario(){
         return $this->usuarios_id;
     }
-    
+   
 }

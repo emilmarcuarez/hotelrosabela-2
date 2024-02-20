@@ -70,6 +70,10 @@
 			<input type="time" name="hora_re" id="hora">
 			<p>Hora de la zona horaria de Puerto Ordaz</p>
 			<input type="hidden" id="id" value="<?php echo $id;?>">
+			<h4 class="margen_arriba">Identificacion fiscal (opcional)</h4>
+			<input type="text" name="i_fiscal" id="i_fiscal">
+			<h4 class="margen_arriba">Nombre de la empresa (opcional)</h4>
+			<input type="text" name="n_empresa" id="n_empresa">
 			<p class="opcion_traslado">¿Desea que la opcion del traslado al hotel? (No incluye un costo adicional)</p>
 			<input type="checkbox" id="traslado" name="traslado" value="si" checked />
     		<label for="traslado">Si deseo usar este servicio</label>

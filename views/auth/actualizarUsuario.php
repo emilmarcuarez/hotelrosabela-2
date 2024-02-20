@@ -1,30 +1,21 @@
-<div class="f_registro">
-    <div class="imagen_registro">
-        <!-- <img src="/build/img/hap5.webp" alt=""> -->
-    </div>
-</div>
+<main class="contenedor">
+<div class="espacio"></div>
+<a href="/auth/mostrarusuarios" class="boton boton-rosado">Volver</a> 
 
-
-<main class="contenedor seccion_slogin">
-    <?php
-    if ($resultado2) {
-        $mensaje = mostrarNotificacion(intval($resultado2));
-        if ($mensaje) { ?>
-            <p class="alerta exito"><?php echo s($mensaje); ?></p>
-
-
-        <?php } ?>
-    <?php } ?>
-    <h3>Registro</h3>
-    <?php
-    foreach ($errores as $error) :
-    ?>
+    <h1>Actualizar Usuario</h1>
+    <!-- FOREACH PARA IR MOSTRANDO LOS ERRORES ALMACENADOS EN EL ARREGLO DE ERRORES EN LA PAGINA -->
+    <?php foreach ($errores as $error) : ?>
         <div class="alerta error">
-            <?php echo $error; ?>
+            <?php echo $error ?>
         </div>
-    <?php endforeach; ?>
-    <form method="POST" class="formulario_registro" action="/siginusuario" id="registroForm">
-        <fieldset>
+    <?php endforeach ?>
+
+
+    <!-- GET EXPONE LOS DATOS EN LA URL, POST NO LOS EXPONE Y ES MAS SEGURO. INICIO DE SESION POST. POST PARA ENVIAR DATOS, GET PARA OBTENER DATOS DE UN SERVIDOR -->
+  
+    <form class="formulario" method="POST">
+        
+    <fieldset>
             <legend>Datos personales</legend>
             <div class="field_registro">
                 <div class="r_part">
@@ -45,14 +36,14 @@
                     </div>
                 </div>
                 <div class="r_part">
-                    <label for="sexo">Sexo</label>
-                    <br>
-                    <select name="sexo" id="sexo">
-                        <option value="M">Hombre</option>
-                        <option value="F">Mujer</option>
-                        <option value="indefinido">Prefiero no decirlo</option>
-                    </select>
-                </div>
+                        <label for="sexo">Sexo</label>
+                       
+                        <select name="sexo" id="sexo_id">
+                            <option value="M" <?php echo $usuario->sexo === 'M' ? 'selected' : ''; ?>>Hombre</option>
+                            <option value="F" <?php echo $usuario->sexo === 'F' ? 'selected' : ''; ?>>Mujer</option>
+                            <option value="indefinido" <?php echo $usuario->sexo === 'indefinido' ? 'selected' : ''; ?>>Prefiero no decirlo</option>
+                        </select>
+                    </div>
                 <div class="r_part">
                     <label for="identificacion">Cedula o Pasaporte</label>
                     <input type="number" name="identificacion" placeholder="cedula o pasaporte" id="identificacion" value="<?php echo s($usuario->identificacion); ?>" require>
@@ -60,7 +51,7 @@
                 <div class="r_part">
                 <label for="profesion">Selecciona tu profesión:</label>
                  
-                        <select id="profesion" name="profesion">
+                        <select id="profesion" name="profesion" ?>">
                             <option value="abogado">Abogado</option>
                             <option value="administrador_empresas">Administrador de Empresas</option>
                             <option value="arquitecto">Arquitecto</option>
@@ -105,12 +96,12 @@
                     <input type="text" name="nro_telefono" placeholder="+58 414-7678192" id="nro_telefono" value="<?php echo s($usuario->nro_telefono); ?>" require>
                 </div>
                 <div class="r_part2">
-                    <label for="pais">Pais</label>
-                    <br>
-                    <select name="pais" id="countries-list">
-
-                    </select>
-                </div>
+                        <label for="pais">Pais</label>
+                        <br>
+                        <select name="pais" id="countries-list3">
+                      
+                        </select>
+                    </div>
                 <div class="r_part2">
                     <label for="Estado">Estado</label>
                     <input type="text" name="estado" placeholder="Estado bolivar" id="estado" value="<?php echo s($usuario->estado); ?>" require>
@@ -123,7 +114,7 @@
                 </div>
                 <div class="r_part2">
                     <label for="direccion">Direccion</label>
-                    <textarea type="text" name="direccion" placeholder="direccion" id="direccion" value="<?php echo s($usuario->direccion); ?>" require></textarea>
+                    <textarea type="text" name="direccion" placeholder="direccion" id="direccion" require><?php echo s($usuario->direccion); ?></textarea>
                 </div>
                 <div class="r_part2">
                     <label for="c_postal">Codigo postal</label>
@@ -138,7 +129,7 @@
             <div class="field_registro2">
                 <div class="r_part2">
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" placeholder="prueba@prueba.com" id="email" require>
+                    <input type="email" name="email" placeholder="prueba@prueba.com" id="email" value="<?php echo s($usuario->email); ?>" require>
                 </div>
                 <div class="r_part2">
                     <label for="contrasenia">Contraseña</label>
@@ -148,16 +139,14 @@
                     </div>
                     <div id="passwordMessage" class="password-message"></div>
                 </div>
+            </div>
         </fieldset>
         <div class="espacio4">
 
         </div>
-        <input type="submit" value="Registrar" class="boton boton-rosado">
+
+        <input type="submit" id="btnEnviar" value="Actualizar usuario" class="boton boton-rosado">
     </form>
-    <!-- <hr class="mi-contrasenia"> -->
-    <!-- <div class="text_login">
-             <p>Al iniciar sesión o al crear una cuenta, aceptas nuestros Términos y condiciones y la Política de privacidad</p>
-        <!-- <hr class="mi-contrasenia"> -->
-    <!-- </div> -->
 
 </main>
+<div class="espacio"></div>

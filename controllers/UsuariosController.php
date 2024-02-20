@@ -2,7 +2,10 @@
 
 namespace Controllers;
 use Classes\Email;
+use Model\Chat;
+use Model\Comentarios;
 use Model\Premios;
+use Model\ReservaHabitacion;
 use MVC\Router;
 use Model\Usuario;
 use Model\Reserva;
@@ -148,7 +151,7 @@ class UsuariosController
      //  noches de los usuarios
      public static function noches(Router $router){
         $usuarios=Usuario::usuarios_noches();
-    
+        $premios=Premios_usuario::all();
         $no=true;
         $no2=true;
         // // MUESTRA MENSAJE CONDICIONAL
@@ -156,6 +159,7 @@ class UsuariosController
         $router->render('auth/noches',[
             'resultado'=>$resultado,
             'usuarios' =>$usuarios,
+            'premios'=>$premios,
             'no'=>$no,
             'no2'=>$no2
         ]);
@@ -216,4 +220,96 @@ class UsuariosController
              $premio_usuario->guardar();
         }
     }
+
+    // eliminar usuario comun
+    public static function eliminar(){
+        if($_SERVER['REQUEST_METHOD']=== 'POST'){
+            // validar id
+            $id=$_POST['id'];
+            $id=filter_var($id, FILTER_VALIDATE_INT);
+
+            if($id){
+                $tipo=$_POST['tipo'];
+                
+                if(validarTipoContenido($tipo)){
+
+                    $usuario=Usuario::find($id);
+                    $reservas=Reserva::where2('usuarios_id', $id);
+                    $premios_usuario=Premios_usuario::where2('usuarios_id', $id);
+                    $Comentarios=Comentarios::where2('usuarios_id', $id);
+                    $chat=Chat::where2('usuarios_id', $id);
+                    if($reservas){
+                         foreach($reservas as $reserva){
+                          $reservahab=ReservaHabitacion::re_habitaciones_all($reserva->id);
+                            foreach($reservahab as $reb){
+                                $reb->eliminare();
+                            }
+                            $reserva->eliminare();
+                        }
+                    }
+                    if($premios_usuario){
+                        foreach($premios_usuario as $premio){
+                           $premio->eliminare();
+                       }
+                   }
+                    if($Comentarios){
+                        foreach($Comentarios as $comen){
+                           $comen->eliminare();
+                       }
+                   }
+                    if($chat){
+                        foreach($chat as $c){
+                           $c->eliminare();
+                       }
+                   }
+
+                   
+                    // $reservahab=ReservaHabitacion::re_habitaciones_all($id);
+                    $usuario->eliminare3();
+                }
+            }
+        }
+    }
+
+    // actualizar usuario administrador
+    public static function actualizarUsuario(Router $router){
+        $id=validarORedireccionar('/admin');
+        $no =true;
+        $no2 =true;
+        $no3 =true;
+        $errores= [];
+        // $usuario = new Admin;
+        $usuario=Usuario::find($id);
+        $errores=Usuario::getErrores();
+
+         if($_SERVER['REQUEST_METHOD']==='POST'){
+             $args=$_POST;
+            //  debug
+              $usuario->sincronizar($args);
+              $usuario->setPassword($usuario->contrasenia);
+              $errores = $usuario->validarRegistro();
+            //   debuguear($usuario);
+              if(empty($errores)){
+                  // verificar si el usuario existe
+                  $resultado = $usuario->existeUsuarioRegistrado();
+                
+                  // si existe el usuario se muestra el error
+                  if(!$resultado){
+                      // verificar si el usuario existe o no (mensaje de erorr)
+                      $usuario->guardar2();
+                      
+                  }else{ //si no existe el usuario
+                    $errores=Usuario::getErrores();
+                  }
+              }
+          }
+  
+          $router->render('auth/actualizarUsuario',[
+              'usuario'=>$usuario,
+              'errores'=>$errores,
+              'no'=>$no,
+              'no2'=>$no2
+          ]);
+      }
+      
 }

@@ -5,7 +5,7 @@
  class Reserva extends Activerecord{
     protected static $tabla = 'reserva';
     protected static $pagina='Reservas/mostrar';
-    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'usuarios_id', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado'];
+    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'usuarios_id', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa'];
 
 
     public $id;
@@ -23,6 +23,8 @@
     public $status;
     public $imagen;
     public $traslado;
+    public $i_fiscal;
+    public $n_empresa;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
       $this->fecha_i=$args['fecha_i'] ?? '';
@@ -39,6 +41,8 @@
       $this->status=$args['status'] ?? 2;
       $this->imagen=$args['imagen'] ?? '';
       $this->traslado=$args['traslado'] ?? '';
+      $this->i_fiscal=$args['i_fiscal'] ?? '0xxx';
+      $this->n_empresa=$args['n_empresa'] ?? 'persona';
     }
 
    

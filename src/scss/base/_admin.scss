@@ -1,4 +1,19 @@
 
+.premio_part_div input {
+    border: none;
+    background: #458787;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    margin: 2rem 0rem 1rem 0rem;
+
+    &:hover{
+        transition: .2rem ease-in;
+        background-color: #345e5e;
+        cursor: pointer;
+    }
+  }
+
 // hr
 .linea_centros{
     border: .5px solid #e1dddd;
@@ -8,8 +23,15 @@
 }
 
 // habitaciones
-
-
+.cont_panel_2 h2 {
+    color: #515151;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .part_panel_administrativo h3 {
+    color: #464646;
+    font-size: 2rem;
+  }
 .eventos_form_radio{
         .tooltip{
         i,svg{

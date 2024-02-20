@@ -36,7 +36,7 @@
         }
         .text_consumo2{
             p{
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             span{
@@ -96,6 +96,10 @@
                 color: $blanco;
                 font-weight: 600;
                 border-radius: .4rem;
+                &:hover{
+                    transition: .2s ease-in-out;
+                    background-color: #e51c52;
+                }
             }
         }
     }
@@ -109,10 +113,13 @@
 }
 
 @media screen and (max-width: 900px){
+
     .centro_pag.contenedor{
         padding: 2rem;
     }
     .centro_pag .grid_cuadriculas_centros{
         grid-template-columns: 100% !important;
     }
+
+    
 }

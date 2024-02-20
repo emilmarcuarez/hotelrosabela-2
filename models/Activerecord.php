@@ -45,9 +45,18 @@ class Activerecord
             $this->crear();
         }
     }
+    public function guardar2()
+    {
+        if (!is_null($this->id)) {
+            // actualizar
+            $this->actualizar3();
+        } else {
+            // crear un nuevo registro
+            $this->crear();
+        }
+    }
     public function crear()
     {
-
         // sanitizar los datos
         $atributos = $this->sanitizarAtributos();
 
@@ -68,6 +77,28 @@ class Activerecord
     }
     // actualizar
     public function actualizar()
+    {
+        // sanitizar los datos. siempre que se va a usar la bd
+        $atributos = $this->sanitizarAtributos();
+
+        $valores = [];
+        foreach ($atributos as $key => $value) {
+            $valores[] = "$key ='{$value}'";
+        }
+        $query = "UPDATE ". static::$tabla. " SET ";
+        $query .= join(', ', $valores);
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 ";
+
+        $resultado = self::$db->query($query);
+        if ($resultado) {
+            //    redirecciona al usuario para que se borra la info cuando se envie
+            // esto se debe hacer poco, se puede hacer un loop de muchas redirecciones
+            header('location: /'.static::$pagina.'?resultado=2');
+        }
+        return $resultado;
+    }
+    public function actualizar3()
     {
         // sanitizar los datos. siempre que se va a usar la bd
         $atributos = $this->sanitizarAtributos();
@@ -111,12 +142,37 @@ class Activerecord
             header('location: /reservas-usuario');
         }
     }
+
+    public function existeUsuarioRegistrado(){
+        // revisamos si el susuario existe o no
+        $query="SELECT * FROM ".static::$tabla. " WHERE id!=".$this->id." AND email = '".$this->email ."' LIMIT 1";
+        // debuguear($query);
+        $resultado=self::$db->query($query);
+        // num_rows tiene un 1 si el usuario existe, asi que si no existe es que NO EXISTE
+        if(!$resultado->num_rows){
+        
+            return; //se deja de ejecutar esta funcion
+        }
+        self::$errores[]='El Usuario YA existe';
+        return $resultado;
+    }
+
     public function eliminare()
     {
         // ELIMINAR el registro
         $query = "DELETE FROM ". static::$tabla. " WHERE id= " . self::$db->escape_string($this->id) . " LIMIT 1";
         $resultado = self::$db->query($query);
        
+    }
+    public function eliminare3()
+    {
+        // ELIMINAR el registro
+        $query = "DELETE FROM ". static::$tabla. " WHERE id= " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
+        if ($resultado) {
+            // despues del link se pone un '?' y posterior el nombre de la variable que uno quiere y se iguala a un numero
+            header('location: /auth/mostrarusuarios?resultado=3');
+        }
     }
   
 
@@ -220,7 +276,7 @@ class Activerecord
     {
         $query = "SELECT *
         FROM usuarios 
-        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR identificacion LIKE '%".$valor."%' OR id=".$valor.";";
+        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR identificacion LIKE '%".$valor."%' ;";
         //  debuguear($query);
         $resultado = static::consultarSQL($query);
         return $resultado;
