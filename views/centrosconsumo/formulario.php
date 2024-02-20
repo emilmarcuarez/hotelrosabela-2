@@ -18,7 +18,9 @@
                 <?php if($centro->imagen) {?>
                     <img src="/imagenes_r/<?php echo $centro->imagen ?>" class="imagen-small">          
              <?php }?>
+
              <label for="imagen">Imagen del restaurante:</label>
+             <p>La imagen debe ser de 1100px x 500px</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="centro[imagen2]">
                 <?php if($centro->imagen2) {?>

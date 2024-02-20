@@ -22,7 +22,7 @@
     }
 
     legend {
-        font-size: 2rem;
+        font-size: 1.32rem;
         color: $grisOscuro;
     }
 
@@ -66,10 +66,14 @@
         }
     }
     fieldset{
-        border: .1px solid $rosado;
+            border: .1px solid #c0c0c0;
+            border-radius: 1rem;
+            font-size: 1.2rem;
     }
 }
-
+.formulario #fechaReserva {
+    width: 31rem;
+  }
 @media screen and (max-width: 900px) {
 .formulario input:not([type="submit"], [type="radio"]),
  .formulario select, .formulario textarea {

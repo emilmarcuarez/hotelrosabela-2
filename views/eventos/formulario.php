@@ -10,6 +10,7 @@
             <textarea id="descripcion" name="evento[descripcion]" cols="30" rows="10"><?php echo s($evento->descripcion); ?></textarea>
             
             <label for="imagen">Imagen:</label>
+            <p>La imagen debe ser 440px x 508px</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="evento[imagen]">
                 <?php if($evento->imagen) {?>
