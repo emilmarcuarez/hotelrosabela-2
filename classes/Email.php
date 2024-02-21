@@ -62,13 +62,7 @@ class Email {
        
          $contenido .= "</body>";
          $contenido .= '</html>';
-       
-        //  $contenido = '<html>';
-        //  $contenido .= "<p><strong>Hola " . $this->nombre." " .$this->apellido.  "</strong> Has Creado tu cuenta en la Pagina oficial del Hotel RosaBela, solo debes confirmarla presionando el siguiente enlace</p>";
-        //  $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";        
-        //  $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
-        //  $contenido .= "<p><img src='build/img/logopng.webp' alt='Imagen'></p>"; // Ruta de la imagen
-        //  $contenido .= '</html>';
+
          $mail->Body = $contenido;
         //  debuguear($mail->Body);
          //Enviar el mail

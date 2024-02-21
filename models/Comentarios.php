@@ -4,6 +4,7 @@ namespace Model;
 use Model\Activerecord;
 class Comentarios extends Activerecord{
     protected static $tabla='comentarios';
+    protected static $pagina='comentarios/mostrar';
     protected static $columnasDB=['id', 'centros_consumo_id', 'usuarios_id', 'mensaje', 'creado','valor'];
 
     public $id;

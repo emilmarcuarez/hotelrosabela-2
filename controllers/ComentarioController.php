@@ -1,12 +1,31 @@
 <?php 
 
 namespace Controllers;
+
+use Model\Centroconsumo;
 use Model\Usuario;
 use MVC\Router;
 use Model\Comentarios;
 class ComentarioController{
 
-
+    public static function index(Router $router){
+        $comentarios=Comentarios::all();
+        $usuarios=Usuario::all();
+        $centros=Centroconsumo::all();
+        $no2=true;
+        $no=true;
+        // $inicio=true;
+        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
+        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $router->render('comentarios/mostrar',[
+            'comentarios'=>$comentarios,
+            'usuarios'=>$usuarios,
+            'centros'=>$centros,
+            'resultado' =>$resultado,
+            'no2'=>$no2,
+            'no'=>$no
+        ]);
+    }
 public static function crear(Router $router){
    
    $comentario=new Comentarios;
@@ -18,13 +37,10 @@ public static function crear(Router $router){
     $usuario=new Usuario;
     // VALIDAR
     $comentario->setIdLocal($_POST['centros_consumo_id']);
-    // session_start();
-    // $usuario=$usuario->findId($_SESSION['usuario_id']);
-    // $comentario->setUser($usuario->id);
-    $errores = $comentario->validar();
-    // debuguear($usuario->id);
 
-    // REVISAR QUE EL ARREGLO ESTE VACIO. ISSET REVISA QUE UNA VARIABLE ESTE CREADA Y EMPTY SI ESTA VACIO
+    $errores = $comentario->validar();
+
+   
     if (empty($errores)) { 
             $comentario->guardar();
         }
@@ -68,5 +84,22 @@ public static function actualizarComentarios(Router $router){
  
     echo $output;
 }
+public static function eliminar(){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        // validar id
+        $id = $_POST['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
     
+        if ($id) {
+        
+            $tipo=$_POST['tipo'];
+            if(validarTipoContenido($tipo)){
+                // comparar lo que se va eliminar
+              $comentario=Comentarios::find($id);
+              $comentario->eliminar();
+            }
+        }
+    }
+    } 
 }

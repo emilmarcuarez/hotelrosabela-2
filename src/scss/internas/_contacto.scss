@@ -11,7 +11,27 @@
         color: $grisOscuro;
     }
 }
-
+.red_contacto {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    color: #545252;
+  }
+  .opciones_contacto {
+    margin-top: 2rem;
+    background: #ffffff61;
+    padding: 2rem;
+    border-radius: 1rem;
+    h4{
+        font-weight: 200;
+        color: #ad7b00;
+    }
+  }
+  .opciones_contacto2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 .formulario {
     margin: auto;
     width: 100%;
@@ -75,6 +95,13 @@
     width: 31rem;
   }
 @media screen and (max-width: 900px) {
+
+    .opciones_contacto h4 {
+        color: #ad7b00;
+        font-weight: 200;
+        font-size: 2rem;
+      }
+
 .formulario input:not([type="submit"], [type="radio"]),
  .formulario select, .formulario textarea {
     background-color: #fff;

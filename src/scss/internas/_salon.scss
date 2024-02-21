@@ -15,9 +15,9 @@
 
 
     .cont_sal_img{
-        padding: 1rem 1rem 3rem;
-        background: #9f425a2e;
+        background: rgb(60, 59, 59);
         border-radius: .7rem;
+        padding: .4rem;
         img{
             width: 100%;
             border-radius: .7rem;
@@ -25,7 +25,7 @@
     }
     .cap_datos_sal{
         align-items: center;
-        background-color: #dcdcdc66;
+        background-color: hsla(0, 1.4%, 41%, 0.4);
         display: flex;
         justify-content: space-between;
         padding: 1rem;
@@ -37,7 +37,7 @@
             justify-content: center;
             align-items: center;
             i{
-                color: $rosado;
+                color: #ba0534;
             }
         }
        
@@ -54,13 +54,13 @@
             }
         }
     a{
-        background-color: #cf5a60;
+        background-color: #850a2a;
+        border-radius: .5rem;
         color: #fff;
         display: inline-block;
-        padding: .7rem .6rem;
         margin-bottom: 4rem;
         margin-top: 2rem;
-        border-radius: 1rem;
+        padding: .7rem .6rem;
     }
     a:hover{
         border: 1px solid #cf5a60;
@@ -74,4 +74,21 @@
     .salon_pag_principal{
         padding: 0px 2rem;
     }
+
+    .salon_pag_principal h5 {
+        color: #393939;
+        font-size: 2rem;
+        font-weight: 400;
+        padding-bottom: 3rem;
+        padding-top: 7rem;
+      }
+      .salon_pag_principal .cont_sal_text h5 {
+        color: #4d4d4d;
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 400;
+        margin: 0;
+        padding: 4rem 0 1rem;
+        text-align: left;
+      }
 }
