@@ -119,6 +119,7 @@ $router->get('/eventos', [PaginaController::class, 'eventos']);
 $router->get('/evento', [PaginaController::class, 'evento']);
 $router->get('/empleados', [PaginaController::class, 'empleados']);
 $router->get('/contacto', [PaginaController::class, 'contacto']);
+$router->post('/contacto', [PaginaController::class, 'contacto']);
 $router->get('/habitacion', [PaginaController::class, 'habitacion']);
 $router->get('/habitaciones', [PaginaController::class, 'habitaciones']);
 $router->get('/habitaciones_s', [PaginaController::class, 'habitaciones_s']);
@@ -197,4 +198,7 @@ $router->get('/premios/actualizar', [PremiosController::class, 'actualizar']);
 $router->post('/premios/actualizar', [PremiosController::class, 'actualizar']);
 $router->post('/premios/eliminar', [PremiosController::class, 'eliminar']);
 
+// comentarios mostrar y eliminar
+$router->get('/comentarios/mostrar', [ComentarioController::class, 'index']);
+$router->post('/comentarios/eliminar', [ComentarioController::class, 'eliminar']);
 $router->comprobarRutas();

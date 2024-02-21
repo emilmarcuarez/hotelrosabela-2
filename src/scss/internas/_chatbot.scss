@@ -366,3 +366,18 @@ transition: all 0.5s ease; /* Agregamos una transición */
   }
   
 }
+
+@media screen and (max-width: 900px){
+
+  .chatbot {
+    background-color: #fefefe;
+    border-radius: 3rem;
+    bottom: 11rem;
+    height: 50rem;
+    position: fixed;
+    right: 2rem;
+    transition: all .5s ease;
+    width: 39rem;
+    z-index: 33;
+  }
+}

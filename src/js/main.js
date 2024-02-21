@@ -1209,9 +1209,7 @@ function seleccionarHabitacion2(habitacion) {
 	btn_cant4.classList.add('counter-btn');
 	btn_cant4.setAttribute('onclick', "decrementar3('cant_sdesayuno')");
 	btn_cant4.textContent = '-';
-	//    if(indexprueba!==-1 && reserva.[]){
-	// 		inputCantidad2.value=re_habitacion.cantidad_s;
-	//    }
+
 
 	inputCantidad2.addEventListener('change', function () {
 		re_habitacion.cantidad_s = parseInt(inputCantidad2.value) || 0;
@@ -1235,14 +1233,10 @@ function seleccionarHabitacion2(habitacion) {
 
 	modal_body.appendChild(textCantidad);
 	modal_body.appendChild(seleccionar_numeros);
-	//    modal_body.appendChild(btn_cant);
-	//    modal_body.appendChild(inputCantidad);
-	//    modal_body.appendChild(btn_cant2);
+
 	modal_body.appendChild(textCantidad2);
 	modal_body.appendChild(seleccionar_numeros2);
-	//    modal_body.appendChild(btn_cant3);
-	//    modal_body.appendChild(inputCantidad2);
-	//    modal_body.appendChild(btn_cant4);
+	
 	modal_body.appendChild(seleccionar_hab_p);
 	let abrir = document.getElementById(`abrir${id}`);
 	modal.style.display = 'block';
@@ -1420,8 +1414,7 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 
 
 function mostrarSeccion() {
-	// ocultar la seccion que tenga la clase de mostrar
-	// ocultar la seccion que tenga la clase de mostrar
+	
 	let tab2 = document.querySelector('.tabs');
 	if (paso === 3) {
 		tab2.classList.add("esconder_tabs");
