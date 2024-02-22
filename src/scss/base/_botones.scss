@@ -114,3 +114,30 @@
       cursor: pointer;
     }
   }
+  .boton-rosado_reservaya {
+    background-color: #ec5989;
+    border: none;
+    border-radius: .5rem;
+    color: #fff;
+    display: inline-block;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-top: 2.5rem 0;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .btn_reserva_lista a {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  .btn_reserva_lista {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: end;
+    margin-bottom: 1rem;
+  }

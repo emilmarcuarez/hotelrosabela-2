@@ -205,8 +205,8 @@ if (!isset($inicio)) {
                 </div>
             </div>
         </div>
-
-        <div class="inicio_info  <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
+<!-- 
+        <div class="inicio_info  <?php //echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php // echo $no ? 'no' : ''; ?>">
             <div class="contenedor inicio_logos">
                 <div class="logos_part_flex">
                     <div class="l_partes2">
@@ -247,7 +247,7 @@ if (!isset($inicio)) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="chatbot" id="chatbot">
 
