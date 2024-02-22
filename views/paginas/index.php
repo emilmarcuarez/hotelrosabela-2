@@ -1,11 +1,31 @@
+<div id="miModal3" class="modal3">
+		<div class="flex3" id="flex3">
+			<div class="contenido-modal3">
+				<div class="modal-header3 flex3" id="miModal3">
+					<div class="part_modal_header">
+                        <img src="build/img/logor.webp" alt="">    
+                        <h2>Plan de fidelizacion</h2>
+                    </div>
+                   
+					<span class="close3" id="close3">&times;</span>
+				</div>
+				<div class="modal-body3" id="modal-body3">
+                El hotel RosaBela te ofrece el programa para huespedes frecuentes Rb Rewards, el cual te proveera de exclusivos servicios a traves del mejor hotel de la ciudad.
 
+Con el program de lealtad Rb rewards, premiamos tu lealtad permitiendote redimir puntos por estadias en habitaciones standard, mejoras de habitacion y beneficios exclusivos dentro del hotel.
+				</div>
+
+				<!-- <div class="footer3">
+					<div id="seleccionar_hab_p3">Seleccionar</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
 
 <div class="f_reservas">
     <main class="contenedor">
 
-        <div class="texto_form_pre">
-            <h4>¡Reserva con nosotros!</h4>
-        </div> 
+   
         <div class="seccion55">
         <form action="" class="formulario_re">
             <div class="par_label">
@@ -50,7 +70,7 @@
             </div>
                <div class="btn_reserva_lista">
                 <input type="hidden" name="id" id="id_usuario_valor" value="<?php echo $_SESSION['usuario_id']?>">
-                  <a id="btnEnviar3" value="Reservar" class="boton boton-rosado"  onclick="asignarValores()">Reservar</a>
+                  <a id="btnEnviar3" value="Reservar" class="boton boton-rosado_reservaya"  onclick="asignarValores()">Reservar ahora</a>
                </div>
               
         </form>
@@ -60,7 +80,22 @@
     <!-- habitaciones -->
     </main>
 </div>
-
+<div class="rb_rewards">
+    <div class="rb_rewards_flex contenedor">
+        <div class="img_logo_rbrewards">
+        <!-- <img src="build/img/logor.webp" alt="">    -->
+    <p>RB <span>Rewards</span></p>
+        <!-- <img src="build/img/logo_blanco_rb-01.webp" alt=""> -->
+        </div>
+        <div class="info_rb_rewards">
+            <p>Plan de fidelizacion</p>
+            <a id="abrir_modal3">Acceder</a>
+            <!-- <div class="cont_chat_linea" id="abrir_modal3">
+                  <a>Chat en linea</a>
+            </div> -->
+        </div>
+    </div>
+</div>
 <div class="f_habitaciones">
     <div class="habitaciones" data-aos="fade-up"
         data-aos-duration="3000">

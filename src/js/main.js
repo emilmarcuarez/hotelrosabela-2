@@ -134,7 +134,9 @@ if (document.getElementById('file-label')) {
 }
 
 
-
+// if(document.querySelector(".btnEnviar3")){
+// 	a.onclick = () => {
+// }
 
 // AJAX
 
@@ -485,10 +487,6 @@ if (document.querySelectorAll(".form_reservas")) {
 if (document.querySelector(".form_confirmada_reserva")) {
 
 	let form_reserva = document.querySelector(".form_confirmada_reserva");
-
-
-	// reservas_btn.forEach(function (form_reserva) {
-		// let	form_reserva = document.querySelector(".form_recibida_reserva"),
 		let id_reserva_conf = form_reserva.querySelector("input").value,
 			sendBtn_reserva = form_reserva.querySelector(".boton-verde_confirmado");
 
@@ -935,6 +933,31 @@ if (document.getElementById('abrir_modal')) {
 			modal2.style.zIndex = 5;
 		}
 
+	});
+
+	cerrar2.addEventListener('click', function () {
+		modal2.style.display = 'none';
+	});
+
+	window.addEventListener('click', function (e) {
+		// console.log(e.target);
+		if (e.target == flex) {
+			modal.style.display = 'none';
+		}
+	});
+}
+
+// modal de fidelizacion
+if (document.getElementById('abrir_modal3')) {
+	let modal2 = document.getElementById('miModal3');
+	let flex2 = document.getElementById('flex3');
+	let abrir2 = document.getElementById('abrir_modal3');
+	let cerrar2 = document.getElementById('close3');
+	// let is_usuario = document.getElementById('id_usuario_acti');
+	abrir2.addEventListener('click', function () {
+		
+			modal2.style.display = 'block';
+			modal2.style.zIndex = 5;
 	});
 
 	cerrar2.addEventListener('click', function () {
@@ -1938,7 +1961,7 @@ function asignarValores() {
 	var fechaEgreso = document.getElementById('fechaEgreso2');
 	let id_usuario_valor = document.getElementById('id_usuario_valor');
 
-	enlaceReserva.onclick = function () {
+	if(document.getElementById("btnEnviar3")){
 		if (parseInt(habitacionesElement.value) !== 0 && parseInt(adultosElement.value) !== 0 && fechaReserva.value !== '' && fechaEgreso.value !== '' & id_usuario_valor.value !== '') {
 			detalleReserva.innerHTML = `${adultosElement.value} adultos · ${ninosElement.value} niños · ${habitacionesElement.value} habitaciones`;
 
@@ -1951,8 +1974,6 @@ function asignarValores() {
 			})
 		}
 	}
-
-
 
 }
 function asignarValores2() {
