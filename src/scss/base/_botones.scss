@@ -115,7 +115,7 @@
     }
   }
   .boton-rosado_reservaya {
-    background-color: #ec5989;
+    background-color: #00000069;
     border: none;
     border-radius: .5rem;
     color: #fff;
@@ -133,6 +133,12 @@
   .btn_reserva_lista a {
     font-size: 1.4rem;
     text-transform: uppercase;
+    border: 1px solid white;
+    &:hover{
+      transition: .2s ease-in;
+      background-color: rgb(81, 78, 78);
+      cursor: pointer;
+    }
   }
   .btn_reserva_lista {
     display: flex;
@@ -140,4 +146,6 @@
     width: 100%;
     align-items: end;
     margin-bottom: 1rem;
+   
+  
   }

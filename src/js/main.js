@@ -134,86 +134,83 @@ if (document.getElementById('file-label')) {
 }
 
 
-// if(document.querySelector(".btnEnviar3")){
-// 	a.onclick = () => {
-// }
 
 // AJAX
+// CHAT EN LINEA
+// if (document.querySelector(".typing-area")) {
+// 	const form = document.querySelector(".typing-area"),
+// 		incoming_id = form.querySelector(".incoming_id").value,
+// 		inputField = form.querySelector(".input-field"),
+// 		sendBtn = form.querySelector("button"),
+// 		chatBox = document.querySelector(".chat-box");
 
-if (document.querySelector(".typing-area")) {
-	const form = document.querySelector(".typing-area"),
-		incoming_id = form.querySelector(".incoming_id").value,
-		inputField = form.querySelector(".input-field"),
-		sendBtn = form.querySelector("button"),
-		chatBox = document.querySelector(".chat-box");
+// 	form.onsubmit = (e) => {
+// 		e.preventDefault();
+// 	}
 
-	form.onsubmit = (e) => {
-		e.preventDefault();
-	}
+// 	inputField.focus();
+// 	inputField.onkeyup = () => {
+// 		if (inputField.value != "") {
+// 			sendBtn.classList.add("active");
+// 		} else {
+// 			sendBtn.classList.remove("active");
+// 		}
+// 	}
 
-	inputField.focus();
-	inputField.onkeyup = () => {
-		if (inputField.value != "") {
-			sendBtn.classList.add("active");
-		} else {
-			sendBtn.classList.remove("active");
-		}
-	}
+// 	sendBtn.onclick = () => {
+// 		if (inputField.value.trim() === "") {
+// 			// Si el campo está vacío, no hagas nada
+// 			return;
+// 		}
+// 		sendBtn.disabled = true;
 
-	sendBtn.onclick = () => {
-		if (inputField.value.trim() === "") {
-			// Si el campo está vacío, no hagas nada
-			return;
-		}
-		sendBtn.disabled = true;
+// 		let xhr = new XMLHttpRequest();
+// 		xhr.open("POST", "/chat", true);
+// 		xhr.onload = () => {
+// 			if (xhr.readyState === XMLHttpRequest.DONE) {
+// 				if (xhr.status === 200) {
+// 					inputField.value = "";
+// 					scrollToBottom();
+// 					setTimeout(() => {
+// 						sendBtn.disabled = false;
+// 					}, 3000);
+// 				}
+// 			}
+// 		}
+// 		let formData = new FormData(form);
+// 		xhr.send(formData);
+// 	}
+// 	chatBox.onmouseenter = () => {
+// 		chatBox.classList.add("active");
+// 	}
 
-		let xhr = new XMLHttpRequest();
-		xhr.open("POST", "/chat", true);
-		xhr.onload = () => {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					inputField.value = "";
-					scrollToBottom();
-					setTimeout(() => {
-						sendBtn.disabled = false;
-					}, 3000);
-				}
-			}
-		}
-		let formData = new FormData(form);
-		xhr.send(formData);
-	}
-	chatBox.onmouseenter = () => {
-		chatBox.classList.add("active");
-	}
+// 	chatBox.onmouseleave = () => {
+// 		chatBox.classList.remove("active");
+// 	}
 
-	chatBox.onmouseleave = () => {
-		chatBox.classList.remove("active");
-	}
+// 	setInterval(() => {
+// 		let xhr = new XMLHttpRequest();
+// 		xhr.open("POST", "/actualizar-chat", true);
+// 		xhr.onload = () => {
+// 			if (xhr.readyState === XMLHttpRequest.DONE) {
+// 				if (xhr.status === 200) {
+// 					let data = xhr.response;
+// 					chatBox.innerHTML = data;
+// 					if (!chatBox.classList.contains("active")) {
+// 						scrollToBottom();
+// 					}
+// 				}
+// 			}
+// 		}
+// 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+// 		xhr.send("usuarios_id=" + incoming_id);
 
-	setInterval(() => {
-		let xhr = new XMLHttpRequest();
-		xhr.open("POST", "/actualizar-chat", true);
-		xhr.onload = () => {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					let data = xhr.response;
-					chatBox.innerHTML = data;
-					if (!chatBox.classList.contains("active")) {
-						scrollToBottom();
-					}
-				}
-			}
-		}
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhr.send("usuarios_id=" + incoming_id);
+// 	}, 500);
 
-	}, 500);
-
-	function scrollToBottom() {
-		chatBox.scrollTop = chatBox.scrollHeight;
-	}
-}
+// 	function scrollToBottom() {
+// 		chatBox.scrollTop = chatBox.scrollHeight;
+// 	}
+// }
 // captar la imagen
 function crearGaleria(){
 	if(document.querySelector('.img_datosreserva')){
@@ -375,61 +372,61 @@ if (document.querySelector(".nav_menu_bg")) {
 }
 
 // la parte de gestion de usuario
-if (document.querySelector(".formulario_usuario_act")) {
-	const form_gestion = document.querySelector(".formulario_usuario_act"),
-		id_usuario_act = form_gestion.querySelector(".id_usuario_act").value,
-		nombre_id = form_gestion.querySelector("#nombre_id"),
-		fecha_id = form_gestion.querySelector("#fecha_id"),
-		apellido_id = form_gestion.querySelector("#apellido_id"),
-		sexo_id = form_gestion.querySelector("#sexo_id"),
-		cedula_id = form_gestion.querySelector("#identificacion_id"),
-		nro_telefono_id = form_gestion.querySelector("#nro_telefono_id"),
-		pais_id = form_gestion.querySelector("#countries-list"),
-		estado_id = form_gestion.querySelector("#estado_id"),
-		ciudad_id = form_gestion.querySelector("#ciudad_id"),
-		direccion_id = form_gestion.querySelector("#direccion_id"),
-		c_postal_id = form_gestion.querySelector("#c_postal_id"),
-		email_id = form_gestion.querySelector("#email_id"),
-		contrasenia = form_gestion.querySelector("#contarsenia_id"),
-		sendBtn2 = form_gestion.querySelector("button");
+// if (document.querySelector(".formulario_usuario_act")) {
+// 	const form_gestion = document.querySelector(".formulario_usuario_act"),
+// 		id_usuario_act = form_gestion.querySelector(".id_usuario_act").value,
+// 		nombre_id = form_gestion.querySelector("#nombre_id"),
+// 		fecha_id = form_gestion.querySelector("#fecha_id"),
+// 		apellido_id = form_gestion.querySelector("#apellido_id"),
+// 		sexo_id = form_gestion.querySelector("#sexo_id"),
+// 		cedula_id = form_gestion.querySelector("#identificacion_id"),
+// 		nro_telefono_id = form_gestion.querySelector("#nro_telefono_id"),
+// 		pais_id = form_gestion.querySelector("#countries-list"),
+// 		estado_id = form_gestion.querySelector("#estado_id"),
+// 		ciudad_id = form_gestion.querySelector("#ciudad_id"),
+// 		direccion_id = form_gestion.querySelector("#direccion_id"),
+// 		c_postal_id = form_gestion.querySelector("#c_postal_id"),
+// 		email_id = form_gestion.querySelector("#email_id"),
+// 		contrasenia = form_gestion.querySelector("#contarsenia_id"),
+// 		sendBtn2 = form_gestion.querySelector("button");
 
-	form_gestion.onsubmit = (e) => {
-		e.preventDefault();
-	}
+// 	form_gestion.onsubmit = (e) => {
+// 		e.preventDefault();
+// 	}
 
-	// inputField.focus();
+// 	// inputField.focus();
 
 
-	sendBtn2.onclick = () => {
-		let xhr = new XMLHttpRequest();
-		xhr.open("POST", "/actualizar-usuario", true);
-		xhr.onload = () => {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					Swal.fire({
-						position: "top-end",
-						icon: "success",
-						title: "Sus datos han sido actualizados con exito",
-						showConfirmButton: false,
-						timer: 1500
-					}).then(() => {
-						setTimeout(() => {
-							window.location.reload();
-						}, 2000);
-					})
-				} else {
-					Swal.fire({
-						icon: 'info',
-						title: 'Revise su conexion a internet',
-						text: 'No se actualizaron sus datos, por favor, intente mas tarde.'
-					})
-				}
-			}
-		}
-		let formData = new FormData(form_gestion);
-		xhr.send(formData);
-	}
-}
+// 	sendBtn2.onclick = () => {
+// 		let xhr = new XMLHttpRequest();
+// 		xhr.open("POST", "/actualizar-usuario", true);
+// 		xhr.onload = () => {
+// 			if (xhr.readyState === XMLHttpRequest.DONE) {
+// 				if (xhr.status === 200) {
+// 					Swal.fire({
+// 						position: "top-end",
+// 						icon: "success",
+// 						title: "Sus datos han sido actualizados con exito",
+// 						showConfirmButton: false,
+// 						timer: 1500
+// 					}).then(() => {
+// 						setTimeout(() => {
+// 							window.location.reload();
+// 						}, 2000);
+// 					})
+// 				} else {
+// 					Swal.fire({
+// 						icon: 'info',
+// 						title: 'Revise su conexion a internet',
+// 						text: 'No se actualizaron sus datos, por favor, intente mas tarde.'
+// 					})
+// 				}
+// 			}
+// 		}
+// 		let formData = new FormData(form_gestion);
+// 		xhr.send(formData);
+// 	}
+// }
 
 // IN HOUSE LA RESERVA
 if (document.querySelectorAll(".form_reservas")) {
@@ -791,12 +788,12 @@ if(document.getElementById('fecha')){
 	});
 }
 
-let paso = 1;
+var paso = 1;
 const pasoInicial = 1;
-const pasoFinal = 3;
+const pasoFinal = 4;
 
 const reserva = {
-	id: '',
+
 	fecha_i: '',
 	fecha_e: '',
 	solicitudes: '',
@@ -814,6 +811,10 @@ const reserva = {
 	traslado: '',
 	i_fiscal: '',
 	n_empresa: '',
+	apellidos: '',
+	nombres: '',
+	nro_telefono: '',
+	email:''
 };
 
 const re_habitacion = {
@@ -908,13 +909,17 @@ function iniciarApp() {
 	seleccionarHora();
 	seleccionarPago();
 	mostrarResumen();
-	idUsuario();
+	// mostrarResumen2();
+	// idUsuario();
+	paginaSiguiente(); 
+    paginaAnterior();
+    botonesPaginas(); // Agrega o quita los botones del paginador
 	mostrarSeccion(); //muestra y oculta las secciones
 	tabs();
 
 }
 
-// MODAL
+// MODAL - chat en linea
 if (document.getElementById('abrir_modal')) {
 	let modal2 = document.getElementById('miModal2');
 	let flex2 = document.getElementById('flex2');
@@ -1013,7 +1018,7 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	reserva.cantidad = cantidad;
 	reserva.ninos = ninos;
 	reserva.adultos = adultos;
-
+	mostrarResumen2();
 	console.log(reserva);
 	habitaciones.forEach(habitacion => {
 		const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
@@ -1116,22 +1121,35 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	fecha_re_i.value = reserva.fecha_i;
 	fecha_re_i.addEventListener('input', function () {
 		reserva.fecha_i = fecha_re_i.value;
+		mostrarResumen2();
 	});
 
 
 	const fecha_re_i_p = document.createElement('P');
 	fecha_re_i_p.classList.add('fecha_reserva_p');
 	fecha_re_i_p.textContent = "Check-in";
-
+	const icono_calendar=document.createElement('div');
+	icono_calendar.classList.add('icono_calendar');
+	icono_calendar.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M7 14h.013" /> <path d="M10.01 14h.005" /> <path d="M13.01 14h.005" /> <path d="M16.015 14h.005" /> <path d="M13.015 17h.005" /> <path d="M7.01 17h.005" /> <path d="M10.01 17h.005" /> </svg>';
+	
+	const icono_calendar2=document.createElement('div');
+	icono_calendar2.classList.add('icono_calendar');
+	icono_calendar2.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M7 14h.013" /> <path d="M10.01 14h.005" /> <path d="M13.01 14h.005" /> <path d="M16.015 14h.005" /> <path d="M13.015 17h.005" /> <path d="M7.01 17h.005" /> <path d="M10.01 17h.005" /> </svg>';
+	
 	// check-out
 	const fecha_re2 = document.createElement('DIV');
 	fecha_re2.classList.add('fecha_re');
+	const fecha_re_iconos = document.createElement('DIV');
+	fecha_re_iconos.classList.add('fecha_re_iconos');
+	const fecha_re_iconos2 = document.createElement('DIV');
+	fecha_re_iconos2.classList.add('fecha_re_iconos');
 
 	const fecha_re_e = document.createElement('input');
 	fecha_re_e.type = 'date';
 	fecha_re_e.value = reserva.fecha_e;
 	fecha_re_e.addEventListener('input', function () {
 		reserva.fecha_e = fecha_re_e.value;
+		mostrarResumen2();
 	});
 
 	const fecha_re_e_p = document.createElement('P');
@@ -1142,31 +1160,38 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	nino.value = reserva.ninos;
 	nino.addEventListener('input', function () {
 		reserva.ninos = nino.value;
+		mostrarResumen2();
 	});
 	const adulto = document.querySelector('#adultos');
 	adulto.value = reserva.adultos;
 	adulto.addEventListener('input', function () {
 		reserva.adultos = adulto.value;
+		mostrarResumen2();
 	});
 	const hab = document.querySelector('#habitaciones2');
 	hab.value = reserva.cantidad;
 	hab.addEventListener('input', function () {
 		reserva.cantidad = hab.value;
+		mostrarResumen2();
 	});
 
-	const espacio = document.createElement('BR');
-	espacio.classList.add('br');
+	// const espacio = document.createElement('BR');
+	// espacio.classList.add('br');
 
+	fecha_re_iconos.appendChild(icono_calendar);
+	fecha_re_iconos.appendChild(fecha_re_i_p);
 
-	fecha_re.appendChild(fecha_re_i_p);
+	fecha_re.appendChild(fecha_re_iconos);
 	fecha_re.appendChild(fecha_re_i);
 
-	fecha_re2.appendChild(fecha_re_e_p);
+	fecha_re_iconos2.appendChild(icono_calendar2);
+	fecha_re_iconos2.appendChild(fecha_re_e_p);
+	fecha_re2.appendChild(fecha_re_iconos2);
 	fecha_re2.appendChild(fecha_re_e);
 
 	// datos_seleccion_basic.appendChild(counter_list);
 	datos_seleccion_basic.appendChild(fecha_re);
-	datos_seleccion_basic.appendChild(espacio);
+	// datos_seleccion_basic.appendChild(espacio);
 	datos_seleccion_basic.appendChild(fecha_re2);
 
 
@@ -1309,6 +1334,8 @@ function validarCantidadTotal(ult, valida) {
 		});
 		modal.style.display = 'none';
 		paso = 2;
+
+		botonesPaginas();
 		mostrarSeccion();
 	}
 	if (reserva_cant.cant < 0) {
@@ -1329,7 +1356,6 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 	if (habitaciones.some(agregado => agregado.id === id)) {
 		ult = 0;
 		let indexprueba = 0;
-
 		indexprueba = reserva.habitaciones_re.findIndex(hab_re => hab_re.id_habitacion === id);
 		console.log('index: ' + indexprueba);
 		if (indexprueba !== -1) {
@@ -1346,7 +1372,6 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 				reserva_cant.cant -= parseInt(reserva.habitaciones_re[indexprueba].cantidad_s) + parseInt(reserva.habitaciones_re[indexprueba].cantidad_d);
 			} else {
 				console.log('no entraron a los ifs: ' + reserva.habitaciones_re[indexprueba].cantidad_s + reserva.habitaciones_re[indexprueba].cantidad_d)
-
 			}
 		}
 		reserva.habitaciones = habitaciones.filter(agregado => agregado.id !== id);
@@ -1432,6 +1457,7 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 	validarCantidadTotal(ult, valida);
 
 	mostrarResumen();
+	mostrarResumen2();
 }
 // Función para ocultar el aviso después de 6 segundos
 
@@ -1439,10 +1465,14 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 function mostrarSeccion() {
 	
 	let tab2 = document.querySelector('.tabs');
-	if (paso === 3) {
+	let paginacion = document.querySelector('.paginacion');
+	if (paso === 4) {
+
 		tab2.classList.add("esconder_tabs");
+		paginacion.classList.add("esconder_tabs");
 	} else {
-		tab2.classList.remove("esconder_tabs");;
+		tab2.classList.remove("esconder_tabs");
+		// paginacion.classList.remove("esconder_tabs");
 	}
 	const seccionAnterior = document.querySelector('.mostrar');
 	if (seccionAnterior) {
@@ -1462,15 +1492,16 @@ function mostrarSeccion() {
 
 	// reslata el tab actual
 	const tab = document.querySelector(`[data-paso="${paso}"]`);
+
 	tab.classList.add("actual");
 
 
-	// }, 10); // ajusta este valor según sea necesario
+
 }
 
-function idUsuario() {
-	reserva.id = document.querySelector('#id').value;
-}
+// function idUsuario() {
+// 	reserva.id = document.querySelector('#id').value;
+// }
 function seleccionarSolicitudes() {
 	const textTarea = document.querySelector('#solicitudes');
 	textTarea.addEventListener('change', function (e) {
@@ -1557,21 +1588,19 @@ function mostrarResumen() {
 					cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
 					contenedorHabitacion.appendChild(cantidads);
 					reserva.monto = reserva.monto + (parseFloat(preciosd) * parseFloat(cantidad_s));
-					// }
-
-					// contenedorHabitacion.appendChild(cantidads);
+				
 				} else {
 					habitacionr.cantidad_s = 0;
 				}
 				if (!isNaN(cantidad_d) && cantidad_d !== 0) {
-					// if(cantidad_d!== 0){
+				
 					const cantidadd = document.createElement('P');
 					let preciocant2 = 0;
 					preciocant2 = cantidad_d * preciocd;
 					cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). <br> Total: USD ${preciocant2} por noche`;
 					reserva.monto = reserva.monto + (parseFloat(preciocd) * parseFloat(cantidad_d));
 					contenedorHabitacion.appendChild(cantidadd);
-					// }
+
 				} else {
 					habitacionr.cantidad_d = 0;
 				}
@@ -1615,37 +1644,177 @@ function mostrarResumen() {
 	const opciones2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 	const fechaFormateada2 = fechaUTC2.toLocaleDateString('es-MX', opciones2);
 
+	// div para la entrada y salida
+	const diventrada_salida = document.createElement('div');
+	diventrada_salida.classList.add('diventrada_salida');
+
 	const fecha_parrafo_i = document.createElement('P');
 	fecha_parrafo_i.classList.add('fecha_parrafo_i');
 	fecha_parrafo_i.innerHTML = ` <span>ENTRADA:</span> ${fechaFormateada}`;
+	diventrada_salida.appendChild(fecha_parrafo_i);
+
 	const fecha_parrafo_e = document.createElement('P');
 	fecha_parrafo_e.classList.add('fecha_parrafo_e');
 	fecha_parrafo_e.innerHTML = `<span>SALIDA:</span> ${fechaFormateada2}`;
 	const adultos_parrafo = document.createElement('P');
+	diventrada_salida.appendChild(fecha_parrafo_e);
+
 	adultos_parrafo.classList.add('adultos_parrafo');
 	adultos_parrafo.innerHTML = `<span>ADULTOS: </span>(${adultos})`;
 	const ninos_parrafo = document.createElement('P');
 	ninos_parrafo.classList.add('ninos_parrafo');
 	ninos_parrafo.innerHTML = `<span>NIÑOS: </span>(${ninos})`;
 
-
-
-	part_resumen_monto.appendChild(fecha_parrafo_i);
-	part_resumen_monto.appendChild(fecha_parrafo_e);
+	part_resumen_monto.appendChild(diventrada_salida);
 	part_resumen_monto.appendChild(adultos_parrafo);
 	part_resumen_monto.appendChild(ninos_parrafo);
 	part_resumen_monto.appendChild(monto3);
 	boton_reserva.appendChild(botonReservar);
 }
+// mostrar resumen 2 en el paso 1
+function mostrarResumen2() {
+	console.log('entrando');
+	console.log(reserva);
+	const resumen = document.querySelector('.contenido-resumen2');
+	// const boton_reserva = document.querySelector('.boton-reserva');
+	const part_resumen_monto = document.querySelectorAll('.part_resumen_monto2');
+	// Limpiar el Contenido de Resumen
+	part_resumen_monto.forEach(function(resumen2){
+	
+
+	
+	while (resumen.firstChild) {
+		resumen.removeChild(resumen.firstChild);
+	}
+
+	while (resumen2.firstChild) {
+		resumen2.removeChild(resumen2.firstChild);
+	}
+
+
+
+	// Formatear el div de resumen
+	const { fecha_e, fecha_i, ninos, adultos, habitaciones, habitaciones_re } = reserva;
+	console.log(reserva);
+	reserva.monto = 0;
+
+	habitaciones.forEach(habitacion => {
+
+		console.log(habitacion);
+		const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
+	
+
+		habitaciones_re.forEach(habitacionr => {
+			const { id_habitacion, cantidad_d, cantidad_s } = habitacionr;
+			if (parseInt(id_habitacion) === parseInt(id)) {
+
+
+				if (!isNaN(cantidad_s) && cantidad_s !== 0) {
+					// if(cantidad_s!== 0){
+					// const cantidads = document.createElement('P');
+					let preciocant = 0;
+					preciocant = cantidad_s * preciosd;
+					// cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
+					// contenedorHabitacion.appendChild(cantidads);
+					reserva.monto = reserva.monto + (parseFloat(preciosd) * parseFloat(cantidad_s));
+				
+				} else {
+					habitacionr.cantidad_s = 0;
+				}
+				if (!isNaN(cantidad_d) && cantidad_d !== 0) {
+				
+					// const cantidadd = document.createElement('P');
+					let preciocant2 = 0;
+					preciocant2 = cantidad_d * preciocd;
+					// cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). <br> Total: USD ${preciocant2} por noche`;
+					reserva.monto = reserva.monto + (parseFloat(preciocd) * parseFloat(cantidad_d));
+					// contenedorHabitacion.appendChild(cantidadd);
+
+				} else {
+					habitacionr.cantidad_d = 0;
+				}
+
+			}
+		});
+		// resumen.appendChild(contenedorHabitacion);
+	});
+	const divdatos = document.createElement('div');
+	divdatos.classList.add('datos_resumen2');
+	// Heading para Cita en Resumen
+	const monto3 = document.createElement('p');
+	const divmonto = document.createElement('div');
+	monto3.innerHTML = `<span>TOTAL: </span> USD ${reserva.monto}`;
+	divmonto.classList.add('monto_resumen2');
+	divmonto.appendChild(monto3);
+
+	// Boton para Crear una cita
+	// const botonReservar = document.createElement('BUTTON');
+	// const botonPdf = document.createElement('BUTTON');
+	// botonReservar.classList.add('btn_reservar');
+	// botonReservar.textContent = 'Enviar reserva';
+	// botonReservar.onclick = reservarHabitacion   // resumen.appendChild(nombreCliente);
+
+	// formatear fecha ingreso:
+	// Formatear la fecha en español
+	const fechaObj = new Date(fecha_i);
+	const mes = fechaObj.getMonth();
+	const dia = fechaObj.getDate() + 2;
+	const year = fechaObj.getFullYear();
+
+	const fechaUTC = new Date(Date.UTC(year, mes, dia));
+
+	const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+	const fechaFormateada = fechaUTC.toLocaleDateString('es-MX', opciones);
+	// formatear fecha de salida:
+	const fechaObj2 = new Date(fecha_e);
+	const mes2 = fechaObj2.getMonth();
+	const dia2 = fechaObj2.getDate() + 2;
+	const year2 = fechaObj2.getFullYear();
+
+	const fechaUTC2 = new Date(Date.UTC(year2, mes2, dia2));
+
+	const opciones2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+	const fechaFormateada2 = fechaUTC2.toLocaleDateString('es-MX', opciones2);
+	const fecha_parrafo_i = document.createElement('P');
+	fecha_parrafo_i.classList.add('fecha_parrafo_i2');
+	fecha_parrafo_i.innerHTML = ` <span>Entrada</span> ${fechaFormateada}`;
+	const fecha_parrafo_e = document.createElement('P');
+	fecha_parrafo_e.classList.add('fecha_parrafo_e2');
+	fecha_parrafo_e.innerHTML = `<span>Salida</span> ${fechaFormateada2}`;
+	const adultos_parrafo = document.createElement('P');
+	adultos_parrafo.classList.add('adultos_parrafo2');
+	adultos_parrafo.innerHTML = `<span>Adultos</span>(${adultos})`;
+	const ninos_parrafo = document.createElement('P');
+	ninos_parrafo.classList.add('ninos_parrafo2');
+	ninos_parrafo.innerHTML = `<span>Niños</span>(${reserva.ninos})`;
+
+
+
+	divdatos.appendChild(fecha_parrafo_i);
+	divdatos.appendChild(fecha_parrafo_e);
+	divdatos.appendChild(adultos_parrafo);
+	divdatos.appendChild(ninos_parrafo);
+	resumen2.appendChild(divdatos);
+	resumen2.appendChild(divmonto);
+	// boton_reserva.appendChild(botonReservar);
+	});
+}
+
+// mostrar resumen en el paso 2
+
+
+
 function uuidv4() {
 
 	return 'xxxxxxxxxxxx4xxx'.replace(/[x]/g, function () {
 		return Math.floor(Math.random() * 10); // Números del 0 al 9
 	});
 }
+
+
 async function reservarHabitacion() {
 
-	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, id, codigo, status, imagen, traslado, i_fiscal , n_empresa } = reserva;
+	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal , n_empresa, apellidos, nombres, nro_telefono,email } = reserva;
 	// Generar código único para la reserva
 	const codigo2 = uuidv4();
 	const idHabitaciones = habitaciones.map(habitacion => habitacion.id);
@@ -1655,12 +1824,20 @@ async function reservarHabitacion() {
 	const i_fiscal_2 = i_fiscal3.value;
 	const n_empresa3 = document.getElementById('n_empresa');
 	const n_empresa2 = n_empresa3.value;
+	const nombres2 = document.getElementById('nombres');
+	const nombres3 = nombres2.value;
+	const apellidos1 = document.getElementById('apellidos');
+	const apellidos2 = apellidos1.value;
+	const nro_telefono1 = document.getElementById('nro_telefono');
+	const nro_telefono2 = nro_telefono1.value;
+	const email1 = document.getElementById('email_correo');
+	const email2 = email1.value;
 	console.log(idHabitaciones);
 
 	const datos = new FormData();
 	const fileInput = document.getElementById('imagen_reserva');
 
-	datos.append('usuarios_id', id);
+	// datos.append('usuarios_id', id);
 	datos.append('fecha_i', fecha_i);
 	datos.append('cantidad', cantidad);
 	datos.append('fecha_e', fecha_e);
@@ -1686,6 +1863,14 @@ async function reservarHabitacion() {
 	reserva.i_fiscal=i_fiscal_2;
 	datos.append('n_empresa',n_empresa2);
 	reserva.n_empresa=n_empresa2;
+	datos.append('apellidos',apellidos2);
+	reserva.apellidos=apellidos2;
+	datos.append('nombres',nombres3);
+	reserva.nombres=nombres3;
+	datos.append('nro_telefono',nro_telefono2);
+	reserva.nro_telefono=nro_telefono2;
+	datos.append('email',email2);
+	reserva.email=email2;
 	// datos.append('habitaciones', idHabitaciones);
 	console.log(datos);
 	habitaciones_re.forEach(habitacionre => {
@@ -1727,16 +1912,18 @@ async function reservarHabitacion() {
 
 					.then(() => {
 						setTimeout(() => {
-							paso = 3;
+							paso = 4;
 							mostrarSeccion();
 						}, 3000);
 					});
 			}
 		} catch (error) {
+			console.log(error);
 			Swal.fire({
 				icon: 'error',
 				title: 'Error',
 				text: 'Hubo un error al guardar la reserva'
+				
 			})
 		}
 
@@ -1778,6 +1965,7 @@ function tabs() {
 			paso = parseInt(e.target.dataset.paso);
 			if (paso === 2 && reserva_cant.cant !== parseInt(reserva.cantidad) || (paso === 3 && reserva_cant.cant !== parseInt(reserva.cantidad))) {
 				paso = 1;
+				botonesPaginas(); 
 				mostrarSeccion();
 				Swal.fire({
 					icon: 'info',
@@ -1786,11 +1974,16 @@ function tabs() {
 				})
 			} else {
 
-				if (paso === 2) {
+				if (paso === 3) {
+					botonesPaginas(); 
 					mostrarResumen();
+					mostrarResumen2();
 					mostrarSeccion();
-				} else if (paso === 1) {
+					
+				} else if (paso === 1 || paso===2) {
+					botonesPaginas(); 
 					mostrarSeccion();
+					
 				}
 			}
 
@@ -1804,7 +1997,7 @@ function paginaAnterior() {
 		if (paso <= pasoInicial) return;
 		paso--;
 
-		// botonesPaginas();
+		botonesPaginas();
 	})
 
 }
@@ -1813,8 +2006,16 @@ function paginaSiguiente() {
 	paginaSiguiente.addEventListener('click', function () {
 		if (paso >= pasoFinal) return;
 		paso++;
+		if (paso === 2 && reserva_cant.cant !== parseInt(reserva.cantidad)){
+			paso=1;
+			Swal.fire({
+				icon: 'info',
+				title: 'Seleccione las habitaciones',
+				text: `Por favor, seleccione las (${reserva.cantidad}) habitaciones para habilitar el paso 2`
+			})
 
-		// botonesPaginas();
+		}
+		botonesPaginas();
 	})
 }
 
@@ -1822,6 +2023,7 @@ function botonesPaginas() {
 	const paginaAnterior = document.querySelector('#anterior');
 	const paginaSiguiente = document.querySelector('#siguiente');
 	if (paso === 1) {
+		mostrarResumen2();
 		paginaAnterior.classList.add('ocultar2');
 		paginaSiguiente.classList.remove('ocultar2');
 
@@ -1829,7 +2031,8 @@ function botonesPaginas() {
 		mostrarResumen();
 		paginaAnterior.classList.remove('ocultar2');
 		paginaSiguiente.classList.add('ocultar2');
-	} else {
+	}
+	 if(paso === 2){
 		paginaAnterior.classList.remove('ocultar2');
 		paginaSiguiente.classList.remove('ocultar2');
 	}
@@ -1875,6 +2078,11 @@ function limitarCaracteres2() {
 function toggleLista() {
 
 	let detalleReserva = document.querySelector('.counter-list');
+	detalleReserva.classList.toggle("no-display");
+}
+function toggleLista2() {
+
+	let detalleReserva = document.querySelector('.counter-list2');
 	detalleReserva.classList.toggle("no-display");
 }
 
@@ -1959,18 +2167,19 @@ function asignarValores() {
 	var ninosElement = document.getElementById('ninos2');
 	var fechaReserva = document.getElementById('fechaReserva2');
 	var fechaEgreso = document.getElementById('fechaEgreso2');
-	let id_usuario_valor = document.getElementById('id_usuario_valor');
+	// let id_usuario_valor = document.getElementById('id_usuario_valor');
 
 	if(document.getElementById("btnEnviar3")){
-		if (parseInt(habitacionesElement.value) !== 0 && parseInt(adultosElement.value) !== 0 && fechaReserva.value !== '' && fechaEgreso.value !== '' & id_usuario_valor.value !== '') {
+		if (parseInt(habitacionesElement.value) !== 0 && parseInt(adultosElement.value) !== 0 && fechaReserva.value !== '' && fechaEgreso.value !== '') {
 			detalleReserva.innerHTML = `${adultosElement.value} adultos · ${ninosElement.value} niños · ${habitacionesElement.value} habitaciones`;
 
 			enlaceReserva.href = `/habitaciones_s?adultos=${adultosElement.value}&ninos=${ninosElement.value}&habitaciones=${habitacionesElement.value}&fechaEgreso=${fechaEgreso.value}&fechaReserva=${fechaReserva.value}`;
 		} else {
+			console.log('epa es emi');
 			Swal.fire({
 				icon: 'error',
 				title: 'Error',
-				text: 'Completa todos los campos y recuerde iniciar sesion primero'
+				text: 'Completa todos los campos'
 			})
 		}
 	}
@@ -1988,7 +2197,7 @@ function asignarValores2() {
 	reserva.adultos = adultosElement.value;
 	reserva.ninos = ninosElement.value;
 	reserva.cantidad = habitacionesElement.value;
-
+	mostrarResumen2();
 }
 
 

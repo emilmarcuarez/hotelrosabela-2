@@ -5,7 +5,7 @@
  class Reserva extends Activerecord{
     protected static $tabla = 'reserva';
     protected static $pagina='Reservas/mostrar';
-    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'usuarios_id', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa'];
+    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email'];
 
 
     public $id;
@@ -14,7 +14,6 @@
     public $cantidad;
     public $solicitudes;
     public $monto;
-    public $usuarios_id;
     public $ninos;
     public $adultos;
     public $hora_ll;
@@ -25,6 +24,10 @@
     public $traslado;
     public $i_fiscal;
     public $n_empresa;
+    public $nombres;
+    public $apellidos;
+    public $nro_telefono;
+    public $email;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
       $this->fecha_i=$args['fecha_i'] ?? '';
@@ -32,7 +35,6 @@
       $this->cantidad=$args['cantidad'] ?? '21';
       $this->solicitudes=$args['solicitudes'] ?? '';
       $this->monto=$args['monto'] ?? 2;
-      $this->usuarios_id=$args['usuarios_id'] ?? '';
       $this->ninos=$args['ninos'] ?? '1';
       $this->adultos=$args['adultos'] ?? '1';
       $this->hora_ll=$args['hora_ll'] ?? '';
@@ -42,7 +44,10 @@
       $this->imagen=$args['imagen'] ?? '';
       $this->traslado=$args['traslado'] ?? '';
       $this->i_fiscal=$args['i_fiscal'] ?? '0xxx';
-      $this->n_empresa=$args['n_empresa'] ?? 'persona';
+      $this->nombres=$args['nombres'] ?? '';
+      $this->apellidos=$args['apellidos'] ?? '';
+      $this->nro_telefono=$args['nro_telefono'] ?? '';
+      $this->email=$args['email'] ?? '';
     }
 
    

@@ -23,7 +23,7 @@
 }
 .cuadro{
     background-color: rgba(0,0,0,.507);
-    height: 50.5rem;
+    height: 70rem;
     position: absolute;
     width: 100%;
     z-index: 2;
@@ -32,7 +32,7 @@
 
         align-items: end;
         display: flex;
-        height: 50.5rem;
+        height: 70rem;
         justify-content: left;
         width: 100%;
 
@@ -63,13 +63,33 @@
         }
     }
 }
+.img_logo_rbrewards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img_logo_rbrewards img {
+    width: 4rem;
+  }
+.logo_arriba img {
+    margin: auto;
+    position: absolute;
+    right: 55rem;
+    top: 8rem;
+    width: 35rem;
+    z-index: 2;
+  }
+
+.header_cont p {
+    font-weight: 600;
+}
 video{
     width: 100%;
 }
 .video{
     position: absolute;
-    height: 55rem;
-    top: 9rem;
+    height: 70rem;
+    // top: 9rem;
     width: 100%;
     overflow: hidden;
     z-index: 1;
@@ -98,16 +118,16 @@ video{
     // background-color: #8a8383;
 
         align-items: center;
-        background-color: #222;
+        background-color: #fff;
         display: flex;
-        height: 9rem;
+        // height: 9rem;
         justify-content: center;
         position: relative;
         z-index: 31;
       
-  .menu #btn_menu{
-    display: none;
-}
+    .menu #btn_menu{
+        display: none;
+    }
 
     .header_cont{
         align-items: center;
@@ -120,7 +140,7 @@ video{
             gap: 2rem;
             a{
                 display: inline-block;
-                color: $blanco;
+                color: #000;
                 font-size: 1.3rem;
                 padding: 1rem;
             }
