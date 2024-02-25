@@ -16,19 +16,7 @@ class ApiController{
     public static function guardar() {
       
         $cita = new Reserva($_POST);
-        // $usuario = Usuario::where('id', $cita->usuarios_id);
-        // // reserva- imagen
-        // $fechaInicio = strtotime($cita->fecha_i);
-        // $fechaFin = strtotime($cita->fecha_e);
-        
-        // // Calcula la diferencia entre las dos fechas
-        // $diferencia = date_diff(date_create($cita->fecha_i), date_create($cita->fecha_e));
-        
-
-        // // Calcula la diferencia entre las dos fechas
-        // //  $diferencia = $fechaInicio->diff($fechaFin); 
-        // $usuario->noches+=$diferencia->days;
-        // $usuario->guardar();
+       
         $nombreImagen=md5(uniqid(rand(), true)) . ".jpg";
                 
         if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
@@ -42,8 +30,8 @@ class ApiController{
               $image->save(CARPETA_IMAGENES_RESERVA. $nombreImagen);
         }
 
-        $email=new Email('','','','');
-        $email->enviarReserva();
+        // $email=new Email('','','','');
+        // $email->enviarReserva();
         $resultado = $cita->guardar();
         $id = $resultado['id'];
     

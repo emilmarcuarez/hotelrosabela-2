@@ -217,7 +217,7 @@ class PaginaController
         $no2 = true;
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/habitaciones_s', [
-            'id' => $_SESSION['usuario_id'],
+            // 'id' => $_SESSION['usuario_id'],
             'no' => $no,
             'premios_usu' => $premios_usu,
             'no2' => $no2

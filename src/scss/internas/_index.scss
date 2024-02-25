@@ -1,24 +1,23 @@
+.titulo_info h5 {
+    color: #3e3e3e !important;
+    font-weight: 400;
+  }
+
 .rb_rewards {
-    background: #9f425a;
+    background: white;
   }
   .img_logo_rbrewards p {
     font-size: 3rem;
-    color: #fff;
+    color: #000000;
   }
   .img_logo_rbrewards span {
     font-weight: 600;
+    
   }
 .rb_rewards_flex.contenedor {
-    // padding: 2.5rem 0rem 1.5rem 0rem;
-    // display: flex;
-    // justify-content: space-between;
 
     display: flex;
   justify-content: space-between;
-  padding: 1rem 0 1rem;
-  }
-  .img_logo_rbrewards img {
-    width: 21rem;
   }
   .info_rb_rewards {
     display: flex;
@@ -26,13 +25,13 @@
     align-items: center;
     gap: 2rem;
     p{
-        color: white;
+        color: rgb(5, 5, 5);
     }
   }
   .info_rb_rewards a {
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 1rem;
-    color: #fff;
+    color: #000;
     padding: .2rem 1rem;
   }
 // f_reservas
@@ -40,7 +39,7 @@
     // box-shadow: 1px 23px 19px 11px #222;
     position: absolute;
     right: 0;
-    top: 46.5rem;
+    top: 246px;
     width: 100%;
     z-index: 33;
     display: block;
@@ -115,7 +114,7 @@
 }
 
 .f_reservas{
-    background: linear-gradient(180deg,rgba(68,68,68,0),rgba(34,34,34,.812) 30%,#2c2b2b) 0 0/cover no-repeat padding-box border-box;
+    // background: linear-gradient(180deg,rgba(68,68,68,0),rgba(34,34,34,.812) 30%,#2c2b2b) 0 0/cover no-repeat padding-box border-box;
     // box-shadow: 1px 19px 22px 1px #2d292b;
     // -webkit-box-shadow: 1px 19px 22px 1px #2d292b;
     // -moz-box-shadow: 1px 19px 22px 1px #2d292b;
@@ -133,10 +132,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    // margin-top: 20px;
     // border: 2px solid #d0a3a5;
     // border-radius: 1rem;
-    padding: 0.4rem;
+    // padding: 0.4rem;
   }
   .counter-row {
     display: flex;
@@ -150,56 +149,82 @@
     text-align: center;
     width: 100%;
     height: 100%;
-    margin: 0 5px;
-    border: 1px solid #d0c9ca;
+    // margin: 0 5px;
+    border: 1px solid #ebebeb;
     border-radius: 5rem;
   }
   .counter-btn {
-    background-color: #cf5a60;
-    border: none;
-    border-radius: 29%;
-    color: #fff;
-    cursor: pointer;
-    height: 3rem;
-    margin: auto;
-    padding: 5px 10px;
-    width: 3rem;
+    background-color: #fbfbfb;
+  border: none;
+  border-radius: 50%;
+  color: #030303;
+  cursor: pointer;
+  height: 3rem;
+  margin: auto;
+  padding: 5px 10px;
+  width: 3rem;
   }
 
   .counter-select span{
 //    border: 1px solid #000;
-    color: $blanco;
+    color: #000;
     font-size: 1.3rem;
     padding: 1rem;
-    border: 2px solid #ed5888;
-    border-radius: 1rem;
+    // border: 2px solid #ed5888;
+    // border-radius: 1rem;
     cursor: pointer;
   }
   .counter-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    z-index: 1;
-    width: 41rem; /* Ancho ajustable según sea necesario */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffffc7;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
     display: none;
-  
+    list-style: none;
+    // margin: 0;
+      margin-top: 0px;
     padding: 1rem;
+    position: absolute;
+    width: 41rem;
+    z-index: 1;
+    margin-top: 1rem;
   }
  
   .ocultar2{
     visibility: hidden;
   }
+
   .counter-list li {
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
   .counter-list li:hover {
+    background-color: #f5f5f5;
+  }
+  .counter-list2 {
+    background-color: #ffffffc7;
+    border-radius: 5px;
+    box-shadow: 0 7px 10px rgb(50, 50, 50);
+    display: none;
+    list-style: none;
+    // margin: 0;
+      margin-top: 0px;
+    padding: 1rem;
+    position: absolute;
+    width: 41rem;
+    z-index: 1;
+    margin-top: 1rem;
+  }
+ 
+  .ocultar2{
+    visibility: hidden;
+  }
+  .counter-list2 li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .counter-list2 li:hover {
     background-color: #f5f5f5;
   }
 
@@ -211,12 +236,13 @@
   width: 100%;
   margin-top: 1rem;
   label{
-    color:#2d2b2b;
+    color: #2d2b2b;
     text-align: center;
+    font-size: 1.3rem;
   }
   }
 body{
-    background: url(/build/img/fondop-01.webp);
+    // background: url(/build/img/fondop-01-01-01.webp);
     background-attachment: fixed;
   background-position: 50%;
   background-repeat: no-repeat;
@@ -241,10 +267,10 @@ body{
 }
 #fechaEgreso, #fechaEgreso2, #fechaReserva, #fechaReserva2
 {
-    border: 2px solid #ed5888;
+    // border: 2px solid #ed5888;
   border-radius: 1rem;
-  padding: 1rem;
-  text-align: center;
+//   padding: 1rem;
+//   text-align: center;
 }
 .formulario_re .par_label input
 {
@@ -293,8 +319,15 @@ body{
     display: block;
     padding-top: 7rem;
   }
+  .par_label {
+    background: #f0eeefbf;
+    padding: 0.5rem 1rem;
+  }
+  .par_label2 {
+    background: #f0eeefb8;
+    padding: 0.5rem;
+  }
 .formulario_re{
-    background: #3b3b3b59;
   padding: 1rem;
   display: grid;
   gap: 2rem;
@@ -305,11 +338,12 @@ body{
     .par_label{
             input, label{
             font-size: 1.3rem;
-            color:$blanco
+            color:#000000;
         
         }
         input{
-            background-color:#2d292b;;
+            background-color: #f0eeef00;
+
         }
     }
     
@@ -325,20 +359,31 @@ body{
   width: 100%;
   position: relative;
 }
+.formulario_re .par_label label{
+    font-weight: 600;
+}
+
 #fechaReserva, 
 #fechaEgreso
 {
-  padding: 1rem;
-  border: 2px solid #ee5989;
-  border-radius: 1rem;
+    padding: 0rem 1rem;
+  border: none;
+  &:focus{
+    outline: none;
+  }
+//   border-radius: 1rem;
 }
 #fechaReserva2, 
 #fechaEgreso2
 {
-  padding: 1rem;
-  border: 2px solid #ee5989;
-  border-radius: 1rem;
+//   padding: 1rem;
+border: none;
+//   border: 2px solid #ee5989;
+//   border-radius: 1rem;
   width: 100%;
+  &:focus{
+    outline: none;
+  }
 }
 
 // eventos
@@ -351,7 +396,7 @@ body{
 .imagen_evento{
         width: 100%;
         height: 100%;
-        background: #9f425a;
+        background: #585353;
         padding: 3rem;
         border-radius: 1rem;
         box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
@@ -425,10 +470,7 @@ body{
 
 // salones
 .salones_cont{
-    // display: grid;
-    // grid-template-columns: 70% 30%;
-    // gap: 3rem;
-    // height: 38rem;
+
     .salon_evento img{
         width: 100%;
         height: 38rem;
@@ -518,7 +560,7 @@ h4{
     display: grid;
     grid-template-columns: 30% 45% 25%;
     height: 25rem;
-    background-color: #E7E7E7;
+    background-color: #fff;
     border-radius: .5rem;
     justify-content: center;
      align-items: center;
@@ -584,8 +626,7 @@ h4{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-       
-        font-weight: 700;
+        font-weight: 600;
         p{
             font-size: 1rem;
             text-align: center;
@@ -593,7 +634,7 @@ h4{
             margin: 0;
             padding: 0;
             .pre_nro{
-                color: $fucsia;
+                color: #3a3a3a;
                 font-size: 2.9rem;
             }
             .des_hab{
@@ -812,6 +853,13 @@ border-radius: 2rem;
         margin: 0;
     }
     .counter-list{
+        background-color: #393838;
+        border: none;
+        width: 31rem;
+        top: 3.7rem;
+        right: -4rem;
+    }
+    .counter-list2{
         background-color: #393838;
         border: none;
         width: 31rem;

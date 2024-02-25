@@ -3,7 +3,7 @@
 			<div class="contenido-modal3">
 				<div class="modal-header3 flex3" id="miModal3">
 					<div class="part_modal_header">
-                        <img src="build/img/logor.webp" alt="">    
+                        <img src="build/img/logo_.webp" alt="">    
                         <h2>Plan de fidelizacion</h2>
                     </div>
                    
@@ -83,8 +83,8 @@ Con el program de lealtad Rb rewards, premiamos tu lealtad permitiendote redimir
 <div class="rb_rewards">
     <div class="rb_rewards_flex contenedor">
         <div class="img_logo_rbrewards">
-        <!-- <img src="build/img/logor.webp" alt="">    -->
-    <p>RB <span>Rewards</span></p>
+        <img src="build/img/logor.webp" alt="">   
+         <p>RB <span>Loyalty</span></p>
         <!-- <img src="build/img/logo_blanco_rb-01.webp" alt=""> -->
         </div>
         <div class="info_rb_rewards">

@@ -69,7 +69,7 @@ class ReservaController{
         $no2=true;
         $id=$_GET['id'];
         $reserva=Reserva::find($id);
-        $usuario=Usuario::getUsarioReserva($id);
+        // $usuario=Usuario::getUsarioReserva($id);
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
         $habitaciones=Habitaciones::all();
        
