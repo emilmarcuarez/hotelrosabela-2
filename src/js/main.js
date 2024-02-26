@@ -891,7 +891,9 @@ if (document.getElementById("abrirChatbot")) {
 	crearGaleria();
 	eventListeners();
 	limitarCaracteres();
+	limitarCaracteres3();
 	limitarCaracteres2();
+	
 	iniciarApp();
 	if (document.querySelector('#fechaReserva2')) {
 		const fechaReserva = document.querySelector('#fechaReserva2');
@@ -1025,7 +1027,7 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	reserva.ninos = ninos;
 	reserva.adultos = adultos;
 	mostrarResumen2();
-	console.log(reserva);
+	// console.log(reserva);
 	habitaciones.forEach(habitacion => {
 		const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
 
@@ -1034,6 +1036,18 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 
 		const descripcionH = document.createElement('P');
 		descripcionH.textContent = descripcion;
+		// descripcionH.classList.add('descripcion');
+
+		var texto = descripcionH.innerHTML;
+		var limite = 150; // Define el número máximo de caracteres que deseas mostrar
+
+		if (texto.length > limite) {
+			// En el caso específico de la función slice(0, limite), el valor 0 indica que se desea comenzar desde el primer carácter de la cadena original. El parámetro limite representa el índice final, es decir, el carácter justo antes del cual deseas cortar la cadena.
+			var nuevoTexto = texto.slice(0, limite) + "...";
+			descripcionH.innerHTML = nuevoTexto;
+		}
+
+
 
 		const infoH = document.createElement('P');
 		infoH.textContent = `Hasta ${adultos} adultos y ${ninos} niños`;
@@ -1879,10 +1893,10 @@ async function reservarHabitacion() {
 		datos.append('imagen', reserva.imagen);
 	} else {
 		reserva.imagen = 'ninguna';
-		reserva.fecha_pago = '01/01/2024';
+		reserva.fecha_pago = '2024/01/01';
 		reserva.banco = 'ninguno';
 		reserva.referencia = '0xxx';
-		reserva.monto_transferencia = '0,00';
+		reserva.monto_transferencia = 0.00;
 		reserva.numero_i = '00000';
 		reserva.nacionalidad = 'ninguna';
 		datos.append('imagen', reserva.imagen);
@@ -2080,6 +2094,20 @@ function botonesPaginas() {
 }
 function limitarCaracteres() {
 	var parrafos = document.querySelectorAll(".descripcion");
+
+	parrafos.forEach(parrafo => {
+		var texto = parrafo.innerHTML;
+		var limite = 100; // Define el número máximo de caracteres que deseas mostrar
+
+		if (texto.length > limite) {
+			// En el caso específico de la función slice(0, limite), el valor 0 indica que se desea comenzar desde el primer carácter de la cadena original. El parámetro limite representa el índice final, es decir, el carácter justo antes del cual deseas cortar la cadena.
+			var nuevoTexto = texto.slice(0, limite) + "...";
+			parrafo.innerHTML = nuevoTexto;
+		}
+	});
+}
+function limitarCaracteres3() {
+	var parrafos = document.querySelectorAll(".descripcion4");
 
 	parrafos.forEach(parrafo => {
 		var texto = parrafo.innerHTML;

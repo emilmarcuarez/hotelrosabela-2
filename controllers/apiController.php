@@ -30,8 +30,8 @@ class ApiController{
               $image->save(CARPETA_IMAGENES_RESERVA. $nombreImagen);
         }
 
-        // $email=new Email('','','','');
-        // $email->enviarReserva();
+        $email=new Email('','','','');
+        $email->enviarReserva();
         $resultado = $cita->guardar();
         $id = $resultado['id'];
     

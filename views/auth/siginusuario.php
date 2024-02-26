@@ -106,7 +106,6 @@
                 </div>
                 <div class="r_part2">
                     <label for="pais">Pais</label>
-                    <br>
                     <select name="pais" id="countries-list">
 
                     </select>

@@ -24,11 +24,12 @@ if (!isset($inicio)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../build/css/app.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../build/dist//star-rating.css">
-    
+   
     <title>Hotel Rosa bela</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -91,7 +92,7 @@ if (!isset($inicio)) {
         <header class="header">
 
             <div class="header_cont">
-                <p>Hotelrosabela.com</p>
+                <a href="/"><p>Hotelrosabela.com</p></a>
                 <!-- <a href="/"><img src="/build/img/logopng_bien.webp" alt="logo"></a> -->
                 <div class="menu">
                     <i class="fas fa-bars" id="btn_menu"></i>
@@ -106,6 +107,43 @@ if (!isset($inicio)) {
                         <a href="/eventos">Eventos</a>
                         <a href="/empleados">Empleados</a>
                         <a href="/contacto">Contacto</a>
+               
+
+            <?php if ($auth2 || $auth || $auth_recepcion) { ?>
+                <?php if (!$auth && !$auth_recepcion) { ?>
+                    <?php if ($sexo === "F") { ?>
+                        <p>Bienvenida <?php echo $nombre; ?></p>
+                    <?php } else if ($sexo === "M") { ?>
+                        <p>Bienvenido <?php echo $nombre; ?></p>
+                    <?php } else { ?>
+                        <p>Bienvenid@ <?php echo $nombre; ?></p>
+                    <?php } ?>
+
+                    <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
+
+                    <?php if ($trofeo === 1) { ?>
+                        <div class="icono_1">
+                            <i class="fa-solid fa-trophy"></i></p>
+                        </div>
+                    <?php  }  ?>
+
+                    <div class="nav_menu_bg">
+                        <div class="nav_menu_usuario">
+                            <a href="/logout">Cerrar Sesion</a>
+                            <?php if ($trofeo === 1) { ?>
+                                <div class="icono_2">
+                                    <i class="fa-solid fa-trophy"></i></p>
+                                </div>
+                            <?php } ?>
+                            <a href="/gestion">Gestion de usuario</a>
+                            <a href="/reservas-usuario">Reservas</a>
+                        </div>
+                    </div>
+                <?php } else if ($auth || $auth_recepcion) { ?>
+                    <a href="/logout">Cerrar Sesion</a>
+                <?php } ?>
+            <?php } ?>
+                        <!-- <a href="/fidelizacion" class="rb_diseno">RB loyalty</a> -->
                         <input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id']?>">
                         <!-- <div class="cont_chat_linea" id="abrir_modal">
                         <i class="fa-regular fa-comments"></i>
@@ -343,7 +381,8 @@ if (!isset($inicio)) {
 
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../build/dist/star-rating.min.js?ver=4.3.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

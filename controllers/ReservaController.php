@@ -14,7 +14,7 @@ class ReservaController{
       
         $reservashabitaciones=ReservaHabitacion::allDesc();
         $reservas=Reserva::allDesc();
-        $usuarios=Usuario::all();
+        // $usuarios=Usuario::all();
         $result=Reserva::reservas();
        
         $no2=true;
@@ -24,7 +24,6 @@ class ReservaController{
         $router->render('reservas/mostrar',[
             'reservas'=>$reservas,
             'resultado' =>$resultado,
-            'usuarios'=>$usuarios,
             'reservashabitaciones'=>$reservashabitaciones,
             'no2'=>$no2,
             'no'=>$no
@@ -34,19 +33,19 @@ class ReservaController{
     // en house
     public static function actReserva(){
         $id=$_POST['id_reserva'];
-        // debuguear($id);
-        //  $reserva=new Reserva;
         $reserva=Reserva::find($id);
-        $usuario = Usuario::where('id', $reserva->usuarios_id);
+        $usuario = Usuario::where('email', $reserva->email);
         // reserva- imagen
-        $fechaInicio = strtotime($reserva->fecha_i);
-        $fechaFin = strtotime($reserva->fecha_e);
-        
-        // Calcula la diferencia entre las dos fechas
-        $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
-        $cantidad_noches= intval($usuario->noches)+$diferencia->days;
-        $usuario->noches= $cantidad_noches*$reserva->cantidad;
-         $usuario->guardar();
+        if($usuario){
+            $fechaInicio = strtotime($reserva->fecha_i);
+            $fechaFin = strtotime($reserva->fecha_e);
+            
+            // Calcula la diferencia entre las dos fechas
+            $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
+            $cantidad_noches= intval($usuario->noches)+$diferencia->days;
+            $usuario->noches= $cantidad_noches*$reserva->cantidad;
+            $usuario->guardar();
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //  debuguear($usuario);
             $result=Reserva::actstatus($id);
@@ -131,11 +130,12 @@ class ReservaController{
     }
     public static function mostrar_usuario(Router $router){
         $id=$_GET['id'];
+
         $reservashabitaciones=ReservaHabitacion::allDesc();
-        $reservas=Reserva::where2('usuarios_id',$id);
+        
         // $usuarios=Usuario::all();
         $usuario=Usuario::find($id);
-       
+        $reservas=Reserva::where2('email',$usuario->email);
         $result=Reserva::reservas();
         $no2=true;
         $no=true;

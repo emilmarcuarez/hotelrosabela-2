@@ -37,8 +37,8 @@
     <div class="body_tabla_general">
         <!-- MOSTRAR RESULTADOS DE LA BD EN LA TABLA -->
         <?php foreach ($reservas as $indice => $reserva) : ?>
-            <?php foreach($usuarios as $usuario){ ?>
-                <?php if($usuario->id===$reserva->usuarios_id){?>
+          
+              
             <?php if($indice%2===0){ ?>
                 <div class="body_tabla_info f_grisc">
             <?php } else {?>
@@ -46,7 +46,7 @@
             <?php }?>
                 
 
-                        <div class="body_infor_div"><p><?php echo $usuario->nombre; ?> <?php echo $usuario->apellido; ?> </p></div>
+                        <div class="body_infor_div"><p><?php echo $reserva->email; ?> <?php echo $usuario->apellido; ?> </p></div>
                     
               
                 
@@ -93,8 +93,6 @@
 
   
             </div>
-            <?php } ?>
-            <?php } ?>
         <?php endforeach; ?>
     </div>
 </div>

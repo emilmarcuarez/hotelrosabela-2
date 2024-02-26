@@ -51,7 +51,7 @@
 </div><!--premios-->
 <div class="premios_disponibles">
     <!-- mayor a 10 noches pero menor a 15 -->
-    <?php if ($usuario->noches > 10 && $usuario->noches < 15) { ?>
+    <?php if ($usuario->noches > 10) { ?>
         <h5>Para mayor a 10 noches tiene disponible: </h5>
         <ul>
         <?php if ($premios_usu) { ?>

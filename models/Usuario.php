@@ -302,9 +302,10 @@ public function crearToken(){
 public function comprobarPasswordAndVerificado($contrasenia) {
     $resultado = password_verify($contrasenia, $this->contrasenia);
     
-    if(!$resultado || !$this->confirmado) {
-        self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada';
-        self::$errores[]='La contraseña es incorrecta o tu cuenta no ha sido confirmada';
+    // if(!$resultado || !$this->confirmado) {
+    if(!$resultado) {
+        self::$alertas['error'][] = 'Password Incorrecto';
+        self::$errores[]='La contraseña es incorrecta';
     } else {
         return true;
     }

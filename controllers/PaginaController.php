@@ -60,11 +60,15 @@ class PaginaController
         $chefs = Chef::all();
         $premios_usu = Premios_usuario::all();
         $no2 = true;
+        $no = true;
+        $centrovar = true;
         $router->render('paginas/centros', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'centros' => $centros,
             'premios_usu' => $premios_usu,
             'chefs' => $chefs,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no,
+            'centrovar'=>$centrovar
         ]);
     }
     public static function salones(Router $router)
@@ -72,11 +76,13 @@ class PaginaController
 
         $salones = Salon::all();
         $no2 = true;
+        $no = true;
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/salones', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'salones' => $salones,
             'premios_usu' => $premios_usu,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no
         ]);
     }
     public static function fidelizacion(Router $router)
@@ -93,28 +99,33 @@ class PaginaController
     {
         $eventos = Evento::all();
         $no2 = true;
+        $no = true;
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/eventos', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'eventos' => $eventos,
             'premios_usu' => $premios_usu,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no
         ]);
     }
     public static function empleados(Router $router)
     {
         $empleados = Empleados::all();
         $no2 = true;
+        $no = true;
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/empleados', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'empleados' => $empleados,
             'premios_usu' => $premios_usu,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no2
         ]);
     }
     public static function contacto(Router $router)
     {
 
         $no2 = true;
+        $no = true;
         $premios_usu = Premios_usuario::all();
         $mensaje = null;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -189,6 +200,7 @@ class PaginaController
 
         $router->render('paginas/contacto', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'no2' => $no2,
+            'no' => $no,
             'premios_usu' => $premios_usu,
             'mensaje'=>$mensaje
         ]);
@@ -198,13 +210,15 @@ class PaginaController
         $id = validarORedireccionar('/habitaciones');
         $imghabitaciones = true;
         $no = true;
+        $no2 = true;
         $habitacion = Habitaciones::find($id);
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/habitacion', [
             'habitacion' => $habitacion,
             'imghabitaciones' => $imghabitaciones,
             'premios_usu' => $premios_usu,
-            'no' => $no
+            'no' => $no,
+            'no2' => $no2
         ]);
     }
     public static function habitaciones(Router $router)
@@ -271,18 +285,14 @@ class PaginaController
     }
     public static function crearPdf(Router $router)
     {
-        // $id=2;
         $reserva = Reserva::getUltimo();
         $id = Reserva::getId2();
         $habitacionesReserva = ReservaHabitacion::habitaciones_all($id->id);
         $habitaciones = Habitaciones::all();
-        $usuario = Usuario::getUsarioReserva($id->id);
-        // debuguear($usuario);
         $router->render('paginas/crearPdf', [
             'reserva' => $reserva,
             'habitacionesReserva' => $habitacionesReserva,
-            'habitaciones' => $habitaciones,
-            'usuario' => $usuario
+            'habitaciones' => $habitaciones
         ]);
     }
     public static function verPdf(Router $router)
@@ -291,12 +301,11 @@ class PaginaController
         $reserva = Reserva::find($id);
         $habitacionesReserva = ReservaHabitacion::habitaciones_all($id);
         $habitaciones = Habitaciones::all();
-        $usuario = Usuario::getUsarioReserva($id);
+        // $usuario = Usuario::getUsarioReserva($id);
         $router->render('paginas/crearPdf', [
             'reserva' => $reserva,
             'habitacionesReserva' => $habitacionesReserva,
-            'habitaciones' => $habitaciones,
-            'usuario' => $usuario
+            'habitaciones' => $habitaciones
         ]);
     }
     public static function salon(Router $router)
@@ -304,11 +313,13 @@ class PaginaController
         $id = validarORedireccionar('/salones');
         $premios_usu = Premios_usuario::all();
         $no2 = true;
+        $no= true;
         $salon = Salon::find($id);
         $router->render('paginas/salon', [
             'salon' => $salon,
             'premios_usu' => $premios_usu,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no
         ]);
     }
     public static function evento(Router $router)
@@ -316,6 +327,7 @@ class PaginaController
         $id = validarORedireccionar('/eventos');
         $premios_usu = Premios_usuario::all();
         $no2 = true;
+        $no = true;
         $evento = Evento::find($id);
         $eventos = Evento::getEventosdif(3, $id);
         $centroConsumo = Evento::findNombreCentro($id);
@@ -324,13 +336,15 @@ class PaginaController
             'premios_usu' => $premios_usu,
             'eventos' => $eventos,
             'centroConsumo' => $centroConsumo,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no
         ]);
     }
     public static function centro(Router $router)
     {
         $id = validarORedireccionar('/centros');
         $no2 = true;
+        $no = true;
         $premios_usu = Premios_usuario::all();
         $centro = Centroconsumo::find($id);
         $chefs = Chef::findChef($id);
@@ -340,7 +354,8 @@ class PaginaController
             'premios_usu' => $premios_usu,
             'chefs' => $chefs,
             'eventos' => $eventos,
-            'no2' => $no2
+            'no2' => $no2,
+            'no' => $no
         ]);
     }
     // registra chats
@@ -371,9 +386,11 @@ class PaginaController
         $id = $_SESSION['usuario_id'];
         $no = true;
         $no2 = true;
+        $usuario=Usuario::find($id);
         $result = Reserva::reservas();
-        $reservas = Reserva::reserva_hab($id);
+        // $reservas = Reserva::reserva_hab($id);
         $premios_usuarios = Premios_usuario::where2('usuarios_id', $id);
+        $reservas = Reserva::where2('email', $usuario->email);
         $premios = Premios::all();
 
         if ($premios_usuarios) {
@@ -385,6 +402,7 @@ class PaginaController
         $router->render('paginas/reservas-usuario', [
             'no' => $no,
             'no2' => $no2,
+            'usuario'=>$usuario,
             'reservas' => $reservas,
             'premios_usuarios' => $premios_usuarios,
             'premios' => $premios

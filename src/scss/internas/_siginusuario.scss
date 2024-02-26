@@ -4,7 +4,9 @@
 .password-input-container {
     position: relative;
 }
-
+.contenedor.seccion_slogin {
+    font-size: 1.3rem;
+  }
 .password-input-container input{
     &:focus{
     background-color: white;
@@ -17,7 +19,7 @@
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #e8526c;
+    color: #000;
 }
 
 .password-input-container {
@@ -70,6 +72,38 @@
   background: #e2e2e2;
   border-right: 1px solid black;
 }
+.formulario_registro fieldset {
+    border: 1px solid #d1d1d1;
+    margin-top: 3rem;
+    border-radius: 0;
+  }
+  .field_registro2 .r_part2 {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    border: 1px solid black;
+    width: 94%;
+  }
+  .field_registro3 .r_part2 {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    border: 1px solid black;
+  }
+  .field_registro3 .r_part2 input {
+    border: none;
+    border-radius: 0;
+    height: 4rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .field_registro3 .r_part2 select, .field_registro3 .r_part2 textarea {
+    background-color: #fff;
+    border:none;
+    border-radius:0;
+    padding: 1rem;
+  }
+  .field_registro2 .r_part2 input {
+    border-radius:0;
+  }
 }
 .seccion_slogin .r_part {
     display: grid;
