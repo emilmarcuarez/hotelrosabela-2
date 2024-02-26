@@ -1,6 +1,7 @@
 .imagen_logo_fidelizacion {
     padding: 3rem;
     background: #e6e6e6;
+    border-bottom: 1px solid #ee648f;
     .cont_fidelizacion_img{
     display: flex;
         justify-content: center;
@@ -12,7 +13,9 @@
   .imagen_logo_fidelizacion img {
     width: 32rem;
   }
-
+  .msj_premio {
+    text-align: center;
+  }
 .plan_fidelizacion h2 {
     text-align: center;
     font-weight: 200;

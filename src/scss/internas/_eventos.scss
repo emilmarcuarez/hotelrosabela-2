@@ -1,9 +1,10 @@
-.fondo_evento{
-    background: url(/build/img/fondop-01.webp);
+.fondo_evento_img{
+    background: url(/build/img/evento3.webp);
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 40rem;
 }
 .f_evento2{
     background-image: url(/build/img/quienes1.webp);
@@ -14,7 +15,7 @@
     background-size: cover;
 }
 .f_eventos3{
-    background:rgba(154, 154, 154, 0.28);
+    background:hsla(0, 0%, 0%, 0.28);
     padding-bottom: 3rem;
 }
 .text_titulo_ev{

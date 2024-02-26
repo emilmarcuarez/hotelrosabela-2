@@ -119,19 +119,19 @@
 					<div class="datos_personales">
 						<div class="p_personal">
 							<h4 class="margen_arriba">Nombres</h4>
-							<input type="text" name="nombres" id="nombres">
+							<input type="text" name="nombres" id="nombres" placeholder="Sus nombres">
 						</div>
 						<div class="p_personal">
 							<h4 class="margen_arriba">Apellidos</h4>
-							<input type="text" name="apellidos" id="apellidos">
+							<input type="text" name="apellidos" id="apellidos" placeholder="Sus apellidos">
 						</div>
 						<div class="p_personal">
 							<h4 class="margen_arriba">Numero de telefono </h4>
-							<input type="text" name="nro_telefono" id="nro_telefono">
+							<input type="text" name="nro_telefono" id="nro_telefono" placeholder="+58 424-323892s">
 						</div>
 						<div class="p_personal">
 							<h4 class="margen_arriba">Correo electronico</h4>
-							<input type="email" name="email" id="email_correo">
+							<input type="email" name="email" id="email_correo" placeholder="email@correo.com">
 						</div>
 
 
@@ -222,10 +222,10 @@
 				<label for="Transferencia">Transferencia</label>
 				<input type="radio" value="Transferencia" id="transferencia" name="m_pago" required>
 			</div>
-			<div class="pago_part">
+			<!-- <div class="pago_part">
 				<label for="Bankofamerica">Bank of america</label>
 				<input type="radio" value="Bank of America" id="Bankofamerica" name="m_pago" required>
-			</div>
+			</div> -->
 			<div class="pago_part">
 				<label for="pagarHotel">Pagar en el hotel</label>
 				<input type="radio" value="Pagar en el hotel" id="pagarHotel" name="m_pago" required>
@@ -251,9 +251,9 @@
 
 			<h4>¡Gracias por realizar tu reserva!</h4>
 			<hr>
-			<p class="p1">Nos sentimos felices de que hayas confiado en nosotros. ¡Te esperamos!</p>
-			<p class="p2">Para acceder a tus reservas y hacerles un seguimiento constante puedes dirigirte en el menu superior y presionar click en: nombre de usuario > <span>reservas</span> </p>
-			<p class="p3">Recuerda que cualquier pregunta que tengas puedes escribirnos desde el chat en linea que esta disponible las 24 horas</p>
+			<p class="p1">Nos sentimos felices de atenderte. ¡Te esperamos!</p>
+			<p class="p2">Para acceder a tus reservas y hacerles un seguimiento constante puedes registrarte en el programa de fidelizacion <span>RB loyalty</span> </p>
+			<!-- <p class="p3">Recuerda que cualquier pregunta que tengas puedes escribirnos desde el chat en linea que esta disponible las 24 horas</p> -->
 			<div class="hab_seleccion4">
 				<p>Descarga el reporte de la reserva: </p>
 				<a href="/crearPdf">Descargar</a>

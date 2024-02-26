@@ -6,6 +6,17 @@
     background-repeat: no-repeat;
     
 }
+.salones_card .text_consumo .titulo_consumo h5{
+    font-size: 2rem;
+}
+.fondo_salon{
+    background: url(/build/img/salon_fondo_p.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40rem;
+}
 .salones{
     padding-bottom: 3rem;
     h4{

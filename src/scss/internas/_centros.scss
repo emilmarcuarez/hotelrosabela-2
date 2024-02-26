@@ -1,10 +1,17 @@
-.fondo_centros{
-    background: url(/build/img/fondop-01.webp);
+.fondo_centro{
+    background: url(/build/img/slider2.webp);
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 2rem;
+    // padding: 2rem;
+    height: 40rem;
+}
+.logo_rosa_bela_centrado {
+  background: #090909;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .centros_consumo{
     padding: 3rem;
@@ -18,7 +25,8 @@
     margin-top: 2rem;
     display: grid;
     grid-template-columns: 20% 40% 25% 15%;
-    padding: 2rem;
+    padding: 1rem;
+    border: 1px solid #d5d5d5;
     background-color: $blanco;
     border-radius: 1rem;
 

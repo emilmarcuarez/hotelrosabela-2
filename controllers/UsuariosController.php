@@ -49,7 +49,7 @@ class UsuariosController
                         // debuguear($_SESSION);
                         // Redireccionamiento
                      
-                            header('Location: /');
+                            header('Location: /reservas-usuario');
             
                     }else {
                         // Password incorrecto: mensaje de error.
@@ -93,7 +93,7 @@ class UsuariosController
                 if (!$resultado) {
                     // verificar si el usuario existe o no (mensaje de erorr)
                      //creo el token
-                    $Usuario->crearToken();
+                    // $Usuario->crearToken();
 
                     // enviando el email
                     $email=new Email($Usuario->email, $Usuario->nombre,
@@ -102,9 +102,32 @@ class UsuariosController
                     $email->enviarConfirmacion();
 
                     // debuguear($Usuario);
+                    $reservas=Reserva::where2('email',$Usuario->email);
+                    if($reservas){
+                        $Usuario->noches=0;
+                        foreach($reservas as $reserva){
+                            if(intval($reserva->status)===1){
+                            // Calcula la diferencia entre las dos fechas
+                                $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
+                                $cantidad_noches= intval($Usuario->noches)+$diferencia->days;
+                                $Usuario->noches= $cantidad_noches*$reserva->cantidad;
+                            }
+                        }
+                    }
+
                     $resultado=$Usuario->guardar();
+                    // debuguear($resultado['id']);
                     if($resultado){
-                       header('Location: /mensaje');
+                        $usuario2=Usuario::find($resultado['id']);
+                        session_start();
+                        // llenamos el arreglo de las sesiones establecidas
+                        $_SESSION['usuario_pag']=$usuario2->email;
+                        // $usu=$usuario->getName();
+                        $_SESSION['usuario_sexo']=$usuario2->sexo;
+                        $_SESSION['usuario_name']=$usuario2->nombre;
+                        $_SESSION['usuario_id']=$usuario2->id;
+                        $_SESSION['login_pag']=true;
+                       header('Location: /reservas-usuario');
                     }
                 } else { //si  existe el usuario
                     $errores = Usuario::getErrores();
@@ -174,16 +197,16 @@ class UsuariosController
         $errores=Usuario::getErrores();
         // todos los premioa registrados de ese usuario
         $premios_usu=Premios_usuario::where2('usuarios_id', $id);
-       
+        // debuguear(Premios_usuario::where2('usuarios_id', $id));
         $premios=Premios::all();
         // me trae todas las reservas de ese usuario
-        $reservas=Reserva::where2('usuarios_id', $id);
+        // $reservas=Reserva::where2('usuarios_id', $id);
         $resultado = $_GET['resultado'] ?? null; 
+        
         $router->render('auth/premios',[
             'resultado'=>$resultado,
             'premios_usu'=>$premios_usu,
             'errores'=>$errores,
-            'reservas'=>$reservas,
             'usuario' =>$usuario,
             'premios' =>$premios,
             'no'=>$no,
@@ -195,19 +218,35 @@ class UsuariosController
         // $usuario=Usuario::find($id);
         $no=true;
         $no2=true;
-        $Premios_usuario=new Premios_usuario;
+        // $Premios_usuario=new Premios_usuario;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $errores = Premios_usuario::getErrores();
-            $Premios_usuario = new Premios_usuario($_POST['premio']);
+            // $errores = Premios_usuario::getErrores();
+            // $Premios_usuario = new Premios_usuario($_POST['premio']);
+
+            $usuarios= Usuario::all();
+            $premios_usuario=Premios_usuario::all();
+            $premios=Premios::all();
+            foreach($usuarios as $usuario){
+                // reservas mayores a 10 pero menores a 15
+                if(intval($usuario->noches)>10 && intval($usuario->noches)<15){
+
+                     // reservas mayores a 15 pero menores a 20
+                }else if(intval($usuario->noches)>15 && intval($usuario->noches)<20){
+
+                // reservas mayores a 20 noches
+                }else if(intval($usuario->noches)>20){
+
+                }
+            }
             // debuguear($Premios_usuario);
             // VALIDAR
-            $errores = $Premios_usuario->validar();
+            // $errores = $Premios_usuario->validar();
         // $id=$Premios_usuario->usuarios_id;
             // REVISAR QUE EL ARREGLO ESTE VACIO. ISSET REVISA QUE UNA VARIABLE ESTE CREADA Y EMPTY SI ESTA VACIO
-            if (empty($errores)) { 
-                $Premios_usuario->guardar();
-            }
+            // if (empty($errores)) { 
+                $premios_usuario->guardar();
+            // }
         }
     } 
 

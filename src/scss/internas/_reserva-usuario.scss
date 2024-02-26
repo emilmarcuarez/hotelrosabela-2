@@ -1,25 +1,60 @@
-.re_usuario{
+.mi-cuenta_datos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // justify-items: center;
+    align-content: center;
+    gap: 2rem;
+    // background: #e6e6e6;
+    padding: 1rem;
+    border: 1px solid hsl(0, 1%, 76%);
+}
+
+.dato_usuario_part span {
+    font-weight: 500;
+    color: black;
+}
+
+.re_usuario h2 {
+    font-weight: 500;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.re_usuario h2 span {
+    font-weight: 600;
+}
+
+.re_usuario {
     margin-top: 2rem;
-    h3{
-        color: #463232;
+
+    h3 {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 500;
+        margin-top: 5rem;
     }
 }
-.reservas_usuario_flex{
+
+.reservas_usuario_flex {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin-bottom: 3rem;
-    .cont_reserva_usu{
-       
-        p{
-            color: #4f4f4f;
+    border: 1px solid black;
+
+    .cont_reserva_usu {
+
+        p {
+            color: #000;
             font-weight: 500;
-            font-size: 1.7rem;
+            font-size: 1.3rem;
         }
-        
+
         background-color: #fbfbfb;
+
         // padding: 2rem;
-        .cont_reserva_usu1{
+        .cont_reserva_usu1 {
             border-bottom: 1px solid #dcdbdb;
             padding: 1rem;
             display: flex;
@@ -27,29 +62,36 @@
             align-items: center;
             gap: .4rem;
         }
-        .cont_reserva_usu2{
+
+        .cont_reserva_usu2 {
             border-bottom: 1px solid #dcdbdb;
             padding: 1rem 2rem;
-            .cont_reserva_fecha{
+
+            .cont_reserva_fecha {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                span{
+
+                span {
                     font-weight: 700;
                 }
             }
-            .cont_reserva_datos{
+
+            .cont_reserva_datos {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                .boton_pdf_reserva{
-                    a{
-                        color: white;
-                        display: inline-block;
-                        background-color: #009988;
-                        padding: .5rem 1rem;
+
+                .boton_pdf_reserva {
+                    a {
+                        background-color: #727272;
                         border-radius: 5rem;
-                        &:hover{
+                        color: #fff;
+                        display: inline-block;
+                        padding: 0.5rem 1rem;
+                        font-size: 1.3rem !important;
+
+                        &:hover {
                             transition: .3s ease-in;
                             background-color: #066358;
                         }
@@ -57,63 +99,74 @@
                 }
             }
         }
-        .cont_reserva_usu{
-            padding: 1.4rem 2rem;
+
+        .cont_reserva_usu {
+            padding: .5rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             .confirmada_r,
-            .pendiente_r{
+            .pendiente_r {
                 text-transform: uppercase;
                 font-weight: 700;
             }
-            .confirmada_r{
+
+            .confirmada_r {
                 color: green;
             }
-            .pendiente_r{
+
+            .pendiente_r {
                 color: rgb(239, 160, 1);
             }
-            button{
+
+            button {
                 border: none;
                 color: white;
                 display: inline-block;
-                padding: 1rem;
+                padding: .5rem 1rem;
+                font-size: 1.3rem;
                 border-radius: 3rem;
                 background-color: rgb(178, 23, 23);
-                &:hover{
+
+                &:hover {
                     cursor: pointer;
                     transition: .3s ease-in;
                     background-color: rgb(121, 9, 9);
                 }
             }
         }
-        &:hover{
+
+        &:hover {
             cursor: pointer;
             transition: .2s ease-in;
-            box-shadow: 9px 11px 16px -5px rgba(102,96,96,0.75);
-    -webkit-box-shadow: 9px 11px 16px -5px rgba(102,96,96,0.75);
-    -moz-box-shadow: 9px 11px 16px -5px rgba(102,96,96,0.75);
+            box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
+            -webkit-box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
+            -moz-box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
         }
     }
 }
-@media screen and (max-width: 900px){
-    .formulario_usuario_act{
+
+@media screen and (max-width: 900px) {
+    .formulario_usuario_act {
         padding: 2rem !important;
     }
-    .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu2 .cont_reserva_datos{
+
+    .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu2 .cont_reserva_datos {
         flex-direction: column;
         align-items: baseline;
     }
+
     .re_usuario {
         padding: 2rem;
 
-      }
+    }
 
-      .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu{
+    .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu {
         flex-direction: column;
         align-items: baseline;
-       
-      }
+
+    }
 }
 
 // buscador de reservas 
@@ -122,26 +175,35 @@
     border-radius: 1rem;
     border: none;
     padding: 1rem;
-  }
-  .buscador_reservar {
-    margin: 2rem 0rem;
-  }
-  .contenedor.reservas_administrador p {
-    font-size: 1.4rem;
-  }
+}
 
-  .premio_cliente {
+.buscador_reservar {
+    margin: 2rem 0rem;
+}
+
+.contenedor.reservas_administrador p {
+    font-size: 1.4rem;
+}
+
+.premio_cliente {
     background: white;
     color: #595757;
     padding: 1rem;
-    border-radius: 1rem;
-  }
-  .premio_cliente_flex{
+    // border-radius: 1rem;
+}
+
+.premio_cliente h5 {
+    color: #ff185b;
+    font-style: italic;
+}
+
+.premio_cliente_flex {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  }
-  .premio_cliente p {
+}
+
+.premio_cliente p {
     font-size: 1.4rem;
     color: #4f4c4c;
-  }
+}

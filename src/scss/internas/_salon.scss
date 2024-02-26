@@ -15,17 +15,17 @@
 
 
     .cont_sal_img{
-        background: rgb(60, 59, 59);
-        border-radius: .7rem;
-        padding: .4rem;
+        // background: rgb(60, 59, 59);
+        // border-radius: .7rem;
+        // padding: .4rem;
         img{
             width: 100%;
-            border-radius: .7rem;
+            // border-radius: .7rem;
         }
     }
     .cap_datos_sal{
         align-items: center;
-        background-color: hsla(0, 1.4%, 41%, 0.4);
+        background-color: hsla(0, 14.3%, 93.1%, 0.4);
         display: flex;
         justify-content: space-between;
         padding: 1rem;
@@ -37,7 +37,7 @@
             justify-content: center;
             align-items: center;
             i{
-                color: #ba0534;
+                color: #5c5c5c;
             }
         }
        
@@ -49,23 +49,23 @@
                 margin: 0;
                 text-align: left;
                 padding: 4rem 0 1rem 0;
-                font-style: italic;
-                color: #a63d61;
+                color: #605c5e;
             }
         }
     a{
-        background-color: #850a2a;
+        background-color: #f0f0f0;
         border-radius: .5rem;
-        color: #fff;
         display: inline-block;
-        margin-bottom: 4rem;
-        margin-top: 2rem;
-        padding: .7rem .6rem;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  padding: .7rem .6rem;
+  color: black;
+  border: 1px solid black;
     }
     a:hover{
-        border: 1px solid #cf5a60;
-        background-color: #cf5a6000;
-        color: $rosado;
+        border: none;
+        background-color: #2a2a2a;
+        color: white;
         transition: .5s ease-in;
     }
 }

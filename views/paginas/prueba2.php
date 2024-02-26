@@ -123,10 +123,10 @@ $base65 = 'data:image/' . $type . ';base64,' . base64_encode($data);
    <h1>Reporte de la reserva</h1>
    <p><span> Fecha de entrada: </span><?php echo date('d-m-Y', strtotime($reserva->fecha_i));?></p>
    <p class="f_salida"> <span> Fecha de salida: </span><?php echo date('d-m-Y', strtotime($reserva->fecha_e));?></p>
-    <p class="codigo_p">Codigo: <span class="span_c"><?php echo $reserva->codigo;?></span></p>
+   <p class="codigo_p">Codigo: <span class="span_c"><?php echo $reserva->codigo;?></span></p>
    <p class="info_pdf">Informacion </p>
-   <p>Nombre y apellido: <?php echo $usuario->nombre?> <?php echo $usuario->apellido?></p>
-   <p>Identificacion: <?php echo $usuario->identificacion?> </p>
+   <p>Nombre y apellido: <?php echo $reserva->nombres?> <?php echo $reserva->apellidos?></p>
+   <p>Numero de telefono: <?php echo $reserva->nro_telefono?> </p>
    <p>Hora de llegada a la ciudad (aproximadamente): <?php echo $reserva->hora_ll;?></p>
     <p>Cantidad de niños: (<?php echo $reserva->ninos?>)</p>
     <p>Cantidad de adultos: (<?php echo $reserva->adultos?>)</p>

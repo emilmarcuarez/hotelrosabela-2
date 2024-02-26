@@ -1,3 +1,26 @@
+.texto_de_boda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-box-shadow: 8px 22px 33px 1px rgba(79,76,76,.71);
+    padding: 2rem;
+    height: 51rem;
+  }
+  .texto_de_boda p {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+.bodas_grid {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: 54rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+  .d-block.w-100 {
+    height: 51rem;
+  }
 .titulo_info h5 {
     color: #3e3e3e !important;
     font-weight: 400;
@@ -73,13 +96,13 @@
 // menu de opciones
 .btn_menu_usuario{
     border: none;
-    background-color: #ba0534;
+    background-color: #1c1c1c;
     color: white;
     padding: .7rem 2rem;
-    border-radius: 10rem;
+    border-radius: 1rem;
     &:hover{
         transition: .2s ease-in;
-        background-color: #ac1c43;
+        background-color: #464545;
         cursor: pointer;
     }
 }
@@ -88,13 +111,15 @@
 }
 .nav_menu_bg
 {
-    display: none;
-    padding: 1rem;
+    background-color: #fff;
+  border-radius: .4rem;
+  display: none;
+  padding: 1rem;
   position: absolute;
-    background-color: #ba0534;
-   border-radius: 1rem;
   top: 4rem;
   z-index: 9;
+  right: 16rem;
+  border: 1px solid black;
   .nav_menu_usuario{
     display: flex;
     flex-direction: column;
@@ -102,8 +127,8 @@
     gap: 1rem;
     top: 13rem;
     a{
-        color: white;
-        background-color: #ba0534;
+        background-color: #fff !important;
+        color: #010101 !important;
         &:hover{
             transition: .2s ease-in;
             border-radius: 1rem;
@@ -394,22 +419,33 @@ border: none;
     
 }
 .imagen_evento{
-        width: 100%;
-        height: 100%;
-        background: #585353;
-        padding: 3rem;
-        border-radius: 1rem;
-        box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
-        -webkit-box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
-        -moz-box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
+//         width: 100%;
+//         height: 100%;
+//         background: #585353;
+//         padding: 3rem;
+//         border-radius: 1rem;
+//         box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
+//         -webkit-box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
+//         -moz-box-shadow: 16px 15px 15px -10px rgba(79,76,76,0.71);
+height: 100%;
+  padding: 3rem;
+  width: 100%;
+  align-items: center;
+  -webkit-box-shadow: 8px 22px 33px 1px rgba(79,76,76,.71);
+  display: flex;
+  flex-direction: column;
+//   height: 51rem;
+  justify-content: center;
+  padding: 2rem;
+  color: black;
         ul{
             li{
                 font-size: 1.3rem;
-                color: $blanco;
+                color: #050505;
             }
         }
         h5{
-            color: $blanco;
+            color: #000;
         }
     }
 .imagen_evento img
@@ -417,7 +453,7 @@ border: none;
   width: 100%;
 }
 .eventos_esta{
-    border: 1px solid #cfcfcf;
+    border: 1px solid #252525;
     width: 14rem;
     margin-bottom: 4rem;
 }
