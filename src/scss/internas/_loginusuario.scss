@@ -26,12 +26,12 @@
     .mi-contrasenia{
         width: 17rem;
         margin: auto;
-        border: .1rem solid $rosado;
+        border: .1rem solid #010101;
     }
     h3{
         font-size: 2.5rem;
         text-align: center;
-        color: $grisOscuro;
+        color: #000;
     }
 }
 .acciones a {
@@ -68,7 +68,7 @@
         padding: 1.5rem;
       }
       .password-input-container2 i {
-        color: #9f425a;
+        color: #000;
         &:hover{
             cursor: pointer;
         }
@@ -121,25 +121,25 @@
         width: auto;
     }
     input[type="submit"] {
+        background-color: #fff;
+        border: 1px solid #0f0f0f;
+        color: #000;
         margin-top: 2rem;
         padding: 1rem;
-        background-color: $vinotinto;
         width: 100%;
-        border: 1px solid $vinotinto;
-        color: $blanco;
-        border-radius: 1rem;
     }
     input[type="submit"]:hover{
-        background-color: #8f2e47;
+        background-color: #3e3d3d;
+        color: white;
         transition: .2 ease-in;
         cursor: pointer;
         // color: $rosado;
     }
     fieldset{
-        border: .1px solid #b9b3b3;
-        width: 45rem;
-        border-radius: 1rem;
-        font-size: 1.3rem;
+        border: .1px solid #dcdcdc;
+  border-radius: .6rem;
+  font-size: 1.3rem;
+  width: 40rem;
         a{
             margin-top: 2.5rem;
             display: inline-block;

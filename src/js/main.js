@@ -814,7 +814,13 @@ const reserva = {
 	apellidos: '',
 	nombres: '',
 	nro_telefono: '',
-	email:''
+	email:'',
+	fecha_pago:'',
+	banco:'',
+	referencia:'',
+	monto_transferencia:'',
+	numero_i:'',
+	nacionalidad:''
 };
 
 const re_habitacion = {
@@ -1814,7 +1820,7 @@ function uuidv4() {
 
 async function reservarHabitacion() {
 
-	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal , n_empresa, apellidos, nombres, nro_telefono,email } = reserva;
+	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal , n_empresa, apellidos, nombres, nro_telefono,email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad } = reserva;
 	// Generar código único para la reserva
 	const codigo2 = uuidv4();
 	const idHabitaciones = habitaciones.map(habitacion => habitacion.id);
@@ -1851,11 +1857,35 @@ async function reservarHabitacion() {
 	// reserva.status=2;
 	datos.append('status', status);
 	if (opcion_pago === 'Transferencia' || opcion_pago === 'Bank of america') {
+		const fecha_pago = document.getElementById('fecha_pago');
+		const fecha_pago2 = fecha_pago.value;
+		const banco = document.getElementById('banco');
+		const banco2 = banco.value;
+		const referencia = document.getElementById('referencia');
+		const referencia2 = referencia.value;
+		const monto_transferencia = document.getElementById('monto_transferencia');
+		const monto_transferencia2 = monto_transferencia.value;
+		const numero_i = document.getElementById('numero_i');
+		const numero_i2 = numero_i.value;
+		const nacionalidad = document.getElementById('nacionalidad');
+		const nacionalidad2 = nacionalidad.value;
 		reserva.imagen = fileInput.files[0];
+		reserva.fecha_pago = fecha_pago2;
+		reserva.banco = banco2;
+		reserva.referencia = referencia2;
+		reserva.monto_transferencia = monto_transferencia2;
+		reserva.numero_i = numero_i2;
+		reserva.nacionalidad = nacionalidad2;
 		datos.append('imagen', reserva.imagen);
 	} else {
 		reserva.imagen = 'ninguna';
-		datos.append('imagen', reserva.imagen );
+		reserva.fecha_pago = '01/01/2024';
+		reserva.banco = 'ninguno';
+		reserva.referencia = '0xxx';
+		reserva.monto_transferencia = '0,00';
+		reserva.numero_i = '00000';
+		reserva.nacionalidad = 'ninguna';
+		datos.append('imagen', reserva.imagen);
 	}
 	datos.append('traslado',interestChecked);
 	reserva.traslado=interestChecked;
@@ -1871,6 +1901,15 @@ async function reservarHabitacion() {
 	reserva.nro_telefono=nro_telefono2;
 	datos.append('email',email2);
 	reserva.email=email2;
+
+
+	// pago por transferencia
+	datos.append('fecha_pago', reserva.fecha_pago );
+	datos.append('banco', reserva.banco );
+	datos.append('referencia', reserva.referencia );
+	datos.append('monto_transferencia', reserva.monto_transferencia );
+	datos.append('numero_i', reserva.numero_i );
+	datos.append('nacionalidad', reserva.nacionalidad );
 	// datos.append('habitaciones', idHabitaciones);
 	console.log(datos);
 	habitaciones_re.forEach(habitacionre => {
@@ -2175,7 +2214,7 @@ function asignarValores() {
 
 			enlaceReserva.href = `/habitaciones_s?adultos=${adultosElement.value}&ninos=${ninosElement.value}&habitaciones=${habitacionesElement.value}&fechaEgreso=${fechaEgreso.value}&fechaReserva=${fechaReserva.value}`;
 		} else {
-			console.log('epa es emi');
+
 			Swal.fire({
 				icon: 'error',
 				title: 'Error',
@@ -2243,10 +2282,47 @@ function mostrarMetodosPago(e) {
 
 	if (e.target.value === 'Transferencia') {
 		pagoDiv.innerHTML = `
-	<p>Datos para la transferencia:</p>
-	<p class="datos_banco">Banco de Venezuela <br> 01020102128192812 <br> J-0129210912 <br> Hotel RosaBela & Convention Center <br> </p>
+		<p class="p_banco_disponibles">Bancos disponibles</p>
+	<div class="bancos_transferencia_datos">
+		<p class="datos_banco">Banco de Venezuela <br> 01020102128192812 <br> J-0129210912 <br> Hotel RosaBela & Convention Center <br> </p>
+		<p class="datos_banco">Bancamiga <br> 01020102128192812 <br> J-0129210912 <br> Hotel RosaBela & Convention Center <br> </p>
+	</div>
+	<p class="p_foto_pago">Datos para la transferencia:</p>
+	<div class="cont_datos_pago">
+	    <div class="div_datos_pago">
+            <label for="nacionalidad">Nacionalidad</label>
+               <select name="reserva[nacionalidad]" id="nacionalidad" required>
+                    <option value="V">Venezolano</option>
+                    <option value="E">Extranjero</option>
+                </select>
+        </div>
+		<div class="div_datos_pago">
+			<label for="numero_i">Numero de identidad</label>
+			<input type="text" id="numero_i" name="reserva[numero_i]" required">
+		</div>
+		<div class="div_datos_pago">
+			<label for="monto_transferencia">Monto transferido</label>
+			<input type="number" id="monto_transferencia" name="reserva[monto_transferencia]" required">
+		</div>
+		<div class="div_datos_pago">
+			<label for="referencia">Referencia</label>
+			<input type="text" id="referencia" name="reserva[referencia]" required">
+		</div>
+		<div class="div_datos_pago">
+			<label for="fecha_pago">Fecha del pago</label>
+			<input type="date" id="fecha_pago" name="reserva[fecha_pago]" required">
+		</div>
+		<div class="div_datos_pago">
+		<label for="banco">Banco</label>
+               <select name="reserva[banco]" id="banco" required>
+                    <option value="Banco caroni">Banco caroni</option>
+                    <option value="Banco de Venezuela">Banco de Venezuela</option>
+                    <option value="Bancamiga">Bancamiga</option>
+                </select>
+		</div>
+	</div>
 	
-	<p>Inserte la imagen del comprobante de pago </p>
+	<p class="p_foto_pago">Inserte la imagen del comprobante de pago </p>
 	<label for="imagen_reserva" class="custom-file-upload" id="file-label">
     Subir Imagen
 	</label>
