@@ -5,7 +5,7 @@
  class Reserva extends Activerecord{
     protected static $tabla = 'reserva';
     protected static $pagina='Reservas/mostrar';
-    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email'];
+    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad'];
 
 
     public $id;
@@ -28,6 +28,12 @@
     public $apellidos;
     public $nro_telefono;
     public $email;
+    public $fecha_pago;
+    public $banco;
+    public $referencia;
+    public $monto_transferencia;
+    public $numero_i;
+    public $nacionalidad;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
       $this->fecha_i=$args['fecha_i'] ?? '';
@@ -48,6 +54,13 @@
       $this->apellidos=$args['apellidos'] ?? '';
       $this->nro_telefono=$args['nro_telefono'] ?? '';
       $this->email=$args['email'] ?? '';
+      $this->fecha_pago=$args['fecha_pago'] ?? '';
+      $this->banco=$args['banco'] ?? '';
+      $this->referencia=$args['referencia'] ?? '';
+      $this->banco=$args['banco'] ?? '';
+      $this->monto_transferencia=$args['monto_transferencia'] ?? '';
+      $this->numero_i=$args['numero_i'] ?? '';
+      $this->nacionalidad=$args['nacionalidad'] ?? '';
     }
 
    

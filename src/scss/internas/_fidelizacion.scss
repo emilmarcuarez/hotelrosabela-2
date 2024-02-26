@@ -1,0 +1,103 @@
+.imagen_logo_fidelizacion {
+    padding: 3rem;
+    background: #e6e6e6;
+    .cont_fidelizacion_img{
+    display: flex;
+        justify-content: center;
+        align-content: center;
+        
+    }
+  }
+
+  .imagen_logo_fidelizacion img {
+    width: 32rem;
+  }
+
+.plan_fidelizacion h2 {
+    text-align: center;
+    font-weight: 200;
+    font-size: 5rem;
+    margin-top: 2rem;
+  }
+
+  .fidelizacion_grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .img_restaurantes {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+  align-items: center;
+    gap: 2rem;
+    margin: 3rem 0rem;
+  }
+  .fidelizacion_grid_cont span {
+    font-weight: 600;
+  }
+  .fidelizacion_grid_cont p {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+  }
+  .funcionamiento_cont h3 {
+    text-align: center;
+    font-weight: 400;
+    color: #383636;
+  }
+  .cont_funcionamiento {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 7rem;
+    margin-bottom: 5rem;
+  }
+  .div_part_funcionamiento {
+    padding: 1rem;
+    text-align: center;
+    background: #eee;
+    border-radius: 1rem;
+  }
+  .div_part_funcionamiento h4 {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .img_rest_cont {
+    border-radius: 50%;
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    box-shadow: 2px 4px 9px -3px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 2px 4px 9px -3px rgba(0,0,0,0.9);
+    -moz-box-shadow: 2px 4px 9px -3px rgba(0,0,0,0.9);
+  }
+  .fidelizacion_grid_cont2 p {
+    text-align: center;
+    font-style: italic;
+  }
+  .fidelizacion_btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 3rem 0rem;
+    gap: 4rem;
+  }
+  .fidelizacion_grid_cont2 {
+    border-left: 1px solid #f61655;
+    padding-left: 5rem;
+  }
+  .fidelizacion_btn a {
+    color: black;
+    border: 1px solid black;
+    padding: .5rem;
+    border-radius: 0.5rem;
+    &:hover{
+        transition: .2s ease-in;
+        background-color: rgb(44, 44, 44);
+        color: white;
+    }
+  }

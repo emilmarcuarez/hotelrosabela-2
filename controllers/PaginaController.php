@@ -79,6 +79,16 @@ class PaginaController
             'no2' => $no2
         ]);
     }
+    public static function fidelizacion(Router $router)
+    {
+
+        $no2 = true;
+        $no = true;
+        $router->render('paginas/fidelizacion', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+            'no2' => $no2,
+            'no' => $no
+        ]);
+    }
     public static function eventos(Router $router)
     {
         $eventos = Evento::all();

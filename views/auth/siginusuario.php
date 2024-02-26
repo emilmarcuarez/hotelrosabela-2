@@ -46,7 +46,7 @@
                 </div>
                 <div class="r_part">
                     <label for="sexo">Sexo</label>
-                    <br>
+                    <!-- <br> -->
                     <select name="sexo" id="sexo">
                         <option value="M">Hombre</option>
                         <option value="F">Mujer</option>

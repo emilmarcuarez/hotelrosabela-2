@@ -133,6 +133,7 @@ $router->get('/prueba2', [PaginaController::class, 'prueba2']);
 $router->get('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 $router->post('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 $router->get('/verPdf', [PaginaController::class, 'verPdf']);
+$router->get('/fidelizacion', [PaginaController::class, 'fidelizacion']);
 // $router->get('/cancelar_reserva', [PaginaController::class, 'cancelar_reserva']);
 // chats
 $router->post('/chat', [chatController::class, 'chat']);
