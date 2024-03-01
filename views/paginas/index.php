@@ -84,7 +84,7 @@
         </div>
         <div class="info_rb_rewards">
             <a href="/fidelizacion">Plan de fidelizacion</a>
-            <a href="/siginusuario">Acceder</a>
+            <a href="/loginusuario">Acceder</a>
             <!-- <div class="cont_chat_linea" id="abrir_modal3">
                   <a>Chat en linea</a>
             </div> -->

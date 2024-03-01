@@ -9,6 +9,34 @@
         
     }
   }
+  .div_grid_card_beneficios {
+    background: #efebeb;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+  }
+  .area_menu-beneficios {
+    padding: 1rem;
+    border-bottom: 1px solid black;
+  }
+  .menu_beneficios {
+    border-right: 1px solid #e0e0e0;
+  }
+  .text_descripcion_rb {
+    margin-bottom: 3rem;
+  }
+  .card_beneficios span {
+    font-weight: 700;
+  }
+  .area_menu-beneficios a {
+    color: black;
+    font-weight: 600;
+    display: inline-block;
+  }
+  .grid_division_beneficios {
+    display: grid;
+    grid-template-columns: 20% 80%;
+  }
 
   .imagen_logo_fidelizacion img {
     width: 32rem;

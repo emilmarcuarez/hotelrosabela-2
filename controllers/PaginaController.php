@@ -26,7 +26,6 @@ class PaginaController
     public static function index(Router $router)
     {
 
-
         $eventos = Evento::get(4);
         $result = Reserva::reservas();
         $habitaciones = Habitaciones::get(2);
@@ -424,5 +423,15 @@ class PaginaController
             }
             $reserva->eliminare();
         }
+    }
+
+    public static function beneficios(Router $router)
+    {
+        $no = true;
+        $no2 = true;
+        $router->render('paginas/beneficios', [
+           'no'=>$no,
+           'no2'=>$no2
+        ]);
     }
 }

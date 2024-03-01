@@ -123,12 +123,6 @@ class Email {
 
         // create a new object
         $mail = new PHPMailer();
-        // $mail->isSMTP();
-        // $mail->Host = 'sandbox.smtp.mailtrap.io';
-        // $mail->SMTPAuth = true; 
-        // $mail->Port = 2525;
-        // $mail->Username = 'cb7609258a61b6';
-        // $mail->Password = '26311da4ffc456';
         $mail->isSMTP();
         $mail->Host = 'smtp.office365.com';
         $mail->SMTPAuth = true;
@@ -174,12 +168,6 @@ class Email {
 
         // create a new object
         $mail = new PHPMailer();
-        // $mail->isSMTP();
-        // $mail->Host = 'sandbox.smtp.mailtrap.io';
-        // $mail->SMTPAuth = true; 
-        // $mail->Port = 2525;
-        // $mail->Username = 'cb7609258a61b6';
-        // $mail->Password = '26311da4ffc456';
         $mail->isSMTP();
         $mail->Host = 'smtp.office365.com';
         $mail->SMTPAuth = true;

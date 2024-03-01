@@ -2,6 +2,7 @@
 
 namespace Controllers;
 use Classes\Email;
+use Classes\Email_premios;
 use Model\Chat;
 use Model\Comentarios;
 use Model\Premios;
@@ -221,17 +222,36 @@ class UsuariosController
         // $Premios_usuario=new Premios_usuario;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            // $errores = Premios_usuario::getErrores();
+            $errores = Premios_usuario::getErrores();
             // $Premios_usuario = new Premios_usuario($_POST['premio']);
-
+            $usuarios=new Usuario;
             $usuarios= Usuario::all();
             $premios_usuario=Premios_usuario::all();
             $premios=Premios::all();
             foreach($usuarios as $usuario){
                 // reservas mayores a 10 pero menores a 15
-                if(intval($usuario->noches)>10 && intval($usuario->noches)<15){
-
-                     // reservas mayores a 15 pero menores a 20
+                if(intval($usuario->noches)>9 && intval($usuario->noches)<15){
+                    $encontrado=0;
+                    foreach($premios_usuario as $prem){
+                        if($prem->usuarios_id===$usuario->id){
+                            $encontrado=1;
+                        }
+                    }
+                    if($encontrado===0){
+                        $premios_usuario2=new Premios_usuario;
+                        foreach($premios as $premio){
+                            if(intval($premio->cant_noches)===9){
+                                $premios_usuario2->setPremio_id($premio->id);
+                                $premios_usuario2->setUsuarios_id($usuario->id);
+                                $premios_usuario2->setStatus('1');
+                                $premios_usuario2->setUsado('0');
+                                $email=new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '10', $premio->mensaje);
+                                $email->enviarPremio();
+                                $premios_usuario2->guardar();
+                            }
+                        }                    
+                    }
+                  // reservas mayores a 15 pero menores a 20
                 }else if(intval($usuario->noches)>15 && intval($usuario->noches)<20){
 
                 // reservas mayores a 20 noches
@@ -239,14 +259,6 @@ class UsuariosController
 
                 }
             }
-            // debuguear($Premios_usuario);
-            // VALIDAR
-            // $errores = $Premios_usuario->validar();
-        // $id=$Premios_usuario->usuarios_id;
-            // REVISAR QUE EL ARREGLO ESTE VACIO. ISSET REVISA QUE UNA VARIABLE ESTE CREADA Y EMPTY SI ESTA VACIO
-            // if (empty($errores)) { 
-                $premios_usuario->guardar();
-            // }
         }
     } 
 
