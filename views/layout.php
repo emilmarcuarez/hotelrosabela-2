@@ -70,8 +70,6 @@ if (!isset($inicio)) {
     <!-- HEADER -->
     <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
 
-
-
         <?php if ($premios_usu) {
             $trofeo = 0;
             foreach ($premios_usu as $premio) :
@@ -90,7 +88,6 @@ if (!isset($inicio)) {
         <?php } ?>
     <?php } ?>
         <header class="header">
-
             <div class="header_cont">
                 <a href="/"><p>Hotelrosabela.com</p></a>
                 <!-- <a href="/"><img src="/build/img/logopng_bien.webp" alt="logo"></a> -->

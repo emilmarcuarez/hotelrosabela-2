@@ -37,8 +37,7 @@ class Premios_usuario extends Activerecord
   }
 
 
-  public function guardar()
-    {
+  public function guardar(){
         if (!is_null($this->id)) {
             // actualizar
             $this->actualizar();
@@ -47,6 +46,20 @@ class Premios_usuario extends Activerecord
             $this->crear();
         }
     }
+
+    public function setUsuarios_id($id){
+        $this->usuarios_id=$id;
+    }
+    public function setPremio_id($id){
+        $this->premio_id=$id;
+    }
+    public function setStatus($status){
+        $this->status=$status;
+    }
+    public function setUsado($usado){
+        $this->usado=$usado;
+    }
+
     public function crear()
     {
 

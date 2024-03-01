@@ -96,6 +96,35 @@ $(document).ready(function () {
 			}
 		});
 	});
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", "/crearPremio", true);
+	xhr.onload = () => {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200) {
+				// Swal.fire({
+				// 	position: "top-end",
+				// 	icon: "success",
+				// 	title: "La reserva ha sido marcada como 'in house'",
+				// 	showConfirmButton: false,
+				// 	timer: 1500
+				// }).then(() => {
+				// 	setTimeout(() => {
+				// 		window.location.reload();
+				// 	}, 2000);
+				// })
+			// } else {
+			// 	Swal.fire({
+			// 		icon: 'info',
+			// 		title: 'Revise su conexion a internet',
+			// 		text: 'No se pudo cambiar el estado de la reserva, por favor, intente mas tarde.'
+			// 	})
+			}
+		}
+	}
+	// let formData = new FormData(form_reserva);
+	xhr.send();
+	// xhr.send("id_reserva="+id_reserva);
 });
 // menu respondive
 document.getElementById("btn_menu").addEventListener("click", mostrar_menu);

@@ -122,6 +122,7 @@ $router->get('/contacto', [PaginaController::class, 'contacto']);
 $router->post('/contacto', [PaginaController::class, 'contacto']);
 $router->get('/habitacion', [PaginaController::class, 'habitacion']);
 $router->get('/habitaciones', [PaginaController::class, 'habitaciones']);
+$router->get('/beneficios', [PaginaController::class, 'beneficios']);
 $router->get('/habitaciones_s', [PaginaController::class, 'habitaciones_s']);
 $router->get('/gestion', [PaginaController::class, 'gestion']);
 $router->get('/reservas-usuario', [PaginaController::class, 'reservasusu']);
