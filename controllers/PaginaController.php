@@ -42,6 +42,15 @@ class PaginaController
             'no2' => $no2
         ]);
     }
+    public static function rbpremios(Router $router){
+
+        $no=true;
+        $no2=true;
+        $router->render('paginas/rbpremios', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+         'no'=>$no,
+         'no2'=>$no2
+        ]);
+    }
     public static function nosotros(Router $router)
     {
         $inicio = true; //para que aparezca el header
@@ -90,6 +99,16 @@ class PaginaController
         $no2 = true;
         $no = true;
         $router->render('paginas/fidelizacion', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
+            'no2' => $no2,
+            'no' => $no
+        ]);
+    }
+    public static function acumular(Router $router)
+    {
+
+        $no2 = true;
+        $no = true;
+        $router->render('paginas/acumular', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
             'no2' => $no2,
             'no' => $no
         ]);
@@ -274,12 +293,12 @@ class PaginaController
         $id = Reserva::getId2();
         $habitaciones = Habitaciones::all();
         $habitacionesReserva = ReservaHabitacion::habitaciones_all($id->id);
-        $usuario = Usuario::getUsarioReserva($id);
+        // $reserva=Reserva::find($id);
+        // $usuario = Usuario::where($id);
         $router->render('paginas/prueba2', [
             'reserva' => $reserva,
             'habitacionesReserva' => $habitacionesReserva,
-            'habitaciones' => $habitaciones,
-            'usuario' => $usuario
+            'habitaciones' => $habitaciones
         ]);
     }
     public static function crearPdf(Router $router)
@@ -391,7 +410,7 @@ class PaginaController
         $premios_usuarios = Premios_usuario::where2('usuarios_id', $id);
         $reservas = Reserva::where2('email', $usuario->email);
         $premios = Premios::all();
-
+        
         if ($premios_usuarios) {
             foreach ($premios_usuarios as $prem) {
                 $prem->status = 1;

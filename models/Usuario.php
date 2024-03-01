@@ -5,7 +5,7 @@ class Usuario extends Activerecord
 {
   protected static $tabla='usuarios';
   protected static $pagina='auth/mostrarusuarios';
-  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'noches','no_leidos','token','confirmado', 'profesion','ocupacion'];
+  protected static $columnasDB = ['id', 'nombre', 'apellido','fecha','sexo','identificacion','nro_telefono', 'email', 'contrasenia', 'pais','estado','ciudad', 'direccion', 'codigo_postal' , 'noches','no_leidos','token','confirmado', 'profesion','ocupacion','codigo'];
 
   
   public $id;
@@ -28,6 +28,7 @@ class Usuario extends Activerecord
   public $confirmado;
   public $profesion;
   public $ocupacion;
+  public $codigo;
 
   public function __construct($args = [])
   {
@@ -53,6 +54,7 @@ class Usuario extends Activerecord
       $this->confirmado= $args['confirmado'] ?? '0';
       $this->profesion= $args['profesion'] ?? '';
       $this->ocupacion= $args['ocupacion'] ?? '';
+      $this->codigo=$args['codigo'] ?? '';
   }
 
   public function validarRegistro()

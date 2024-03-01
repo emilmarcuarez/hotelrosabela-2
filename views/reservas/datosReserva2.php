@@ -63,6 +63,18 @@
         
         </div>
     </div>
+    <?php if  ($reserva->opcion_pago === 'Transferencia' ||  $reserva->opcion_pago === 'Bank of america') {?>
+        <h4>Datos del pago</h4>
+        <div class="datos_pago_otros">
+            <p><span>Fecha del pago: </span> <?php echo date('d-m-Y', strtotime($reserva->fecha_pago)); ?></p>
+            <p><span>Banco: </span> <?php echo $reserva->banco ?></p>
+            <p><span>Referencia: </span> <?php echo $reserva->referencia ?></p>
+            <p><span>Numero de identidad: </span> <?php echo $reserva->numero_i?></p>
+            <p><span>Nacionalidad: </span> <?php echo $reserva->nacionalidad?></p>
+            <p><span>Monto de la transferencia: </span> <?php echo $reserva->monto_transferencia ?></p>
+        </div>
+
+    <?php }?>
     <div class="espacio"></div>
     <h4>Habitaciones</h4>
     <table class="tabla_reserva">

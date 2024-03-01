@@ -5,14 +5,10 @@
     <h4>Datos del usuario que hizo la reserva</h4>
     <div class="datos_usuario">
 
-        <p>Nombre y apellido: <?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
-        <p>Identificacion: <?php echo $usuario->identificacion ?></p>
-        <p>Numero de telefono: <?php echo $usuario->nro_telefono ?></p>
-        <p>Pais: <?php echo $usuario->pais ?></p>
-        <p>Estado: <?php echo $usuario->estado ?></p>
-        <p>Ciudad: <?php echo $usuario->ciudad ?></p>
-        <p>Direccion: <?php echo $usuario->direccion ?></p>
-        <p>Email: <?php echo $usuario->email ?></p>
+        <p>Nombre y apellido: <?php echo $reserva->nombres ?> <?php echo $reserva->apellidos ?></p>
+        <p>Email: <?php echo $reserva->email ?></p>
+        <p>Numero de telefono: <?php echo $reserva->nro_telefono ?></p>
+
     </div>
     <hr>
     <h4>Datos de la reserva</h4>
@@ -63,6 +59,18 @@
         
         </div>
     </div>
+    <?php if  ($reserva->opcion_pago === 'Transferencia' ||  $reserva->opcion_pago === 'Bank of america') {?>
+        <h4>Datos del pago</h4>
+        <div class="datos_pago_otros">
+            <p><span>Fecha del pago: </span> <?php echo date('d-m-Y', strtotime($reserva->fecha_pago)); ?></p>
+            <p><span>Banco: </span> <?php echo $reserva->banco ?></p>
+            <p><span>Referencia: </span> <?php echo $reserva->referencia ?></p>
+            <p><span>Numero de identidad: </span> <?php echo $reserva->numero_i?></p>
+            <p><span>Nacionalidad: </span> <?php echo $reserva->nacionalidad?></p>
+            <p><span>Monto de la transferencia: </span> <?php echo $reserva->monto_transferencia ?></p>
+        </div>
+
+    <?php }?>
     <div class="espacio"></div>
     <h4>Habitaciones</h4>
     <table class="tabla_reserva">

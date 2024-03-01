@@ -41,8 +41,12 @@
         </div>
     </div>
     <div class="fidelizacion_btn">
+    <a href="/beneficios" class="link_fide">Beneficios</a>
+        <a href="/rbpremios" class="link_fide">Premios</a>
+        <a href="/acumular" class="link_fide">Acumular y canjear</a>
         <a href="/loginusuario" class="iniciar_fide">Iniciar sesion</a>
         <a href="/siginusuario" class="registrar_fide">Registrarse</a>
+      
     </div>
     <!-- como funciona -->
     <div class="funcionamiento_cont">

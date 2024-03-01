@@ -4,21 +4,25 @@
             <div class="area_menu-beneficios">
                 <a href="/fidelizacion">¿Que es RB loyalty?</a>
             </div>
-            <div class="area_menu-beneficios">
+            <div class="area_menu-beneficios active_page">
                 <a href="/beneficios">Beneficios</a>
             </div>
             <div class="area_menu-beneficios">
-                <a href="/rb/acumular">Acumular y canjear millas</a>
+                <a href="/acumular">Acumular y canjear millas</a>
             </div>
             <div class="area_menu-beneficios">
-                <a href="/rb/premios">Premios</a>
+                <a href="/rbpremios">Premios</a>
             </div>
         </div>
 
     </div>
     <div class="text_descripcion_rb">
         <div class="rb_contenedor contenedor">
-            <h3>Beneficios</h3>
+        <div class="logo_nombre_fidelizacion">
+            <img src="build/img/logor.webp" alt="logo del hotel">
+           <h3>Beneficios</h3>
+        </div>
+            
 
             <div class="card_beneficios">
                 <h4><span>RB</span> Gold</h4>
@@ -61,4 +65,28 @@
 
         </div>
     </div>
+
+    <div class="carousel_bt">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="build/img/slider55.jpeg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="build/img/rest2.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="build/img/rest3.webp" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
 </div>
