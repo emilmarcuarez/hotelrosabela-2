@@ -76,7 +76,6 @@ class ReservaController{
             'no'=>$no,
             'no2'=>$no2,
             'reserva'=>$reserva,
-            'usuario'=>$usuario,
             'habitacionesReserva'=>$habitacionesReserva,
             'habitaciones'=>$habitaciones
         ]);
@@ -86,7 +85,7 @@ class ReservaController{
         $no2=true;
         $id=$_GET['id'];
         $reserva=Reserva::find($id);
-        $usuario=Usuario::getUsarioReserva($id);
+        $usuario=Usuario::where('email', $reserva->email);
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
         $habitaciones=Habitaciones::all();
        
@@ -94,9 +93,9 @@ class ReservaController{
             'no'=>$no,
             'no2'=>$no2,
             'reserva'=>$reserva,
-            'usuario'=>$usuario,
             'habitacionesReserva'=>$habitacionesReserva,
-            'habitaciones'=>$habitaciones
+            'habitaciones'=>$habitaciones,
+            'usuario'=>$usuario
         ]);
     }
        public static function buscar(Router $router){

@@ -102,23 +102,7 @@ $(document).ready(function () {
 	xhr.onload = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE) {
 			if (xhr.status === 200) {
-				// Swal.fire({
-				// 	position: "top-end",
-				// 	icon: "success",
-				// 	title: "La reserva ha sido marcada como 'in house'",
-				// 	showConfirmButton: false,
-				// 	timer: 1500
-				// }).then(() => {
-				// 	setTimeout(() => {
-				// 		window.location.reload();
-				// 	}, 2000);
-				// })
-			// } else {
-			// 	Swal.fire({
-			// 		icon: 'info',
-			// 		title: 'Revise su conexion a internet',
-			// 		text: 'No se pudo cambiar el estado de la reserva, por favor, intente mas tarde.'
-			// 	})
+			
 			}
 		}
 	}
@@ -166,80 +150,80 @@ if (document.getElementById('file-label')) {
 
 // AJAX
 // CHAT EN LINEA
-// if (document.querySelector(".typing-area")) {
-// 	const form = document.querySelector(".typing-area"),
-// 		incoming_id = form.querySelector(".incoming_id").value,
-// 		inputField = form.querySelector(".input-field"),
-// 		sendBtn = form.querySelector("button"),
-// 		chatBox = document.querySelector(".chat-box");
+if (document.querySelector(".typing-area")) {
+	const form = document.querySelector(".typing-area"),
+		incoming_id = form.querySelector(".incoming_id").value,
+		inputField = form.querySelector(".input-field"),
+		sendBtn = form.querySelector("button"),
+		chatBox = document.querySelector(".chat-box");
 
-// 	form.onsubmit = (e) => {
-// 		e.preventDefault();
-// 	}
+	form.onsubmit = (e) => {
+		e.preventDefault();
+	}
 
-// 	inputField.focus();
-// 	inputField.onkeyup = () => {
-// 		if (inputField.value != "") {
-// 			sendBtn.classList.add("active");
-// 		} else {
-// 			sendBtn.classList.remove("active");
-// 		}
-// 	}
+	inputField.focus();
+	inputField.onkeyup = () => {
+		if (inputField.value != "") {
+			sendBtn.classList.add("active");
+		} else {
+			sendBtn.classList.remove("active");
+		}
+	}
 
-// 	sendBtn.onclick = () => {
-// 		if (inputField.value.trim() === "") {
-// 			// Si el campo está vacío, no hagas nada
-// 			return;
-// 		}
-// 		sendBtn.disabled = true;
+	sendBtn.onclick = () => {
+		if (inputField.value.trim() === "") {
+			// Si el campo está vacío, no hagas nada
+			return;
+		}
+		sendBtn.disabled = true;
 
-// 		let xhr = new XMLHttpRequest();
-// 		xhr.open("POST", "/chat", true);
-// 		xhr.onload = () => {
-// 			if (xhr.readyState === XMLHttpRequest.DONE) {
-// 				if (xhr.status === 200) {
-// 					inputField.value = "";
-// 					scrollToBottom();
-// 					setTimeout(() => {
-// 						sendBtn.disabled = false;
-// 					}, 3000);
-// 				}
-// 			}
-// 		}
-// 		let formData = new FormData(form);
-// 		xhr.send(formData);
-// 	}
-// 	chatBox.onmouseenter = () => {
-// 		chatBox.classList.add("active");
-// 	}
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/chat", true);
+		xhr.onload = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					inputField.value = "";
+					scrollToBottom();
+					setTimeout(() => {
+						sendBtn.disabled = false;
+					}, 3000);
+				}
+			}
+		}
+		let formData = new FormData(form);
+		xhr.send(formData);
+	}
+	chatBox.onmouseenter = () => {
+		chatBox.classList.add("active");
+	}
 
-// 	chatBox.onmouseleave = () => {
-// 		chatBox.classList.remove("active");
-// 	}
+	chatBox.onmouseleave = () => {
+		chatBox.classList.remove("active");
+	}
 
-// 	setInterval(() => {
-// 		let xhr = new XMLHttpRequest();
-// 		xhr.open("POST", "/actualizar-chat", true);
-// 		xhr.onload = () => {
-// 			if (xhr.readyState === XMLHttpRequest.DONE) {
-// 				if (xhr.status === 200) {
-// 					let data = xhr.response;
-// 					chatBox.innerHTML = data;
-// 					if (!chatBox.classList.contains("active")) {
-// 						scrollToBottom();
-// 					}
-// 				}
-// 			}
-// 		}
-// 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-// 		xhr.send("usuarios_id=" + incoming_id);
+	setInterval(() => {
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/actualizar-chat", true);
+		xhr.onload = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					let data = xhr.response;
+					chatBox.innerHTML = data;
+					if (!chatBox.classList.contains("active")) {
+						scrollToBottom();
+					}
+				}
+			}
+		}
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("usuarios_id=" + incoming_id);
 
-// 	}, 500);
+	}, 500);
 
-// 	function scrollToBottom() {
-// 		chatBox.scrollTop = chatBox.scrollHeight;
-// 	}
-// }
+	function scrollToBottom() {
+		chatBox.scrollTop = chatBox.scrollHeight;
+	}
+}
 // captar la imagen
 function crearGaleria(){
 	if(document.querySelector('.img_datosreserva')){

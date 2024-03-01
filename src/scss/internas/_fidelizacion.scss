@@ -9,11 +9,62 @@
         
     }
   }
+  .logo_nombre_fidelizacion img {
+    width: 5rem;
+  }
+  .nivel_info p {
+    font-size: 1.3rem;
+  }
+  .logo_nombre_fidelizacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nivel_info h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .text_part_rbpremios {
+    margin-top: 3rem;
+  }
+  .nivel_info {
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+  }
+  .grid_rbpremios {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  .text_principal_acumular2 p {
+    text-align: center;
+    font-size: 1.3rem;
+  }
   .div_grid_card_beneficios {
     background: #efebeb;
     padding: 2rem;
     border-radius: 1rem;
     margin-bottom: 4rem;
+  }
+  .text_principal_acumular {
+    margin-bottom: 2rem;
+  }
+  .text_part_acumular {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid #b9b9b9;
+    border-radius: 3px;
+  }
+  .text_part_acumular h4 {
+    font-size: 1.7rem;
+  }
+  .text_part_acumular p {
+    font-size: 1.3rem;
   }
   .area_menu-beneficios {
     padding: 1rem;
@@ -33,11 +84,25 @@
     font-weight: 600;
     display: inline-block;
   }
-  .grid_division_beneficios {
-    display: grid;
-    grid-template-columns: 20% 80%;
+  .text_beneficios_card li {
+    font-size: 1.3rem;
   }
 
+  .carousel_bt{
+     .carousel {
+    position: relative;
+    height: 67rem;
+  }
+  .d-block.w-100 {
+    height: 67rem;
+  }
+  }
+ 
+  .grid_division_beneficios {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+  }
+ 
   .imagen_logo_fidelizacion img {
     width: 32rem;
   }
@@ -121,7 +186,22 @@
     border-left: 1px solid #f61655;
     padding-left: 5rem;
   }
-  .fidelizacion_btn a {
+  .active_page{
+    background: #ffe6ef;
+  }
+  .link_fide {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: .5rem;
+    color: black;
+    &:hover{
+      transition: .2s ease-in;
+      color: #272727;
+    }
+  }
+  .iniciar_fide,
+  .registrar_fide{
     color: black;
     border: 1px solid black;
     padding: .5rem;

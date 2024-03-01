@@ -70,23 +70,23 @@ if (!isset($inicio)) {
     <!-- HEADER -->
     <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
 
-        <?php if ($premios_usu) {
-            $trofeo = 0;
-            foreach ($premios_usu as $premio) :
-                if ($premio->usuarios_id === $login_id && intval($premio->status) === 0) { ?>
+        <!-- <?php // if ($premios_usu) {
+            //$trofeo = 0;
+          //  foreach ($premios_usu as $premio) :
+             //   if ($premio->usuarios_id === $login_id && intval($premio->status) === 0) { ?>
                 <?php
-                    $trofeo = 1;
-                } ?>
-            <?php endforeach; ?>
-            <?php if($trofeo===1){?>
+               //     $trofeo = 1;
+                //} ?>
+            <?php // endforeach; ?>
+            <?php // if($trofeo===1){?>
             <div class="aviso_premio_header">
                 <div class="contenedor">
                     <p>¡HAZ OBTENIDO UN PREMIO! Revisa en la pagina de reservas</p>
                 </div>
 
             </div>
-        <?php } ?>
-    <?php } ?>
+        <?php // } ?> -->
+    <?php //} ?>
         <header class="header">
             <div class="header_cont">
                 <a href="/"><p>Hotelrosabela.com</p></a>
@@ -106,7 +106,7 @@ if (!isset($inicio)) {
                         <a href="/contacto">Contacto</a>
                
 
-            <?php if ($auth2 || $auth || $auth_recepcion) { ?>
+            <!-- <?php if ($auth2 || $auth || $auth_recepcion) { ?>
                 <?php if (!$auth && !$auth_recepcion) { ?>
                     <?php if ($sexo === "F") { ?>
                         <p>Bienvenida <?php echo $nombre; ?></p>
@@ -114,25 +114,25 @@ if (!isset($inicio)) {
                         <p>Bienvenido <?php echo $nombre; ?></p>
                     <?php } else { ?>
                         <p>Bienvenid@ <?php echo $nombre; ?></p>
-                    <?php } ?>
+                    <?php } ?> -->
 
                     <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
 
-                    <?php if ($trofeo === 1) { ?>
+                    <!-- <?php if ($trofeo === 1) { ?>
                         <div class="icono_1">
                             <i class="fa-solid fa-trophy"></i></p>
                         </div>
-                    <?php  }  ?>
+                    <?php  }  ?> -->
 
                     <div class="nav_menu_bg">
                         <div class="nav_menu_usuario">
                             <a href="/logout">Cerrar Sesion</a>
-                            <?php if ($trofeo === 1) { ?>
+                            <!-- <?php if ($trofeo === 1) { ?>
                                 <div class="icono_2">
                                     <i class="fa-solid fa-trophy"></i></p>
                                 </div>
-                            <?php } ?>
-                            <a href="/gestion">Gestion de usuario</a>
+                            <?php } ?> -->
+                            <!-- <a href="/gestion">Gestion de usuario</a> -->
                             <a href="/reservas-usuario">Reservas</a>
                         </div>
                     </div>
@@ -142,10 +142,12 @@ if (!isset($inicio)) {
             <?php } ?>
                         <!-- <a href="/fidelizacion" class="rb_diseno">RB loyalty</a> -->
                         <input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id']?>">
-                        <!-- <div class="cont_chat_linea" id="abrir_modal">
-                        <i class="fa-regular fa-comments"></i>
-                            <a>Chat en linea</a>
-                        </div> -->
+                        <div class="cont_chat_linea" id="abrir_modal">
+                       
+                            <a>
+                              <i class="fa-regular fa-comments"></i>   
+                            Chat en linea</a>
+                        </div>
                     </nav>
                 </div>
             </div>

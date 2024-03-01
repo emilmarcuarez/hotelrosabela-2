@@ -145,8 +145,9 @@
                         <input type="password" name="contrasenia" placeholder="Contraseña" id="contrasenia" required>
                         <i class="fas fa-eye" id="togglePassword"></i>
                     </div>
-                    <div id="passwordMessage" class="password-message"></div>
+                   
                 </div>
+                <div id="passwordMessage" class="password-message"></div>
         </fieldset>
         <div class="espacio4">
 
