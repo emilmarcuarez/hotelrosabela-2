@@ -55,10 +55,11 @@
     margin-bottom: 2rem;
   }
   .text_part_acumular {
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border: 1px solid #b9b9b9;
-    border-radius: 3px;
+    border: 1px solid #ebebeb;
+  border-radius: 3px;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background: #ededed;
   }
   .text_part_acumular h4 {
     font-size: 1.7rem;
@@ -187,7 +188,10 @@
     padding-left: 5rem;
   }
   .active_page{
-    background: #ffe6ef;
+    background: #e0e0e0;
+  }
+  .text_centrar{
+    text-align: center;
   }
   .link_fide {
     display: flex;

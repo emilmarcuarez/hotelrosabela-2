@@ -111,6 +111,7 @@
 
         <h3>Premios obtenidos</h3>
         <?php if ($premios_usuarios) { ?>
+            <p>Para canjear sus premios, comuniquese con recepcion por el chat en linea o al siguiente correo: recepcion@hotelrosabela.com</p>
             <div class="premio_cliente_flex">
                 <?php foreach ($premios as $premio) { ?>
                     <?php foreach ($premios_usuarios as $pre) {  ?>
@@ -168,18 +169,23 @@
                         </div>
                         <div class="cont_reserva_usu">
                             <?php if (intval($reserva->status) === 1) { ?>
-                                <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="in_house">In house</span></p>
+                                <?php if (strtotime($reserva->fecha_e) < strtotime(date('Y/m/d'))) { ?>
+                                    <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="in_house">Estadia exitosa</span></p>
+                                <?php }else{?>
+                                    <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="in_house">In house</span></p>
+                                <?php }?>
                             <?php } else if (intval($reserva->status) === 2) { ?>
                                 <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="pendiente_p">Pendiente</span></p>
+                                <form action="" class="form_eliminar_reserva">
+                                    <input type="hidden" name="id" value="<?php echo $reserva->id; ?>" id="id_reserva2">
+                                    <button type="submit" value="cancelar">Cancelar reserva</button>
+                                 </form>
                             <?php } else if (intval($reserva->status) === 3) { ?>
                                 <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="cancelada_p">Cancelada</span></p>
                             <?php } else if (intval($reserva->status) === 4) { ?>
                                 <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="confirmadas_p">Confirmada</span></p>
                             <?php } ?>
-                            <form action="" class="form_eliminar_reserva">
-                                <input type="hidden" name="id" value="<?php echo $reserva->id; ?>" id="id_reserva2">
-                                <button type="submit" value="cancelar">Cancelar reserva</button>
-                            </form>
+                          
 
                         </div>
                     </div>

@@ -6,6 +6,12 @@
   background-repeat: no-repeat;
   // opacity: 0.3;
 }
+
+.titulo_beneficio {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: black !important;
+}
 .contenedor.resumen_final {
   background: #ffffffc7;
   padding: 1rem;
@@ -63,7 +69,7 @@
 }
 .datos_personales {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 100%;
   column-gap: 5rem;
   padding: 1rem 2rem 2rem 2rem;
   // border: 1px solid #b3b1b1;
@@ -211,8 +217,8 @@
   color: white;
   display: inline-block;
   padding: .5rem;
-  background: #ba0534;
-  border-radius: 1rem;
+  background: #c44b71;
+  border-radius: .5rem;
   margin: 1rem;
 }
 
@@ -315,7 +321,7 @@
   padding-left: 1rem;
 }
 .cont_grid_paso2 {
-  background: #ffffffb5;
+  background: hsla(0, 0%, 100%, 0.83);
 }
 .grid_cont_paso2_parte {
   // background: #ffffffd4;

@@ -37,12 +37,14 @@
                                 <div class="nivel_info">
                                     <h5>Premios por 1.000 millas</h5>
                                     <p>Una Noche Gratis en el Hotel Rosa Bela (1,000 millas acumuladas).</p>
-                                    <p>Descuento del 10% en tu próxima reserva</p>
+                                    <p>-Habitacion deluxe king para 2 personas</p>
                                 </div>
                                 <div class="nivel_info">
-                                    <h5>Premios para las 1,500-2,000 millas acumuladas</h5>
-                                    <p>Acceso gratuito al area business durante tu estancia</p>
-                                    <p>Descuento del 10% en tu próxima reserva</p>
+                                    <h5>Beneficios</h5>
+                                    <p>
+                                        Apartir de las 1.000 millas podras optar por distintos beneficios en cada una de tus reservas
+                                    </p>
+                                 
                                 </div>
                             </div>
 
@@ -51,14 +53,16 @@
                             <h4>Nivel Platinum (A partir de 20 Noches)</h4>
                             <div class="grid_rbpremios">
                                 <div class="nivel_info">
-                                    <h5>Premios por 2,000 millas</h5>
-                                    <p>Una Noche Gratis en el Hotel Rosa Bela con Upgrade de Habitación sujeto a disponibilidad. </p>
-                                    <p>Descuento del 15% en tu próxima reserva</p>
+                                    <h5>Premios por 2,800 millas</h5>
+                                    <p>Una Noche Gratis en el Hotel Rosa Bela </p>
+                                    <p>-Habitacion suite Wet Bar para 2 personas</p>
                                 </div>
                                 <div class="nivel_info">
-                                    <h5>Premios por cada 5,000 millas adicionales</h5>
-                                    <p>Acceso gratuito a un salon privado para reuniones</p>
-                                    <p>Descuento del 10% en tu próxima reserva</p>
+                                    <h5>Premios por cada 1,800 millas adicionales</h5>
+                                    <p>Se envia nuevamente el premio de una noche gratis en nuestras instalaciones. </p>
+                                    <p>Recuerda seguir acumulando la mayor cantidad de puntos posibles</p>
+                                    
+                                  
                                 </div>
                             </div>
 

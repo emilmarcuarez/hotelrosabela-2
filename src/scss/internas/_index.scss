@@ -31,7 +31,7 @@
     padding: 1rem;
   }
   .img_logo_rbrewards p {
-    font-size: 3rem;
+    font-size: 2rem;
     color: #000000;
   }
   .img_logo_rbrewards span {
@@ -63,6 +63,7 @@
     // border-radius: 1rem;
     color: #000;
     padding: .2rem 1rem;
+    font-size: 1.4rem;
   }
 
 // f_reservas
@@ -353,12 +354,14 @@ body{
     padding-top: 7rem;
   }
   .par_label {
-    background: #f0eeefbf;
-    padding: 0.5rem 1rem;
+    background: hsla(330, 6.7%, 94.1%, 0.61);
+    padding: .5rem 1rem;
+    // border-radius: .5rem;
   }
   .par_label2 {
-    background: #f0eeefb8;
-    padding: 0.5rem;
+    padding: .5rem;
+    background: hsla(330, 6.7%, 94.1%, 0.61);
+    // border-radius: .5rem;
   }
 .formulario_re{
   padding: 1rem;
@@ -387,7 +390,6 @@ body{
 .par_label
 {
   display: flex;
-
   flex-direction: column;
   width: 100%;
   position: relative;
@@ -482,6 +484,7 @@ height: 100%;
   grid-template-columns: 56% 43%;
   height: 25rem;
   background: #fff;
+  border: 1px solid #cac9c9;
     .texto_card{
         padding: 2rem;
         p{

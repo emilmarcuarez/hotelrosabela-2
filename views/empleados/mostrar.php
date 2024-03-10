@@ -1,4 +1,8 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="../build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 <main class="contenedor">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
     <?php 
@@ -44,7 +48,7 @@
                 <div>
                     <form method="POST" class="w-100" action="/empleados/eliminar">
                         <!-- ESTOS INPUT HIDDEN SIRVEN PARA MANDAR INFORMACION, QUE EN ESTE CASO ES EL ID -->
-                        <input type="hidden" name="id" value="<?php echo $empelado->id; ?>">
+                        <input type="hidden" name="id" value="<?php echo $empleado->id; ?>">
                         <input type="hidden" name="tipo" value="empleado">
 
                         <input type="submit" class="boton-rojo-block" value="Eliminar">

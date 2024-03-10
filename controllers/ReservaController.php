@@ -7,6 +7,7 @@ use Model\ReservaHabitacion;
 use Model\Usuario;
 use Model\Habitaciones;
 use Intervention\Image\ImageManagerStatic as Image;
+use Model\Beneficio;
 use Model\Premios_usuario;
 
 class ReservaController{
@@ -39,11 +40,11 @@ class ReservaController{
         if($usuario){
             $fechaInicio = strtotime($reserva->fecha_i);
             $fechaFin = strtotime($reserva->fecha_e);
-            
             // Calcula la diferencia entre las dos fechas
             $diferencia = date_diff(date_create($reserva->fecha_i), date_create($reserva->fecha_e));
             $cantidad_noches= intval($usuario->noches)+$diferencia->days;
-            $usuario->noches= $cantidad_noches*$reserva->cantidad;
+            // $usuario->noches= $cantidad_noches*$reserva->cantidad;
+            $usuario->noches= $cantidad_noches;
             $usuario->guardar();
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -68,6 +69,7 @@ class ReservaController{
         $no2=true;
         $id=$_GET['id'];
         $reserva=Reserva::find($id);
+        $beneficio=Beneficio::where('id',$reserva->id_beneficio);
         // $usuario=Usuario::getUsarioReserva($id);
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
         $habitaciones=Habitaciones::all();
@@ -76,6 +78,7 @@ class ReservaController{
             'no'=>$no,
             'no2'=>$no2,
             'reserva'=>$reserva,
+            'beneficio'=>$beneficio,
             'habitacionesReserva'=>$habitacionesReserva,
             'habitaciones'=>$habitaciones
         ]);
@@ -85,6 +88,7 @@ class ReservaController{
         $no2=true;
         $id=$_GET['id'];
         $reserva=Reserva::find($id);
+        $beneficio=Beneficio::where('id',$reserva->id_beneficio);
         $usuario=Usuario::where('email', $reserva->email);
         $habitacionesReserva=ReservaHabitacion::habitaciones_all($id);
         $habitaciones=Habitaciones::all();
@@ -93,6 +97,7 @@ class ReservaController{
             'no'=>$no,
             'no2'=>$no2,
             'reserva'=>$reserva,
+            'beneficio'=>$beneficio,
             'habitacionesReserva'=>$habitacionesReserva,
             'habitaciones'=>$habitaciones,
             'usuario'=>$usuario
@@ -103,15 +108,15 @@ class ReservaController{
         $reservashabitaciones=ReservaHabitacion::allDesc();
        
         
-        $reservas=Reserva::allReservasBusqueda($valor);
+        $reservas=Reserva::allUsuarios($valor);
         if(!$reservas){
             $reservas=Reserva::allDesc();
         }
-        $usuarios=Usuario::allUsuarios($valor);
+        // $usuarios=Usuario::allUsuarios($valor);
         
-        if(!$usuarios){
-             $usuarios=Usuario::all();
-        }
+        // if(!$usuarios){
+        //      $usuarios=Usuario::all();
+        // }
         
         $result=Reserva::reservas();
         $no2=true;

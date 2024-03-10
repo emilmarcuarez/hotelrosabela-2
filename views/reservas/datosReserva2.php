@@ -1,3 +1,8 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
+
+    <img src="../build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 <main class="contenedor reserva_ver">
     <a  class="btn-volver" href="/mostrar_usuario?id=<?php echo $usuario->id?>">Volver</a>
     <h4>Reserva codigo: <span><?php echo $reserva->codigo ?></span></h4>
@@ -15,6 +20,15 @@
         <p>Email: <?php echo $usuario->email ?></p>
     </div>
     <hr>
+    <?php if($beneficio){?>
+    <h4>BENEFICIO ADQUIRIDO POR SER ALIADO RB-ROYALTY</h4>
+    <div class="datos_usuario">
+
+        <p><?php echo $beneficio->descripcion ?></p>
+
+    </div>
+    <hr>
+   <?php }?>
     <h4>Datos de la reserva</h4>
     <div class="grid_datos_reserva">
 
@@ -24,9 +38,10 @@
 
             <?php $fechaInicio = new DateTime($reserva->fecha_i);
             $fechaFin = new DateTime($reserva->fecha_e);
-
+            
             // Calcula la diferencia entre las dos fechas
             $diferencia = $fechaInicio->diff($fechaFin); ?>
+             <p><span> Codigo: </span><?php echo $reserva->codigo; ?></p>
             <p><span> Fecha de entrada: </span><?php echo date('d-m-Y', strtotime($reserva->fecha_i)); ?></p>
             <p> <span> Fecha de salida: </span><?php echo date('d-m-Y', strtotime($reserva->fecha_e)); ?></p>
             <p><span>Noches:</span> <?php echo $diferencia->days ?></p>

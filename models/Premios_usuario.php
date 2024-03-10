@@ -123,4 +123,11 @@ class Premios_usuario extends Activerecord
         $resultado = self::$db->query($query);
         return $resultado;
     }
+
+    // ultimo premio de un usuario de 28 noches
+    public static function ultimopremio($id_premio, $id_usuario){
+        $query = "SELECT * FROM premios_usuario WHERE premio_id=".$id_premio." AND usuarios_id=".$id_usuario." ORDER BY id DESC LIMIT 1;";
+        $resultado = self::consultarSQL($query);
+        return array_shift($resultado); 
+    }
 }

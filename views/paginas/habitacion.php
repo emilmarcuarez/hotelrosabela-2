@@ -1,109 +1,32 @@
 <!-- habitacion -->
-<main class="hab_pag_principal">
-    <h5><?php echo $habitacion->nombre;?></h5>
-   
-    <div class="cont_hab">
-        
-        <div class="cont_hab_p">
-            <div class="hab_img_text">
-            <div class="servicios_imp">
-    <?php switch(intval($habitacion->servicios)){
-          case 1:
-     ?>
-        <div class="elemento_imp">
-            <div class="elem_hab_imp_p">
-                 <i class="fa-solid fa-bed"></i><p class="elemnto_sub">1 Cama king</p>
-            </div>
-            <div class="elem_hab_imp_p">
-                <i class="fa-solid fa-tv"></i> <p class="elemnto_sub">TV por cable</p>
-            </div>
-            <div class="elem_hab_imp_p">
-                 <i class="fa-solid fa-wifi"></i><p class="elemnto_sub">Wifi</p>
-            </div>
+<div class="logo_rosa_bela_pgsecundarias_slogo">
+
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+
+</div>
+<main class="">
+    <div class="nombre_habitacion_diseno">
+        <div class="contenedor text_align_nombre">
+            <h5><?php echo $habitacion->nombre; ?></h5>
         </div>
-      
-        <?php 
-          break;
-
-          case 2: 
-           ?>
-         <div class="elemento_imp">
-            <div class="elem_hab_imp_p">
-                 <i class="fa-solid fa-bed"></i><p class="elemnto_sub">2 camas matrimoniales</p>
-            </div>
-            <div class="elem_hab_imp_p">
-                <i class="fa-solid fa-tv"></i> <p class="elemnto_sub">TV por cable</p>
-            </div>
-            <div class="elem_hab_imp_p">
-                 <i class="fa-solid fa-wifi"></i><p class="elemnto_sub">Wifi</p>
-            </div>
-        </div>
-          <?php 
-          break;
-
-          case 3: 
-           ?>
-              <div class="elemento_imp">
-                    <div class="elem_hab_imp_p">
-                        <i class="fa-solid fa-bed"></i><p class="elemnto_sub">1 cama king</p>
-                    </div>
-                    <div class="elem_hab_imp_p">
-                        <i class="fa-solid fa-tv"></i> <p class="elemnto_sub">TV por cable</p>
-                    </div>
-                    <div class="elem_hab_imp_p">
-                        <i class="fa-solid fa-wifi"></i><p class="elemnto_sub">Wifi</p>
-                    </div>  
-              </div>
-             <?php 
-          break;
-
-          case 4: 
-           ?>
-           <div class="elemento_imp">
-                <div class="elem_hab_imp_p">    
-                    <i class="fa-solid fa-bed"></i><p class="elemnto_sub">2 Camas matrimoniales</p>
-                </div>
-                <div class="elem_hab_imp_p">
-                    <i class="fa-solid fa-tv"></i> <p class="elemnto_sub">TV por cable</p>
-                </div>
-                <div class="elem_hab_imp_p">
-                    <i class="fa-solid fa-wifi"></i><p class="elemnto_sub">Wifi</p>
-                </div>  
-            </div>
-          <?php 
-          break;
-
-          case 5: 
-           ?>
-           <div class="elemento_imp">
-                <div class="elem_hab_imp_p">    
-                    <i class="fa-solid fa-bed"></i><p class="elemnto_sub">1 Cama matrimonial</p>
-                </div>
-                <div class="elem_hab_imp_p">
-                    <i class="fa-solid fa-tv"></i> <p class="elemnto_sub">TV por cable</p>
-                </div>
-                <div class="elem_hab_imp_p">
-                    <i class="fa-solid fa-wifi"></i><p class="elemnto_sub">Wifi</p>
-                </div>  
-            </div>
-        <?php 
-         break;
-          default: ?>
-           <!-- <h2>No encontrado</h2> -->
-             <?php break;
-               }
-        ?>
     </div>
-                <div class="img_hab">
-                    <img src="/imagenes_h/<?php echo $habitacion->imagen;?>" alt="imagen de la habitacion">
-                </div>
+    <div class="imagen_habitacion_grande">
+        <div class="img_hab contenedor">
+            <img src="/imagenes_h/<?php echo $habitacion->imagen; ?>" alt="imagen de la habitacion">
+        </div>
+    </div>
+
+    <div class="grid_info_habitacion contenedor">
+        <div class="informacion_general">
+            <div class="descripcion_habitacion">
                 <div class="text_hab_cant">
                     <p><?php echo intval($habitacion->adultos)+intval($habitacion->ninos)?> personas - <span class="p_recomendado">Recomendado:</span> <?php echo $habitacion->adultos;?> adultos y <?php echo $habitacion->ninos;?> niños</p>
                 </div>
-            </div>
-            <div class="hab_info_text">
-
-            
+                <div class="info_descripcion_habitacion">
+                    <p>Descripcion</p>
+                    <p><?php echo $habitacion->descripcion ?></p>
+                </div>
+                <div class="servicios_habitacion">
                 <div class="hab_info_partes2 f_part3">
                     <div class="pre_part_info">
                         <p>Servicios</p>
@@ -567,57 +490,16 @@
                     </div>
                 </div>
 
-                <div class="hab_info_partes f_part1">
-                    <div class="pre_part_info">
-                        <p>Precio por noche</p>
-                    </div>
-                    <div class="pre_part_info">
-                        <div class="part_info2">
-                            <p>USD <?php echo $habitacion->preciosd;?></p>
-                            <p>Sin desayuno</p>
-                        </div>
-                        <div class="part_info2">
-                            <p>USD <?php echo $habitacion->preciocd;?></p>
-                            <p>Con desayuno</p>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="hab_info_partes f_part2">
-                    <div class="pre_part_info">
-                        <p class="p_tipo">Tipo</p>
-                    </div>
-                    <div class="pre_part_info">
-                        <p class="p_tipo"><?php echo $habitacion->tipo;?></p>
-                    </div>
-                </div>
+
             </div>
         </div>
-        <div class="cont_hab_p2">
-            <div class="descrip_reg_hab">
-                <p>Descripcion</p>
-                <p><?php echo $habitacion->descripcion ?></p>
-            </div>
-            <div class="descrip_reg_hab2">
-               <div class="f_hab_reg">
-                    <div class="img_hab_reg">
-                        <div class="cont_info_reg">
-                            <p>Registrate</p>
-                            <p>Y reserva con <br><span>Nosotros</span></p>
-                            <img src="/build/img/logopng.webp" alt="">
-                        </div>
-                        <div class="cont_enlaces_reg">
-                            <a href="/siginusuario">Registrar</a>
-                            <a href="/loginusuario">Iniciar sesion</a>
-                        </div>
-                    </div>
-               </div>
-            </div>  
-            <div class="btn_reservar4">
-                <a href="/">¡Reserva YA!</a>
-            </div>    
+        <div class="precio_habitacion_info">
+
         </div>
     </div>
-    <div class="espacio_p"></div>
+    <!-- <div class="espacio_p"></div> -->
 </main>
 
 <div class="galeria_imagenes">
@@ -625,21 +507,21 @@
         <div class="f_gal_div">
             <p>Las mejores pizzas</p>
         </div>
-      
-    </div>                 
+
+    </div>
     <div class="gal_div2">
         <div class="f_gal_div">
-        <p>Los cocteles mas exclusivos</p>
+            <p>Los cocteles mas exclusivos</p>
         </div>
-    </div>                 
+    </div>
     <div class="gal_div3">
         <div class="f_gal_div">
-        <p>Piscina de agua salada</p>
+            <p>Piscina de agua salada</p>
         </div>
-    </div>                 
+    </div>
     <div class="gal_div4">
         <div class="f_gal_div">
-        <p>Variedad de vinos unica en la ciudad</p>
+            <p>Variedad de vinos unica en la ciudad</p>
         </div>
-    </div>                 
+    </div>
 </div>

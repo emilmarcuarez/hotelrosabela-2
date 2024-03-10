@@ -16,7 +16,6 @@ class ApiController{
     public static function guardar() {
       
         $cita = new Reserva($_POST);
-       
         $nombreImagen=md5(uniqid(rand(), true)) . ".jpg";
                 
         if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
@@ -30,8 +29,9 @@ class ApiController{
               $image->save(CARPETA_IMAGENES_RESERVA. $nombreImagen);
         }
 
-        $email=new Email('','','','');
-        $email->enviarReserva();
+        // $email=new Email('','','','');
+        // $email->enviarReserva();
+        // echo '<script>console.log("pruebajson")</script>';
         $resultado = $cita->guardar();
         $id = $resultado['id'];
     

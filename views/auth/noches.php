@@ -1,4 +1,8 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 <main class="contenedor">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
     <?php 
@@ -12,16 +16,31 @@
     <?php } ?>
     <div class="espacio"></div>
 <a href="/admin" class="boton boton-rosado">Volver</a> 
-
+<div class="espacio3">
+</div>
 <h2>Usuarios - Plan de fidelizacion</h2>
+
+    <p>Se puede buscar por: nombre, apellido y numero de identificacion del usuario. Al igual que por el codigo del plan de fidelizacion.</p>
+    <div class="flex_busqueda">
+
+        <form class="buscador_reservar" method="POST" action="/buscar-usuario">
+            <input type="text" name="buscador" id="buscador">
+            <input type="submit" class="boton-rosado" value="Buscar">
+        </form>
+        <form action="/noches">
+            <input type="submit" class="boton-verde-recargar" value="Recargar">
+        </form>
+    </div>
+
 <div class="tabla_general">
     <div class="cabecera_tabla_general_noches">
 
-            <div class="cabecera_cont"><h2>Nro</h2></div>
+            <div class="cabecera_cont"><h2>Codigo</h2></div>
             <div class="cabecera_cont"><h2>Nombre</h2></div>
             <div class="cabecera_cont"><h2>Apellido</h2></div>
             <div class="cabecera_cont"><h2>Identificacion</h2></div>
             <div class="cabecera_cont"><h2>Noches</h2></div>
+            <div class="cabecera_cont"><h2>Millas</h2></div>
             <div class="cabecera_cont"><h2>Premios</h2></div>
             <div class="cabecera_cont"><h2>Acciones</h2></div>
 
@@ -36,12 +55,13 @@
                 <div class="body_tabla_info f_griso">
             <?php }?>
            
-                <div class="body_infor_div"><p><?php echo $usuario->id; ?> </p></div>
+                <div class="body_infor_div"><p><?php echo $usuario->codigo; ?> </p></div>
                 <div class="body_infor_div"><p class="descripcion p_break"><?php echo $usuario->nombre; ?> </p></div>
                
                 <div class="body_infor_div"><p><?php echo $usuario->apellido; ?></p></div>
                 <div class="body_infor_div"><p> <?php echo $usuario->identificacion; ?></p></div>
                 <div class="body_infor_div"><p class="bold"><?php echo $usuario->noches; ?></p></div>
+                <div class="body_infor_div"><p class="bold"><?php echo $usuario->noches*100; ?></p></div>
                 <div class="body_infor_div">
                     <?php 
                     $con=0;

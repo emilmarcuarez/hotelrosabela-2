@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Beneficio;
 use Model\Premios;
 use MVC\Router;
 use Model\Evento;
@@ -55,9 +56,10 @@ class PaginaController
     {
         $inicio = true; //para que aparezca el header
         $no2 = true;
+        $no = true;
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/nosotros', [ ///RENDER ES METODO PARA MOSTRAR UNA VISTA   
-            'inicio' => $inicio,
+            'no' => $no,
             'no2' => $no2,
             'premios_usu' => $premios_usu
         ]);
@@ -242,14 +244,16 @@ class PaginaController
     public static function habitaciones(Router $router)
     {
         $habitaciones = Habitaciones::all();
-        $imghabitaciones = true;
+        // $imghabitaciones = true;
         $no = true;
+        $no2 = true;
         $premios_usu = Premios_usuario::all();
         $router->render('paginas/habitaciones', [
             'habitaciones' => $habitaciones,
-            'imghabitaciones' => $imghabitaciones,
+            // 'imghabitaciones' => $imghabitaciones,
             'premios_usu' => $premios_usu,
-            'no' => $no
+            'no' => $no,
+            'no2' => $no2
         ]);
     }
     public static function habitaciones_s(Router $router)
@@ -258,9 +262,18 @@ class PaginaController
         $no = true;
         $no2 = true;
         $premios_usu = Premios_usuario::all();
+        $beneficios=Beneficio::all();
+        if($_SESSION['usuario_id']){
+            $usuario=Usuario::find($_SESSION['usuario_id']);
+        }
+        else{
+            $usuario='no_disponible';
+        }
         $router->render('paginas/habitaciones_s', [
+            'usuario'=>$usuario,
             // 'id' => $_SESSION['usuario_id'],
             'no' => $no,
+            'beneficios' => $beneficios,
             'premios_usu' => $premios_usu,
             'no2' => $no2
         ]);
@@ -343,17 +356,16 @@ class PaginaController
     public static function evento(Router $router)
     {
         $id = validarORedireccionar('/eventos');
-        $premios_usu = Premios_usuario::all();
+        // $premios_usu = Premios_usuario::all();
         $no2 = true;
         $no = true;
         $evento = Evento::find($id);
         $eventos = Evento::getEventosdif(3, $id);
-        $centroConsumo = Evento::findNombreCentro($id);
+        // $centroConsumo = Evento::findNombreCentro($id);
         $router->render('paginas/evento', [
             'evento' => $evento,
-            'premios_usu' => $premios_usu,
             'eventos' => $eventos,
-            'centroConsumo' => $centroConsumo,
+            // 'centroConsumo' => $centroConsumo,
             'no2' => $no2,
             'no' => $no
         ]);

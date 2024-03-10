@@ -1,6 +1,14 @@
+<!-- <p class="text_titulo_ev">Los ultimos eventos </p> -->
+
+<div class="espacio"></div>
+
+<div class="pg_titulo_logo contenedor">
+      <img src="build/img/logor.webp" alt="">
+      <h4>Eventos más recientes</h4>
+    </div>
 <div class="f_evento2">
 <div class="f_eventos3">
-<p class="text_titulo_ev">¡LOS EVENTOS MAS RESALTANTES DE LA SEMANA!</p>
+
 <div class="imagenes contenedor">
     <div class="imagenes_cont">
     <?php $cont=0; ?>

@@ -1,9 +1,9 @@
-<!-- <form action="/reservas/buscar" method="POST">
 
-    <input type="hidden" name="buscador" id="buscador" value="<?php echo $usuario->id ?>">
-    <input type="submit" class="boton-rosado" value="Ver reservas">
-</form> -->
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 
 <div class="contenedor premios_cont">
 
@@ -16,7 +16,9 @@
 
         <?php } ?>
     <?php } ?>
+    <a href="/noches" class="ver_reservas_premios">Volver</a>
     <a href="/mostrar_usuario?id=<?php echo $usuario->id ?>" class="ver_reservas_premios">Ver reservas</a>
+
     <div class="premios">
         <h3>Premios otorgados</h3>
         
@@ -49,74 +51,5 @@
     </div>
 <?php } ?>
 </div><!--premios-->
-<div class="premios_disponibles">
-    <!-- mayor a 10 noches pero menor a 15 -->
-    <?php if ($usuario->noches > 10) { ?>
-        <h5>Para mayor a 10 noches tiene disponible: </h5>
-        <ul>
-        <?php if ($premios_usu) { ?>
-            <?php 
-                $noche10=0;
-                $noche15=0;
-                $noche20=0;
-                ?>
-                 
-                 <?php foreach ($premios as $premio) : ?>
-                            <?php if (intval($premio->cant_noches) === 10) : 
-                         foreach ($premios_usu as $premio_usu) : 
-                             if($premio_usu->premio_id ===$premio->id):
-                                $noche10=1;
-                             endif;
-                          endforeach; 
-                    endif;
-                endforeach; ?>
-                    
-                    <?php if($noche10===0){ ?>
-                        <?php foreach ($premios as $premio) : ?>
-                            <?php if (intval($premio->cant_noches) === 10) { ?>
-                                <li>
 
-                                    <h4><?php echo $premio->descripcion ?></h4>
-                                    <p class="p_break"><?php echo $premio->mensaje ?></p>
-
-                                    <form method="POST" action="/crearPremio">
-                                        <input type="hidden" name="premio[premio_id]" value="<?php echo $premio->id; ?>">
-                                        <input type="hidden" name="premio[usuarios_id]" value="<?php echo $usuario->id; ?>">
-                                        <input type="hidden" name="premio[status]" value="0">
-                                        <input type="hidden" name="premio[usado]" value="0">
-                                        <input type="submit" value="enviar">
-                                        <input type="submit" value="Usado">
-                                    </form>
-                                </li>
-                            <?php } ?>
-                         <?php endforeach; ?>
-
-                    <?php }else{ ?>
-                        <li>Ya se le fue enviado su premio de las 10 noches</li>
-                        
-                    <?php } ?>
-
-                <?php } else { ?>
-                   <?php foreach ($premios as $premio) : ?>
-                    <?php if (intval($premio->cant_noches) === 10) { ?>
-                        <li>
-
-                            <h4><?php echo $premio->descripcion ?></h4>
-                            <p class="p_break"><?php echo $premio->mensaje ?></p>
-
-                            <form method="POST" action="/crearPremio">
-                                <input type="hidden" name="premio[premio_id]" value="<?php echo $premio->id; ?>">
-                                <input type="hidden" name="premio[usuarios_id]" value="<?php echo $usuario->id; ?>">
-                                <input type="hidden" name="premio[status]" value="0">
-                                <input type="hidden" name="premio[usado]" value="0">
-                                <input type="submit" value="enviar">
-                            </form>
-                        </li>
-                    <?php } ?>
-                    <?php endforeach; ?>
-                <?php } ?>
-        </ul>
-
-    <?php } ?>
-</div>
 </div>

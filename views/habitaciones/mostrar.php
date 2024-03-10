@@ -1,4 +1,8 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="../build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 <main class="contenedor">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
     <?php 
@@ -14,7 +18,7 @@
 <a href="/admin" class="boton boton-rosado">Volver</a> 
 <a href="/habitaciones/crear" class="boton boton-rosado">Nueva Habitacion</a>
 <h2>Habitaciones</h2>
-<div class="tabla_general contenedor">
+<div class="tabla_general">
     <div class="cabecera_tabla_general">
 
             <div class="cabecera_cont"><h2>Nro</h2></div>

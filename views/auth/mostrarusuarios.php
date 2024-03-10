@@ -1,4 +1,8 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="../build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 <main class="contenedor">
     
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
@@ -9,11 +13,11 @@
             <p class="alerta exito"><?php echo s($mensaje); ?></p>
         <?php } ?>
     <?php } ?>
-    <div class="espacio"></div>
+    <div class="espacio3"></div>
 <a href="/admin" class="boton boton-rosado">Volver</a> 
 
 <h2>Usuarios</h2>
-<div class="tabla_general contenedor">
+<div class="tabla_general">
     <div class="cabecera_tabla_general_emple">
             <div class="cabecera_cont"><h2>id</h2></div>
             <div class="cabecera_cont"><h2>Nombre</h2></div>

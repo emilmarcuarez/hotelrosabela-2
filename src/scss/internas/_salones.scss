@@ -1,28 +1,33 @@
-.salon_fondo{
-    // background: url(/build/img/fondop-01.webp);
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-}
+
 .salones_card .text_consumo .titulo_consumo h5{
     font-size: 2rem;
 }
+.logo_rosa_bela_pgsecundarias_slogo {
+    padding: 4rem;
+    background: #ebebeb;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid #f21552;
+  }
 .fondo_salon{
-    background: url(/build/img/salon_fondo_p.jpg);
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 40rem;
+    height: 51rem;
+    .carousel-item {
+        overflow: hidden;
+        height: 51rem;
+        .d-block.w-100 {
+            height: 65rem;
+          }
+    }
+}
+.salon_fondo{
+    .pg_titulo_logo{
+        margin-bottom: 3rem;
+    }
 }
 .salones{
     padding-bottom: 3rem;
-    h4{
-        padding-top: 2rem;
-    
-    }
+    margin-top: 5rem;
+
     hr{
         margin-bottom: 5rem;
     }

@@ -92,7 +92,7 @@
     </div>
 </div>
 <div class="f_habitaciones">
-    <div class="habitaciones" data-aos="fade-up" data-aos-duration="3000">
+    <div class="habitaciones">
 
         <div class="hab contenedor">
             <div class="titulo_ha">
@@ -105,13 +105,14 @@
             ?>
             <!-- HABITACIONES -->
 
-            <a href="/habitaciones" class="boton-rosado">Ver todas</a>
+            <a href="/habitaciones" class="boton-negro">Ver todas</a>
         </div>
     </div>
 </div>
 
 
-<main class="contenedor" data-aos="fade-up" data-aos-duration="3000">
+<main class="contenedor">
+<!-- <main class="contenedor" data-aos="fade-up" data-aos-duration="3000"> -->
     <!-- espacio -->
     <div class="titulo_sal padding_espa">
         <h4>Nuestros espacios</h4>

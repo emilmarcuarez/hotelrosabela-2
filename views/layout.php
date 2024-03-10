@@ -70,23 +70,7 @@ if (!isset($inicio)) {
     <!-- HEADER -->
     <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
 
-        <!-- <?php // if ($premios_usu) {
-            //$trofeo = 0;
-          //  foreach ($premios_usu as $premio) :
-             //   if ($premio->usuarios_id === $login_id && intval($premio->status) === 0) { ?>
-                <?php
-               //     $trofeo = 1;
-                //} ?>
-            <?php // endforeach; ?>
-            <?php // if($trofeo===1){?>
-            <div class="aviso_premio_header">
-                <div class="contenedor">
-                    <p>¡HAZ OBTENIDO UN PREMIO! Revisa en la pagina de reservas</p>
-                </div>
-
-            </div>
-        <?php // } ?> -->
-    <?php //} ?>
+    
         <header class="header">
             <div class="header_cont">
                 <a href="/"><p>Hotelrosabela.com</p></a>
@@ -106,33 +90,15 @@ if (!isset($inicio)) {
                         <a href="/contacto">Contacto</a>
                
 
-            <!-- <?php if ($auth2 || $auth || $auth_recepcion) { ?>
-                <?php if (!$auth && !$auth_recepcion) { ?>
-                    <?php if ($sexo === "F") { ?>
-                        <p>Bienvenida <?php echo $nombre; ?></p>
-                    <?php } else if ($sexo === "M") { ?>
-                        <p>Bienvenido <?php echo $nombre; ?></p>
-                    <?php } else { ?>
-                        <p>Bienvenid@ <?php echo $nombre; ?></p>
-                    <?php } ?> -->
-
+             <?php if ($auth2 || $auth || $auth_recepcion) { ?>
+              <?php if (!$auth && !$auth_recepcion) { ?>
+                 
                     <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
 
-                    <!-- <?php if ($trofeo === 1) { ?>
-                        <div class="icono_1">
-                            <i class="fa-solid fa-trophy"></i></p>
-                        </div>
-                    <?php  }  ?> -->
 
                     <div class="nav_menu_bg">
                         <div class="nav_menu_usuario">
                             <a href="/logout">Cerrar Sesion</a>
-                            <!-- <?php if ($trofeo === 1) { ?>
-                                <div class="icono_2">
-                                    <i class="fa-solid fa-trophy"></i></p>
-                                </div>
-                            <?php } ?> -->
-                            <!-- <a href="/gestion">Gestion de usuario</a> -->
                             <a href="/reservas-usuario">Reservas</a>
                         </div>
                     </div>
@@ -152,59 +118,8 @@ if (!isset($inicio)) {
                 </div>
             </div>
         </header>
-        <!-- <section class="seccion_registrar <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
-            <div class="redes">
-                <div class="redes_div">
-                    <a href="https://www.instagram.com/hotelrosabela/?hl=es"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-                <div class="redes_div">
-                    <a href="https://es-es.facebook.com/hotelrosabela/"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-                <div class="redes_div">
-                    <a href="https://twitter.com/hotelrosabela?lang=es"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
-            <?php if (!$auth2 && !$auth && !$auth_recepcion) { ?>
-                <div class="login_usu">
-                    <a href="/loginusuario">Iniciar sesion</a>
-                    <a href="/siginusuario">Registrar</a>
-                </div>
-
-            <?php } else { ?>
-                <?php if (!$auth && !$auth_recepcion) { ?>
-                    <?php if ($sexo === "F") { ?>
-                        <p>Bienvenida <?php echo $nombre; ?></p>
-                    <?php } else if ($sexo === "M") { ?>
-                        <p>Bienvenido <?php echo $nombre; ?></p>
-                    <?php } else { ?>
-                        <p>Bienvenid@ <?php echo $nombre; ?></p>
-                    <?php } ?>
-
-                    <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> Opciones</button>
-
-                    <?php if ($trofeo === 1) { ?>
-                        <div class="icono_1">
-                            <i class="fa-solid fa-trophy"></i></p>
-                        </div>
-                    <?php  }  ?>
-
-                    <div class="nav_menu_bg">
-                        <div class="nav_menu_usuario">
-                            <a href="/logout">Cerrar Sesion</a>
-                            <?php if ($trofeo === 1) { ?>
-                                <div class="icono_2">
-                                    <i class="fa-solid fa-trophy"></i></p>
-                                </div>
-                            <?php } ?>
-                            <a href="/gestion">Gestion de usuario</a>
-                            <a href="/reservas-usuario">Reservas</a>
-                        </div>
-                    </div>
-                <?php } else if ($auth || $auth_recepcion) { ?>
-                    <a href="/logout">Cerrar Sesion</a>
-                <?php } ?>
-            <?php } ?>
-        </section> -->
+      
+        <!-- </section>  -->
  
         <div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
             <div class="cuadro"></div>
@@ -389,6 +304,7 @@ if (!isset($inicio)) {
     <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
     <script src="../build/js/bundle.min.js"></script>
     <script>
+
         //    que aparezca el pais en lapagina de gestion de usuario
         if (document.getElementById('countries-list2')) {
             fetch('https://restcountries.com/v2/all')

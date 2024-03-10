@@ -88,14 +88,7 @@ class UsuariosController
             if (empty($errores)) { //en caso de que este vacio
 
                 $resultado = $Usuario->existeUsuarioRegistro();
-
-                // si NO existe el usuario se muestra el error
                 if (!$resultado) {
-                    // verificar si el usuario existe o no (mensaje de erorr)
-                    //creo el token
-                    // $Usuario->crearToken();
-
-                    // enviando el email
                     $email = new Email(
                         $Usuario->email,
                         $Usuario->nombre,
@@ -132,17 +125,14 @@ class UsuariosController
                     $codigo2 = str_pad($codigo2, 4, '0', STR_PAD_LEFT);
 
                     // Combinar el número aleatorio con el ID de usuario
-                   
-
-
 
                     $Usuario->codigo = $codigo3;
                     $resultado = $Usuario->guardar();
                     // debuguear($resultado['id']);
                     if ($resultado) {
                         $usuario2 = Usuario::find($resultado['id']);
-                        $codigo3 = $codigo2. $usuario2->id;
-                        $usuario2->codigo=$codigo3;
+                        $codigo3 = $codigo2 . $usuario2->id;
+                        $usuario2->codigo = $codigo3;
                         $resultado = $usuario2->actualizar();
                         session_start();
                         // llenamos el arreglo de las sesiones establecidas
@@ -240,54 +230,135 @@ class UsuariosController
             'no2' => $no2
         ]);
     }
+    // mandar premios automaticamente a los usuarios
     public static function crearPremio(Router $router)
     {
-        // $id=validarORedireccionar('/noches');
-        // $usuario=Usuario::find($id);
+
         $no = true;
         $no2 = true;
         // $Premios_usuario=new Premios_usuario;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $errores = Premios_usuario::getErrores();
             // $Premios_usuario = new Premios_usuario($_POST['premio']);
             $usuarios = new Usuario;
             $usuarios = Usuario::all();
             $premios_usuario = Premios_usuario::all();
             $premios = Premios::all();
+            $reservas=Reserva::all();
+            // iterando sobre cada usuario
             foreach ($usuarios as $usuario) {
-                // reservas mayores a 10 pero menores a 15
-                if (intval($usuario->noches) > 9 && intval($usuario->noches) < 15) {
+
+                // reservas mayores a 9, es decir es 10
+                if (intval($usuario->noches) > 9) {
                     $encontrado = 0;
+                    // revisas todos los premios registrados
                     foreach ($premios_usuario as $prem) {
+                        // verifica que este asociado al usuario en particular
                         if ($prem->usuarios_id === $usuario->id) {
-                            $encontrado = 1;
+                            // en caso de que si, revisamos el premio al que esta relacionado
+                            foreach ($premios as $premio) {
+                                // encontramos el premio. ahora revisamos si el premio corresponde a 10 noches y en caso de que si, cambia el valor de la variable
+                                if ($premio->id === $prem->premio_id && intval($premio->cant_noches) === 10) {
+                                    $encontrado = 1;
+                                }
+                            }
                         }
                     }
+                    // no se le ha enviado un premio de 10 noches, se envia.
                     if ($encontrado === 0) {
                         $premios_usuario2 = new Premios_usuario;
                         foreach ($premios as $premio) {
-                            if (intval($premio->cant_noches) === 9) {
+                            if (intval($premio->cant_noches) === 10) {
                                 $premios_usuario2->setPremio_id($premio->id);
                                 $premios_usuario2->setUsuarios_id($usuario->id);
                                 $premios_usuario2->setStatus('0');
                                 $premios_usuario2->setUsado('0');
                                 $email = new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '10', $premio->mensaje);
                                 $email->enviarPremio();
+                             
                                 $premios_usuario2->guardar();
                             }
                         }
                     }
-                    // reservas mayores a 15 pero menores a 20
-                } else if (intval($usuario->noches) > 15 && intval($usuario->noches) < 20) {
+                    // reservas mayores a 27. Es decir a partir de 28 noches
+                }
+                if (intval($usuario->noches) > 27) {
+                    $encontrado = 0;
+                    $id_premio=0;
+                    // revisas todos los premios registrados
+                    foreach ($premios_usuario as $prem) {
+                        // verifica que este asociado al usuario en particular
+                        if ($prem->usuarios_id === $usuario->id) {
+                            // en caso de que si, revisamos el premio al que esta relacionado
+                            foreach ($premios as $premio) {
+                                // encontramos el premio. ahora revisamos si el premio corresponde a 28 noches y en caso de que si, cambia el valor de la variable
+                                if ($premio->id === $prem->premio_id && intval($premio->cant_noches) === 28) {
+                                    $encontrado = 1;
+                                    $id_premio=intval($premio->id);
+                                }
+                            }
+                        }
+                    }
 
-                    // reservas mayores a 20 noches
-                } else if (intval($usuario->noches) > 20) {
+                    if ($encontrado === 1) {
+                        $usuarioPremio=Premios_usuario::ultimopremio($id_premio, $usuario->id);
+                        // reviso los premios enviados al usuario
+    
+                                foreach ($premios as $premio) {
+                                    // encontramos el premio. ahora revisamos si el premio corresponde a 10 noches y en caso de que si, cambia el valor de la variable
+                                    if ($premio->id === $usuarioPremio->premio_id && intval($premio->cant_noches) === 28) {
+                                        // iterar entre dos dias
+
+                                        $fechaInicio = new \DateTime($usuarioPremio->fecha);
+                                        $fechaFin = new \DateTime(); // Fecha actual de HOY
+
+                                        $intervalo = new \DateInterval('P1D'); // Intervalo de 1 día
+
+                                        $fechaActual = clone $fechaInicio;
+                                        $noches=0;
+                                        foreach($reservas as $reserva){
+                                            $fechaInicio_reserva = new \DateTime($reserva->fecha_i);
+                                            $fechaFin_reserva = new \DateTime($reserva->fecha_e);
+                                            $diferencia = $fechaInicio_reserva->diff($fechaFin_reserva);
+                                            if($reserva->email===$usuario->email && intval($reserva->status)===1 && $fechaInicio_reserva > $fechaInicio){
+                                              $noches+=intval($diferencia->days);
+                                            
+                                            }
+                                        }
+                                        if($noches>17){
+                                            $premios_usuario2 = new Premios_usuario;
+                                            foreach ($premios as $premio) {
+                                                if (intval($premio->cant_noches) === 28) {
+                                                    $premios_usuario2->setPremio_id($premio->id);
+                                                    $premios_usuario2->setUsuarios_id($usuario->id);
+                                                    $premios_usuario2->setStatus('0');
+                                                    $premios_usuario2->setUsado('0');
+                                                    $email = new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '18', $premio->mensaje);
+                                                    $email->enviarPremio();
+                                                    $premios_usuario2->guardar();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                    }else if ($encontrado === 0) {
+                        $premios_usuario2 = new Premios_usuario;
+                        foreach ($premios as $premio) {
+                            if (intval($premio->cant_noches) === 28) {
+                                $premios_usuario2->setPremio_id($premio->id);
+                                $premios_usuario2->setUsuarios_id($usuario->id);
+                                $premios_usuario2->setStatus('0');
+                                $premios_usuario2->setUsado('0');
+                                $email = new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '28', $premio->mensaje);
+                                $email->enviarPremio();
+                                $premios_usuario2->guardar();
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-
     public static function actPremio()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -313,29 +384,15 @@ class UsuariosController
                 if (validarTipoContenido($tipo)) {
 
                     $usuario = Usuario::find($id);
-                    $reservas = Reserva::where2('usuarios_id', $id);
                     $premios_usuario = Premios_usuario::where2('usuarios_id', $id);
-                    $Comentarios = Comentarios::where2('usuarios_id', $id);
+
                     $chat = Chat::where2('usuarios_id', $id);
-                    if ($reservas) {
-                        foreach ($reservas as $reserva) {
-                            $reservahab = ReservaHabitacion::re_habitaciones_all($reserva->id);
-                            foreach ($reservahab as $reb) {
-                                $reb->eliminare();
-                            }
-                            $reserva->eliminare();
-                        }
-                    }
                     if ($premios_usuario) {
                         foreach ($premios_usuario as $premio) {
                             $premio->eliminare();
                         }
                     }
-                    if ($Comentarios) {
-                        foreach ($Comentarios as $comen) {
-                            $comen->eliminare();
-                        }
-                    }
+
                     if ($chat) {
                         foreach ($chat as $c) {
                             $c->eliminare();
@@ -388,6 +445,27 @@ class UsuariosController
             'errores' => $errores,
             'no' => $no,
             'no2' => $no2
+        ]);
+    }
+
+
+    public static function buscar(Router $router)
+    {
+        $valor = $_POST['buscador'];
+        // $reservashabitaciones=ReservaHabitacion::allDesc();
+
+        $usuarios = Usuario::allUsuarios2($valor);
+
+        $result = Reserva::reservas();
+        $no2 = true;
+        $no = true;
+        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
+        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $router->render('auth/noches', [
+            'resultado' => $resultado,
+            'usuarios' => $usuarios,
+            'no2' => $no2,
+            'no' => $no
         ]);
     }
 }

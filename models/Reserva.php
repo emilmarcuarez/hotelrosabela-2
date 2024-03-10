@@ -5,7 +5,8 @@
  class Reserva extends Activerecord{
     protected static $tabla = 'reserva';
     protected static $pagina='Reservas/mostrar';
-    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad'];
+    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad', 'id_beneficio'];
+    protected static $columnasDB2=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad'];
 
 
     public $id;
@@ -34,6 +35,7 @@
     public $monto_transferencia;
     public $numero_i;
     public $nacionalidad;
+    public $id_beneficio;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
       $this->fecha_i=$args['fecha_i'] ?? '';
@@ -61,9 +63,9 @@
       $this->monto_transferencia=$args['monto_transferencia'] ?? '';
       $this->numero_i=$args['numero_i'] ?? '';
       $this->nacionalidad=$args['nacionalidad'] ?? '';
+      $this->id_beneficio= $args['id_beneficio'] ?? '';
     }
-
-   
+//  EL ID_BENEFICIO SE GUARDA '' ASI, VACIO MUESTRA CUANDO IMPRIMO EL FORMDATA PERO CUANDO LO ENVIA, NO SE GUARDA.
     public function guardar()
     {
         if (!is_null($this->id)) {
@@ -139,4 +141,78 @@
            unlink(CARPETA_IMAGENES_RESERVA . $this->imagen);
         }
       }
+
+      public function atributos()
+      {
+          $atributos = [];
+          foreach (static::$columnasDB as $columna) {
+              if ($columna === 'id') continue;
+              $atributos[$columna] = $this->$columna;
+          }
+          return $atributos;
+      }
+      public function atributos2()
+      {
+          $atributos = [];
+          foreach (static::$columnasDB2 as $columna) {
+              if ($columna === 'id') continue;
+              $atributos[$columna] = $this->$columna;
+          }
+          return $atributos;
+      }
+      public function sanitizarAtributos()
+    {
+        if($this->id_beneficio!==''){
+            $atributos = $this->atributos();
+                    $sanitizado = [];
+                    // arreglo asociativo 
+                    foreach ($atributos as $key => $value) {
+                        $sanitizado[$key]=self::$db->escape_string($value);
+                    }
+
+                    return $sanitizado;
+        }else{
+            $atributos = $this->atributos2();
+            $sanitizado = [];
+            // arreglo asociativo 
+            foreach ($atributos as $key => $value) {
+                $sanitizado[$key]=self::$db->escape_string($value);
+            }
+
+            return $sanitizado;
+        }
+       
+    }
+    public function actualizar_beneficio() {
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos2();
+
+        // Iterar para ir agregando cada campo de la BD
+       
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+    
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 "; 
+
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+    public function sanitizarAtributos2()
+    {
+            $atributos = $this->atributos();
+                    $sanitizado = [];
+                    // arreglo asociativo 
+                    foreach ($atributos as $key => $value) {
+                        $sanitizado[$key]=self::$db->escape_string($value);
+                    }
+
+                    return $sanitizado;
+    }
  }
