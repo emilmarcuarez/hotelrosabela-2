@@ -275,7 +275,7 @@ overlay.appendChild(cerrarModal);
 }
 
 
-// chat de la parye del servidor. Panel administrativo
+// chat de la parte del servidor. Panel administrativo
 
 if (document.querySelector(".typing-area2")) {
 	const form_chat_admi = document.querySelector(".typing-area2"),
@@ -383,64 +383,6 @@ if (document.querySelector(".nav_menu_bg")) {
 		menu_div.classList.toggle("active_menu");
 	});
 }
-
-// la parte de gestion de usuario
-// if (document.querySelector(".formulario_usuario_act")) {
-// 	const form_gestion = document.querySelector(".formulario_usuario_act"),
-// 		id_usuario_act = form_gestion.querySelector(".id_usuario_act").value,
-// 		nombre_id = form_gestion.querySelector("#nombre_id"),
-// 		fecha_id = form_gestion.querySelector("#fecha_id"),
-// 		apellido_id = form_gestion.querySelector("#apellido_id"),
-// 		sexo_id = form_gestion.querySelector("#sexo_id"),
-// 		cedula_id = form_gestion.querySelector("#identificacion_id"),
-// 		nro_telefono_id = form_gestion.querySelector("#nro_telefono_id"),
-// 		pais_id = form_gestion.querySelector("#countries-list"),
-// 		estado_id = form_gestion.querySelector("#estado_id"),
-// 		ciudad_id = form_gestion.querySelector("#ciudad_id"),
-// 		direccion_id = form_gestion.querySelector("#direccion_id"),
-// 		c_postal_id = form_gestion.querySelector("#c_postal_id"),
-// 		email_id = form_gestion.querySelector("#email_id"),
-// 		contrasenia = form_gestion.querySelector("#contarsenia_id"),
-// 		sendBtn2 = form_gestion.querySelector("button");
-
-// 	form_gestion.onsubmit = (e) => {
-// 		e.preventDefault();
-// 	}
-
-// 	// inputField.focus();
-
-
-// 	sendBtn2.onclick = () => {
-// 		let xhr = new XMLHttpRequest();
-// 		xhr.open("POST", "/actualizar-usuario", true);
-// 		xhr.onload = () => {
-// 			if (xhr.readyState === XMLHttpRequest.DONE) {
-// 				if (xhr.status === 200) {
-// 					Swal.fire({
-// 						position: "top-end",
-// 						icon: "success",
-// 						title: "Sus datos han sido actualizados con exito",
-// 						showConfirmButton: false,
-// 						timer: 1500
-// 					}).then(() => {
-// 						setTimeout(() => {
-// 							window.location.reload();
-// 						}, 2000);
-// 					})
-// 				} else {
-// 					Swal.fire({
-// 						icon: 'info',
-// 						title: 'Revise su conexion a internet',
-// 						text: 'No se actualizaron sus datos, por favor, intente mas tarde.'
-// 					})
-// 				}
-// 			}
-// 		}
-// 		let formData = new FormData(form_gestion);
-// 		xhr.send(formData);
-// 	}
-// }
-
 // IN HOUSE LA RESERVA
 if (document.querySelectorAll(".form_reservas")) {
 
@@ -833,7 +775,8 @@ const reserva = {
 	referencia:'',
 	monto_transferencia:'',
 	numero_i:'',
-	nacionalidad:''
+	nacionalidad:'',
+	id_beneficio:''
 };
 
 const re_habitacion = {
@@ -1558,9 +1501,6 @@ function seleccionarHora() {
 
 	});
 }
-function finalreserva() {
-
-}
 function mostrarResumen() {
 	const resumen = document.querySelector('.contenido-resumen');
 	const boton_reserva = document.querySelector('.boton-reserva');
@@ -1847,7 +1787,7 @@ function uuidv4() {
 
 async function reservarHabitacion() {
 
-	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal , n_empresa, apellidos, nombres, nro_telefono,email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad } = reserva;
+	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal , n_empresa, apellidos, nombres, nro_telefono,email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad,id_beneficio} = reserva;
 	// Generar código único para la reserva
 	const codigo2 = uuidv4();
 	const idHabitaciones = habitaciones.map(habitacion => habitacion.id);
@@ -1865,6 +1805,20 @@ async function reservarHabitacion() {
 	const nro_telefono2 = nro_telefono1.value;
 	const email1 = document.getElementById('email_correo');
 	const email2 = email1.value;
+	let contar_beneficio2=document.querySelectorAll('.id_beneficio');
+	if(contar_beneficio2.length>0){
+		const id_beneficio1 = document.querySelectorAll('.id_beneficio');
+	var beneficio2='';
+	id_beneficio1.forEach(beneficio => {
+		if (beneficio.checked) {
+			beneficio2= beneficio.value;
+			
+		}
+	});
+
+	}
+	console.log(beneficio2);	
+	
 	console.log(idHabitaciones);
 
 	const datos = new FormData();
@@ -1928,6 +1882,15 @@ async function reservarHabitacion() {
 	reserva.nro_telefono=nro_telefono2;
 	datos.append('email',email2);
 	reserva.email=email2;
+	let contar_beneficio=document.querySelectorAll('.id_beneficio');
+	if(contar_beneficio.length>0){
+		datos.append('id_beneficio',beneficio2);
+		reserva.id_beneficio=beneficio2;
+	}else{
+		// reserva.id_beneficio=beneficio2;
+		datos.append('id_beneficio',id_beneficio);
+	}
+	
 
 
 	// pago por transferencia
@@ -1946,7 +1909,7 @@ async function reservarHabitacion() {
 	});
 	console.log(reserva);
 	reserva.codigo = codigo2;
-	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && key!=='i_fiscal' && key!=='n_empresa' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
+	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && key!=='i_fiscal'  && key!=='id_beneficio'  && key!=='n_empresa' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
 		Swal.fire({
 			icon: 'error',
 			title: 'Error',
@@ -1962,7 +1925,8 @@ async function reservarHabitacion() {
 				method: 'POST',
 				body: datos
 			});
-
+			console.log(respuesta);
+			console.log('YA DI LA RESPUESTA');
 			const resultado = await respuesta.json();
 			console.log(resultado);
 			if (resultado.resultado) {
@@ -2290,12 +2254,15 @@ function eventListeners() {
 	}
 	if (document.querySelectorAll('input[name="m_pago"]')) {
 		const radioButtons = document.querySelectorAll('input[name="m_pago"]');
-		// para añadirle un eventlisteners a un elemento:
 		radioButtons.forEach(input => input.addEventListener('click', mostrarMetodosPago));
+	}
+	if (document.querySelectorAll('input[name="evento[tipo_lugar]"]')) {
+		const metodoLugar = document.querySelectorAll('input[name="evento[tipo_lugar]"]')
+		metodoLugar.forEach(input => input.addEventListener('click', mostrarMetodosLugar));
 	}
 
 }
-
+// contacto
 function mostrarMetodosContacto(e) {
 	const contactoDiv = document.querySelector('#contacto');
 
@@ -2318,6 +2285,25 @@ function mostrarMetodosContacto(e) {
 	<input type="email" placeholder="Tu Email" id="email" name="contacto[email]" required>`;
 	}
 }
+
+// Lugar en donde se realizara el evento
+function mostrarMetodosLugar(e) {
+	const lugarDiv = document.querySelector('#lugar_evento_text');
+	const centroDiv = document.querySelector('#evento_centro_detalles');
+	const salonDiv = document.querySelector('#evento_salon_detalles');
+
+	if (e.target.value === 'Salon') {
+		// centroDiv.classList.add('mostrar');
+		centroDiv.classList.add('no-mostrar');
+		salonDiv.classList.remove('no-mostrar');
+	} else {
+		salonDiv.classList.add('no-mostrar');
+		centroDiv.classList.remove('no-mostrar');
+	}
+}
+
+
+// formas de pago en reservas
 function mostrarMetodosPago(e) {
 	const pagoDiv = document.querySelector('#pago');
 

@@ -1,107 +1,176 @@
-.fondo_evento_img{
-    background: url(/build/img/evento3.webp);
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 40rem;
+.fondo_evento_img {
+    .carousel-item {
+        overflow: hidden;
+        height: 51rem;
+    }
+    .d-block.w-100 {
+        height: 66rem;
+      }
 }
-.f_evento2{
+.no-mostrar{
+    display: none;
+}
+.lugar_evento {
+    display: flex;
+    gap: 3rem;
+  }
+.mostrar{
+    display: block !important;
+}
+.f_evento2 {
     background-image: url(/build/img/quienes1.webp);
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 3rem;
 }
-.f_eventos3{
-    background:hsla(0, 0%, 0%, 0.28);
+
+.f_eventos3 {
+    background: hsla(0, 0%, 0%, 0.28);
     padding-bottom: 3rem;
+    padding-top: 3rem;
 }
-.text_titulo_ev{
-    padding: 5rem 14rem;
-    color: $blanco;
+
+.tit2_eventos h5 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    color: black;
+}
+
+.text_titulo_ev {
+    color: #070707;
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding: 1rem 24rem;
     text-align: left;
-    font-weight: 700;
-    font-size: 3.4rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    background: #fff;
 }
-.evento_proximo{
+
+.evento_proximo {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding-bottom: 7rem;
 }
-.imagenes_cont{
+
+.imagenes_cont {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
     gap: 2rem;
-    
-    .img_ev_{
-        img{
-        width: 100%;
-        border-radius: 1rem;
-        height: 32rem;
+
+    .img_ev_ {
+        img {
+            width: 100%;
+            border-radius: 1rem;
+            height: 32rem;
         }
-        &:hover{
+
+        &:hover {
             opacity: .8;
             -webkit-transition: ease-out 0.4s;
             -moz-transition: ease-out 0.4s;
             transition: ease-out 0.4s;
         }
     }
-   
+
 }
-.tit2_eventos{
+
+.tit2_eventos {
     color: $grisOscuro;
     padding: 3rem;
     font-size: 4rem;
-    hr{
+
+    hr {
         border: 1px solid #e3719d;
     }
 }
+
 .text_info_evento {
     display: grid;
     grid-template-rows: 70% 20%;
     height: 100%;
     padding: 1rem;
-  }
-.evento_prox{
+}
+
+.logo_rosa_bela_pgsecundarias {
+    align-items: center;
+    background: #f3f3f3;
+    padding: 5rem;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 20% 40%;
+    gap: 3rem;
+
+    .img_restaurantes2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .img_rest_cont {
+        width: 15rem;
+        height: 15rem;
+        box-shadow: 2px 4px 9px -3px rgba(166, 166, 166, 0.9);
+        -webkit-box-shadow: 2px 4px 9px -3px rgba(166, 166, 166, 0.9);
+        -moz-box-shadow: 2px 4px 9px -3px rgba(166, 166, 166, 0.9);
+
+        img {
+            width: 15rem;
+            height: 15rem;
+        }
+    }
+}
+
+.logo_negro_hotel {
+    width: 28rem;
+}
+
+.evento_prox {
+    display: grid;
+    grid-template-columns: 50% 47%;
+    border: 1px solid #cfcfcf;
     background-color: #fff9f9;
     gap: 1rem;
-    // padding: 1rem;
-    border-radius: 1rem;
-    .img_eventos{
-        img{
+
+    .img_eventos {
+        img {
             width: 100%;
             height: 31rem;
         }
     }
-    .text_evento{
+
+    .text_evento {
         background-color: $blanco;
         width: 100%;
-        p{
+
+        p {
             color: $grisOscuro;
         }
-        .text_titulo_ev2{
+
+        .text_titulo_ev2 {
             font-weight: 700;
             font-size: 1.5rem;
             padding-top: 1rem;
         }
-        .text_info_evento{
-           
+
+        .text_info_evento {
+
             // gap: 2rem;
-            .part11_info_eve span
-                {
+            .part11_info_eve span {
                 color: #ce1066;
-                }
-            p{
+            }
+
+            p {
                 font-size: 1.3rem;
             }
-           
-            a{
+
+            a {
                 display: inline-block;
                 padding: .5rem .5rem;
                 text-align: center;
@@ -115,10 +184,10 @@
     }
 }
 
-@media screen and (max-width: 900px){
-   
- // eventos
-    .evento_proximo{
+@media screen and (max-width: 900px) {
+
+    // eventos
+    .evento_proximo {
         grid-template-columns: 100%;
         padding: 0rem 2rem 7rem 2rem;
     }

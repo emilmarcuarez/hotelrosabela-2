@@ -1,9 +1,25 @@
 <div class="fondo_evento">
-<div class="fondo_centro" >
 
-</div>
-<div class="logo_rosa_bela_centrado">
-    <img src="build/img/logo_color_bien-01.webp" alt="">
+<div class="logo_rosa_bela_pgsecundarias">
+<div class="img_restaurantes2">
+                <div class="img_rest_cont">
+                    <img src="build/img/Logo Final Castelo-01.webp" alt="logo castelo">
+                </div>
+                <div class="img_rest_cont">
+                    <img src="build/img/Logo Final Itati-01.webp" alt="">
+                </div>
+                
+            </div>
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+    <div class="img_restaurantes2">
+                <div class="img_rest_cont">
+                    <img src="build/img/Logo Final KAI-01.webp" alt="">
+                </div>
+                <div class="img_rest_cont">
+                    <img src="build/img/Logo Final Nikkei-01.webp" alt="">
+                </div>
+                
+            </div>
 </div>
     <main class="centro_pag contenedor">
         <h3 class="h3_centri_titulo"><?php echo $centro->nombre ?></h3>
@@ -48,47 +64,7 @@
             </div>
         </div>
 
-        <h4 class="comentario_titulo">Comentarios</h4>
-            <!-- <hr class="tit_comen"> -->
-            <div class="comentarios">
-
-            </div>                
-
-
-                <form class="formulario form_comentario">
-                <!-- calificacion estrella -->
-                <span class="gl-star-rating">
-                <select class="star-rating" value="valor">
-                    <option value="">Seleccione una opcion</option>
-                    <option value="5">Excelente</option>
-                    <option value="4">Muy buena</option>
-                    <option value="3">Esperaba mas</option>
-                    <option value="2">No me gusto</option>
-                    <option value="1">Horrible</option>
-                </select>
-                <span class="gl-star-rating--stars">
-                    <span data-value="1"></span>
-                    <span data-value="2"></span>
-                    <span data-value="3"></span>
-                    <span data-value="4"></span>
-                    <span data-value="5"></span>
-                </span> 
-            </span>
-                <!-- comentario -->
-                    <label for="mensaje">Comentario:</label>
-                    <textarea id="mensaje" name="mensaje" cols="30" rows="10" class="mensaje_comentario"></textarea> 
-                    <input type="hidden" name="centros_consumo_id" id="centros_consumo_id" class="centros_consumo_id" value="<?php echo $centro->id; ?>">
-                    <input type="hidden" name="usuarios_id" id="usuarios_id"  value="<?php echo $_SESSION['usuario_id']?>">
-                    <?php if($_SESSION['usuario_id']){?>
-                    <button id="btnEnviar_comentario" class="boton boton-verde">Enviar comentario</button>
-                    <?php }else{; ?>
-                    <div class="else_comen">
-                    <button id="btnEnviar_comentario" class="boton boton-verde" disabled >Enviar comentario</button>
-                    <p>Inicia sesion para poder habilitar el espacio para realizar un comentario.</p>
-                </div>
-            <?php } ?>
-                </form>
-           
+      
 
 <!-- proximos eventos - extra -->
         <h3 class="eventos_centro_h3">Proximos eventos en el hotel</h3>

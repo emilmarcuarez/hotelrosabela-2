@@ -1,4 +1,8 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="../build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
 <main class="contenedor reservas_administrador">
     <!-- estos numeros de resultado se mandan por el header que redirecciona a la pagina principal-->
     <?php 

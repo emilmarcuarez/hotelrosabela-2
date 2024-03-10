@@ -8,8 +8,14 @@
     gap: 1rem;
   }
 
-
-
+  .flex_busqueda {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .espacio3 {
+    margin-bottom: 3rem;
+  }
   
   .boton-rojo-block_reservas{
     border: none;

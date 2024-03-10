@@ -186,6 +186,15 @@ class Activerecord
         }
         return $atributos;
     }
+    public function atributos2()
+    {
+        $atributos = [];
+        foreach (static::$columnasDB2 as $columna) {
+            if ($columna === 'id') continue;
+            $atributos[$columna] = $this->$columna;
+        }
+        return $atributos;
+    }
 
     // sanitizar
     public function sanitizarAtributos()
@@ -275,8 +284,17 @@ class Activerecord
     public static function allUsuarios($valor)
     {
         $query = "SELECT *
+        FROM reserva 
+        WHERE nombres LIKE '%".$valor."%' OR apellidos LIKE '%".$valor."%' OR email LIKE '%".$valor."%' OR codigo LIKE '".$valor."' ORDER BY id DESC;;";
+        //  debuguear($query);
+        $resultado = static::consultarSQL($query);
+        return $resultado;
+    }
+    public static function allUsuarios2($valor)
+    {
+        $query = "SELECT *
         FROM usuarios 
-        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR identificacion LIKE '%".$valor."%' ;";
+        WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR email LIKE '%".$valor."%'  OR identificacion LIKE '%".$valor."%' OR codigo LIKE '%".$valor."%';";
         //  debuguear($query);
         $resultado = static::consultarSQL($query);
         return $resultado;
@@ -316,6 +334,8 @@ class Activerecord
         $resultado = static::consultarSQL($query);
         return $resultado;
     }
+
+
 
 // obtiene determinado numero de registros
 public static function get($cantidad)

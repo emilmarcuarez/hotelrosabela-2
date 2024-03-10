@@ -17,6 +17,7 @@ use Controllers\ComentarioController;
 use Controllers\chatbotController;
 use Controllers\PremiosController;
 use Controllers\ReservaController;
+use Controllers\BeneficioController;
 // use Model\Usuario;
 use MVC\Router;
 $router= new Router();
@@ -50,6 +51,15 @@ $router->get('/empleados/actualizar', [EmpleadosController::class, 'actualizar']
 $router->post('/empleados/actualizar', [EmpleadosController::class, 'actualizar']);
 $router->get('/empleados/mostrar', [EmpleadosController::class, 'index']);
 $router->post('/empleados/eliminar', [EmpleadosController::class, 'eliminar']);
+
+
+// beneficio
+$router->get('/beneficios/crear', [BeneficioController::class, 'crear']);
+$router->post('/beneficios/crear', [BeneficioController::class, 'crear']);
+$router->get('/beneficios/actualizar', [BeneficioController::class, 'actualizar']);
+$router->post('/beneficios/actualizar', [BeneficioController::class, 'actualizar']);
+$router->get('/beneficios/mostrar', [BeneficioController::class, 'index']);
+$router->post('/beneficios/eliminar', [BeneficioController::class, 'eliminar']);
 
 // chef
 $router->get('/chef/crear', [ChefController::class, 'crear']);
@@ -91,6 +101,7 @@ $router->post('/reservas/crear', [ReservaController::class, 'crear']);
 $router->post('/reservas/confirmar', [ReservaController::class, 'confirmar']);
 $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 $router->post('/reservas/buscar', [ReservaController::class, 'buscar']);
+$router->post('/buscar-usuario', [UsuariosController::class, 'buscar']);
 $router->get('/mostrar_usuario', [ReservaController::class, 'mostrar_usuario']);
 // administrador --- desde el panel
 // $router->post('/auth/mostrar', [LoginController::class, 'index']);

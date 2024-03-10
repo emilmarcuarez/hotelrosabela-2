@@ -1,3 +1,28 @@
+<div class="fondo_nosotros_carrusel">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+
+          <img src="/build/img/nosotros4.jpg" class="d-block w-100 centro5" alt="...">
+        </div>
+        <div class="carousel-item">
+
+          <img src="/build/img/nosotros5.jpg" class="d-block w-100 centro5" alt="...">
+        </div>
+        <div class="carousel-item">
+
+          <img src="/build/img/nosotros6.jpg" class="d-block w-100 centro5" alt="...">
+        </div>
+        <div class="carousel-item">
+
+          <img src="/build/img/nosotros7.jpg" class="d-block w-100 centro5" alt="...">
+        </div>
+      </div>
+    </div>
+</div>
+<div class="logo_rosa_bela_centrado">
+    <img src="build/img/logo_color_bien-01.webp" alt="">
+</div>
 <main class="contenedor margin_nosotros">
     <div class="quienessomos">
         <div class="quienes_imagen">
@@ -26,7 +51,47 @@ de todo el talento humano, aplicando y fomentando siempre las practicas de un
 desarrollo sostenible.</p>
         </div>
         <div class="imagen_mision">
-            <img src="/build/img/mision.webp" alt="mision_imagen">
+        <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        ¿Que ofrecemos?
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong></strong>Rosa Bela Hotel & Convention Center tiene piscina al aire libre, gimnasio, jardín y salón de uso común en Puerto Ordaz. Este alojamiento ofrece restaurantes, servicio de traslado gratuito y servicio de habitaciones, además de wifi gratis en todo el alojamiento. .
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Servicios mas populares
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <!-- <strong></strong> -->
+        Sumérjase en una experiencia de lujo con una gama de servicios excepcionales. Desde nuestra exquisita piscina al aire libre hasta nuestro aparcamiento gratuito, nos esforzamos por satisfacer todas sus necesidades. Disfrute de la comodidad con nuestro servicio a las habitaciones y nuestras instalaciones adaptadas para personas de movilidad reducida. Comience su día con un desayuno gourmet y manténgase en forma en nuestro moderno gimnasio.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Plan de fidelizacion
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>RB Loyalty</strong> 
+Para RB Gold, ofrecemos a nuestros miembros una experiencia de primera clase con beneficios exclusivos diseñados para hacer su estancia aún más memorable. Disfrute de un check-in y check-out prioritario para maximizar su tiempo, upgrades de habitación sujetos a disponibilidad, acceso exclusivo a nuestra Sala VIP con servicios complementarios, un obsequio de bienvenida especial y la conveniencia de un chat en línea disponible las 24 horas. 
+      </div>
+    </div>
+  </div>
+</div>
+            <!-- <img src="/build/img/mision.webp" alt="mision_imagen"> -->
         </div>
     </div>
     <div class="vision">

@@ -1,15 +1,15 @@
 
 .premio_part_div input {
     border: none;
-    background: #458787;
+    background: #f5507d;
     color: white;
     padding: .5rem 1rem;
     border-radius: 2rem;
     margin: 2rem 0rem 1rem 0rem;
 
     &:hover{
-        transition: .2rem ease-in;
-        background-color: #345e5e;
+        transition: .2s ease-in;
+        background-color: #f32e63;
         cursor: pointer;
     }
   }

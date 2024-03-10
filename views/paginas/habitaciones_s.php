@@ -127,6 +127,41 @@
 						</div>
 						<div class="p_personal">
 							<h4 class="margen_arriba">Numero de telefono </h4>
+							<!-- <select name="" id="">
+							<option value="+58">+58</option>
+							<option value="+61">+61</option>
+							<option value="+32">+32</option>
+							<option value="+43">+43</option>
+							<option value="+359">+359</option>
+							<option value="+1">+1</option>
+							<option value="+57">+57</option>
+							<option value="+385">+385</option>
+							<option value="+421">+421</option>
+							<option value="+386">+386</option>
+							<option value="+34">+34</option>
+							<option value="+372">+372</option>
+							<option value="+358">+358</option>
+							<option value="+33">+33</option>
+							<option value="+30">+30</option>
+							<option value="+31">+31</option>
+							<option value="+353">+353</option>
+							<option value="+354">+354</option>
+							<option value="+39">+39</option>
+							<option value="+371">+371</option>
+							<option value="+370">+370</option>
+							<option value="+352">+352</option>
+							<option value="+356">+356</option>
+							<option value="+212">+212</option>
+							<option value="+52">+52</option>
+							<option value="+47">+47</option>
+							<option value="+48">+48</option>
+							<option value="+351">+351</option>
+							<option value="+44">+44</option>
+							<option value="+7">+7</option>
+							<option value="+46">+46</option>
+							<option value="+41">+41</option>
+							
+						</select> -->
 							<input type="text" name="nro_telefono" id="nro_telefono" placeholder="+58 424-323892s">
 						</div>
 						<div class="p_personal">
@@ -161,6 +196,38 @@
 					<p class="opcion_traslado">¿Desea que la opcion del traslado al hotel? (No incluye un costo adicional)</p>
 					<input type="checkbox" id="traslado" name="traslado" value="si" checked />
 					<label for="traslado">Si deseo usar este servicio</label>
+					<?php if ($_SESSION['usuario_id']) { ?>
+					
+					<?php if (intval($usuario->noches) > 9 && intval($usuario->noches)<20) { ?>
+						<h4 class="titulo_beneficio">
+							Beneficios disponibles -<span> RB Loyalty GOLD</span>
+						</h4>
+						<div class="beneficios_disponibles">
+						<?php foreach ($beneficios as $beneficio) { ?>
+							<?php if(intval($beneficio->noches)===10){?>
+								<div class="div_beneficio">
+									<input type="radio" name="id_beneficio" class="id_beneficio" value="<?php echo $beneficio->id?>">
+									<label for="id_beneficio"><?php echo $beneficio->descripcion?></label>
+								</div>
+							<?php }?>
+						<?php } ?>
+						</div>
+					<?php } else if(intval($usuario->noches) > 27){ ?>
+						<h4 class="titulo_beneficio">
+							Beneficios disponibles -<span> RB Loyalty PLATINIUM</span>
+						</h4>
+						<div class="beneficios_disponibles">
+						<?php foreach ($beneficios as $beneficio) { ?>
+							<?php if(intval($beneficio->noches)===28){?>
+								<div class="div_beneficio">
+									<input type="radio" name="id_beneficio" class="id_beneficio" value="<?php echo $beneficio->id?>">
+									<label for="id_beneficio"><?php echo $beneficio->descripcion?></label>
+								</div>
+							<?php }?>
+						<?php } ?>
+						</div>
+					<?php } ?>
+			<?php } ?>
 				</div>
 				<div class="grid_cont_paso2_parte">
 					<div class="contenido-resumen2"></div>
@@ -173,72 +240,58 @@
 
 
 				</div>
-				<!-- <h3>Resumen de la reserva</h3>
-		<div class="reserva_comp_resumen">
-
-			<div class="part_resumen_reserva">
-				<div class="resumen_res_contenedor">
-					<div class="contenido-resumen">
-
-					</div>
-					<div class="part_resumen_monto">
-
-			</div>
-				</div>
 				
-				<div class="imagen_re">
-					<!-- <img src="build/img/ubi.webp" alt="imagen de resumen"> -->
+				</div>
 			</div>
 		</div>
-	</div>
-
+	
 
 	<!-- paso 4 -->
 	<div class="seccion" id="paso-3">
 		<div class="contenedor resumen_final">
-		<h3>Resumen de la reserva</h3>
-		<div class="reserva_comp_resumen">
+			<h3>Resumen de la reserva</h3>
+			<div class="reserva_comp_resumen">
 
-			<div class="part_resumen_reserva">
-				<div class="resumen_res_contenedor">
-					<div class="contenido-resumen">
+				<div class="part_resumen_reserva">
+					<div class="resumen_res_contenedor">
+						<div class="contenido-resumen">
 
+						</div>
+						<div class="part_resumen_monto">
+
+						</div>
 					</div>
-					<div class="part_resumen_monto">
 
+					<div class="imagen_re">
+						<!-- <img src="build/img/ubi.webp" alt="imagen de resumen"> -->
 					</div>
 				</div>
 
-				<div class="imagen_re">
-					<!-- <img src="build/img/ubi.webp" alt="imagen de resumen"> -->
+			</div>
+
+			<h4>Metodo de pago</h4>
+			<div class="metodo_pago">
+				<div class="pago_part">
+					<label for="Transferencia">Transferencia</label>
+					<input type="radio" value="Transferencia" id="transferencia" name="m_pago" required>
 				</div>
-			</div>
-
-		</div>
-
-		<h4>Metodo de pago</h4>
-		<div class="metodo_pago">
-			<div class="pago_part">
-				<label for="Transferencia">Transferencia</label>
-				<input type="radio" value="Transferencia" id="transferencia" name="m_pago" required>
-			</div>
-			<!-- <div class="pago_part">
+				<!-- <div class="pago_part">
 				<label for="Bankofamerica">Bank of america</label>
 				<input type="radio" value="Bank of America" id="Bankofamerica" name="m_pago" required>
 			</div> -->
-			<div class="pago_part">
-				<label for="pagarHotel">Pagar en el hotel</label>
-				<input type="radio" value="Pagar en el hotel" id="pagarHotel" name="m_pago" required>
+				<div class="pago_part">
+					<label for="pagarHotel">Pagar en el hotel</label>
+					<input type="radio" value="Pagar en el hotel" id="pagarHotel" name="m_pago" required>
+				</div>
+
 			</div>
 
+			<div id="pago"></div>
+
+			<div class="boton-reserva">
+
+			</div>
 		</div>
-
-		<div id="pago"></div>
-
-		<div class="boton-reserva">
-
-		</div>
-	</div>
 	</div>
 
 	<!-- </div> -->

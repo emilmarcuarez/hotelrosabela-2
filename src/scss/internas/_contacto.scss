@@ -90,11 +90,18 @@
             border: .1px solid #c0c0c0;
             border-radius: 1rem;
             font-size: 1.2rem;
+            margin-top: 2rem;
     }
 }
 .formulario #fechaReserva {
     width: 31rem;
   }
+
+#fechaEvento{
+  width: 31rem;
+  border: 1px solid #cac5c5;
+  padding: 1rem;
+}
 @media screen and (max-width: 900px) {
 
     .opciones_contacto h4 {

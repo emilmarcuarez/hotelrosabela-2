@@ -1,4 +1,22 @@
-
+// actualizar un usuario
+.div_actualizar_usuario{
+    .field_registro .r_part input {
+        border: .5px solid #c2bfbf;
+   
+    }
+    .field_registro .r_part select,
+    .field_registro3 .r_part2 input,
+    .field_registro2 .r_part2 input,
+    .field_registro3 .r_part2 select, .field_registro3 .r_part2 textarea {
+        border: .5px solid #c2bfbf;
+    }
+    .field_registro2 .r_part2 select {
+        background-color: #fff;
+        border: .5px solid #c2bfbf;
+        padding: 1rem;
+        width: 94%;
+      }
+}
 
 // contraseña
 .password-input-container {

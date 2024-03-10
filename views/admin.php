@@ -15,6 +15,7 @@
     <a href="/auth/mostrarusuarios">Usuarios</a>
     <a href="/auth/mostrar">Usuarios Administradores</a>
     <a href="/premios/mostrar">Premios disponibles</a>
+    <a href="/beneficios/mostrar">Beneficios</a>
   <?php } ?>
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/chats/mostrar2">Chats</a>

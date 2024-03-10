@@ -14,7 +14,47 @@
     }
     
 }
+.imagen_habitacion_grande {
+    background: #e8e8e8;
+  }
 
+  .grid_info_habitacion {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 60% 40%;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    .informacion_general {
+        border-right: 3px solid #f21552;
+      }
+      .informacion_general {
+        border-right: 3px solid #f21552;
+      }
+      .text_hab_cant {
+        margin-right: 7rem;
+        background: #fe7aa8;
+        border-radius: 4rem;
+        margin-bottom: 2rem;
+      }
+      .text_hab_cant p {
+        text-align: center;
+        color: white;
+        font-size: 1.5rem;
+      }
+  }
+.text_align_nombre h5 {
+    font-size: 4rem;
+  }
+  .img_hab {
+    // padding: 4rem 0rem;
+  }
+  .img_hab img {
+    width: 100%;
+  }
+.nombre_habitacion_diseno {
+    background: #cfcccc;
+    padding: 4rem 0rem;
+  }
 .eventos_form_radio2{
     display: flex;
   flex-direction: column;
@@ -28,9 +68,6 @@
     grid-template-columns: 70% 30%;
     gap: 2rem;
     .cont_hab_p{
-        // display: flex;
-        //  flex-direction: row;
-        
          .hab_img_text{
            
             .img_hab{
@@ -39,7 +76,7 @@
                 }
             }
             .text_hab_cant{
-                background-color:#8a6f76 ;
+                background-color: #3b3939;
                 padding-left: 2rem;
                 p{
                     color: $blanco;
@@ -64,7 +101,7 @@
                         align-items: center;
                         gap: 1rem;
                         i{
-                            color: #cc1f6d;
+                            color: #ec3a6d;
                         }
                         p{
                             color: #473d3d;
@@ -76,7 +113,7 @@
          .hab_info_text{
             background-color: #c9c4c445;
             .f_part1{
-                background-color: #8a6f76;
+                background-color: #3b3939;
             }
             .hab_info_partes2{
                 display: flex;
@@ -89,8 +126,9 @@
                     justify-content: center;
                     .tooltip{
                         i,svg{
-                            color: #ce1066;
+                            stroke: #ec3a6d;
                             font-size: 2rem;
+                            color: #ec3a6d;
                         }
                     }
                 }
@@ -151,7 +189,7 @@
             margin-bottom: 2rem;
             border-radius: 1rem;
             p:nth-child(1){
-                color: #ce1066;;
+                color: #ec3a6d;
                 font-size: 2rem;
                 font-weight: 600;
             }
@@ -203,7 +241,7 @@
                         a:nth-child(1){
                             padding: .5rem 1rem;
                             border-radius: .5rem;
-                            background-color: #BA0534;
+                            background-color: #c44b71;
                             &:hover{
                                 transition: ease-out 0.3s;
                                 background-color: #e9e3e500;
@@ -276,11 +314,15 @@
         width: 100%;
         height: 40rem;
     .f_gal_div{
-        background-color: #ba053466;
+        background-color: rgba(132, 132, 132, 0.55);
         width: 100%;
         height: 40rem;
       
-       
+       &:hover{
+            transition: ease-out 0.3s;
+            background-color: #29292970;
+        
+       }
     }
     
   }
@@ -292,7 +334,7 @@
         width: 100%;
         height: 40rem;
     .f_gal_div{
-        background-color: #9f425a8c;
+        background-color:rgba(132, 132, 132, 0.55);
         width: 100%;
         height: 40rem;
     }
@@ -309,7 +351,7 @@
         width: 100%;
         height: 40rem;
     .f_gal_div{
-        background-color: #38383885;
+        background-color: rgba(132, 132, 132, 0.55);
         width: 100%;
         height: 40rem;
     }
@@ -327,7 +369,7 @@
         height: 40rem;
     .f_gal_div{
         // display: none;
-        background-color: #ba053470;
+        background-color: rgba(132, 132, 132, 0.55);
         width: 100%;
         height: 40rem;
     }

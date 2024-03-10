@@ -5,8 +5,7 @@ class Evento extends Activerecord
 {
   protected static $tabla='eventos';
   protected static $pagina='eventos/mostrar';
-  protected static $columnasDB = ['id', 'nombre', 'descripcion', 'imagen', 'fecha', 'horario','centros_consumo_id'];
-
+  protected static $columnasDB = ['id', 'nombre', 'descripcion', 'imagen', 'fecha', 'horario','tipo_lugar'];
   
   public $id;
   public $nombre;
@@ -14,7 +13,7 @@ class Evento extends Activerecord
   public $imagen;
   public $fecha;
   public $horario;
-  public $centros_consumo_id;
+  public $tipo_lugar;
 
   
   
@@ -27,7 +26,7 @@ class Evento extends Activerecord
       $this->imagen = $args['imagen'] ?? '';
       $this->fecha = $args['fecha'] ?? '';
       $this->horario = $args['horario'] ?? '';
-      $this->centros_consumo_id = $args['centros_consumo_id'] ?? '';
+      $this->tipo_lugar = $args['tipo_lugar'] ?? '';
   }
 
   public function validar()
@@ -75,5 +74,59 @@ class Evento extends Activerecord
         WHERE eventos.id=".$id.";";
        $resultado = self::consultarSQL($query);
        return array_shift($resultado); //Retornaa el primer elemento
+    }
+
+    public function guardar() {
+        $resultado = '';
+        if(!is_null($this->id)) {
+            // actualizar
+            $resultado = $this->actualizar();
+        } else {
+            // Creando un nuevo registro
+            $resultado = $this->crear();
+        }
+        return $resultado;
+    }
+
+    public function crear()
+    {
+        // sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // insertar a la BASE DE DATOS
+        $query = "INSERT INTO ". static::$tabla. " (";
+        $query .= join(', ', array_keys($atributos));
+        $query .= " ) VALUES ('";
+        $query .= join("', '",array_values($atributos));
+        $query .= "') ";
+
+        $resultado = self::$db->query($query);
+        //   return es un false or true
+        // Mensaje de exito
+        // debuguear($resultado);
+        return [
+            'resultado'=>$resultado,
+            'id'=>self::$db->insert_id
+        ];
+    }
+    public function actualizar() {
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Iterar para ir agregando cada campo de la BD
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 "; 
+
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
     }
 }

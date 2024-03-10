@@ -1,8 +1,8 @@
-<div class="fondo_salon" >
 
-</div>
-<div class="logo_rosa_bela_centrado">
-    <img src="build/img/logo_color_bien-01.webp" alt="">
+<div class="logo_rosa_bela_pgsecundarias_slogo">
+
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
 </div>
 <main class="salon_pag_principal">
     
@@ -34,5 +34,9 @@
             <?php echo $salon->descripcion ?>
         </div>
     </div>
-    <a href="#">Informacion del salon</a>
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Informacion del salon</button> -->
+
+    <a href="/contacto">Informacion del salon</a>
+    
 </main>
+

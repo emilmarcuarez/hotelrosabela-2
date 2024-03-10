@@ -1,3 +1,9 @@
+<div class="logo_rosa_bela_pgsecundarias_slogo">
+
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
+</div>
+
 <div class="fondo_evento">
     <main class="evento_pagina_ind contenedor">
         <h5><?php echo $evento->nombre?></h5>

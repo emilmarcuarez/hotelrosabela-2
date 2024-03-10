@@ -47,7 +47,7 @@
                         <p>Únete al Programa de Fidelización del Hotel Rosa Bela hoy mismo y comienza a acumular millas por cada noche que pases con nosotros. Experimenta el lujo, la comodidad y la atención personalizada mientras te acercas a tus próximas aventuras, una estancia a la vez.</p>
                         </div>
 
-                        <p>¡Descubre un mundo de recompensas con el Programa de Fidelización del Hotel Rosa Bela <span>RB loyalty</span>!</p>
+                        <p class="text_centrar">¡Descubre un mundo de recompensas con el Programa de Fidelización del Hotel Rosa Bela <span>RB loyalty</span>!</p>
                     </div>
                 </div>
             </div>

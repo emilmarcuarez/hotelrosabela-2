@@ -40,20 +40,34 @@
 }
 .boton-rosado2
 {
-  background-color: #cf5a60;
+  background-color: #fff;
   border: none;
+  border-radius: .5rem;
+  color: #000;
+  display: inline-block;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid black;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  font-size: 1.5rem;
+}
+.boton-negro {
+  background-color: #3737376b;
+  border: 1px solid white;
   border-radius: .5rem;
   color: #fff;
   display: inline-block;
   height: -moz-fit-content;
   height: fit-content;
   margin-top: 2.5rem 0;
-  padding: .5rem 2rem;
+  padding: .5rem 1rem;
   text-align: center;
   text-decoration: none;
   width: -moz-fit-content;
   width: fit-content;
-  font-size: 1.4rem;
 }
 .btn-rosado3{
     background-color: #cf5a60;
@@ -104,7 +118,7 @@
     display: inline-block;
     font-weight: 400 !important;
    
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     text-decoration: none;
     width: 100% !important;
@@ -148,4 +162,12 @@
     margin-bottom: 1rem;
    
   
+  }
+  .boton-verde-recargar {
+    background: green;
+  border: none;
+  border-radius: .4rem;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
   }

@@ -1,12 +1,9 @@
 .mi-cuenta_datos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // justify-items: center;
     align-content: center;
     gap: 2rem;
-    // background: #e6e6e6;
     padding: 1rem;
-    // border: 1px solid hsl(0, 1%, 76%);
   background: #eaeaea;
   border-radius: 1rem;
 }
@@ -302,6 +299,8 @@
     border-radius: 1rem;
     border: none;
     padding: 1rem;
+    border: 2px solid black;
+    width: 40rem;
 }
 
 .buscador_reservar {
@@ -328,6 +327,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .premio_cliente p {

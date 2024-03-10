@@ -1,5 +1,5 @@
 <?php foreach($centros as $centro):?>
-
+    <a href="/centro?id=<?php echo $centro->id?>" class="link_centro_div">
 <div class="consumo_card">
         <div class="imagen_consumo">
             <img src="/imagenes_r/<?php echo $centro->imagen?>" alt="">
@@ -28,11 +28,12 @@
         </div>
         <div class="botones_consumo">
                 <div class="reputacion">
-                    <p class="valoracion">Muy bien</p>
-                    <p class="comentarios_btn">10 comentarios</p>
+                    <!-- <p class="valoracion">Muy bien</p>
+                    <p class="comentarios_btn">10 comentarios</p> -->
                     
-                    <a href="/centro?id=<?php echo $centro->id?>">Mostrar mas</a>
+                    <!-- <a href="/centro?id=<?php //echo $centro->id?>">Mostrar mas</a> -->
                 </div>
             </div>
     </div> <!--SE CIERRA EL CARD-->
+    </a>
     <?php endforeach; ?>

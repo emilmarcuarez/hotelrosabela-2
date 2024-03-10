@@ -1,9 +1,10 @@
-<div class="fondo_evento_img" >
+<div class="logo_rosa_bela_pgsecundarias_slogo">
 
+    <img src="build/img/logopng_bien2.webp" alt="" class="logo_negro_hotel">
+   
 </div>
-<div class="logo_rosa_bela_centrado">
-    <img src="build/img/logo_color_bien-01.webp" alt="">
-</div>
+
+
 <main class="contenedor seccion_contacto">
         <h2>Contacto</h2>
     

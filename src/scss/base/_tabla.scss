@@ -26,7 +26,7 @@
     margin-top: 2rem;
     background-color: #675455;
     display: grid;
-    grid-template-columns: repeat(6,1fr) 23%;
+    grid-template-columns: repeat(7,1fr) 23%;
     padding: 1.5rem;
     border-radius: .5rem;
     .cabecera_cont{
@@ -47,6 +47,24 @@
     background-color: #675455;
     display: grid;
     grid-template-columns: repeat(5,1fr);
+    padding: 1.5rem;
+    border-radius: .5rem;
+    .cabecera_cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2{
+            font-size: 1.5rem;
+            color: $blanco;
+            text-align: center;
+        }
+    }
+}
+.cabecera_tabla_general_beneficio{
+    margin-top: 2rem;
+    background-color: #675455;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     padding: 1.5rem;
     border-radius: .5rem;
     .cabecera_cont{
@@ -87,12 +105,25 @@
             }
         }
     }
+    .body_tabla_info3{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        align-items: center;
+        justify-items: center;
+        padding: 2rem;
+        // background-color: $grisfondo;
+        .body_infor_div{
+            p{
+                font-size: 1.4rem;
+            }
+        }
+    }
   
 }
 .body_tabla_general_noches{
     .body_tabla_info{
         display: grid;
-        grid-template-columns: repeat(6,1fr) 23%;
+        grid-template-columns: repeat(7,1fr) 23%;
         align-items: center;
         justify-items: center;
         padding: 2rem;
