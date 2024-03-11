@@ -1,9 +1,5 @@
 .hab_pag_principal{
-    // background: url(/build/img/fondop-01.webp);
-    // background-attachment: fixed;
-    // background-position: center center;
-    // background-size: cover;
-    // background-repeat: no-repeat;
+
     padding: 0rem 20rem;
     h5{
         padding-bottom: 3rem;
@@ -14,6 +10,79 @@
     }
     
 }
+.hab_info_partes2 {
+    .flex_li2 i {
+        color: #ce1066;
+        font-size: 2rem;
+    }
+}
+.pre_part_info p {
+    font-size: 1.7rem;
+    font-style: italic;
+
+  }
+
+  .elemento_imp {
+    display: flex;
+    align-content: center;
+    gap: 3rem;
+    margin: 3rem 0rem;
+  }
+  .elem_hab_imp_p i {
+    color: #ce1066;
+  }
+  .elem_hab_imp_p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .info_registro_inicio {
+    padding-top: 3rem;
+  }
+  .info_registro_inicio a {
+    color: white;
+    padding: .5rem 1rem;
+    display: inline-block;
+    border-radius: .5rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    background: #fb6392;
+  }
+  .precio_habitacion_info .precios_hab p:nth-child(2) {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #494949;
+  }
+.precio_habitacion_info{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    .precios_hab{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        p:nth-child(2){
+            font-size: 2rem;
+        }
+    }
+}
+
+  .info_descripcion_habitacion p:nth-child(1) {
+    font-style: italic;
+    font-size: 1.7rem;
+    padding-bottom: 1rem;
+  }
+.pre_part_info {
+    padding-top: 2rem;
+  }
+.imagen_hab_cont.contenedor img {
+    width: 100%;
+  }
+  .imagen_hab_cont.contenedor {
+    padding: 3rem 0rem;
+  }
 .imagen_habitacion_grande {
     background: #e8e8e8;
   }
@@ -44,9 +113,6 @@
   }
 .text_align_nombre h5 {
     font-size: 4rem;
-  }
-  .img_hab {
-    // padding: 4rem 0rem;
   }
   .img_hab img {
     width: 100%;

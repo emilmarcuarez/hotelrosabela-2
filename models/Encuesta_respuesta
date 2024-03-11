@@ -1,0 +1,29 @@
+<?php
+ namespace Model;
+ use Model\Activerecord;
+
+ class Encuesta_respuesta extends Activerecord{
+    protected static $tabla = 'encuesta_respuesta';
+    protected static $pagina='encuesta_respuesta/mostrar';
+    protected static $columnasDB=['id', 'texto', 'valor'];
+
+    public $id;
+    public $texto;
+    public $valor;
+    public function __construct($args=[]){
+      $this->id=$args['id'] ?? null;
+      $this->texto=$args['texto'] ?? '';
+      $this->valor=$args['valor'] ?? '';
+    }
+
+    public function validar(){
+      if(!$this->texto){
+         self::$errores[]="Debes añadirle la respuesta";
+      }
+      if(!$this->valor){
+         self::$errores[]="Debes añadirle un valor a la respuesta";
+      }
+      return self::$errores;
+    }
+
+ }
