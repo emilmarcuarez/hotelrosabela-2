@@ -3,48 +3,48 @@
 $(document).ready(function () {
 
 	// CONTRASEÑA DEL REGISTRO DE USUARIO
-	$('#togglePassword').click(function() {
-        const passwordInput = $('#contrasenia');
-        const passwordIcon = $(this);
+	$('#togglePassword').click(function () {
+		const passwordInput = $('#contrasenia');
+		const passwordIcon = $(this);
 
-        // Cambiar entre los tipos de entrada "password" y "text"
-        const tipoActual = passwordInput.attr('type');
-        const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
-        passwordInput.attr('type', nuevoTipo);
+		// Cambiar entre los tipos de entrada "password" y "text"
+		const tipoActual = passwordInput.attr('type');
+		const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
+		passwordInput.attr('type', nuevoTipo);
 
-        // Cambiar el icono del ojo según el tipo de entrada
-        passwordIcon.toggleClass('fa-eye fa-eye-slash');
-    });
+		// Cambiar el icono del ojo según el tipo de entrada
+		passwordIcon.toggleClass('fa-eye fa-eye-slash');
+	});
 
-    $('#registroForm').submit(function(event) {
-        const contrasenia = $('#contrasenia').val();
-        const message = $('#passwordMessage');
+	$('#registroForm').submit(function (event) {
+		const contrasenia = $('#contrasenia').val();
+		const message = $('#passwordMessage');
 
-        if (contrasenia.length < 8) {
-            message.text('La contraseña debe tener al menos 8 caracteres');
-            message.addClass('error');
-            event.preventDefault(); // Evita que el formulario se envíe
-        } else {
-            message.text('');
-            message.removeClass('error');
-            // Aquí puedes agregar más validaciones si es necesario
-        }
-    });
+		if (contrasenia.length < 8) {
+			message.text('La contraseña debe tener al menos 8 caracteres');
+			message.addClass('error');
+			event.preventDefault(); // Evita que el formulario se envíe
+		} else {
+			message.text('');
+			message.removeClass('error');
+			// Aquí puedes agregar más validaciones si es necesario
+		}
+	});
 	//----fin----
 
 	// CONTRASEÑA DE INICIO DE SESION
-	$('#togglePassword2').click(function() {
-        const passwordInput = $('#contrasenia2');
-        const passwordIcon = $(this);
+	$('#togglePassword2').click(function () {
+		const passwordInput = $('#contrasenia2');
+		const passwordIcon = $(this);
 
-        // Cambiar entre los tipos de entrada "password" y "text"
-        const tipoActual = passwordInput.attr('type');
-        const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
-        passwordInput.attr('type', nuevoTipo);
+		// Cambiar entre los tipos de entrada "password" y "text"
+		const tipoActual = passwordInput.attr('type');
+		const nuevoTipo = (tipoActual === 'password') ? 'text' : 'password';
+		passwordInput.attr('type', nuevoTipo);
 
-        // Cambiar el icono del ojo según el tipo de entrada
-        passwordIcon.toggleClass('fa-eye fa-eye-slash');
-    });
+		// Cambiar el icono del ojo según el tipo de entrada
+		passwordIcon.toggleClass('fa-eye fa-eye-slash');
+	});
 
 
 	//----FIN-----
@@ -102,7 +102,7 @@ $(document).ready(function () {
 	xhr.onload = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE) {
 			if (xhr.status === 200) {
-			
+
 			}
 		}
 	}
@@ -133,17 +133,17 @@ function ocultar_menu() {
 // seleccionar la imagen del pago de la reserva
 
 if (document.getElementById('file-label')) {
-    const inputFile = document.getElementById('imagen_reserva');
-    const fileLabel = document.getElementById('file-label');
+	const inputFile = document.getElementById('imagen_reserva');
+	const fileLabel = document.getElementById('file-label');
 	console.log('prueba emi');
-    inputFile.addEventListener('change', function() {
-        if (inputFile.files.length > 0) {
-            fileLabel.textContent = inputFile.files[0].name;
+	inputFile.addEventListener('change', function () {
+		if (inputFile.files.length > 0) {
+			fileLabel.textContent = inputFile.files[0].name;
 			console.log(inputFile.files[0].name);
-        } else {
-            fileLabel.textContent = 'Subir Imagen';
-        }
-    });
+		} else {
+			fileLabel.textContent = 'Subir Imagen';
+		}
+	});
 }
 
 
@@ -225,53 +225,53 @@ if (document.querySelector(".typing-area")) {
 	}
 }
 // captar la imagen
-function crearGaleria(){
-	if(document.querySelector('.img_datosreserva')){
-		const galeria=document.querySelector('.img_datosreserva');
-	const imagen2 = galeria.querySelector('img');
-	const id = imagen2.src;
-	imagen2.onclick=function(){
-		mostrarImagen(id);
+function crearGaleria() {
+	if (document.querySelector('.img_datosreserva')) {
+		const galeria = document.querySelector('.img_datosreserva');
+		const imagen2 = galeria.querySelector('img');
+		const id = imagen2.src;
+		imagen2.onclick = function () {
+			mostrarImagen(id);
+		}
 	}
-	}
-	
+
 }
 
 // mostrar imagen
-function mostrarImagen(id){
-	
-    const imagen=document.createElement('picture');
+function mostrarImagen(id) {
+
+	const imagen = document.createElement('picture');
 	imagen.classList.add("picture_edit");
-    imagen.innerHTML=`
+	imagen.innerHTML = `
      <img class="img_picture" loading="lazy" width="100%" height="100%" src="${id}" alt="imagen galeria">
     `;
-// crear el overlay con la imagen
-    const overlay=document.createElement('DIV');
-    overlay.appendChild(imagen);
-    overlay.classList.add('overlay');
-    overlay.onclick=function(){
-        const body=document.querySelector('body');
-        // para poder cerrar una foto de la galeria al darle click en cualquier parte
-        body.classList.remove('fijar-body');
-        overlay.remove();
-    }
-// Boton para cerrar el modal
-const cerrarModal=document.createElement('P');
-cerrarModal.textContent='X';
-cerrarModal.classList.add('btn-cerrar');
-cerrarModal.onclick=function(){
-    const body=document.querySelector('body');
-    // para poder darle scroll luego de cerrar una foto de la galeria
-    body.classList.remove('fijar-body');
-    overlay.remove();
-}
-overlay.appendChild(cerrarModal);
+	// crear el overlay con la imagen
+	const overlay = document.createElement('DIV');
+	overlay.appendChild(imagen);
+	overlay.classList.add('overlay');
+	overlay.onclick = function () {
+		const body = document.querySelector('body');
+		// para poder cerrar una foto de la galeria al darle click en cualquier parte
+		body.classList.remove('fijar-body');
+		overlay.remove();
+	}
+	// Boton para cerrar el modal
+	const cerrarModal = document.createElement('P');
+	cerrarModal.textContent = 'X';
+	cerrarModal.classList.add('btn-cerrar');
+	cerrarModal.onclick = function () {
+		const body = document.querySelector('body');
+		// para poder darle scroll luego de cerrar una foto de la galeria
+		body.classList.remove('fijar-body');
+		overlay.remove();
+	}
+	overlay.appendChild(cerrarModal);
 
-// añadirlo al html
-    const body=document.querySelector('body');
-    body.appendChild(overlay);
-    // para no darle scroll
-    body.classList.add('fijar-body');
+	// añadirlo al html
+	const body = document.querySelector('body');
+	body.appendChild(overlay);
+	// para no darle scroll
+	body.classList.add('fijar-body');
 }
 
 
@@ -439,45 +439,45 @@ if (document.querySelectorAll(".form_reservas")) {
 if (document.querySelector(".form_confirmada_reserva")) {
 
 	let form_reserva = document.querySelector(".form_confirmada_reserva");
-		let id_reserva_conf = form_reserva.querySelector("input").value,
-			sendBtn_reserva = form_reserva.querySelector(".boton-verde_confirmado");
+	let id_reserva_conf = form_reserva.querySelector("input").value,
+		sendBtn_reserva = form_reserva.querySelector(".boton-verde_confirmado");
 
 
-		form_reserva.onsubmit = (e) => {
-			e.preventDefault();
-		}
+	form_reserva.onsubmit = (e) => {
+		e.preventDefault();
+	}
 
 
-		sendBtn_reserva.onclick = () => {
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "/reservas/confirmar", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						Swal.fire({
-							position: "top-end",
-							icon: "success",
-							title: "La reserva ha sido marcada como 'confirmada'",
-							showConfirmButton: false,
-							timer: 1500
-						}).then(() => {
-							setTimeout(() => {
-								window.location.reload();
-							}, 2000);
-						})
-					} else {
-						Swal.fire({
-							icon: 'info',
-							title: 'Revise su conexion a internet',
-							text: 'No se pudo cambiar el estado de la reserva, por favor, intente mas tarde.'
-						})
-					}
+	sendBtn_reserva.onclick = () => {
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/reservas/confirmar", true);
+		xhr.onload = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					Swal.fire({
+						position: "top-end",
+						icon: "success",
+						title: "La reserva ha sido marcada como 'confirmada'",
+						showConfirmButton: false,
+						timer: 1500
+					}).then(() => {
+						setTimeout(() => {
+							window.location.reload();
+						}, 2000);
+					})
+				} else {
+					Swal.fire({
+						icon: 'info',
+						title: 'Revise su conexion a internet',
+						text: 'No se pudo cambiar el estado de la reserva, por favor, intente mas tarde.'
+					})
 				}
 			}
-			let formData = new FormData(form_reserva);
-			xhr.send(formData);
-			// xhr.send("id_reserva="+id_reserva);
 		}
+		let formData = new FormData(form_reserva);
+		xhr.send(formData);
+		// xhr.send("id_reserva="+id_reserva);
+	}
 	// });
 
 }
@@ -507,7 +507,7 @@ if (document.querySelector("#bela_ia")) {
 // comentarios
 if (document.querySelector(".comentarios")) {
 	const form_comentario = document.querySelector(".form_comentario"),
-	centros_consumo_id = form_comentario.querySelector("#centros_consumo_id").value,
+		centros_consumo_id = form_comentario.querySelector("#centros_consumo_id").value,
 		inputField2 = form_comentario.querySelector(".mensaje_comentario"),
 		chatBox2 = document.querySelector(".comentarios"),
 		sendBtnCentro = form_comentario.querySelector("button");
@@ -525,14 +525,14 @@ if (document.querySelector(".comentarios")) {
 		}
 	}
 	sendBtnCentro.onclick = () => {
-		 // Obtener el valor de la estrella seleccionada
-		 const valorEstrella = form_comentario.querySelector(".star-rating").value;
+		// Obtener el valor de la estrella seleccionada
+		const valorEstrella = form_comentario.querySelector(".star-rating").value;
 
-		 // Crear un objeto FormData para enviar los datos del formulario
-		 let formData = new FormData(form_comentario);
- 
-		 // Agregar el valor de la estrella al FormData
-		 formData.append('valor', valorEstrella);
+		// Crear un objeto FormData para enviar los datos del formulario
+		let formData = new FormData(form_comentario);
+
+		// Agregar el valor de la estrella al FormData
+		formData.append('valor', valorEstrella);
 
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "/crear-comentario", true);
@@ -666,14 +666,14 @@ if (document.getElementById('countries-list')) {
 				const listItem = document.createElement('option');
 				listItem.textContent = country.name;
 				countriesList.appendChild(listItem);
-				
-		
+
+
 			});
 		});
 }
 
 // fecha en la gestion de usuario y registro
-if(document.getElementById('fecha_id')){
+if (document.getElementById('fecha_id')) {
 	// Obtener el selector de fecha y el selector de año
 	const fechaInput = document.getElementById('fecha_id');
 	const yearSelect = document.getElementById('year-select');
@@ -695,7 +695,7 @@ if(document.getElementById('fecha_id')){
 	}
 
 	// Actualizar la fecha de nacimiento cuando se selecciona un año
-	yearSelect.addEventListener('change', function() {
+	yearSelect.addEventListener('change', function () {
 		const nuevoAño = yearSelect.value;
 		const nuevoMes = fechaInput.value.substring(5, 7);
 		const nuevoDia = fechaInput.value.substring(8, 10);
@@ -703,7 +703,7 @@ if(document.getElementById('fecha_id')){
 	});
 }
 // fecha en el registro
-if(document.getElementById('fecha')){
+if (document.getElementById('fecha')) {
 	// Obtener el selector de fecha y el selector de año
 	const fechaInput = document.getElementById('fecha');
 	const yearSelect = document.getElementById('year-select2');
@@ -725,21 +725,21 @@ if(document.getElementById('fecha')){
 	}
 
 	// Actualizar la fecha de nacimiento cuando se selecciona un año
-	
-	if(fechaInput.value===''){
+
+	if (fechaInput.value === '') {
 		const nuevoAño = yearSelect.value;
 		const nuevoMes = '01';
 		const nuevoDia = '01';
 		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
 	}
-	yearSelect.addEventListener('change', function() {
+	yearSelect.addEventListener('change', function () {
 		const nuevoAño = yearSelect.value;
 		const nuevoMes = fechaInput.value.substring(5, 7);
 		const nuevoDia = fechaInput.value.substring(8, 10);
 		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
-		console.log("n dia: "+nuevoDia);
-		console.log("n mes: "+nuevoMes);
-		console.log("n año: "+nuevoAño);
+		console.log("n dia: " + nuevoDia);
+		console.log("n mes: " + nuevoMes);
+		console.log("n año: " + nuevoAño);
 	});
 }
 
@@ -769,14 +769,14 @@ const reserva = {
 	apellidos: '',
 	nombres: '',
 	nro_telefono: '',
-	email:'',
-	fecha_pago:'',
-	banco:'',
-	referencia:'',
-	monto_transferencia:'',
-	numero_i:'',
-	nacionalidad:'',
-	id_beneficio:''
+	email: '',
+	fecha_pago: '',
+	banco: '',
+	referencia: '',
+	monto_transferencia: '',
+	numero_i: '',
+	nacionalidad: '',
+	id_beneficio: ''
 };
 
 const re_habitacion = {
@@ -785,6 +785,16 @@ const re_habitacion = {
 	id_habitacion: '',
 	cantidad_d: 0,
 	cantidad_s: 0,
+};
+const resultados_encuesta = {
+	id_encuesta_respuesta: '',
+	id_encuesta_pregunta: '',
+	id_encuesta: ''
+};
+const encuesta = {
+	nombre: '',
+	apellido: '',
+	nro_telefonico: ''
 };
 const reserva_cant = {
 	mostrar: 0,
@@ -837,19 +847,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 
-if (document.getElementById("abrirChatbot")) {
-	abrirBoton.addEventListener("click", function () {
-		chatbot.classList.remove("cerrado");
-		chatbot.classList.add("abierto");
-		abrirBoton.classList.add("cerrarbtn_chat");
-	});
-}
+	if (document.getElementById("abrirChatbot")) {
+		abrirBoton.addEventListener("click", function () {
+			chatbot.classList.remove("cerrado");
+			chatbot.classList.add("abierto");
+			abrirBoton.classList.add("cerrarbtn_chat");
+		});
+	}
 	crearGaleria();
 	eventListeners();
 	limitarCaracteres();
 	limitarCaracteres3();
 	limitarCaracteres2();
-	
+
 	iniciarApp();
 	if (document.querySelector('#fechaReserva2')) {
 		const fechaReserva = document.querySelector('#fechaReserva2');
@@ -875,9 +885,9 @@ function iniciarApp() {
 	mostrarResumen();
 	// mostrarResumen2();
 	// idUsuario();
-	paginaSiguiente(); 
-    paginaAnterior();
-    botonesPaginas(); // Agrega o quita los botones del paginador
+	paginaSiguiente();
+	paginaAnterior();
+	botonesPaginas(); // Agrega o quita los botones del paginador
 	mostrarSeccion(); //muestra y oculta las secciones
 	tabs();
 
@@ -924,9 +934,9 @@ if (document.getElementById('abrir_modal3')) {
 	let cerrar2 = document.getElementById('close3');
 	// let is_usuario = document.getElementById('id_usuario_acti');
 	abrir2.addEventListener('click', function () {
-		
-			modal2.style.display = 'block';
-			modal2.style.zIndex = 5;
+
+		modal2.style.display = 'block';
+		modal2.style.zIndex = 5;
 	});
 
 	cerrar2.addEventListener('click', function () {
@@ -1104,14 +1114,14 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	const fecha_re_i_p = document.createElement('P');
 	fecha_re_i_p.classList.add('fecha_reserva_p');
 	fecha_re_i_p.textContent = "Check-in";
-	const icono_calendar=document.createElement('div');
+	const icono_calendar = document.createElement('div');
 	icono_calendar.classList.add('icono_calendar');
-	icono_calendar.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M7 14h.013" /> <path d="M10.01 14h.005" /> <path d="M13.01 14h.005" /> <path d="M16.015 14h.005" /> <path d="M13.015 17h.005" /> <path d="M7.01 17h.005" /> <path d="M10.01 17h.005" /> </svg>';
-	
-	const icono_calendar2=document.createElement('div');
+	icono_calendar.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M7 14h.013" /> <path d="M10.01 14h.005" /> <path d="M13.01 14h.005" /> <path d="M16.015 14h.005" /> <path d="M13.015 17h.005" /> <path d="M7.01 17h.005" /> <path d="M10.01 17h.005" /> </svg>';
+
+	const icono_calendar2 = document.createElement('div');
 	icono_calendar2.classList.add('icono_calendar');
-	icono_calendar2.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M7 14h.013" /> <path d="M10.01 14h.005" /> <path d="M13.01 14h.005" /> <path d="M16.015 14h.005" /> <path d="M13.015 17h.005" /> <path d="M7.01 17h.005" /> <path d="M10.01 17h.005" /> </svg>';
-	
+	icono_calendar2.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M7 14h.013" /> <path d="M10.01 14h.005" /> <path d="M13.01 14h.005" /> <path d="M16.015 14h.005" /> <path d="M13.015 17h.005" /> <path d="M7.01 17h.005" /> <path d="M10.01 17h.005" /> </svg>';
+
 	// check-out
 	const fecha_re2 = document.createElement('DIV');
 	fecha_re2.classList.add('fecha_re');
@@ -1260,7 +1270,7 @@ function seleccionarHabitacion2(habitacion) {
 
 	modal_body.appendChild(textCantidad2);
 	modal_body.appendChild(seleccionar_numeros2);
-	
+
 	modal_body.appendChild(seleccionar_hab_p);
 	let abrir = document.getElementById(`abrir${id}`);
 	modal.style.display = 'block';
@@ -1439,7 +1449,7 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 
 
 function mostrarSeccion() {
-	
+
 	let tab2 = document.querySelector('.tabs');
 	let paginacion = document.querySelector('.paginacion');
 	if (paso === 4) {
@@ -1501,6 +1511,27 @@ function seleccionarHora() {
 
 	});
 }
+
+async function consultarApi_encuesta() {
+	try {
+				// Obtener preguntas
+			const urlPreguntas = 'http://localhost:3000/encuesta/preguntas';
+			const resultadoPreguntas = await fetch(urlPreguntas);
+			const encuestas = await resultadoPreguntas.json();
+
+				// Obtener respuestas
+			const urlRespuestas = 'http://localhost:3000/encuesta/respuestas';
+			const resultadoRespuestas = await fetch(urlRespuestas); // Corregido para usar urlRespuestas
+			const encuestas2 = await resultadoRespuestas.json(); // Corregido para usar resultadoRespuestas
+
+				// Mostrar ambos resultados
+				mostrar_encuestas(encuestas, encuestas2);
+
+			} catch (error) {
+				console.log(error);
+			}
+	}
+
 function mostrarResumen() {
 	const resumen = document.querySelector('.contenido-resumen');
 	const boton_reserva = document.querySelector('.boton-reserva');
@@ -1561,12 +1592,12 @@ function mostrarResumen() {
 					cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
 					contenedorHabitacion.appendChild(cantidads);
 					reserva.monto = reserva.monto + (parseFloat(preciosd) * parseFloat(cantidad_s));
-				
+
 				} else {
 					habitacionr.cantidad_s = 0;
 				}
 				if (!isNaN(cantidad_d) && cantidad_d !== 0) {
-				
+
 					const cantidadd = document.createElement('P');
 					let preciocant2 = 0;
 					preciocant2 = cantidad_d * preciocd;
@@ -1652,124 +1683,124 @@ function mostrarResumen2() {
 	// const boton_reserva = document.querySelector('.boton-reserva');
 	const part_resumen_monto = document.querySelectorAll('.part_resumen_monto2');
 	// Limpiar el Contenido de Resumen
-	part_resumen_monto.forEach(function(resumen2){
-	
-
-	
-	while (resumen.firstChild) {
-		resumen.removeChild(resumen.firstChild);
-	}
-
-	while (resumen2.firstChild) {
-		resumen2.removeChild(resumen2.firstChild);
-	}
+	part_resumen_monto.forEach(function (resumen2) {
 
 
 
-	// Formatear el div de resumen
-	const { fecha_e, fecha_i, ninos, adultos, habitaciones, habitaciones_re } = reserva;
-	console.log(reserva);
-	reserva.monto = 0;
+		while (resumen.firstChild) {
+			resumen.removeChild(resumen.firstChild);
+		}
 
-	habitaciones.forEach(habitacion => {
-
-		console.log(habitacion);
-		const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
-	
-
-		habitaciones_re.forEach(habitacionr => {
-			const { id_habitacion, cantidad_d, cantidad_s } = habitacionr;
-			if (parseInt(id_habitacion) === parseInt(id)) {
+		while (resumen2.firstChild) {
+			resumen2.removeChild(resumen2.firstChild);
+		}
 
 
-				if (!isNaN(cantidad_s) && cantidad_s !== 0) {
-					// if(cantidad_s!== 0){
-					// const cantidads = document.createElement('P');
-					let preciocant = 0;
-					preciocant = cantidad_s * preciosd;
-					// cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
-					// contenedorHabitacion.appendChild(cantidads);
-					reserva.monto = reserva.monto + (parseFloat(preciosd) * parseFloat(cantidad_s));
-				
-				} else {
-					habitacionr.cantidad_s = 0;
+
+		// Formatear el div de resumen
+		const { fecha_e, fecha_i, ninos, adultos, habitaciones, habitaciones_re } = reserva;
+		console.log(reserva);
+		reserva.monto = 0;
+
+		habitaciones.forEach(habitacion => {
+
+			console.log(habitacion);
+			const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
+
+
+			habitaciones_re.forEach(habitacionr => {
+				const { id_habitacion, cantidad_d, cantidad_s } = habitacionr;
+				if (parseInt(id_habitacion) === parseInt(id)) {
+
+
+					if (!isNaN(cantidad_s) && cantidad_s !== 0) {
+						// if(cantidad_s!== 0){
+						// const cantidads = document.createElement('P');
+						let preciocant = 0;
+						preciocant = cantidad_s * preciosd;
+						// cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
+						// contenedorHabitacion.appendChild(cantidads);
+						reserva.monto = reserva.monto + (parseFloat(preciosd) * parseFloat(cantidad_s));
+
+					} else {
+						habitacionr.cantidad_s = 0;
+					}
+					if (!isNaN(cantidad_d) && cantidad_d !== 0) {
+
+						// const cantidadd = document.createElement('P');
+						let preciocant2 = 0;
+						preciocant2 = cantidad_d * preciocd;
+						// cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). <br> Total: USD ${preciocant2} por noche`;
+						reserva.monto = reserva.monto + (parseFloat(preciocd) * parseFloat(cantidad_d));
+						// contenedorHabitacion.appendChild(cantidadd);
+
+					} else {
+						habitacionr.cantidad_d = 0;
+					}
+
 				}
-				if (!isNaN(cantidad_d) && cantidad_d !== 0) {
-				
-					// const cantidadd = document.createElement('P');
-					let preciocant2 = 0;
-					preciocant2 = cantidad_d * preciocd;
-					// cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). <br> Total: USD ${preciocant2} por noche`;
-					reserva.monto = reserva.monto + (parseFloat(preciocd) * parseFloat(cantidad_d));
-					// contenedorHabitacion.appendChild(cantidadd);
-
-				} else {
-					habitacionr.cantidad_d = 0;
-				}
-
-			}
+			});
+			// resumen.appendChild(contenedorHabitacion);
 		});
-		// resumen.appendChild(contenedorHabitacion);
-	});
-	const divdatos = document.createElement('div');
-	divdatos.classList.add('datos_resumen2');
-	// Heading para Cita en Resumen
-	const monto3 = document.createElement('p');
-	const divmonto = document.createElement('div');
-	monto3.innerHTML = `<span>TOTAL: </span> USD ${reserva.monto}`;
-	divmonto.classList.add('monto_resumen2');
-	divmonto.appendChild(monto3);
+		const divdatos = document.createElement('div');
+		divdatos.classList.add('datos_resumen2');
+		// Heading para Cita en Resumen
+		const monto3 = document.createElement('p');
+		const divmonto = document.createElement('div');
+		monto3.innerHTML = `<span>TOTAL: </span> USD ${reserva.monto}`;
+		divmonto.classList.add('monto_resumen2');
+		divmonto.appendChild(monto3);
 
-	// Boton para Crear una cita
-	// const botonReservar = document.createElement('BUTTON');
-	// const botonPdf = document.createElement('BUTTON');
-	// botonReservar.classList.add('btn_reservar');
-	// botonReservar.textContent = 'Enviar reserva';
-	// botonReservar.onclick = reservarHabitacion   // resumen.appendChild(nombreCliente);
+		// Boton para Crear una cita
+		// const botonReservar = document.createElement('BUTTON');
+		// const botonPdf = document.createElement('BUTTON');
+		// botonReservar.classList.add('btn_reservar');
+		// botonReservar.textContent = 'Enviar reserva';
+		// botonReservar.onclick = reservarHabitacion   // resumen.appendChild(nombreCliente);
 
-	// formatear fecha ingreso:
-	// Formatear la fecha en español
-	const fechaObj = new Date(fecha_i);
-	const mes = fechaObj.getMonth();
-	const dia = fechaObj.getDate() + 2;
-	const year = fechaObj.getFullYear();
+		// formatear fecha ingreso:
+		// Formatear la fecha en español
+		const fechaObj = new Date(fecha_i);
+		const mes = fechaObj.getMonth();
+		const dia = fechaObj.getDate() + 2;
+		const year = fechaObj.getFullYear();
 
-	const fechaUTC = new Date(Date.UTC(year, mes, dia));
+		const fechaUTC = new Date(Date.UTC(year, mes, dia));
 
-	const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-	const fechaFormateada = fechaUTC.toLocaleDateString('es-MX', opciones);
-	// formatear fecha de salida:
-	const fechaObj2 = new Date(fecha_e);
-	const mes2 = fechaObj2.getMonth();
-	const dia2 = fechaObj2.getDate() + 2;
-	const year2 = fechaObj2.getFullYear();
+		const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+		const fechaFormateada = fechaUTC.toLocaleDateString('es-MX', opciones);
+		// formatear fecha de salida:
+		const fechaObj2 = new Date(fecha_e);
+		const mes2 = fechaObj2.getMonth();
+		const dia2 = fechaObj2.getDate() + 2;
+		const year2 = fechaObj2.getFullYear();
 
-	const fechaUTC2 = new Date(Date.UTC(year2, mes2, dia2));
+		const fechaUTC2 = new Date(Date.UTC(year2, mes2, dia2));
 
-	const opciones2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-	const fechaFormateada2 = fechaUTC2.toLocaleDateString('es-MX', opciones2);
-	const fecha_parrafo_i = document.createElement('P');
-	fecha_parrafo_i.classList.add('fecha_parrafo_i2');
-	fecha_parrafo_i.innerHTML = ` <span>Entrada</span> ${fechaFormateada}`;
-	const fecha_parrafo_e = document.createElement('P');
-	fecha_parrafo_e.classList.add('fecha_parrafo_e2');
-	fecha_parrafo_e.innerHTML = `<span>Salida</span> ${fechaFormateada2}`;
-	const adultos_parrafo = document.createElement('P');
-	adultos_parrafo.classList.add('adultos_parrafo2');
-	adultos_parrafo.innerHTML = `<span>Adultos</span>(${adultos})`;
-	const ninos_parrafo = document.createElement('P');
-	ninos_parrafo.classList.add('ninos_parrafo2');
-	ninos_parrafo.innerHTML = `<span>Niños</span>(${reserva.ninos})`;
+		const opciones2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+		const fechaFormateada2 = fechaUTC2.toLocaleDateString('es-MX', opciones2);
+		const fecha_parrafo_i = document.createElement('P');
+		fecha_parrafo_i.classList.add('fecha_parrafo_i2');
+		fecha_parrafo_i.innerHTML = ` <span>Entrada</span> ${fechaFormateada}`;
+		const fecha_parrafo_e = document.createElement('P');
+		fecha_parrafo_e.classList.add('fecha_parrafo_e2');
+		fecha_parrafo_e.innerHTML = `<span>Salida</span> ${fechaFormateada2}`;
+		const adultos_parrafo = document.createElement('P');
+		adultos_parrafo.classList.add('adultos_parrafo2');
+		adultos_parrafo.innerHTML = `<span>Adultos</span>(${adultos})`;
+		const ninos_parrafo = document.createElement('P');
+		ninos_parrafo.classList.add('ninos_parrafo2');
+		ninos_parrafo.innerHTML = `<span>Niños</span>(${reserva.ninos})`;
 
 
 
-	divdatos.appendChild(fecha_parrafo_i);
-	divdatos.appendChild(fecha_parrafo_e);
-	divdatos.appendChild(adultos_parrafo);
-	divdatos.appendChild(ninos_parrafo);
-	resumen2.appendChild(divdatos);
-	resumen2.appendChild(divmonto);
-	// boton_reserva.appendChild(botonReservar);
+		divdatos.appendChild(fecha_parrafo_i);
+		divdatos.appendChild(fecha_parrafo_e);
+		divdatos.appendChild(adultos_parrafo);
+		divdatos.appendChild(ninos_parrafo);
+		resumen2.appendChild(divdatos);
+		resumen2.appendChild(divmonto);
+		// boton_reserva.appendChild(botonReservar);
 	});
 }
 
@@ -1787,7 +1818,7 @@ function uuidv4() {
 
 async function reservarHabitacion() {
 
-	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal , n_empresa, apellidos, nombres, nro_telefono,email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad,id_beneficio} = reserva;
+	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal, n_empresa, apellidos, nombres, nro_telefono, email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad, id_beneficio } = reserva;
 	// Generar código único para la reserva
 	const codigo2 = uuidv4();
 	const idHabitaciones = habitaciones.map(habitacion => habitacion.id);
@@ -1805,20 +1836,20 @@ async function reservarHabitacion() {
 	const nro_telefono2 = nro_telefono1.value;
 	const email1 = document.getElementById('email_correo');
 	const email2 = email1.value;
-	let contar_beneficio2=document.querySelectorAll('.id_beneficio');
-	if(contar_beneficio2.length>0){
+	let contar_beneficio2 = document.querySelectorAll('.id_beneficio');
+	if (contar_beneficio2.length > 0) {
 		const id_beneficio1 = document.querySelectorAll('.id_beneficio');
-	var beneficio2='';
-	id_beneficio1.forEach(beneficio => {
-		if (beneficio.checked) {
-			beneficio2= beneficio.value;
-			
-		}
-	});
+		var beneficio2 = '';
+		id_beneficio1.forEach(beneficio => {
+			if (beneficio.checked) {
+				beneficio2 = beneficio.value;
+
+			}
+		});
 
 	}
-	console.log(beneficio2);	
-	
+	console.log(beneficio2);
+
 	console.log(idHabitaciones);
 
 	const datos = new FormData();
@@ -1868,38 +1899,38 @@ async function reservarHabitacion() {
 		reserva.nacionalidad = 'ninguna';
 		datos.append('imagen', reserva.imagen);
 	}
-	datos.append('traslado',interestChecked);
-	reserva.traslado=interestChecked;
-	datos.append('i_fiscal',i_fiscal_2);
-	reserva.i_fiscal=i_fiscal_2;
-	datos.append('n_empresa',n_empresa2);
-	reserva.n_empresa=n_empresa2;
-	datos.append('apellidos',apellidos2);
-	reserva.apellidos=apellidos2;
-	datos.append('nombres',nombres3);
-	reserva.nombres=nombres3;
-	datos.append('nro_telefono',nro_telefono2);
-	reserva.nro_telefono=nro_telefono2;
-	datos.append('email',email2);
-	reserva.email=email2;
-	let contar_beneficio=document.querySelectorAll('.id_beneficio');
-	if(contar_beneficio.length>0){
-		datos.append('id_beneficio',beneficio2);
-		reserva.id_beneficio=beneficio2;
-	}else{
+	datos.append('traslado', interestChecked);
+	reserva.traslado = interestChecked;
+	datos.append('i_fiscal', i_fiscal_2);
+	reserva.i_fiscal = i_fiscal_2;
+	datos.append('n_empresa', n_empresa2);
+	reserva.n_empresa = n_empresa2;
+	datos.append('apellidos', apellidos2);
+	reserva.apellidos = apellidos2;
+	datos.append('nombres', nombres3);
+	reserva.nombres = nombres3;
+	datos.append('nro_telefono', nro_telefono2);
+	reserva.nro_telefono = nro_telefono2;
+	datos.append('email', email2);
+	reserva.email = email2;
+	let contar_beneficio = document.querySelectorAll('.id_beneficio');
+	if (contar_beneficio.length > 0) {
+		datos.append('id_beneficio', beneficio2);
+		reserva.id_beneficio = beneficio2;
+	} else {
 		// reserva.id_beneficio=beneficio2;
-		datos.append('id_beneficio',id_beneficio);
+		datos.append('id_beneficio', id_beneficio);
 	}
-	
+
 
 
 	// pago por transferencia
-	datos.append('fecha_pago', reserva.fecha_pago );
-	datos.append('banco', reserva.banco );
-	datos.append('referencia', reserva.referencia );
-	datos.append('monto_transferencia', reserva.monto_transferencia );
-	datos.append('numero_i', reserva.numero_i );
-	datos.append('nacionalidad', reserva.nacionalidad );
+	datos.append('fecha_pago', reserva.fecha_pago);
+	datos.append('banco', reserva.banco);
+	datos.append('referencia', reserva.referencia);
+	datos.append('monto_transferencia', reserva.monto_transferencia);
+	datos.append('numero_i', reserva.numero_i);
+	datos.append('nacionalidad', reserva.nacionalidad);
 	// datos.append('habitaciones', idHabitaciones);
 	console.log(datos);
 	habitaciones_re.forEach(habitacionre => {
@@ -1909,7 +1940,7 @@ async function reservarHabitacion() {
 	});
 	console.log(reserva);
 	reserva.codigo = codigo2;
-	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && key!=='i_fiscal'  && key!=='id_beneficio'  && key!=='n_empresa' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
+	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && key !== 'i_fiscal' && key !== 'id_beneficio' && key !== 'n_empresa' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
 		Swal.fire({
 			icon: 'error',
 			title: 'Error',
@@ -1953,7 +1984,7 @@ async function reservarHabitacion() {
 				icon: 'error',
 				title: 'Error',
 				text: 'Hubo un error al guardar la reserva'
-				
+
 			})
 		}
 
@@ -1995,7 +2026,7 @@ function tabs() {
 			paso = parseInt(e.target.dataset.paso);
 			if (paso === 2 && reserva_cant.cant !== parseInt(reserva.cantidad) || (paso === 3 && reserva_cant.cant !== parseInt(reserva.cantidad))) {
 				paso = 1;
-				botonesPaginas(); 
+				botonesPaginas();
 				mostrarSeccion();
 				Swal.fire({
 					icon: 'info',
@@ -2005,15 +2036,15 @@ function tabs() {
 			} else {
 
 				if (paso === 3) {
-					botonesPaginas(); 
+					botonesPaginas();
 					mostrarResumen();
 					mostrarResumen2();
 					mostrarSeccion();
-					
-				} else if (paso === 1 || paso===2) {
-					botonesPaginas(); 
+
+				} else if (paso === 1 || paso === 2) {
+					botonesPaginas();
 					mostrarSeccion();
-					
+
 				}
 			}
 
@@ -2036,8 +2067,8 @@ function paginaSiguiente() {
 	paginaSiguiente.addEventListener('click', function () {
 		if (paso >= pasoFinal) return;
 		paso++;
-		if (paso === 2 && reserva_cant.cant !== parseInt(reserva.cantidad)){
-			paso=1;
+		if (paso === 2 && reserva_cant.cant !== parseInt(reserva.cantidad)) {
+			paso = 1;
 			Swal.fire({
 				icon: 'info',
 				title: 'Seleccione las habitaciones',
@@ -2047,6 +2078,57 @@ function paginaSiguiente() {
 		}
 		botonesPaginas();
 	})
+}
+
+
+// realizar encuesta
+async function encuesta() {
+
+	const { nombre, apellido, nro_telefonico } = encuesta;
+	const { id_encuesta_pregunta, id_encuesta_respuesta, id_encuesta } = resultados_encuesta;
+
+	// const idServicios = servicios.map( servicio => servicio.id );
+	// console.log(idServicios);
+
+	const datos = new FormData();
+
+	datos.append('fecha', fecha);
+	datos.append('hora', hora);
+	datos.append('usuarioId', id);
+	datos.append('servicios', idServicios);
+
+	// console.log([...datos]);
+
+	try {
+		// Petición hacia la api
+		const url = 'http://localhost:3000/api/citas'
+		const respuesta = await fetch(url, {
+			method: 'POST',
+			body: datos
+		});
+
+		const resultado = await respuesta.json();
+		console.log(resultado);
+
+		if (resultado.resultado) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Cita Creada',
+				text: 'Tu cita fue creada correctamente',
+				button: 'OK'
+			}).then(() => {
+				setTimeout(() => {
+					window.location.reload();
+				}, 3000);
+			})
+		}
+	} catch (error) {
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Hubo un error al guardar la cita'
+		})
+	}
 }
 
 function botonesPaginas() {
@@ -2062,7 +2144,7 @@ function botonesPaginas() {
 		paginaAnterior.classList.remove('ocultar2');
 		paginaSiguiente.classList.add('ocultar2');
 	}
-	 if(paso === 2){
+	if (paso === 2) {
 		paginaAnterior.classList.remove('ocultar2');
 		paginaSiguiente.classList.remove('ocultar2');
 	}
@@ -2213,7 +2295,7 @@ function asignarValores() {
 	var fechaEgreso = document.getElementById('fechaEgreso2');
 	// let id_usuario_valor = document.getElementById('id_usuario_valor');
 
-	if(document.getElementById("btnEnviar3")){
+	if (document.getElementById("btnEnviar3")) {
 		if (parseInt(habitacionesElement.value) !== 0 && parseInt(adultosElement.value) !== 0 && fechaReserva.value !== '' && fechaEgreso.value !== '') {
 			detalleReserva.innerHTML = `${adultosElement.value} adultos · ${ninosElement.value} niños · ${habitacionesElement.value} habitaciones`;
 
@@ -2356,11 +2438,11 @@ function mostrarMetodosPago(e) {
 	<input type="file" id="imagen_reserva" accept="image/jpeg, image/png" name="reserva[imagen]" required style="display: none;">
 	`;
 		// <input type="file" id="imagen_reserva" accept="image/jpeg, image/png" name="reserva[imagen]" required>	
-	
+
 		const inputFile = document.getElementById('imagen_reserva');
 		const fileLabel = document.getElementById('file-label');
 		console.log('prueba emi');
-		inputFile.addEventListener('change', function() {
+		inputFile.addEventListener('change', function () {
 			if (inputFile.files.length > 0) {
 				fileLabel.textContent = inputFile.files[0].name;
 				console.log(inputFile.files[0].name);
@@ -2377,19 +2459,19 @@ function mostrarMetodosPago(e) {
     Subir Imagen
 	</label>
 	<input type="file" id="imagen_reserva" accept="image/jpeg, image/png" name="reserva[imagen]" required style="display: none;">`;
-	const inputFile = document.getElementById('imagen_reserva');
-    const fileLabel = document.getElementById('file-label');
-	console.log('prueba emi');
-    inputFile.addEventListener('change', function() {
-        if (inputFile.files.length > 0) {
-            fileLabel.textContent = inputFile.files[0].name;
-			console.log(inputFile.files[0].name);
-        } else {
-            fileLabel.textContent = 'Subir Imagen';
-        }
-    });
+		const inputFile = document.getElementById('imagen_reserva');
+		const fileLabel = document.getElementById('file-label');
+		console.log('prueba emi');
+		inputFile.addEventListener('change', function () {
+			if (inputFile.files.length > 0) {
+				fileLabel.textContent = inputFile.files[0].name;
+				console.log(inputFile.files[0].name);
+			} else {
+				fileLabel.textContent = 'Subir Imagen';
+			}
+		});
 
-} else if (e.target.value === 'Pagar en el hotel') {
+	} else if (e.target.value === 'Pagar en el hotel') {
 		pagoDiv.innerHTML = `
 	<p> ¡No te preocupes! cancela en nuestras instalaciones sin costo adicional</p>`;
 	}
