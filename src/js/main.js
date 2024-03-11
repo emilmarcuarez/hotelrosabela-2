@@ -2080,6 +2080,37 @@ function paginaSiguiente() {
 	})
 }
 
+// mostrar encuesta
+function mostrarEncuesta(preguntas, respuestas) {
+    preguntas.forEach( answer => {
+        const { id,texto } = servicio;
+
+		// por cada pregunta se muestran las respuestas
+		respuestas.forEach(question=>{
+			const { id,texto,valor } = servicio;
+		});
+        const nombreServicio = document.createElement('P');
+        nombreServicio.classList.add('nombre-servicio');
+        nombreServicio.textContent = nombre;
+
+        const precioServicio = document.createElement('P');
+        precioServicio.classList.add('precio-servicio');
+        precioServicio.textContent = `$${precio}`;
+
+        const servicioDiv = document.createElement('DIV');
+        servicioDiv.classList.add('servicio');
+        servicioDiv.dataset.idServicio = id;
+        servicioDiv.onclick = function() {
+            seleccionarServicio(servicio);
+        }
+
+        servicioDiv.appendChild(nombreServicio);
+        servicioDiv.appendChild(precioServicio);
+
+        document.querySelector('#servicios').appendChild(servicioDiv);
+
+    });
+}
 
 // realizar encuesta
 async function encuesta() {
@@ -2087,8 +2118,6 @@ async function encuesta() {
 	const { nombre, apellido, nro_telefonico } = encuesta;
 	const { id_encuesta_pregunta, id_encuesta_respuesta, id_encuesta } = resultados_encuesta;
 
-	// const idServicios = servicios.map( servicio => servicio.id );
-	// console.log(idServicios);
 
 	const datos = new FormData();
 
