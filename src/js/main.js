@@ -96,7 +96,7 @@ $(document).ready(function () {
 			}
 		});
 	});
-
+	// enviar premio
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", "/crearPremio", true);
 	xhr.onload = () => {
@@ -106,9 +106,23 @@ $(document).ready(function () {
 			}
 		}
 	}
-	// let formData = new FormData(form_reserva);
+
 	xhr.send();
-	// xhr.send("id_reserva="+id_reserva);
+
+	// enviar encuesta
+	let xhr2 = new XMLHttpRequest();
+	xhr2.open("POST", "/enviarEncuesta", true);
+	xhr2.onload = () => {
+		if (xhr2.readyState === XMLHttpRequest.DONE) {
+			if (xhr2.status === 200) {
+
+			}
+		}
+	}
+
+	xhr2.send();
+
+
 });
 // menu respondive
 document.getElementById("btn_menu").addEventListener("click", mostrar_menu);
@@ -431,6 +445,80 @@ if (document.querySelectorAll(".form_reservas")) {
 			// xhr.send("id_reserva="+id_reserva);
 		}
 	});
+
+}
+
+// limpiar registros (borrar las reservas y las noches de un usuario)
+if (document.querySelector(".form_eliminar_registro")) {
+	let form_reserva = document.querySelector(".form_eliminar_noches");
+	// let id_reserva = form_reserva.querySelector("input").value,
+	let sendBtn_reserva = form_reserva.querySelector(".boton-rojo-block_noches");
+
+	form_reserva.onsubmit = (e) => {
+		e.preventDefault();
+	}
+
+
+	sendBtn_reserva.onclick = () => {
+
+		const swalWithBootstrapButtons = Swal.mixin({
+			customClass: {
+				confirmButton: "btn btn-success",
+				cancelButton: "btn btn-danger"
+			},
+			buttonsStyling: false
+		});
+		Swal.fire({
+			title: "¿Estas seguro de eliminar las noches y reservas?",
+			text: "No podras revertir esto",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonText: "Si, eliminar.",
+			cancelButtonText: "No, cancelar",
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			reverseButtons: true
+
+		}).then((result) => {
+			if (result.isConfirmed) {
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "/eliminar-registro", true);
+				xhr.onload = () => {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							Swal.fire({
+								position: "top-end",
+								icon: "success",
+								title: "Se han eliminado las noches y las reservas",
+								showConfirmButton: false,
+								timer: 1500
+							}).then(() => {
+								setTimeout(() => {
+									window.location.reload();
+								}, 2000);
+							})
+						} else {
+							Swal.fire({
+								icon: 'info',
+								title: 'Revise su conexion a internet',
+								text: 'No se limpiaron los registros. Por favor, intente mas tarde.'
+							})
+						}
+					}
+				}
+				let formData = new FormData(form_reserva);
+				xhr.send(formData);
+			} else if (
+				result.dismiss === Swal.DismissReason.cancel
+			) {
+				Swal.fire({
+					title: "Operacion cancelada",
+					text: "No se limpiaron los registros",
+					icon: "error"
+				});
+			}
+		});
+	}
 
 }
 
@@ -776,7 +864,8 @@ const reserva = {
 	monto_transferencia: '',
 	numero_i: '',
 	nacionalidad: '',
-	id_beneficio: ''
+	id_beneficio: '',
+	enviado_encuesta: ''
 };
 
 const re_habitacion = {
@@ -784,18 +873,9 @@ const re_habitacion = {
 	id_reserva: '',
 	id_habitacion: '',
 	cantidad_d: 0,
-	cantidad_s: 0,
+	cantidad_s: 0
 };
-const resultados_encuesta = {
-	id_encuesta_respuesta: '',
-	id_encuesta_pregunta: '',
-	id_encuesta: ''
-};
-const encuesta = {
-	nombre: '',
-	apellido: '',
-	nro_telefonico: ''
-};
+
 const reserva_cant = {
 	mostrar: 0,
 	cant: 0
@@ -1161,8 +1241,6 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 		mostrarResumen2();
 	});
 
-	// const espacio = document.createElement('BR');
-	// espacio.classList.add('br');
 
 	fecha_re_iconos.appendChild(icono_calendar);
 	fecha_re_iconos.appendChild(fecha_re_i_p);
@@ -1247,7 +1325,6 @@ function seleccionarHabitacion2(habitacion) {
 
 	inputCantidad2.addEventListener('change', function () {
 		re_habitacion.cantidad_s = parseInt(inputCantidad2.value) || 0;
-
 	});
 
 	const seleccionar_hab_p = document.createElement('DIV');
@@ -1514,23 +1591,23 @@ function seleccionarHora() {
 
 async function consultarApi_encuesta() {
 	try {
-				// Obtener preguntas
-			const urlPreguntas = 'http://localhost:3000/encuesta/preguntas';
-			const resultadoPreguntas = await fetch(urlPreguntas);
-			const encuestas = await resultadoPreguntas.json();
+		// Obtener preguntas
+		const urlPreguntas = 'http://localhost:3000/encuesta/preguntas';
+		const resultadoPreguntas = await fetch(urlPreguntas);
+		const encuestas = await resultadoPreguntas.json();
 
-				// Obtener respuestas
-			const urlRespuestas = 'http://localhost:3000/encuesta/respuestas';
-			const resultadoRespuestas = await fetch(urlRespuestas); // Corregido para usar urlRespuestas
-			const encuestas2 = await resultadoRespuestas.json(); // Corregido para usar resultadoRespuestas
+		// Obtener respuestas
+		const urlRespuestas = 'http://localhost:3000/encuesta/respuestas';
+		const resultadoRespuestas = await fetch(urlRespuestas); // Corregido para usar urlRespuestas
+		const encuestas2 = await resultadoRespuestas.json(); // Corregido para usar resultadoRespuestas
 
-				// Mostrar ambos resultados
-				mostrar_encuestas(encuestas, encuestas2);
+		// Mostrar ambos resultados
+		mostrar_encuestas(encuestas, encuestas2);
 
-			} catch (error) {
-				console.log(error);
-			}
+	} catch (error) {
+		console.log(error);
 	}
+}
 
 function mostrarResumen() {
 	const resumen = document.querySelector('.contenido-resumen');
@@ -1818,7 +1895,7 @@ function uuidv4() {
 
 async function reservarHabitacion() {
 
-	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal, n_empresa, apellidos, nombres, nro_telefono, email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad, id_beneficio } = reserva;
+	const { fecha_i, fecha_e, solicitudes, cantidad, monto, opcion_pago, adultos, ninos, hora_ll, habitaciones, habitaciones_re, codigo, status, imagen, traslado, i_fiscal, n_empresa, apellidos, nombres, nro_telefono, email, fecha_pago, banco, referencia, monto_transferencia, numero_i, nacionalidad, id_beneficio, enviado_encuesta } = reserva;
 	// Generar código único para la reserva
 	const codigo2 = uuidv4();
 	const idHabitaciones = habitaciones.map(habitacion => habitacion.id);
@@ -1931,6 +2008,8 @@ async function reservarHabitacion() {
 	datos.append('monto_transferencia', reserva.monto_transferencia);
 	datos.append('numero_i', reserva.numero_i);
 	datos.append('nacionalidad', reserva.nacionalidad);
+	reserva.enviado_encuesta = 0;
+	datos.append('enviado_encuesta', reserva.enviado_encuesta);
 	// datos.append('habitaciones', idHabitaciones);
 	console.log(datos);
 	habitaciones_re.forEach(habitacionre => {
@@ -2081,36 +2160,36 @@ function paginaSiguiente() {
 }
 
 // mostrar encuesta
-function mostrarEncuesta(preguntas, respuestas) {
-    preguntas.forEach( answer => {
-        const { id,texto } = servicio;
+// function mostrarEncuesta(preguntas, respuestas) {
+//     preguntas.forEach( answer => {
+//         const { id,texto } = servicio;
 
-		// por cada pregunta se muestran las respuestas
-		respuestas.forEach(question=>{
-			const { id,texto,valor } = servicio;
-		});
-        const nombreServicio = document.createElement('P');
-        nombreServicio.classList.add('nombre-servicio');
-        nombreServicio.textContent = nombre;
+// 		// por cada pregunta se muestran las respuestas
+// 		respuestas.forEach(question=>{
+// 			const { id,texto,valor } = servicio;
+// 		});
+//         const nombreServicio = document.createElement('P');
+//         nombreServicio.classList.add('nombre-servicio');
+//         nombreServicio.textContent = nombre;
 
-        const precioServicio = document.createElement('P');
-        precioServicio.classList.add('precio-servicio');
-        precioServicio.textContent = `$${precio}`;
+//         const precioServicio = document.createElement('P');
+//         precioServicio.classList.add('precio-servicio');
+//         precioServicio.textContent = `$${precio}`;
 
-        const servicioDiv = document.createElement('DIV');
-        servicioDiv.classList.add('servicio');
-        servicioDiv.dataset.idServicio = id;
-        servicioDiv.onclick = function() {
-            seleccionarServicio(servicio);
-        }
+//         const servicioDiv = document.createElement('DIV');
+//         servicioDiv.classList.add('servicio');
+//         servicioDiv.dataset.idServicio = id;
+//         servicioDiv.onclick = function() {
+//             seleccionarServicio(servicio);
+//         }
 
-        servicioDiv.appendChild(nombreServicio);
-        servicioDiv.appendChild(precioServicio);
+//         servicioDiv.appendChild(nombreServicio);
+//         servicioDiv.appendChild(precioServicio);
 
-        document.querySelector('#servicios').appendChild(servicioDiv);
+//         document.querySelector('#servicios').appendChild(servicioDiv);
 
-    });
-}
+//     });
+// }
 
 // realizar encuesta
 async function encuesta() {

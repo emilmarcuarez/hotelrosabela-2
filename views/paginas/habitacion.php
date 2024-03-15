@@ -111,7 +111,7 @@
         ?>
     </div>
                 <div class="info_descripcion_habitacion">
-                    <p>Descripcion</p>
+                    <p>Descripción</p>
                     <p><?php echo $habitacion->descripcion ?></p>
                 </div>
                 <div class="servicios_habitacion">

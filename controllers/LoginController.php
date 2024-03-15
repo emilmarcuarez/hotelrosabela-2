@@ -219,7 +219,7 @@ class LoginController{
             if(empty($alertas)) {
                  $usuario = Usuario::where('email', $auth->email);
 
-                 if($usuario && $usuario->confirmado === "1") {
+                 if($usuario) {
                         
                     // Generar un token
                     $usuario->crearToken();

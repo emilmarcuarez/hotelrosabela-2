@@ -15,7 +15,7 @@
     <?php } ?>
     <div class="espacio3"></div>
 <a href="/admin" class="boton boton-rosado">Volver</a> 
-
+<div class="espacio3"></div>
 <h2>Usuarios</h2>
 <div class="tabla_general">
     <div class="cabecera_tabla_general_emple">

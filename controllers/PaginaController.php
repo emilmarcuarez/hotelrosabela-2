@@ -17,6 +17,8 @@ use Model\Reserva;
 use Model\ReservaHabitacion;
 use Model\Usuario;
 use Model\Comentarios;
+use Model\Eventos_centros_consumo;
+use Model\Eventos_salon;
 use Model\Premios_usuario;
 use PHPMailer\PHPMailer\PHPMailer;
 class PaginaController
@@ -361,11 +363,18 @@ class PaginaController
         $no = true;
         $evento = Evento::find($id);
         $eventos = Evento::getEventosdif(3, $id);
-        // $centroConsumo = Evento::findNombreCentro($id);
+
+        if($evento->tipo_lugar==='Salon'){
+            $eventos_salones=Eventos_salon::where('id_eventos', $evento->id);
+            $lugar=Salon::where('id', $eventos_salones->id_salon);
+        }else{
+            $eventos_centros_consumos=Eventos_centros_consumo::where('id_eventos', $evento->id);
+            $lugar=Centroconsumo::where('id', $eventos_centros_consumos->id_centros_consumo);
+        }
         $router->render('paginas/evento', [
             'evento' => $evento,
+            'lugar'=>$lugar,
             'eventos' => $eventos,
-            // 'centroConsumo' => $centroConsumo,
             'no2' => $no2,
             'no' => $no
         ]);
@@ -419,8 +428,8 @@ class PaginaController
         $usuario=Usuario::find($id);
         $result = Reserva::reservas();
         // $reservas = Reserva::reserva_hab($id);
-        $premios_usuarios = Premios_usuario::where2('usuarios_id', $id);
-        $reservas = Reserva::where2('email', $usuario->email);
+        $premios_usuarios = Premios_usuario::where2order('usuarios_id', $id);
+        $reservas = Reserva::where2order('email', $usuario->email);
         $premios = Premios::all();
         
         if ($premios_usuarios) {

@@ -24,11 +24,11 @@
         <div class="seccion55">
             <form action="" class="formulario_re">
                 <div class="par_label">
-                    <label for="fecha">fecha de ingreso</label>
+                    <label for="fecha">Fecha de ingreso</label>
                     <input type="date" id="fechaReserva2" name="fechaReserva">
                 </div>
                 <div class="par_label">
-                    <label for="fecha">fecha de egreso</label>
+                    <label for="fecha">Fecha de egreso</label>
                     <input type="date" id="fechaEgreso2" name="fechaEgreso">
                 </div>
 
@@ -85,9 +85,6 @@
         <div class="info_rb_rewards">
             <a href="/fidelizacion">Plan de fidelizacion</a>
             <a href="/loginusuario">Acceder</a>
-            <!-- <div class="cont_chat_linea" id="abrir_modal3">
-                  <a>Chat en linea</a>
-            </div> -->
         </div>
     </div>
 </div>
@@ -212,8 +209,8 @@
         </div><!-- FIN DE CARRUSEL -->
         <div class="texto_de_boda">
             <p>Las paredes de este gran hotel están listas para guardar sus recuerdos especiales.</p>
-            <p>El hotel RosaBela tiene el placer de contar con una diverssa variedad de salones que se ajustaran a su evente, otorgandole seguridad y confort en su recepcion. </p>
-            <p>Un momento inolvidable como una boda debe ser recordado por toda la familia y amigos que vienen a celebrar el momento mas feliz de sus vidas y es por ello, que debes de planificar tu evento con nosotros. ¡Vive la experiencia!</p>
+            <p><br>El hotel RosaBela tiene el placer de contar con una diverssa variedad de salones que se ajustaran a su evento, otorgando seguridad y confort en su recepcion. </p>
+            <p><br>Un momento inolvidable como una boda debe ser recordado por toda la familia y amigos que vienen a celebrar el momento mas feliz de sus vidas y es por ello, que debes de planificar tu evento con nosotros. ¡Vive la experiencia!</p>
         </div>
     </div>
 </div>
@@ -231,19 +228,19 @@ include 'listadoev.php';
             <div class="img_area1">
 
             </div>
-            <p>Espacios ideales para disfrutar su estadia con el mejor ambiente</p>
+            <p>Espacios ideales para disfrutar su estadia con el mejor ambiente.</p>
         </div>
         <div class="area_rest_part">
             <div class="img_area2">
 
             </div>
-            <p>Los restaurantes mas atractivos de la region</p>
+            <p>Los restaurantes mas atractivos de la región.</p>
         </div>
         <div class="area_rest_part">
             <div class="img_area3">
 
             </div>
-            <p>Nada mejor que una tarde de piscina con tus snaks preferidos</p>
+            <p>Nada mejor que una tarde de piscina con tus snaks preferidos.</p>
         </div>
 
     </div>
@@ -256,7 +253,7 @@ include 'listadoev.php';
     <div class="contenedor">
 
         <div class="info_ubi_tittle">
-            <p>UBICACION</p>
+            <p>UBICACIÓN</p>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="23" viewBox="0 0 36 46" fill="none">
                 <path d="M20.2219 44.9664C25.0312 39.1834 36 25.1675 36 17.2948C36 7.74661 27.9375 0 18 0C8.0625 0 0 7.74661 0 17.2948C0 25.1675 10.9688 39.1834 15.7781 44.9664C16.9312 46.3445 19.0688 46.3445 20.2219 44.9664ZM18 11.5298C19.5913 11.5298 21.1174 12.1372 22.2426 13.2183C23.3679 14.2995 24 15.7658 24 17.2948C24 18.8237 23.3679 20.29 22.2426 21.3712C21.1174 22.4523 19.5913 23.0597 18 23.0597C16.4087 23.0597 14.8826 22.4523 13.7574 21.3712C12.6321 20.29 12 18.8237 12 17.2948C12 15.7658 12.6321 14.2995 13.7574 13.2183C14.8826 12.1372 16.4087 11.5298 18 11.5298Z" fill="#dc143c" />
             </svg>
@@ -284,7 +281,7 @@ include 'listadoev.php';
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.2622215769698!2d-62.77879712498322!3d8.276679300311317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses!2sve!4v1706880135009!5m2!1ses!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15793.049098834696!2d-62.7762222!3d8.276674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses-419!2sve!4v1704475270862!5m2!1ses-419!2sve" width="1423" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-<div class="seccion" id="paso-2">
+<!-- <div class="seccion" id="paso-2">
     habitaciones
 </div>
 <div class="seccion" id="paso-3">
@@ -294,5 +291,5 @@ include 'listadoev.php';
     Confirmacion
 </div>
 <div class="seccion" id="paso-3">
-    verificateeee
-</div>
+    verificate
+</div> -->

@@ -1,336 +1,372 @@
 .mi-cuenta_datos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-content: center;
-    gap: 2rem;
-    padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  gap: 2rem;
+  padding: 1rem;
   background: #eaeaea;
   border-radius: 1rem;
 }
+
 .datos_pago_otros {
-    padding: 1rem;
-    background: #f2f2f2;
-    border-radius: 1rem;
-  }
-  .datos_pago_otros span {
-    font-weight: 600;
-  }
+  padding: 1rem;
+  background: #f2f2f2;
+  border-radius: 1rem;
+}
+
+.datos_pago_otros span {
+  font-weight: 600;
+}
+
 .diseno_tarjeta {
-    border-radius: 1rem;
-    height: 22rem;
-    width: 45rem;
-    background: #000;
-    background: -webkit-linear-gradient(to right, #434343, #000000);
-    background: linear-gradient(to bottom, #5b5b5b, #777);
-  }
+  background-image: url(/build/img/tarjeta_platinium-01.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1rem;
+  height: 22rem;
+  width: 39rem;
+  display: flex;
+  align-items: end;
+  padding-bottom: 4rem;
+  align-content: end;
+  justify-content: space-between;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .diseno_tarjeta2 {
-    border-radius: 1rem;
-    height: 22rem;
-    width: 45rem;
-    background: #F2994A;
-    background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);
-    background: linear-gradient(to right, #DEB331, #F2994A);
-  
-  }
-  .part_tarjeta_cont2 {
-    background: #e99b21;
-    border-bottom: 16px solid #525252;
+  border-radius: 1rem;
+  background-image: url(/build/img/tarjeta_gold-01.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1rem;
+  height: 22rem;
+  width: 39rem;
+  display: flex;
+  align-items: end;
+  padding-bottom: 4rem;
+  align-content: end;
+  justify-content: space-between;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.part_tarjeta_cont2 {
+  background: #e99b21;
+  border-bottom: 16px solid #525252;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   padding: 1rem;
-    h4 {
-        font-size: 1.4rem;
-        color: white;
-        font-weight: 200;
-      }
-      p {
-        color: #ffffff;
-        font-size: 1.3rem;
-        font-style: italic;
-      }
-  }
-  .part_tarjeta_cont {
-    padding: 1rem;
-    background: #403f3f;
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-    border-bottom: 16px solid #7a7a7a;
-    h4 {
-        font-size: 1.4rem;
-        color: white;
-        font-weight: 200;
-      }
-      p {
-        color: #ffffff;
-        font-size: 1.3rem;
-        font-style: italic;
-      }
+
+  h4 {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 200;
   }
 
-  .codigo_dato_tarjeta p {
+  p {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+}
+
+.part_tarjeta_cont {
+  padding: 1rem;
+  // background: #403f3f;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+
+  // border-bottom: 16px solid #7a7a7a;
+  h4 {
+    font-size: 1.4rem;
     color: white;
-    font-weight: 600;
-    line-height: 3rem;
-    word-spacing: 1rem;
-    letter-spacing: 1rem;
-    // display: flex;
-    // align-content: center;
-    font-size: 1.5rem;
+    font-weight: 200;
   }
-  .codigo_dato_tarjeta2 p {
-    color: white;
-    font-weight: 600;
-    line-height: 3rem;
-    word-spacing: 1rem;
-    letter-spacing: 1rem;
-    // display: flex;
-    // align-content: center;
-    font-size: 1.5rem;
+
+  p {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-style: italic;
   }
-  ._dato_tarjeta2 p {
-    color: #fff;
-    margin-top: 1rem;
+}
+
+.codigo_dato_tarjeta p {
+  color: white;
+  font-weight: 600;
+  line-height: 3rem;
+  word-spacing: 1rem;
+  letter-spacing: 1rem;
+  // display: flex;
+  // align-content: center;
+  font-size: 1.5rem;
+}
+
+.codigo_dato_tarjeta2 p {
+  color: white;
+  font-weight: 600;
+  line-height: 3rem;
+  word-spacing: 1rem;
+  letter-spacing: 1rem;
+  // display: flex;
+  // align-content: center;
+  font-size: 1.5rem;
+}
+
+._dato_tarjeta2 p {
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.codigo_dato_tarjeta p {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1rem;
+  line-height: 3rem;
+  word-spacing: 1rem;
+}
+
+.escrito_datos_tarjeta {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
+  span {
+    font-weight: 700;
   }
-  .codigo_dato_tarjeta p {
-    color: white;
-    font-weight: 600;
-    line-height: 3rem;
-    word-spacing: 1rem;
-    letter-spacing: 1rem;
-    // display: flex;
-    // align-content: center;
-    font-size: 1.5rem;
-  }
-  .escrito_datos_tarjeta {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    span{
-        font-weight: 700;
-    }
-  }
-  .datos_tarjeta {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-items: center;
-    align-items: center;
-    padding: 4rem 0rem;
-    background: #e0e0e0;
-    border-radius: 1rem;
-    margin-bottom: 3rem;
-  }
-  ._dato_tarjeta p {
-    color: white;
-    margin-top: 1rem;
-  }
-  .part_tarjeta {
-    padding: 1rem;
-  }
-  .logo_tarjeta {
-    display: flex;
-    justify-content: right;
-  }
-  .grid_tarjeta_contenedor {
-    display: grid;
-    grid-template-rows: 20% 80%;
-  }
+}
+
+.datos_tarjeta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding: 4rem 0rem;
+  background: #e0e0e0;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+
+._dato_tarjeta p {
+  color: #000;
+  font-weight: 600;
+  // margin-top: 1rem;
+}
+
+.part_tarjeta {
+  padding: 1rem;
+}
+
+.logo_tarjeta {
+  display: flex;
+  justify-content: right;
+}
+
+.grid_tarjeta_contenedor {
+  display: grid;
+  grid-template-rows: 20% 80%;
+}
+
 .dato_usuario_part span {
-    font-weight: 500;
-    color: black;
+  font-weight: 500;
+  color: black;
 }
 
 .re_usuario h2 {
-    font-weight: 500;
-    text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .re_usuario h2 span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .re_usuario {
-    margin-top: 2rem;
 
-    h3 {
-        font-size: 2rem;
-        text-align: center;
-        font-weight: 500;
-        margin-top: 5rem;
-    }
+  h3 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 5rem;
+  }
 }
 
 .reservas_usuario_flex {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
 
-    .cont_reserva_usu4 {
-        border: 1px solid #adadad;
-        p {
-            color: #000;
-            font-weight: 500;
-            font-size: 1.3rem;
+  .cont_reserva_usu4 {
+    border: 1px solid #adadad;
+
+    p {
+      color: #000;
+      font-weight: 500;
+      font-size: 1.3rem;
+    }
+
+    background-color: #fbfbfb;
+
+    // padding: 2rem;
+    .cont_reserva_usu1 {
+      border-bottom: 1px solid #dcdbdb;
+      padding: 1rem;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .cont_reserva_usu2 {
+      border-bottom: 1px solid #dcdbdb;
+      padding: 1rem 2rem;
+
+      .cont_reserva_fecha {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          font-weight: 700;
         }
+      }
 
-        background-color: #fbfbfb;
+      .cont_reserva_datos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        // padding: 2rem;
-        .cont_reserva_usu1 {
-            border-bottom: 1px solid #dcdbdb;
-            padding: 1rem;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            gap: .4rem;
+        .boton_pdf_reserva {
+          a {
+            background-color: #727272;
+            border-radius: 5rem;
+            color: #fff;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 1.3rem !important;
+
+            &:hover {
+              transition: .3s ease-in;
+              background-color: #066358;
+            }
+          }
         }
+      }
+    }
 
-        .cont_reserva_usu2 {
-            border-bottom: 1px solid #dcdbdb;
-            padding: 1rem 2rem;
+    .cont_reserva_usu {
+      padding: .5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-            .cont_reserva_fecha {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+      .confirmada_r,
+      .pendiente_r {
+        text-transform: uppercase;
+        font-weight: 700;
+      }
 
-                span {
-                    font-weight: 700;
-                }
-            }
+      .confirmada_r {
+        color: green;
+      }
 
-            .cont_reserva_datos {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+      .pendiente_r {
+        color: rgb(239, 160, 1);
+      }
 
-                .boton_pdf_reserva {
-                    a {
-                        background-color: #727272;
-                        border-radius: 5rem;
-                        color: #fff;
-                        display: inline-block;
-                        padding: 0.5rem 1rem;
-                        font-size: 1.3rem !important;
-
-                        &:hover {
-                            transition: .3s ease-in;
-                            background-color: #066358;
-                        }
-                    }
-                }
-            }
-        }
-
-        .cont_reserva_usu {
-            padding: .5rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .confirmada_r,
-            .pendiente_r {
-                text-transform: uppercase;
-                font-weight: 700;
-            }
-
-            .confirmada_r {
-                color: green;
-            }
-
-            .pendiente_r {
-                color: rgb(239, 160, 1);
-            }
-
-            button {
-                border: none;
-                color: white;
-                display: inline-block;
-                padding: .5rem 1rem;
-                font-size: 1.3rem;
-                border-radius: 3rem;
-                background-color: rgb(178, 23, 23);
-
-                &:hover {
-                    cursor: pointer;
-                    transition: .3s ease-in;
-                    background-color: rgb(121, 9, 9);
-                }
-            }
-        }
+      button {
+        border: none;
+        color: white;
+        display: inline-block;
+        padding: .5rem 1rem;
+        font-size: 1.3rem;
+        border-radius: 3rem;
+        background-color: rgb(178, 23, 23);
 
         &:hover {
-            cursor: pointer;
-            transition: .2s ease-in;
-            box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
-            -webkit-box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
-            -moz-box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
+          cursor: pointer;
+          transition: .3s ease-in;
+          background-color: rgb(121, 9, 9);
         }
+      }
     }
+
+    &:hover {
+      cursor: pointer;
+      transition: .2s ease-in;
+      box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
+      -webkit-box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
+      -moz-box-shadow: 9px 11px 16px -5px rgba(102, 96, 96, 0.75);
+    }
+  }
 }
 
 @media screen and (max-width: 900px) {
-    .formulario_usuario_act {
-        padding: 2rem !important;
-    }
+  .formulario_usuario_act {
+    padding: 2rem !important;
+  }
 
-    .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu2 .cont_reserva_datos {
-        flex-direction: column;
-        align-items: baseline;
-    }
+  .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu2 .cont_reserva_datos {
+    flex-direction: column;
+    align-items: baseline;
+  }
 
-    .re_usuario {
-        padding: 2rem;
+  .re_usuario {
+    padding: 2rem;
 
-    }
+  }
 
-    .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu {
-        flex-direction: column;
-        align-items: baseline;
+  .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu {
+    flex-direction: column;
+    align-items: baseline;
 
-    }
+  }
 }
 
 // buscador de reservas 
 .buscador_reservar #buscador {
-    height: 4rem;
-    border-radius: 1rem;
-    border: none;
-    padding: 1rem;
-    border: 2px solid black;
-    width: 40rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: none;
+  padding: 1rem;
+  border: 2px solid black;
+  width: 40rem;
 }
 
 .buscador_reservar {
-    margin: 2rem 0rem;
+  margin: 2rem 0rem;
 }
 
 .contenedor.reservas_administrador p {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .premio_cliente {
-    background: white;
-    color: #595757;
-    padding: 1rem;
-    // border-radius: 1rem;
+  background: white;
+  color: #595757;
+  padding: 1rem;
+  // border-radius: 1rem;
 }
 
 .premio_cliente h5 {
-    color: #ff185b;
-    font-style: italic;
+  color: #ff185b;
+  font-style: italic;
 }
 
 .premio_cliente_flex {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .premio_cliente p {
-    font-size: 1.4rem;
-    color: #4f4c4c;
+  font-size: 1.4rem;
+  color: #4f4c4c;
 }

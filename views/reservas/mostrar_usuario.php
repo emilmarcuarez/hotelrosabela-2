@@ -17,7 +17,9 @@
     <div class="espacio"></div>
 <a href="/premios?id=<?php echo $usuario->id;?>" class="boton boton-rosado">Volver</a> 
 <!-- <a href="/centrosconsumo/crear" class="boton boton-rosado">Nuevo Centro de Consumo</a> -->
+<div class="espacio3"></div>
 <h2>Reservas</h2>
+<?php if($reservas){?>
 
 <div class="tabla_general">
     <div class="cabecera_tabla_general">
@@ -65,7 +67,18 @@
                     <a href="/reservas/datosReserva2?id=<?php echo $reserva->id; ?>" >Ver reserva</a>
                 </div>
                 <?php }else if(intval($reserva->status)===1){ ?>
-                    <div class="body_infor_div"><p class="in_house">In house</p></div>
+                    <?php if (strtotime($reserva->fecha_e) < strtotime(date('Y/m/d'))) { ?>
+                                <div class="body_infor_div">
+                                    <p class="in_house">Estadia exitosa</p>
+                                </div>
+                            <?php } else { ?>
+                                <div class="body_infor_div">
+                                    <p class="in_house">In house</p>
+                                </div>
+
+
+                            <?php } ?>
+                    <!-- <div class="body_infor_div"><p class="in_house">In house</p></div> -->
                     <div class="form_reservas">
                     
                     <a href="/reservas/datosReserva2?id=<?php echo $reserva->id; ?>" >Ver reserva</a>
@@ -95,5 +108,9 @@
         <?php endforeach; ?>
     </div>
 </div>
+</div>
+<?php }else{?>
+    <p class="centrar_texto">Este usuario no ha realizado reservas aun.</p>
+<?php }?>
 <div class="espacio"></div>
 </main>

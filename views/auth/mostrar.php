@@ -18,6 +18,7 @@
     <div class="espacio"></div>
 <a href="/admin" class="boton boton-rosado">Volver</a> 
 <a href="/auth/crearlogin" class="boton boton-rosado">Nuevo Usuario</a>
+<div class="espacio3"></div>
 <h2>Usuarios administradores</h2>
 <div class="tabla_general contenedor">
     <div class="cabecera_tabla_general_emple">

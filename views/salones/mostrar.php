@@ -17,6 +17,7 @@
     <div class="espacio"></div>
 <a href="/admin" class="boton boton-rosado">Volver</a> 
 <a href="/salones/crear" class="boton boton-rosado">Nuevo salon</a>
+<div class="espacio3"></div>
 <h2>Salones</h2>
 <div class="tabla_general contenedor">
     <div class="cabecera_tabla_general_emple">

@@ -28,12 +28,46 @@ if (!isset($inicio)) {
     <link rel="stylesheet" href="../build/css/app.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../build/dist//star-rating.css">
+    <link rel="stylesheet" href="../build/dist/star-rating.css">
    
     <title>Hotel Rosa bela</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-
+<style>
+#\:0\.targetLanguage {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: #fff;
+  border: none;
+}
+.goog-te-menu-value {
+        padding: 5px 10px;
+        font-size: 14px;
+        background-color: #007bff; /* Color de fondo del botón */
+        color: #fff; /* Color del texto */
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+.VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+}
+.traductor_pag {
+  display: flex;
+  border-top: 1px solid gainsboro;
+  background: #181414de;
+}
+#google_translate_element {
+  width: 21rem;
+  border: none;
+  margin-left: 5rem;
+}
+</style>
 <body>
 <div id="miModal2" class="modal2">
 		<div class="flex2" id="flex2">
@@ -88,7 +122,8 @@ if (!isset($inicio)) {
                         <a href="/eventos">Eventos</a>
                         <a href="/empleados">Empleados</a>
                         <a href="/contacto">Contacto</a>
-               
+                
+        <!-- <div id="google_translate_element" class="google"></div> -->
 
              <?php if ($auth2 || $auth || $auth_recepcion) { ?>
               <?php if (!$auth && !$auth_recepcion) { ?>
@@ -118,7 +153,10 @@ if (!isset($inicio)) {
                 </div>
             </div>
         </header>
-      
+        <section class="traductor_pag">
+            <div id="google_translate_element" class="google"></div>
+
+        </section>          
         <!-- </section>  -->
  
         <div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
@@ -302,9 +340,12 @@ if (!isset($inicio)) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://kit.fontawesome.com/8aca401b21.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="../build/js/bundle.min.js"></script>
     <script>
-
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        }
         //    que aparezca el pais en lapagina de gestion de usuario
         if (document.getElementById('countries-list2')) {
             fetch('https://restcountries.com/v2/all')

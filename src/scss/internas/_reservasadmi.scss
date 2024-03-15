@@ -36,6 +36,25 @@
       transition: .2s ease-in;
     }
   }
+  .boton-rojo-block_noches{
+    border: none;
+    color: #fff;
+    display: inline-block;
+    border-radius: .2rem;
+    font-weight: 400 !important;
+    height: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: rgb(226, 108, 5);
+    &:hover{
+      cursor: pointer;
+      background-color: rgb(183, 88, 5);
+      transition: .2s ease-in;
+    }
+  }
   // pagina de reserva datos
   .reserva_ver{
     margin-top: 4rem;

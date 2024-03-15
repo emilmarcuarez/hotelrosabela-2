@@ -370,6 +370,14 @@ public static function getEventosdif($cantidad, $id)
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
+    public static function where2order($columna,$token)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE ".$columna."='". $token."' ORDER BY id desc;";
+        // se sigue el principio de active record que es tener todo en objetos
+        $resultado = self::consultarSQL($query);
+      
+        return $resultado;
+    }
     // where pero que envie varios
     public static function where($columna,$token)
     {

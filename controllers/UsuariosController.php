@@ -275,7 +275,7 @@ class UsuariosController
                                 $premios_usuario2->setUsado('0');
                                 $email = new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '10', $premio->mensaje);
                                 $email->enviarPremio();
-                             
+                                $email->enviarPremioServidor();
                                 $premios_usuario2->guardar();
                             }
                         }
@@ -335,6 +335,7 @@ class UsuariosController
                                                     $premios_usuario2->setUsado('0');
                                                     $email = new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '18', $premio->mensaje);
                                                     $email->enviarPremio();
+                                                    $email->enviarPremioServidor();
                                                     $premios_usuario2->guardar();
                                                 }
                                             }
@@ -351,6 +352,7 @@ class UsuariosController
                                 $premios_usuario2->setUsado('0');
                                 $email = new Email_premios($usuario->email, $usuario->nombre, $usuario->apellido, '28', $premio->mensaje);
                                 $email->enviarPremio();
+                                $email->enviarPremioServidor();
                                 $premios_usuario2->guardar();
                             }
                         }
@@ -359,13 +361,37 @@ class UsuariosController
             }
         }
     }
+
+    public static function enviarEncuesta(Router $router){
+        $no = true;
+        $no2 = true;
+        
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // $errores = Premios_usuario::getErrores();
+           
+  
+            $reservas = Reserva::all();
+        //    debuguear($reservas);
+            // iterando sobre cada usuario
+            foreach($reservas as $reserva) {
+                $fechaFin = new \DateTime($reserva->fecha_e);
+                $fechaHoy = new \DateTime(); // Esto obtiene la fecha de hoy automáticamente
+            
+                if ($fechaHoy > $fechaFin && intval($reserva->enviado_encuesta)!==1) {
+                    $email = new Email($reserva->email, $reserva->nombres, $reserva->apellidos, '');
+                    $email->enviarCorreoEncuesta();
+                    $reserva->enviado_encuesta=1;
+                    $reserva->actualizar2(); 
+                }
+            }
+    }
     public static function actPremio()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id_premio_usu'];
             $premio_usuario = Premios_usuario::find($id);
             $premio_usuario->usado = 1;
-            $premio_usuario->fecha = date('Y-m-d');
+            $premio_usuario->fecha_usado = date('Y-m-d');
             $premio_usuario->guardar();
         }
     }
@@ -452,15 +478,12 @@ class UsuariosController
     public static function buscar(Router $router)
     {
         $valor = $_POST['buscador'];
-        // $reservashabitaciones=ReservaHabitacion::allDesc();
-
         $usuarios = Usuario::allUsuarios2($valor);
 
         $result = Reserva::reservas();
         $no2 = true;
         $no = true;
-        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
-        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        $resultado = $_GET['resultado'] ?? null; 
         $router->render('auth/noches', [
             'resultado' => $resultado,
             'usuarios' => $usuarios,

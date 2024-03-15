@@ -201,20 +201,6 @@ public function autenticar(){
     header('Location: /');
 }
 
-// para crear y guardar cada usuario
-
-// public function guardar()
-//     {
-//         if (!is_null($this->id)) {
-//             // actualizar
-//             $resultado=$this->actualizar();
-
-//         } else {
-//             // crear un nuevo registro
-//            $resultado= $this->crear();
-//         }
-//         return $resultado['id']; // Devolver el ID del mensaje creado
-//     }
     
 public function guardar() {
     $resultado = '';

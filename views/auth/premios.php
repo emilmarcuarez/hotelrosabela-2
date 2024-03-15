@@ -37,7 +37,7 @@
                                         <input type="submit" value="usado">
                                     </form>
                                     <?php }else{ ?>
-                                        <p>Usado el: <?php echo date('d-m-Y', strtotime($premio_usu->fecha)) ?></p>
+                                        <p>Usado el: <?php echo date('d-m-Y', strtotime($premio_usu->fecha_usado)) ?></p>
                                     <?php } ?>
                             
 

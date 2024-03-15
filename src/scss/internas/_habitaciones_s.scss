@@ -22,6 +22,9 @@
   -moz-box-shadow: -4px 10px 18px 12px rgba(28,28,28,0.75);
 }
 .cont_datos_reserva {
+  box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
+  -webkit-box-shadow: -4px 10px 18px 3px rgba(28,28,28,.75);
+  -moz-box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
   background: hsla(0, 0%, 100%, 0.98);
   margin-top: 2rem;
   padding: 1rem;
@@ -314,6 +317,9 @@
   // height: 6rem;
   padding-left: 1rem;
 }
+.descripcion_habitacion {
+  padding-right: 1rem;
+}
 .cont_grid_paso2 {
   background: hsla(0, 0%, 100%, 0.98);
   padding: 4rem;
@@ -327,13 +333,19 @@
   padding: 2rem;
   // background: azure;
 }
+.enlace_habitaciones:hover {
+  transition: .5s ease;
+  transform: scale(1.2);
+  background-color: #000;
+}
 .hab_part2 {
   background-color: hsla(0, 0%, 100%, 0.98);
- 
+  box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
+  -webkit-box-shadow: -4px 10px 18px 3px rgba(28,28,28,.75);
+  -moz-box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-  box-shadow: 7px 7px 16px 0px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: repeat(2,1fr);
   &:hover {
@@ -525,6 +537,9 @@
   display: grid;
   grid-template-columns: repeat(3,1fr) 42%;
   gap: 1rem;
+  box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
+  -webkit-box-shadow: -4px 10px 18px 3px rgba(28,28,28,.75);
+  -moz-box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
 }
 .list_plan_part2 {
   display: flex;
@@ -681,7 +696,7 @@
   }
 
   #hora {
-    width: 15%;
+    width: 20%;
     height: 4rem;
     padding: 1rem;
     border: 1px solid #0f0f0f;
