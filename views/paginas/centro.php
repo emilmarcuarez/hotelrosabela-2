@@ -36,7 +36,7 @@
                 
                     <p>Especialidad: <span><?php echo $centro->plato_especial?></span></p>
                     <p>Horario: <span><?php echo $centro->horario?></span></p>
-                    <p>Link del menu: <a href="<?php echo $centro->link?>">Click aqui</a></p>
+                    <p>Link del menu: <a href="<?php echo $centro->link?>" target="_blank">Click aqui</a></p>
                 
             </div>
         </div> <!--Cierra el grid_centro-->

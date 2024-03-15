@@ -5,8 +5,8 @@
  class Reserva extends Activerecord{
     protected static $tabla = 'reserva';
     protected static $pagina='Reservas/mostrar';
-    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad', 'id_beneficio'];
-    protected static $columnasDB2=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad'];
+    protected static $columnasDB=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad', 'enviado_encuesta','id_beneficio'];
+    protected static $columnasDB2=['id', 'fecha_i', 'fecha_e','cantidad', 'solicitudes', 'monto', 'ninos','adultos', 'hora_ll','opcion_pago','codigo','status','imagen','traslado', 'i_fiscal','n_empresa','apellidos', 'nombres', 'nro_telefono', 'email', 'fecha_pago', 'banco', 'referencia', 'monto_transferencia', 'numero_i', 'nacionalidad','enviado_encuesta'];
 
 
     public $id;
@@ -35,6 +35,7 @@
     public $monto_transferencia;
     public $numero_i;
     public $nacionalidad;
+    public $enviado_encuesta;
     public $id_beneficio;
     public function __construct($args=[]){
       $this->id=$args['id'] ?? null;
@@ -63,7 +64,9 @@
       $this->monto_transferencia=$args['monto_transferencia'] ?? '';
       $this->numero_i=$args['numero_i'] ?? '';
       $this->nacionalidad=$args['nacionalidad'] ?? '';
+      $this->enviado_encuesta= $args['enviado_encuesta'] ?? '';
       $this->id_beneficio= $args['id_beneficio'] ?? '';
+     
     }
 //  EL ID_BENEFICIO SE GUARDA '' ASI, VACIO MUESTRA CUANDO IMPRIMO EL FORMDATA PERO CUANDO LO ENVIA, NO SE GUARDA.
     public function guardar()
@@ -77,7 +80,27 @@
         }
         return $resultado;
     }
-    
+    public function actualizar2() {
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Iterar para ir agregando cada campo de la BD
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            if($key==='id_beneficio') continue;
+            $valores[] = "{$key}='{$value}'";
+        }
+
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 "; 
+// debuguear($query);
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
     public function crear()
     {
 
@@ -155,7 +178,7 @@
       {
           $atributos = [];
           foreach (static::$columnasDB2 as $columna) {
-              if ($columna === 'id') continue;
+              if ($columna === 'id' || $columna === 'id_beneficio') continue;
               $atributos[$columna] = $this->$columna;
           }
           return $atributos;

@@ -5,7 +5,7 @@ class Premios_usuario extends Activerecord
 {
   protected static $tabla='premios_usuario';
   protected static $pagina='premios';
-  protected static $columnasDB = ['id', 'premio_id', 'usuarios_id','status', 'usado','fecha'];
+  protected static $columnasDB = ['id', 'premio_id', 'usuarios_id','status', 'usado','fecha','fecha_usado'];
 
   
   public $id;
@@ -14,6 +14,7 @@ class Premios_usuario extends Activerecord
   public $status;
   public $usado;
   public $fecha;
+  public $fecha_usado;
 
   public function __construct($args = [])
   {
@@ -23,6 +24,7 @@ class Premios_usuario extends Activerecord
       $this->status = $args['status'] ?? '0';
       $this->usado = $args['usado'] ?? '0';
       $this->fecha = date('Y/m/d');
+      $this->fecha_usado = date('Y/m/d');
   }
 
   public function validar()

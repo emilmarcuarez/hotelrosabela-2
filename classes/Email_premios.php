@@ -26,12 +26,12 @@ class Email_premios {
         $mail->isSMTP();
         $mail->Host = 'smtp.office365.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'hotelrosabela2@outlook.es'; // Tu dirección de correo de Outlook
+        $mail->Username = 'emilmarpatricia2@outlook.es'; // Tu dirección de correo de Outlook
         $mail->Password = 'pascua2102'; // Tu contraseña
         $mail->SMTPSecure = 'tls'; // Puedes cambiar a 'ssl' si es necesario
         $mail->Port = 587; // O 465 para SSL/TLS
         
-        $mail->setFrom('hotelrosabela2@outlook.es');
+        $mail->setFrom('emilmarpatricia2@outlook.es');
         $mail->addAddress($this->email);
         $mail->Subject = '¡FELICIDADES! El hotel RosaBela te premia.';
 
@@ -59,6 +59,7 @@ class Email_premios {
         $mail->Body = $contenido;
             //Enviar el mail
         $mail->send();
+        
     }
 
     // enviar premio al big boss
@@ -75,7 +76,7 @@ class Email_premios {
         $mail->Port = 587; // O 465 para SSL/TLS
         
         $mail->setFrom('emilmarpatricia2@outlook.es');
-        $mail->addAddress('emilmarpatricia2@outlook.es');
+        $mail->addAddress('emilmarpatricia@gmail.com');
         $mail->Subject = '¡ENHORABUENA! se ha enviado un premio';
 
         // Set HTML
@@ -93,9 +94,12 @@ class Email_premios {
         $contenido .= "</head>";
         $contenido.= "<h3>Hotel Rosa Bela & Convention center</h3>";
         $contenido .= "<div>";
-        $contenido .= "<p><strong>¡Hola ".$this->nombre."! Premiamos tu fidelidad y por ello, te tenemos un premio por tener mas de ".$this->noches." noches con nosotros.<strong></p>";
-        $contenido .= "<p>".$this->mensaje."</p>";            
-        $contenido .="<p>¡Ingrese a su cuenta de fidelizacion y compruebe su premio! Lo esperamos</p>";
+        $contenido .= "<p>Es un placer informarles que se ha enviado un premio al siguiente usuario: </p>";
+        $contenido .= "<p>Nombre y apellido: ".$this->nombre." ".$this->apellido."</p>";
+        $contenido .= "<p>Correo electronico: ".$this->email."</p>";
+        
+        $contenido .= "<p>Mensaje enviado: ".$this->mensaje."</p>";            
+        // $contenido .="<p>¡Ingrese a su cuenta de fidelizacion y compruebe su premio! Lo esperamos</p>";
         $contenido .= "</div>";
         $contenido .= "<div><img src='https://hotelrosabela.000webhostapp.com/build/img/logopng.png' alt='Imagen'></div>"; // Ruta de la imagen
         $contenido .= '</html>';

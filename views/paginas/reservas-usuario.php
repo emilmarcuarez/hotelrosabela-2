@@ -7,87 +7,58 @@
     </div>
     <div class="contenedor">
         <h2>Mi cuenta - <span>RB</span> Loyalty</h2>
-    
-        <?php if(intval($usuario->noches)>=20){?>
-        
-        <div class="datos_tarjeta">
-            <div class="diseno_tarjeta">
-                <div class="dato_tarjeta_part">
-                   
-                    <div class="grid_tarjeta_contenedor">
-                        <div class="part_tarjeta_cont">
-                        <h4>Hotel RosaBela - Platinium</h4>
-                            <p><span>RB</span> loyalty</p>
-                        </div>
-                        <div class="part_tarjeta">
-                            
-                            <div class="info_tarjeta">
-                                <div class="codigo_dato_tarjeta">
-                                    <p><?php echo $usuario->codigo ?></p>
-                                </div>
-                                <div class="_dato_tarjeta">
-                                    <p><?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
-                                </div>
-                                <div class="logo_tarjeta">
-                                <img src="build/img/Logo Blanco.webp" alt="">
-                            </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="escrito_datos_tarjeta">
-                      <p><span>Codigo: </span> <?php echo $usuario->codigo ?></p>
-                      <p><span>Nivel:</span> PLATINIUM</p>
-                      <p><span>MILLAS ACUMULADAS: </span><?php echo $usuario->noches*100 ?></p>
-                      <p><span>Cantidad de noches: </span><?php echo $usuario->noches?></p>
-                      <p><span>Nombre y apellido: </span> <?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
-                    </div>
-        </div>
-        <?php }else{?>
+        <?php if (intval($usuario->noches) >= 20) { ?>
 
             <div class="datos_tarjeta">
-            <div class="diseno_tarjeta2">
-                <div class="dato_tarjeta_part2">
-                   
-                    <div class="grid_tarjeta_contenedor">
-                        <div class="part_tarjeta_cont2">
-                        <h4>Hotel RosaBela - Gold</h4>
-                            <p><span>RB</span> loyalty</p>
-                        </div>
-                        <div class="part_tarjeta">
-                            
-                            <div class="info_tarjeta">
-                                <div class="codigo_dato_tarjeta">
-                                    <p><?php echo $usuario->codigo ?></p>
-                                </div>
-                                <div class="_dato_tarjeta">
-                                    <p><?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
-                                </div>
-                                <div class="logo_tarjeta">
-                                <img src="build/img/Logo Blanco.webp" alt="">
-                            </div>
-                            </div>
-                        </div>
+                <div class="diseno_tarjeta">
+                    <div class="codigo_dato_tarjeta">
+                        <p><?php echo $usuario->codigo ?></p>
                     </div>
-
+                    <div class="_dato_tarjeta">
+                        <p><?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
+                    </div>
+                </div>
+                <div class="escrito_datos_tarjeta">
+                    <p><span>Codigo: </span> <?php echo $usuario->codigo ?></p>
+                    <p><span>Nivel:</span> PLATINIUM</p>
+                    <p><span>MILLAS ACUMULADAS: </span><?php echo $usuario->noches * 100 ?></p>
+                    <p><span>Cantidad de noches: </span><?php echo $usuario->noches ?></p>
+                    <p><span>Nombre y apellido: </span> <?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
                 </div>
             </div>
-            <div class="escrito_datos_tarjeta">
-                      <p><span>Codigo: </span> <?php echo $usuario->codigo ?></p>
-                      <?php if(intval($usuario->noches>=20)){?>
-                      <p><span>Nivel:</span> PLATINIUM</p>
-                        <?php }else{?>
-                            <p><span>Nivel:</span> GOLD</p>
-                        <?php }?>
-                     
-                      <p><span>MILLAS ACUMULADAS: </span><?php echo $usuario->noches*100 ?></p>
-                      <p><span>Cantidad de noches: </span><?php echo $usuario->noches?></p>
-                      <p><span>Nombre y apellido: </span> <?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
+        <?php } else { ?>
+
+            <div class="datos_tarjeta">
+                <div class="diseno_tarjeta2">
+                  
+                                    <div class="codigo_dato_tarjeta">
+                                        <p><?php echo $usuario->codigo ?></p>
+                                    </div>
+                                    <div class="_dato_tarjeta">
+                                        <p><?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
+                                    </div>
+                                    <!-- <div class="logo_tarjeta">
+                                        <img src="build/img/Logo Blanco.webp" alt="">
+                                    </div> -->
+                                
+
                     </div>
-        </div>
-        <?php }?>
+                <!-- </div> -->
+                <div class="escrito_datos_tarjeta">
+                    <p><span>Codigo: </span> <?php echo $usuario->codigo ?></p>
+                    <?php if (intval($usuario->noches >= 20)) { ?>
+                        <p><span>Nivel:</span> PLATINIUM</p>
+                    <?php } else { ?>
+                        <p><span>Nivel:</span> GOLD</p>
+                    <?php } ?>
+
+                    <p><span>MILLAS ACUMULADAS: </span><?php echo $usuario->noches * 100 ?></p>
+                    <p><span>Cantidad de noches: </span><?php echo $usuario->noches ?></p>
+                    <p><span>Nombre y apellido: </span> <?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
+                </div>
+            </div>
+        <?php } ?>
         <div class="mi-cuenta_datos">
             <div class="dato_usuario_part">
                 <p><span>Nombre </span><?php echo $usuario->nombre ?> <?php echo $usuario->apellido ?></p>
@@ -171,21 +142,21 @@
                             <?php if (intval($reserva->status) === 1) { ?>
                                 <?php if (strtotime($reserva->fecha_e) < strtotime(date('Y/m/d'))) { ?>
                                     <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="in_house">Estadia exitosa</span></p>
-                                <?php }else{?>
+                                <?php } else { ?>
                                     <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="in_house">In house</span></p>
-                                <?php }?>
+                                <?php } ?>
                             <?php } else if (intval($reserva->status) === 2) { ?>
                                 <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="pendiente_p">Pendiente</span></p>
                                 <form action="" class="form_eliminar_reserva">
                                     <input type="hidden" name="id" value="<?php echo $reserva->id; ?>" id="id_reserva2">
                                     <button type="submit" value="cancelar">Cancelar reserva</button>
-                                 </form>
+                                </form>
                             <?php } else if (intval($reserva->status) === 3) { ?>
                                 <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="cancelada_p">Cancelada</span></p>
                             <?php } else if (intval($reserva->status) === 4) { ?>
                                 <p>Forma de pago: <?php echo $reserva->opcion_pago ?> - <span class="confirmadas_p">Confirmada</span></p>
                             <?php } ?>
-                          
+
 
                         </div>
                     </div>

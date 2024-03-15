@@ -118,51 +118,17 @@
 					<h5>Datos personales</h5>
 					<div class="datos_personales">
 						<div class="p_personal">
-							<h4 class="margen_arriba">Nombres</h4>
-							<input type="text" name="nombres" id="nombres" placeholder="Sus nombres">
+							<h4 class="margen_arriba">Nombre</h4>
+							<input type="text" name="nombres" id="nombres" placeholder="Su nombre">
 						</div>
 						<div class="p_personal">
-							<h4 class="margen_arriba">Apellidos</h4>
-							<input type="text" name="apellidos" id="apellidos" placeholder="Sus apellidos">
+							<h4 class="margen_arriba">Apellido</h4>
+							<input type="text" name="apellidos" id="apellidos" placeholder="Su apellido">
 						</div>
 						<div class="p_personal">
 							<h4 class="margen_arriba">Numero de telefono </h4>
-							<!-- <select name="" id="">
-							<option value="+58">+58</option>
-							<option value="+61">+61</option>
-							<option value="+32">+32</option>
-							<option value="+43">+43</option>
-							<option value="+359">+359</option>
-							<option value="+1">+1</option>
-							<option value="+57">+57</option>
-							<option value="+385">+385</option>
-							<option value="+421">+421</option>
-							<option value="+386">+386</option>
-							<option value="+34">+34</option>
-							<option value="+372">+372</option>
-							<option value="+358">+358</option>
-							<option value="+33">+33</option>
-							<option value="+30">+30</option>
-							<option value="+31">+31</option>
-							<option value="+353">+353</option>
-							<option value="+354">+354</option>
-							<option value="+39">+39</option>
-							<option value="+371">+371</option>
-							<option value="+370">+370</option>
-							<option value="+352">+352</option>
-							<option value="+356">+356</option>
-							<option value="+212">+212</option>
-							<option value="+52">+52</option>
-							<option value="+47">+47</option>
-							<option value="+48">+48</option>
-							<option value="+351">+351</option>
-							<option value="+44">+44</option>
-							<option value="+7">+7</option>
-							<option value="+46">+46</option>
-							<option value="+41">+41</option>
 							
-						</select> -->
-							<input type="text" name="nro_telefono" id="nro_telefono" placeholder="+58 424-323892s">
+							<input type="text" name="nro_telefono" id="nro_telefono" placeholder="+58 424-000000">
 						</div>
 						<div class="p_personal">
 							<h4 class="margen_arriba">Correo electronico</h4>

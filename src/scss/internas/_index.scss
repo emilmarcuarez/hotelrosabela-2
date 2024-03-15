@@ -690,6 +690,12 @@ h4{
             }
         }
     }
+
+    &:hover{
+        transition: .5s ease;
+        transform: scale(1.02);
+        // background-color: #000;
+    }
 }
 .hab{
     .titulo_ha{

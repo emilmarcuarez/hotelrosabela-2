@@ -1,13 +1,14 @@
 
     <?php foreach($habitaciones as $habitacion):?>
-        <div class="hab_part">
+        <!-- <a href="/habitacion?id=<?php //echo $habitacion->id;?>" class="enlace_habitaciones"> -->
+        <a href="/habitacion?id=<?php echo $habitacion->id;?>" class="hab_part">
             <div class="img_hab">
                 <img src="/imagenes_h/<?php echo $habitacion->imagen?>" alt="">
             </div>
             <div class="info_hab">
                 <div class="info_hab_3">
                     <div class="titulo_info">
-                        <a href="/habitacion?id=<?php echo $habitacion->id;?>"><h5><?php echo $habitacion->nombre?></h5></a>
+                       <h5><?php echo $habitacion->nombre?></h5>
                     </div>
                     <div class="info_adicional">
                         <p>Hasta <?php echo $habitacion->adultos?> adultos y <?php echo $habitacion->ninos?> niños por habitacion</p>
@@ -506,5 +507,6 @@
                 </div>
                 <!-- <a href="#" class="btn-rosado3">Reservar</a> -->
             </div>
-</div>
+<!-- </div> -->
+</a>
             <?php endforeach ?>

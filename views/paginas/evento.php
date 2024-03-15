@@ -11,7 +11,7 @@
             <!-- iamgen y titulo -->
             <div class="grid_event_part">
                 <div class="grid_rest_event">
-                    <p><?php echo $centroConsumo->nombre?></p>
+                    <p><?php echo $lugar->nombre?></p>
                 </div>
                 <div class="grid_img_event">
                     <img src="/imagenes_e/<?php echo $evento->imagen?>" alt="">

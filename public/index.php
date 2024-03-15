@@ -103,6 +103,7 @@ $router->post('/reservas/eliminar', [ReservaController::class, 'eliminar']);
 $router->post('/reservas/buscar', [ReservaController::class, 'buscar']);
 $router->post('/buscar-usuario', [UsuariosController::class, 'buscar']);
 $router->get('/mostrar_usuario', [ReservaController::class, 'mostrar_usuario']);
+$router->post('/eliminar-registro', [ReservaController::class, 'eliminarregistro']);
 // administrador --- desde el panel
 // $router->post('/auth/mostrar', [LoginController::class, 'index']);
 $router->get('/auth/mostrar', [LoginController::class, 'index']);
@@ -204,6 +205,8 @@ $router->get('/noches', [UsuariosController::class, 'noches']);
 $router->get('/premios', [UsuariosController::class, 'premios']);
 // registrar premio
 $router->post('/crearPremio', [UsuariosController::class, 'crearPremio']);
+$router->post('/enviarEncuesta', [UsuariosController::class, 'enviarEncuesta']);
+$router->get('/enviarEncuesta', [UsuariosController::class, 'enviarEncuesta']);
 
 
 // premios registrados

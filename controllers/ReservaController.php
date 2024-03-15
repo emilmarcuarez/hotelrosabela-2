@@ -83,6 +83,29 @@ class ReservaController{
             'habitaciones'=>$habitaciones
         ]);
     }
+    public static function eliminarregistro(){
+ 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+           $usuarios= Usuario::all();
+           $reservas=Reserva::all();
+           $reserva_habitaciones=ReservaHabitacion::all();
+           foreach($usuarios as $usuario){
+            foreach($reservas as $reserva){
+                if($usuario->email===$reserva->email){
+                    foreach($reserva_habitaciones as $reha){
+                        if($reha->reserva_id===$reserva->id){
+                            $reha->eliminare();
+                        }
+                    }
+                    $reserva->eliminare();
+                }
+            }
+            $usuario->noches=0;
+            $usuario->guardar();
+           }
+        }
+        
+    }
        public static function datosReserva2(Router $router){
         $no=true;
         $no2=true;
@@ -112,11 +135,6 @@ class ReservaController{
         if(!$reservas){
             $reservas=Reserva::allDesc();
         }
-        // $usuarios=Usuario::allUsuarios($valor);
-        
-        // if(!$usuarios){
-        //      $usuarios=Usuario::all();
-        // }
         
         $result=Reserva::reservas();
         $no2=true;

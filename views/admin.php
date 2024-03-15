@@ -19,7 +19,7 @@
   <?php } ?>
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/chats/mostrar2">Chats</a>
-    <a href="/noches">Noches</a>
+    <a href="/noches">Fidelizacion</a>
 </div>
 
 
