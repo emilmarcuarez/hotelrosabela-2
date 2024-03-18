@@ -79,8 +79,8 @@
 							<button type="button" class="counter-btn" onclick="decrementar2('habitaciones2')">-</button>
 						</div>
 					</div>
-					<div class="datos_seleccion" id="datos_seleccion">
-					</div>
+					<!-- <div class="datos_seleccion" id="datos_seleccion">
+					</div> -->
 				</div>
 
 				<div class="hab_seleccion" id="habitaciones">

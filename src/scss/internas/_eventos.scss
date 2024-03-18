@@ -128,7 +128,7 @@
 }
 
 .logo_negro_hotel {
-    width: 28rem;
+    width: 19rem;
 }
 
 .evento_prox {
@@ -185,10 +185,20 @@
 }
 
 @media screen and (max-width: 900px) {
-
+    .evento_prox .img_eventos img {
+        height: 100%;
+        width: 100%;
+      }
     // eventos
     .evento_proximo {
         grid-template-columns: 100%;
         padding: 0rem 2rem 7rem 2rem;
     }
+    .fondo_evento_img .d-block.w-100 {
+        height: 35rem;
+      }
+      .fondo_evento_img .carousel-item {
+        height: 35rem;
+        overflow: hidden;
+      }
 }

@@ -216,3 +216,72 @@
         color: white;
     }
   }
+  @media screen and (max-width: 900px){
+  
+    .fidelizacion_grid{
+      grid-template-columns: 100%;
+    }
+    .fidelizacion_grid_cont2{
+      border: none;
+    }
+    .img_rest_cont img {
+      width: 10rem;
+      height: 10rem;
+    }
+    .fidelizacion_btn {
+      display: grid;
+      gap: 2rem;
+      text-align: center;
+    }
+    .link_fide{
+      text-align: center;
+      color: white;
+      background: #5b5959;
+      border-radius: .5rem;
+    }
+    .funcionamiento_cont h3 {
+      color: #383636;
+      font-weight: 400;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 6rem;
+    }
+    .cont_funcionamiento {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 100%;
+      margin-bottom: 5rem;
+    }
+    .div_part_funcionamiento h4 {
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 400;
+      
+    }
+    .div_part_funcionamiento{
+      p{
+        font-size: 1.3rem;
+      }
+    }
+    .plan_fidelizacion h2{
+      font-size: 3rem;
+    }
+    .fidelizacion_grid_cont2{
+      padding: 0;
+    }
+    .link_fide:hover {
+      color: #ebebeb;
+      transition: .2s ease-in;
+      background: #797777;
+    }
+    .carousel_bt {
+      display: none;
+    }
+    .imagen_logo_fidelizacion img {
+      width: 24rem !important;
+    }
+ 
+  }
+
+
+    

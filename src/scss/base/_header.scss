@@ -75,13 +75,17 @@
   .img_logo_rbrewards img {
     width: 4rem;
   }
+  .logo_arriba {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
 .logo_arriba img {
     margin: auto;
     position: absolute;
-    right: 55rem;
-    top: 8rem;
     width: 35rem;
-    z-index: 2;
+    z-index: 4;
   }
 
 .header_cont p {
@@ -473,10 +477,16 @@ to {
 	color: white;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1190px){
     video {
         width: auto;
         height: 100%;
+      }
+      .par_label, .par_label2 {
+        background: hsla(330, 6.7%, 94.1%, 0.87) !important;
+        border-radius: .5rem;
+        padding: .5rem 3rem;
+        border: 1px solid white;
       }
     // registrar /inciiar
 .seccion_registrar{
@@ -514,8 +524,13 @@ to {
     .menu i{
         color: white;
     }
+    .header .header_cont .navegacion{
+        align-items: baseline;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
     .menu nav{
-        background: #575757;
+        background: #333;
         height: 100vh;
         padding: 40px;
         position: fixed;
@@ -545,7 +560,8 @@ to {
     .header .header_cont .navegacion a
 {
     color: #fff;
-    text-align: center;
+    // text-align: center;
+    padding: .5rem;
 }
     #selected{
         background: none;
@@ -576,6 +592,7 @@ to {
         justify-content: center;
         width: 50px;
         height: 50px;
+        color: black;
         // background: rgba(255, 255, 255, 0.1);
         font-size: 24px;
         border-radius: 50px;
@@ -586,23 +603,31 @@ to {
     .menu #btn_menu:hover{
         background: rgba(255, 255, 255, 0.2);
     }
-
+    #google_translate_element{
+        margin: auto !important;
+    }
     // video,
     .video{
-        height: 75rem;
+        height: 56rem;
+        top: 78px;
     }
     .cuadro{
-        height: 75rem;
+        height: 56rem;
         top: 9rem;
+        
+    }
+    .logo_arriba img{
+        top: 13rem;
     }
     .cuadro, .video {
-        height: 75rem;
+        height: 56rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        top: 78px;
      }
     .video33{
-        height:  59rem;
+        height:  55rem;
     }
     .cuadro, .video33
         {

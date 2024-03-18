@@ -1,4 +1,4 @@
-<div class="salon_fondo">
+<!-- <div class="salon_fondo"> -->
 <div class="fondo_salon">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -32,4 +32,4 @@
     <img src="build/img/logo_color_bien-01.webp" alt="">
 </div>
     <?php include 'listadosa2.php'?>
-</div>
+<!-- </div> -->

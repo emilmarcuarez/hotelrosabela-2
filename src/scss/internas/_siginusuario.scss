@@ -207,3 +207,26 @@
     }
 
 }
+
+@media screen and (max-width: 900px){
+
+    .seccion_slogin label{
+        border-right:none;
+        border-bottom: 1px solid gray;
+    }
+    .seccion_slogin .r_part,
+    .seccion_slogin .field_registro3 .r_part2{
+        grid-template-columns: 100%;
+  
+    }
+    .field_registro2 .r_part2 input{
+        height: 100%;
+    }
+    .seccion_slogin .field_registro2 .r_part2{
+        grid-template-columns: 100%;
+        width: 100%;
+    }
+    .field_registro{
+        width: 100%;
+    }
+}
