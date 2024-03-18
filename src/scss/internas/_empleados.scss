@@ -94,8 +94,13 @@
 }
 
 @media screen and (max-width: 900px){
+    .empleado_cont2 .empleado_cont3 .img_empleado_cont img {
+        border-radius: 50%;
+        height: 14rem;
+        width: 14rem;
+      }
     .fondop_emple{
-        padding-top: 10rem;
+        padding-top: 4rem;
     }
     .emple1_cont .empleados_pag, .emple2_cont .empleados_pag{
         grid-template-columns: 100%;
@@ -117,6 +122,7 @@
     .empleado_cont2{
         grid-template-columns: 50% 50%;
         padding: 1rem;
+        gap:2rem;
     }
     .empleado_cont2 .empleado_cont3 .text_empleado_cont h3
         {
@@ -130,7 +136,7 @@
         // contacto
         .seccion_contacto
         {
-        margin-top: 7rem !important;
+        margin-top: 2rem !important;
         padding: 3rem !important;
         }
 }

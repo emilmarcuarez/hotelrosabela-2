@@ -105,9 +105,10 @@
 @media screen and (max-width: 900px) {
 
     .opciones_contacto h4 {
-        color: #ad7b00;
-        font-weight: 200;
-        font-size: 2rem;
+      color: #000;
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
       }
 
 .formulario input:not([type="submit"], [type="radio"]),
@@ -118,7 +119,7 @@
     display: block;
     margin-bottom: 2rem;
     padding: 1rem;
-    width: 35rem;
+    width: 100%; //pagina contacto
   }
   .tooltip.flex_li {
     margin-left: 1.2rem;

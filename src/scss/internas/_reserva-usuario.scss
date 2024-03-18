@@ -317,15 +317,30 @@
     align-items: baseline;
   }
 
-  .re_usuario {
-    padding: 2rem;
-
-  }
 
   .reservas_usuario_flex .cont_reserva_usu .cont_reserva_usu {
     flex-direction: column;
     align-items: baseline;
 
+  }
+  .datos_tarjeta{
+    grid-template-columns: 100%;
+    gap: 2rem;
+  }
+  .diseno_tarjeta, .diseno_tarjeta2{
+    width: 38rem;
+    height: 19rem;
+  }
+  .re_usuario h2{
+    font-size: 2rem;
+  }
+  .mi-cuenta_datos{
+    grid-template-columns: 100%;
+    gap: 0rem;
+  padding: 2rem 4rem;
+  }
+  .escrito_datos_tarjeta span {
+    font-weight: 500;
   }
 }
 
@@ -370,3 +385,4 @@
   font-size: 1.4rem;
   color: #4f4c4c;
 }
+

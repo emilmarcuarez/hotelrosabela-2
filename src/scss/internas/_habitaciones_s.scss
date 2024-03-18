@@ -540,6 +540,10 @@
   box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
   -webkit-box-shadow: -4px 10px 18px 3px rgba(28,28,28,.75);
   -moz-box-shadow: -4px 10px 18px 3px  rgba(28,28,28,.75);
+  grid-template-columns: repeat(3,1fr) 21% 21%;
+}
+.fecha_re input {
+  border: none;
 }
 .list_plan_part2 {
   display: flex;
@@ -826,7 +830,37 @@
 
 // reserva- mq
 @media screen and (max-width: 900px) {
-
+  .cont_grid_paso2 {
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 2rem;
+  }
+  .cont_datos_pago{
+    grid-template-columns: 100%;
+  }
+  .div_datos_pago{
+    grid-template-columns: 100%;
+  }
+  .div_datos_pago input, .div_datos_pago select{
+    border: none;
+  height: 100%;
+  padding: 1rem;
+  border-top: 1px solid #d1cece;
+  }
+  .p_personal{
+    gap: 1rem;
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .p_personal input{
+    border: none;
+    border-top: 1px solid #c6c2c2;
+  font-size: 1.5rem;
+  }
+  .div_empresa_datos{
+    gap: 2rem;
+    grid-template-columns: 100%;
+  }
   .hab_datos_seccion,
   .part_resumen_reserva {
     grid-template-columns: 100%;
@@ -837,6 +871,7 @@
   }
 
   .hab_part2 {
+    grid-template-columns: 100%;
     height: auto;
   }
 
@@ -912,11 +947,12 @@
   }
 
   .fondo_paso3 .p2 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     text-align: center;
     background: #2b28284d;
     padding: 1rem;
     border-radius: 2rem;
+
   }
 
   .cont_hab .cont_hab_p .hab_info_text .hab_info_partes2 .pre_part_info {
@@ -937,5 +973,39 @@
 }
 .precio_habi p {
   text-align: center;
+}
+
+.datos_personales{
+  padding: 1rem 0rem;
+}
+.tabs button{
+  font-size: 1.2rem;
+}
+.contenedor.hab_seleccion3 h4{
+  // font-size: rem !important;
+padding-top: 1rem;
+}
+.div_datos_pago{
+  label,select,input{
+      font-size: 1.5rem;
+  }
+}
+.contenedor.resumen_final h3{
+font-size: 2rem;
+}
+.contenido-resumen{
+grid-template-columns: 100%;
+}
+.div_datos_pago label{
+border-right: none;
+}
+.fondo_paso3{
+padding: 3rem;
+}
+.fondo_paso3 h4{
+font-size: 2rem;
+}
+.fondo_paso3 .p1 {
+margin-bottom: 2rem !important;
 }
 }

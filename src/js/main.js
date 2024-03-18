@@ -1179,8 +1179,8 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	const fecha_re = document.createElement('DIV');
 	fecha_re.classList.add('fecha_re');
 
-	const datos_seleccion_basic = document.createElement('DIV');
-	datos_seleccion_basic.classList.add('datos_seleccion_basic');
+	// const datos_seleccion_basic = document.createElement('DIV');
+	// datos_seleccion_basic.classList.add('datos_seleccion_basic');
 
 	const fecha_re_i = document.createElement('input');
 	fecha_re_i.type = 'date';
@@ -1254,12 +1254,13 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	fecha_re2.appendChild(fecha_re_e);
 
 	// datos_seleccion_basic.appendChild(counter_list);
-	datos_seleccion_basic.appendChild(fecha_re);
+	// datos_seleccion_basic.appendChild(fecha_re);
 	// datos_seleccion_basic.appendChild(espacio);
-	datos_seleccion_basic.appendChild(fecha_re2);
+	// datos_seleccion_basic.appendChild(fecha_re2);
 
 
-	document.querySelector('#datos_seleccion').appendChild(datos_seleccion_basic);
+	document.querySelector('.counter-list3').appendChild(fecha_re);
+	document.querySelector('.counter-list3').appendChild(fecha_re2);
 }
 // var  cantidadTotalHabitaciones='';
 function seleccionarHabitacion2(habitacion) {

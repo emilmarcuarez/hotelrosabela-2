@@ -1,5 +1,3 @@
-
-
 <?php
 
 // SI NO EXISTE SESSION, LA INICIAMOS
@@ -29,85 +27,94 @@ if (!isset($inicio)) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../build/dist/star-rating.css">
-   
+
     <title>Hotel Rosa bela</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <style>
-#\:0\.targetLanguage {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  background: #fff;
-  border: none;
-}
-.goog-te-menu-value {
+    #\:0\.targetLanguage {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background: #fff;
+        border: none;
+    }
+
+    .goog-te-menu-value {
         padding: 5px 10px;
         font-size: 14px;
-        background-color: #007bff; /* Color de fondo del botón */
-        color: #fff; /* Color del texto */
+        background-color: #007bff;
+        /* Color de fondo del botón */
+        color: #fff;
+        /* Color del texto */
         border: none;
         border-radius: 3px;
         cursor: pointer;
         transition: background-color 0.3s;
     }
-.VIpgJd-ZVi9od-xl07Ob-lTBxed {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  width: 15rem;
-}
-.traductor_pag {
-  display: flex;
-  border-top: 1px solid gainsboro;
-  background: #181414de;
-}
-#google_translate_element {
-  width: 21rem;
-  border: none;
-  margin-left: 5rem;
-}
+
+    .VIpgJd-ZVi9od-xl07Ob-lTBxed {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+    }
+
+    .traductor_pag {
+        display: flex;
+        border-top: 1px solid gainsboro;
+        background: #181414de;
+    }
+
+    #google_translate_element {
+        width: 21rem;
+        border: none;
+        margin-left: 5rem;
+    }
 </style>
+
 <body>
-<div id="miModal2" class="modal2">
-		<div class="flex2" id="flex2">
-			<div class="contenido-modal2">
-				<div class="modal-header2 flex2" id="miModal2">
-					<div class="part_modal_header">
-                        <img src="build/img/logor.webp" alt="">    
+    <div id="miModal2" class="modal2">
+        <div class="flex2" id="flex2">
+            <div class="contenido-modal2">
+                <div class="modal-header2 flex2" id="miModal2">
+                    <div class="part_modal_header">
+                        <img src="build/img/logor.webp" alt="">
                         <h2>Hotel Rosa Bela - chat en vivo</h2>
                     </div>
-                   
-					<span class="close2" id="close2">&times;</span>
-				</div>
-				<div class="modal-body2" id="modal-body2">
-                <section class="chat-area">
 
-                   
-                    <div class="chat-box" id="chat-box" data-user-id="<?php echo $_SESSION['usuario_id']?>">
-                     
-                    </div>
-                    <form action="#" class="typing-area">
-                        <input type="hidden" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id']?>">
-                        <input type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off" required>
-                        <button id="btn_chat"><i class="fab fa-telegram-plane"></i></button>
-                    </form>
-                </section>
-				</div>
+                    <span class="close2" id="close2">&times;</span>
+                </div>
+                <div class="modal-body2" id="modal-body2">
+                    <section class="chat-area">
 
-				<div class="footer2">
-					<div id="seleccionar_hab_p2">Seleccionar</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+                        <div class="chat-box" id="chat-box" data-user-id="<?php echo $_SESSION['usuario_id'] ?>">
+
+                        </div>
+                        <form action="#" class="typing-area">
+                            <input type="hidden" class="incoming_id" name="mensaje[usuarios_id]" value="<?php echo $_SESSION['usuario_id'] ?>">
+                            <input type="text" name="mensaje[mensaje]" class="input-field" placeholder="Escribe tu mensaje aquí..." autocomplete="off" required>
+                            <button id="btn_chat"><i class="fab fa-telegram-plane"></i></button>
+                        </form>
+                    </section>
+                </div>
+
+                <div class="footer2">
+                    <div id="seleccionar_hab_p2">Seleccionar</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- HEADER -->
     <div class="admin  <?php echo $inicio2 ? 'inicio' : ''; ?> <?php echo $no3 ? 'no' : ''; ?>">
 
-    
+
         <header class="header">
             <div class="header_cont">
-                <a href="/"><p>Hotelrosabela.com</p></a>
+                <a href="/">
+                    <p>Hotelrosabela.com</p>
+                </a>
                 <!-- <a href="/"><img src="/build/img/logopng_bien.webp" alt="logo"></a> -->
                 <div class="menu">
                     <i class="fas fa-bars" id="btn_menu"></i>
@@ -122,87 +129,73 @@ if (!isset($inicio)) {
                         <a href="/eventos">Eventos</a>
                         <a href="/empleados">Empleados</a>
                         <a href="/contacto">Contacto</a>
-                
-        <!-- <div id="google_translate_element" class="google"></div> -->
 
-             <?php if ($auth2 || $auth || $auth_recepcion) { ?>
-              <?php if (!$auth && !$auth_recepcion) { ?>
-                 
-                    <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
+                        <!-- <div id="google_translate_element" class="google"></div> -->
+
+                        <?php if ($auth2 || $auth || $auth_recepcion) { ?>
+                            <?php if (!$auth && !$auth_recepcion) { ?>
+
+                                <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
 
 
-                    <div class="nav_menu_bg">
-                        <div class="nav_menu_usuario">
-                            <a href="/logout">Cerrar Sesion</a>
-                            <a href="/reservas-usuario">Reservas</a>
-                        </div>
-                    </div>
-                <?php } else if ($auth || $auth_recepcion) { ?>
-                    <a href="/logout">Cerrar Sesion</a>
-                <?php } ?>
-            <?php } ?>
+                                <div class="nav_menu_bg">
+                                    <div class="nav_menu_usuario">
+                                        <a href="/logout">Cerrar Sesion</a>
+                                        <a href="/reservas-usuario">Reservas</a>
+                                    </div>
+                                </div>
+                                <div class="nav_menu_usuario_movile">
+                                        <a href="/logout">Cerrar Sesion</a>
+                                        <a href="/reservas-usuario">Reservas</a>
+                                    </div>
+                            <?php } else if ($auth || $auth_recepcion) { ?>
+                                <a href="/logout">Cerrar Sesion</a>
+                            <?php } ?>
+                        <?php } ?>
                         <!-- <a href="/fidelizacion" class="rb_diseno">RB loyalty</a> -->
-                        <input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id']?>">
+                        <input type="hidden" name="id" id="id_usuario_acti" value="<?php echo $_SESSION['usuario_id'] ?>">
                         <div class="cont_chat_linea" id="abrir_modal">
-                       
+
                             <a>
-                              <i class="fa-regular fa-comments"></i>   
-                            Chat en linea</a>
+                                <i class="fa-regular fa-comments"></i>
+                                Chat en linea</a>
                         </div>
                     </nav>
                 </div>
             </div>
         </header>
         <section class="traductor_pag">
-            <div id="google_translate_element" class="google"></div>
+                <div id="google_translate_element" class="google"></div>
+          
+           
+    </div>
+    </section>
 
-        </section>          
-        <!-- </section>  -->
- 
-        <div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
-            <div class="cuadro"></div>
-            <div class="video">
-                <video autoplay muted loop>
-                    <source src="/build/video/video1.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="logo_arriba">
-                <img src="/build/img/logo_color_bien-01.png" alt="">
-            </div>
-            <!-- <div class="header-flex">
-                <div class="part1_header-flex">
-                    <img src="/build/img/logor.webp" alt="">
-                </div>
-                <div class="part2_header-flex">
 
-                    <p>Hotel & Covention center</p>
-                    <p>¡Siente la diferencia!</p>
-                    <p>Te esperamos</p>
-                </div>
-            </div> -->
+    <div class="video33 <?php echo $inicio ? 'inicio' : ''; ?> <?php echo $no ? 'no' : ''; ?>">
+    <div class="logo_arriba">
+            <img src="/build/img/logo_color_bien-01.png" alt="">
         </div>
-
-
-        <div class="video33 <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no2 ? 'no' : ''; ?>">
-            <div class="cuadro"></div>
-            <div class="video">
-                <video autoplay muted loop>
-                    <source src="/build/video/habitaciones.mp4" type="video/mp4">
-                </video>
-            </div>
-       
-            <!-- <div class="header-flex">
-                <div class="part1_header-flex">
-                    <img src="/build/img/logor.webp" alt="">
-                </div>
-                <div class="part2_header-flex">
-                    <p>Habitaciones</p>
-                    <p>Hotel & Covention center</p>
-                    <p>¡Siente la diferencia!</p>
-                </div>
-            </div> -->
+    <div class="cuadro"></div>
+        <div class="video">
+            <video autoplay muted loop>
+                <source src="/build/video/video1.mp4" type="video/mp4">
+            </video>
         </div>
-    </div> 
+     
+  
+    </div>
+
+
+    <div class="video33 <?php echo $imghabitaciones ? 'imghabitaciones' : ''; ?> <?php echo $no2 ? 'no' : ''; ?>">
+        <div class="cuadro"></div>
+        <div class="video">
+            <video autoplay muted loop>
+                <source src="/build/video/habitaciones.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    </div>
     <div class="chatbot" id="chatbot">
 
 
@@ -343,8 +336,13 @@ if (!isset($inicio)) {
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="../build/js/bundle.min.js"></script>
     <script>
-function googleTranslateElementInit() {
-	new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element');
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'ca,eu,gl,en,fr,it,pt,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                gaTrack: true
+            }, 'google_translate_element');
         }
         //    que aparezca el pais en lapagina de gestion de usuario
         if (document.getElementById('countries-list2')) {
