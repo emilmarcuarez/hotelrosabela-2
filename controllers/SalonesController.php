@@ -19,7 +19,7 @@ class SalonesController{
             'no'=>$no,
             'no2'=>$no2,
         ]);
-}
+    }
 public static function crear(Router $router){
     $no2=true;
     $no=true;

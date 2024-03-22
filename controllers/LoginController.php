@@ -94,9 +94,6 @@ class LoginController{
          if($_SERVER['REQUEST_METHOD']==='POST'){
            
               $usuario=new Admin($_POST['usuario']);
-            //   debuguear($usuario);
-            //   $errores=$usuario->validar();//sintaxi de flecha porque no es estatico
-              
               $usuario->setPassword($usuario->password);
               $errores = $usuario->validarRegistro();
               if(empty($errores)){
@@ -121,6 +118,7 @@ class LoginController{
               'no2'=>$no2
           ]);
       }
+
 // actualizar usuario administrador
      public static function actualizarAdmin(Router $router){
         $id=validarORedireccionar('/admin');
@@ -165,16 +163,6 @@ class LoginController{
         $_SESSION=[]; //cerramos sesion
         header('Location: /');
     }
-
-    public static function mensaje(Router $router){
-        $no2 =true;
-        $no =true;
-        $router->render('auth/mensaje',[
-            'no'=>$no,
-            'no2'=>$no2
-        ]);
-        // $router->render('auth/mensaje');
-    }
     public static function confirmar(Router $router){
         $no2 =true;
         $no =true;
@@ -183,7 +171,6 @@ class LoginController{
         $usuario=Usuario::where('token',$token);
         if(empty($usuario) || $usuario->token === ''){
             // mostrar mensaje de error
-            // echo "token no valido";
             Usuario::setAlerta('error', 'Token No Valido');
         }else{
             // modificar a usuario confirmado
@@ -203,7 +190,6 @@ class LoginController{
             'no'=>$no,
             'no2'=>$no2
         ]);
-        // $router->render('auth/mensaje');
     }
 
     // olvide password
@@ -232,7 +218,7 @@ class LoginController{
                     // Alerta de exito
                     Usuario::setAlerta('exito', 'Revisa tu email');
                  } else {
-                     Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
+                     Usuario::setAlerta('error', 'El Usuario no existe');
                      
                  }
             } 

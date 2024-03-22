@@ -6,8 +6,8 @@ use Model\Habitaciones;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class HabitacionesController{
-    // funcion de crear Centro de consumo
-
+   
+    // Muestra las habitaciones registradas
     public static function index(Router $router){
         $no2=true;
             $no=true;
@@ -24,6 +24,7 @@ class HabitacionesController{
             'no2'=>$no2
         ]);
     }
+    // crea las habitaciones
     public static function crear(Router $router){
         $no2=true;
         $no=true;
@@ -66,7 +67,7 @@ class HabitacionesController{
         ]);
     }
 
-    // funcion actualizar centro de consumo
+    // funcion actualizar habitaciones
     public static function actualizar(Router $router){
         $id=validarORedireccionar('/admin');
         // $no=true;

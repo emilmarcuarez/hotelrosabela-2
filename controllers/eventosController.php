@@ -98,9 +98,11 @@ class eventosController
 
 
                 if ($resultado) {
+                    // si es un centro de consumo
                     if ($centro_escogido) {
                         $evento3->setId_evento($resultado['id']);
                         $evento3->guardar();
+                    // si es un salon
                     } else {
                         $evento2->setId_evento($resultado['id']);
                         $evento2->guardar();
