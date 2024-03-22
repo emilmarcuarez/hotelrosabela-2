@@ -16,10 +16,8 @@ class ChefController{
         $no=true;
         $no2=true;
        
-        // $no=true;
-        // MUESTRA MENSAJE CONDICIONAL
-        $resultado = $_GET['resultado'] ?? null; //sino esta el valor resultado, se le pone null y no presenta error, solo le asigna null y no falla
-        //    la ubicacion de la vista que va a abrir, se pasa a render para que haga eso
+        
+        $resultado = $_GET['resultado'] ?? null;
         $router->render('chef/mostrar',[
             'chef'=>$chef,
             'resultado' =>$resultado,

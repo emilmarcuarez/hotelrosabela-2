@@ -6,7 +6,8 @@ use Model\Habitaciones;
 use Model\Reserva;
 use Model\ReservaHabitacion;
 use Model\Usuario;
-use Classes\Email;
+use Model\Email;
+// use Model\Email;
 use Intervention\Image\ImageManagerStatic as Image;
 class ApiController{
     public static function index(){
@@ -19,7 +20,7 @@ class ApiController{
         $nombreImagen=md5(uniqid(rand(), true)) . ".jpg";
                 
         if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
-                $image=Image::make($_FILES['imagen']['tmp_name'])->fit(800, 500);
+                $image=Image::make($_FILES['imagen']['tmp_name']);
                 $cita->setImagen($nombreImagen);
         
                 if(!is_dir(CARPETA_IMAGENES_RESERVA)){
@@ -29,8 +30,8 @@ class ApiController{
               $image->save(CARPETA_IMAGENES_RESERVA. $nombreImagen);
         }
 
-        // $email=new Email('','','','');
-        // $email->enviarReserva();
+        $email=new Email('','','','');
+        $email->enviarReserva();
         // echo '<script>console.log("pruebajson")</script>';
         $resultado = $cita->guardar();
         $id = $resultado['id'];

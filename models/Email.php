@@ -1,9 +1,9 @@
 <?php 
 
-namespace Classes;
+namespace Model;
 use PHPMailer\PHPMailer\PHPMailer;
 
-class Email {
+class Email{
 
     public $email;
     public $nombre;

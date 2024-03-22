@@ -16,10 +16,19 @@
     <a href="/auth/mostrar">Usuarios Administradores</a>
     <a href="/premios/mostrar">Premios disponibles</a>
     <a href="/beneficios/mostrar">Beneficios</a>
-  <?php } ?>
+  <?php }else if($_SESSION['login_recepcion']){ ?>
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/chats/mostrar2">Chats</a>
     <a href="/noches">Fidelizacion</a>
+    <?php }else if($_SESSION['login_comercializacion']){ ?>
+        <a href="/eventos/mostrar">Eventos</a>
+        <a href="/habitaciones/mostrar">Habitaciones</a>
+        <a href="/salones/mostrar">Salones</a>
+        <a href="/centrosconsumo/mostrar">Centros de consumo</a>
+        <a href="/chef/mostrar">Chef</a>
+    <?php }else if($_SESSION['login_redes']){ ?>
+        <a href="/eventos/mostrar">Eventos</a>
+    <?php }?>
 </div>
 
 

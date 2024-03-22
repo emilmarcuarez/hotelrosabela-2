@@ -1,10 +1,8 @@
 <?php
 namespace MVC;
 class Router{
-
     public $rutasGET=[];
     public $rutasPOST=[];
-
     public function get($url,$fn){
         $this->rutasGET[$url]=$fn;
     }
@@ -16,10 +14,14 @@ class Router{
         session_start();
         $auth=$_SESSION['login'] ?? null;
         $auth_recepcion=$_SESSION['login_recepcion'] ?? null;
+        $auth_comercializacion=$_SESSION['login_comercializacion'] ?? null;
+        $auth_redes=$_SESSION['login_redes'] ?? null;
 
         // ARREGLO DE RUTAS PROTEGIDAS
-        $rutas_protegidas=['/admin','/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar',  '/empleados/crear', '/empleados/actualizar', '/empleados/eliminar',  '/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/chef/mostrar', '/eventos/mostrar', '/salones/mostrar', '/empleados/mostrar', '/centrosconsumo/mostrar'];
-        $rutas_protegidas_recepcion=['/admin', '/chats/mostrar2','/chats/responder', '/chat2','/actualizarChatServidor','/reserva/recibida','/reservas/mostrar', '/reservas/datosReserva','/reservas/crear','/reservas/confirmar','/reservas/eliminar','/reservas/buscar', '/responder'];
+        $rutas_protegidas=['/admin','/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar',  '/empleados/crear', '/empleados/actualizar', '/empleados/eliminar',  '/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/chef/mostrar', '/eventos/mostrar', '/salones/mostrar', '/empleados/mostrar', '/centrosconsumo/mostrar', '/chats/mostrar2','/chats/responder', '/chat2','/actualizarChatServidor','/reserva/recibida','/reservas/mostrar', '/reservas/datosReserva','/reservas/crear','/reservas/confirmar','/reservas/eliminar','/reservas/buscar', '/responder', '/noches','/buscar-usuario','/eliminar-registro','/mostrar_usuario','/actualizar-premio','/beneficios/mostrar', '/beneficios/actualizar', '/beneficios/eliminar', '/auth/mostrar', '/auth/mostrarusuarios', '/auth/eliminarUsuario', '/auth/actualizarUsuario', '/noches','/auth/actualizarAdmin','/auth/eliminar','/beneficios/crear', '/beneficios/actualizar', '/beneficios/mostrar', '/beneficios/eliminar','/premios/mostrar', '/premios/crear', '/premios/actualizar','/premios/eliminar','/chef/crear','/chef/actualizar', '/chef/mostrar', '/chef/eliminar','/usuario/eliminar', '/eliminar-registro','/datosReserva2'];
+        $rutas_protegidas_recepcion=['/admin', '/chats/mostrar2','/chats/responder', '/chat2','/actualizarChatServidor','/reserva/recibida','/reservas/mostrar', '/reservas/datosReserva','/reservas/crear','/reservas/confirmar','/reservas/eliminar','/reservas/buscar', '/responder', '/noches','/buscar-usuario','/eliminar-registro','/premios','/mostrar_usuario','/actualizar-premio', '/noches', '/premios/mostrar', '/premios/crear', '/premios/actualizar','/premios/eliminar','/usuario/eliminar','/eliminar-registro','datosReserva2'];
+        $rutas_protegidas_comercializacion=['/admin', '/habitaciones/crear', '/habitaciones/actualizar', '/habitaciones/eliminar',  '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar',  '/salones/crear', '/salones/actualizar', '/salones/eliminar','/centrosconsumo/crear', '/centrosconsumo/actualizar', '/centrosconsumo/eliminar','/habitaciones/mostrar', '/eventos/mostrar', '/salones/mostrar', '/centrosconsumo/mostrar','/chef/mostrar','/chef/crear','/chef/actualizar', '/chef/eliminar' ];
+        $rutas_protegidas_redes=['/admin', '/eventos/crear', '/eventos/actualizar', '/eventos/eliminar', '/eventos/mostrar'];
 
         // basada en la url que estoy visitando gracias al router, me busca la funcion asociada a ese url
         $urlActual=strtok($_SERVER['REQUEST_URI'],'?') ?? '/';
@@ -34,19 +36,26 @@ class Router{
         }
 
         // PROTEGER LAS RUTAS
-        // $protegida=0;
-
-        if(in_array($urlActual, $rutas_protegidas) && !$auth && !$auth_recepcion){ ///si no esta autenticado
-            header('location: /');
-            // $protegida=1;
+   
+        if($auth){
+        //    ACCESO TOTAAAL
+        }else if($auth_comercializacion){
+           if(in_array($urlActual, $rutas_protegidas) && !in_array($urlActual, $rutas_protegidas_comercializacion)){
+                header('location: /');
+            }
+        }else if($auth_recepcion){
+            if(in_array($urlActual, $rutas_protegidas) && !in_array($urlActual, $rutas_protegidas_recepcion)){
+                header('location: /');
+            }
+        }else if($auth_redes){
+            if(in_array($urlActual, $rutas_protegidas) && !in_array($urlActual, $rutas_protegidas_redes)){
+                header('location: /');
+            }
+        }else{
+            if(in_array($urlActual, $rutas_protegidas)){
+                header('location: /');
+            }
         }
-        else if(in_array($urlActual, $rutas_protegidas)&& !$auth && $urlActual!=='/admin' && $auth_recepcion){
-            header('location: /');
-        }
-        
-        // else if($urlActual==='/admin' && !$auth && !$auth_recepcion){
-        //     header('location: /');
-        // }
 
         if($fn){
             // la url existe y hay una funcion asociada

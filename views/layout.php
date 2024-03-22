@@ -7,11 +7,12 @@ if (!isset($_SESSION)) {
 
 $auth = $_SESSION['login'] ?? false;
 $auth_recepcion = $_SESSION['login_recepcion'] ?? false;
+$auth_comercializacion = $_SESSION['login_comercializacion'] ?? false;
+$auth_redes = $_SESSION['login_redes'] ?? false;
 $auth2 = $_SESSION['login_pag'] ?? false;
 $login_id = $_SESSION['usuario_id'] ?? false;
-// $nombre= $_SESSION['usuario_name'];
 $sexo = $_SESSION['usuario_sexo'] ?? false;
-if (!isset($inicio)) {
+if (!isset($inicio)){
     $inicio = false;
 }
 ?>
@@ -132,12 +133,9 @@ if (!isset($inicio)) {
 
                         <!-- <div id="google_translate_element" class="google"></div> -->
 
-                        <?php if ($auth2 || $auth || $auth_recepcion) { ?>
-                            <?php if (!$auth && !$auth_recepcion) { ?>
-
+                        <?php if ($auth2 || $auth || $auth_recepcion || $auth_comercializacion || $auth_redes) { ?>
+                            <?php if (!$auth && !$auth_recepcion && !$auth_comercializacion && !$auth_redes) { ?>
                                 <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
-
-
                                 <div class="nav_menu_bg">
                                     <div class="nav_menu_usuario">
                                         <a href="/logout">Cerrar Sesion</a>
@@ -148,7 +146,7 @@ if (!isset($inicio)) {
                                         <a href="/logout">Cerrar Sesion</a>
                                         <a href="/reservas-usuario">Reservas</a>
                                     </div>
-                            <?php } else if ($auth || $auth_recepcion) { ?>
+                            <?php } else if ($auth || $auth_recepcion || $auth_comercializacion || $auth_redes) { ?>
                                 <a href="/logout">Cerrar Sesion</a>
                             <?php } ?>
                         <?php } ?>
@@ -257,7 +255,7 @@ if (!isset($inicio)) {
         </div>
 
     </div>
-    <?php if (!$auth && !$auth_recepcion) { ?>
+    <?php if (!$auth && !$auth_recepcion && !$auth_redes && !$auth_comercializacion) { ?>
         <div class="chatbot_abrir_btn" id="abrirChatbot">
             <div class="text_chatbot">
                 <p>Chatea con nosotros</p>
@@ -357,6 +355,7 @@ if (!isset($inicio)) {
                     });
 
                     // Luego de construir las opciones, seleccionamos el país del usuario si coincide
+                
                     const usuarioPais = '<?php echo s($usuario->pais); ?>';
 
                     if (usuarioPais) {

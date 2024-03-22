@@ -1,7 +1,7 @@
 //----------------------- chatbot-----------------------
 
 $(document).ready(function () {
-
+// Obtener la fecha actual
 	// CONTRASEÑA DEL REGISTRO DE USUARIO
 	$('#togglePassword').click(function () {
 		const passwordInput = $('#contrasenia');
@@ -879,39 +879,75 @@ const re_habitacion = {
 const reserva_cant = {
 	mostrar: 0,
 	cant: 0
-};
-if (document.getElementById('fechaReserva2')) {
+};if (document.getElementById('fechaReserva2')) {
 	const fechaIngresoInput = document.getElementById('fechaReserva2');
 	const fechaEgresoInput = document.getElementById('fechaEgreso2');
+// Establecer el atributo readonly para los campos de fecha
+// Establecer el atributo readonly para los campos de fecha
+ // Deshabilitar entrada de teclado en los campos de fecha
+ fechaIngresoInput.addEventListener('keydown', function(event) {
+	event.preventDefault();
+});
+fechaIngresoInput.addEventListener('keypress', function(event) {
+	event.preventDefault();
+});
+
+fechaEgresoInput.addEventListener('keydown', function(event) {
+	event.preventDefault();
+});
+fechaEgresoInput.addEventListener('keypress', function(event) {
+	event.preventDefault();
+});
+	// Función para obtener la fecha de mañana
+	function getTomorrowDate() {
+		const today = new Date();
+		const tomorrow = new Date(today);
+		tomorrow.setDate(today.getDate() + 1);
+		return tomorrow.toISOString().split('T')[0];
+	}
+
+	// Función para obtener la fecha de pasado mañana
+	function getDayAfterTomorrowDate() {
+		const today = new Date();
+		const dayAfterTomorrow = new Date(today);
+		dayAfterTomorrow.setDate(today.getDate() + 2);
+		return dayAfterTomorrow.toISOString().split('T')[0];
+	}
+
+	// Establecer la fecha de mañana como valor predeterminado para la fecha de ingreso
+	fechaIngresoInput.value = getTomorrowDate();
+
+	// Establecer la fecha de pasado mañana como valor predeterminado para la fecha de egreso
+	fechaEgresoInput.value = getDayAfterTomorrowDate();
+
+	// Establecer la fecha mínima para la fecha de ingreso (mañana)
+	fechaIngresoInput.min = getTomorrowDate();
+
+	// Establecer la fecha mínima para la fecha de egreso (pasado mañana)
+	fechaEgresoInput.min = getDayAfterTomorrowDate() ;
+
+	
 
 	fechaIngresoInput.addEventListener('input', function () {
-		// Obtener la fecha de ingreso
-		const fechaIngreso = new Date(fechaIngresoInput.value);
+		// Actualizar la fecha mínima para la fecha de egreso (un día después de la fecha de ingreso)
+		// fechaEgresoInput.min = new Date(fechaIngresoInput) + 1;
 
-		// Establecer la fecha de egreso un día después
+		// Calcular y establecer la fecha de egreso como un día después de la fecha de ingreso
+		const fechaIngreso = new Date(fechaIngresoInput.value);
 		const fechaEgreso = new Date(fechaIngreso);
 		fechaEgreso.setDate(fechaIngreso.getDate() + 1);
-
-		// Formatear la fecha de egreso en el formato adecuado (YYYY-MM-DD)
-		const formattedFechaEgreso = fechaEgreso.toISOString().split('T')[0];
-
-		// Asignar la fecha de egreso y actualizar el atributo min
-		fechaEgresoInput.value = formattedFechaEgreso;
-		fechaEgresoInput.min = formattedFechaEgreso;
+		fechaEgresoInput.value = fechaEgreso.toISOString().split('T')[0];
+		const fechaMinimaEgreso = new Date(fechaIngreso);
+            fechaMinimaEgreso.setDate(fechaIngreso.getDate() + 1);
+            fechaEgresoInput.min = fechaMinimaEgreso.toISOString().split('T')[0];
 	});
 }
-if (document.querySelector('#fechaReserva2')) {
-	const fechaReserva = document.querySelector('#fechaReserva2');
-	const fechaEgreso = document.querySelector('#fechaEgreso2');
-	fechaReserva.min = new Date().toISOString().split("T")[0];
-	fechaEgreso.min = fechaReserva.value;
-	fechaReserva.addEventListener('input', function () {
-		fechaEgreso.min = fechaReserva.value;
-	})
-}
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
+	
 	const chatbot = document.getElementById("chatbot");
 	const abrirBoton = document.getElementById("abrirChatbot");
 
@@ -941,15 +977,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	limitarCaracteres2();
 
 	iniciarApp();
-	if (document.querySelector('#fechaReserva2')) {
-		const fechaReserva = document.querySelector('#fechaReserva2');
-		const fechaEgreso = document.querySelector('#fechaEgreso2');
-		fechaReserva.min = new Date().toISOString().split("T")[0];
-		fechaEgreso.min = fechaReserva.value;
-		fechaReserva.addEventListener('input', function () {
-			fechaEgreso.min = fechaReserva.value;
-		})
-	}
 
 
 });
@@ -963,14 +990,11 @@ function iniciarApp() {
 	seleccionarHora();
 	seleccionarPago();
 	mostrarResumen();
-	// mostrarResumen2();
-	// idUsuario();
 	paginaSiguiente();
 	paginaAnterior();
 	botonesPaginas(); // Agrega o quita los botones del paginador
 	mostrarSeccion(); //muestra y oculta las secciones
 	tabs();
-
 }
 
 // MODAL - chat en linea
@@ -1179,15 +1203,42 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	const fecha_re = document.createElement('DIV');
 	fecha_re.classList.add('fecha_re');
 
-	// const datos_seleccion_basic = document.createElement('DIV');
-	// datos_seleccion_basic.classList.add('datos_seleccion_basic');
-
+	// fecha de ingreso
 	const fecha_re_i = document.createElement('input');
 	fecha_re_i.type = 'date';
+	fecha_re_i.classList.add('fecha_ingreso_reserva');
 	fecha_re_i.value = reserva.fecha_i;
+	// fecha de egreso
+	const fecha_re_e = document.createElement('input');
+	fecha_re_e.type = 'date';
+	fecha_re_e.classList.add('fecha_egreso_reserva');
+	fecha_re_e.value = reserva.fecha_e;
+
+	const fechaMinima = new Date();
+	fechaMinima.setDate(fechaMinima.getDate() + 1);
+	fecha_re_i.min = fechaMinima.toISOString().split('T')[0];
+
 	fecha_re_i.addEventListener('input', function () {
 		reserva.fecha_i = fecha_re_i.value;
+
+		const fechaIngreso = new Date(fecha_re_i.value);
+		// Establecer la fecha de ingreso mínima como un día después de hoy
+		const fechaMinima = new Date();
+		fechaMinima.setDate(fechaMinima.getDate() + 1);
+		fecha_re_i.min = fechaMinima.toISOString().split('T')[0];
+	
+			const fechaEgreso = new Date(fechaIngreso);
+			fechaEgreso.setDate(fechaIngreso.getDate() + 1);
+	
+			// Formatear la fecha de egreso en el formato adecuado (YYYY-MM-DD)
+			const formattedFechaEgreso = fechaEgreso.toISOString().split('T')[0];
+	
+			// Asignar la fecha de egreso y actualizar el atributo min
+			fecha_re_e.value = formattedFechaEgreso;
+			fecha_re_e.min = formattedFechaEgreso;
+			reserva.fecha_e = fecha_re_e.value;
 		mostrarResumen2();
+
 	});
 
 
@@ -1210,9 +1261,7 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	const fecha_re_iconos2 = document.createElement('DIV');
 	fecha_re_iconos2.classList.add('fecha_re_iconos');
 
-	const fecha_re_e = document.createElement('input');
-	fecha_re_e.type = 'date';
-	fecha_re_e.value = reserva.fecha_e;
+
 	fecha_re_e.addEventListener('input', function () {
 		reserva.fecha_e = fecha_re_e.value;
 		mostrarResumen2();

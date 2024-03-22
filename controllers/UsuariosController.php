@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-use Classes\Email;
-use Classes\Email_premios;
+use Model\Email;
+use Model\Email_premios;
 use Model\Chat;
 use Model\Comentarios;
 use Model\Premios;
@@ -377,7 +377,7 @@ class UsuariosController
                 $fechaFin = new \DateTime($reserva->fecha_e);
                 $fechaHoy = new \DateTime(); // Esto obtiene la fecha de hoy automáticamente
             
-                if ($fechaHoy > $fechaFin && intval($reserva->enviado_encuesta)!==1) {
+                if ($fechaHoy > $fechaFin && intval($reserva->enviado_encuesta)!==1 && intval($reserva->status)===1) {
                     $email = new Email($reserva->email, $reserva->nombres, $reserva->apellidos, '');
                     $email->enviarCorreoEncuesta();
                     $reserva->enviado_encuesta=1;

@@ -830,6 +830,14 @@
 
 // reserva- mq
 @media screen and (max-width: 900px) {
+
+  .fecha_re input{
+    font-size: 1.3rem !important;
+  }
+
+  .bancos_transferencia_datos{
+    flex-direction: column;
+  }
   .cont_grid_paso2 {
     display: grid;
     grid-template-columns: 100%;
@@ -880,7 +888,7 @@
   }
 
   .contenedor.hab_seleccion3 #hora {
-    width: 36%;
+    width: 49%;
   }
 
   .contenedor.hab_seleccion3 .metodo_pago {
@@ -988,6 +996,7 @@ padding-top: 1rem;
 .div_datos_pago{
   label,select,input{
       font-size: 1.5rem;
+      width: 100%;
   }
 }
 .contenedor.resumen_final h3{
@@ -996,6 +1005,12 @@ font-size: 2rem;
 .contenido-resumen{
 grid-template-columns: 100%;
 }
+
+.diventrada_salida{
+    gap: 0rem;
+    flex-direction: column;
+}
+
 .div_datos_pago label{
 border-right: none;
 }
@@ -1007,5 +1022,8 @@ font-size: 2rem;
 }
 .fondo_paso3 .p1 {
 margin-bottom: 2rem !important;
+}
+.counter-list3 {
+  gap: 0rem;
 }
 }

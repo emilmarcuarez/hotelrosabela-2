@@ -12,3 +12,5 @@ $db=conectarDB();
 // use Paginas\chat;
 
 Activerecord::setDB($db);
+
+// $db = mysqli_connect('localhost', 'id21858508_root', 'WebCompleto_2023', 'id21858508_hotelrosabela');

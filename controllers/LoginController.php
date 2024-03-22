@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Classes\Email;
+use Model\Email;
 use MVC\Router;
 use Model\Admin;
 use Model\Usuario;
@@ -152,7 +152,7 @@ class LoginController{
               }
           }
   
-          $router->render('auth/actualizaradmin',[
+          $router->render('auth/actualizarAdmin',[
               'usuario'=>$usuario,
               'errores'=>$errores,
               'no'=>$no,

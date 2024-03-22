@@ -109,7 +109,7 @@
 
 
 <main class="contenedor">
-<!-- <main class="contenedor" data-aos="fade-up" data-aos-duration="3000"> -->
+    <!-- <main class="contenedor" data-aos="fade-up" data-aos-duration="3000"> -->
     <!-- espacio -->
     <div class="titulo_sal padding_espa">
         <h4>Nuestros espacios</h4>
@@ -136,6 +136,12 @@
                     </li>
                     <li>
                         <img src="/build/img/evento3.webp" alt="" class="img_slider">
+                        <div class="imagen_header2">
+                            <div class="imagen_header_fondo"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/build/img/slider3.webp" alt="" class="img_slider">
                         <div class="imagen_header2">
                             <div class="imagen_header_fondo"></div>
                         </div>
@@ -180,10 +186,10 @@
     <div class="espacio"></div>
 </main>
 <div class="contenedor">
-<div class="titulo_sal">
-            <h4>Bodas</h4>
-            <hr class="salones_hr">
-        </div>
+    <div class="titulo_sal">
+        <h4>Bodas</h4>
+        <hr class="salones_hr">
+    </div>
     <!-- carrusel -->
     <div class="bodas_grid">
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -214,6 +220,105 @@
         </div>
     </div>
 </div>
+
+<div class="areas_hotel contenedor">
+    <div class="area_membrete">
+        <img src="build/img/logor.webp" alt="logo">
+        <h2>Somos prestigio y confort</h2>
+        <p>
+
+En Rosa Bela Hotel & Convention Center pensamos en ofrecer el mejor servicio para su bienestar, descanso y confort. Además de disfrutar de nuestras excelentes habitaciones y zonas de recreación, encontrará cómodos salones que funcionan como centros de conferencias para eventos en Ciudad Guayana. Rosa Bela  Hotel & Convention Center dispone de lo mejor para sus clientes y huéspedes.
+</p>
+    </div>
+    <div class="cont_iconos_areas">
+        <div class="area_icono_parte">
+            <div class="icono_fondo_parte">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-router" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 13m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                    <path d="M17 17l0 .01" />
+                    <path d="M13 17l0 .01" />
+                    <path d="M15 13l0 -2" />
+                    <path d="M11.75 8.75a4 4 0 0 1 6.5 0" />
+                    <path d="M8.5 6.5a8 8 0 0 1 13 0" />
+                </svg> -->
+                <img src="build/img/icono_wifi.webp" alt="">
+            </div>
+            <p>WIFI</p>
+        </div>
+        <div class="area_icono_parte">
+            <div class="icono_fondo_parte">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-barbell" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M2 12h1" />
+                    <path d="M6 8h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2" />
+                    <path d="M6 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1z" />
+                    <path d="M9 12h6" />
+                    <path d="M15 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1z" />
+                    <path d="M18 8h2a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-2" />
+                    <path d="M22 12h-1" />
+                </svg> -->
+                <img src="build/img/icono_gym.webp" alt="">
+            </div>
+            <p>GYM</p>
+        </div>
+        <div class="area_icono_parte">
+            <div class="icono_fondo_parte">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pool" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M2 20a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1" />
+                    <path d="M2 16a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1" />
+                    <path d="M15 12v-7.5a1.5 1.5 0 0 1 3 0" />
+                    <path d="M9 12v-7.5a1.5 1.5 0 0 0 -3 0" />
+                    <path d="M15 5l-6 0" />
+                    <path d="M9 10l6 0" />
+                </svg> -->
+                <img src="build/img/icono_taxi.webp" alt="">
+            </div>
+            <p>TAXI PRIVADO</p>
+        </div>
+        <div class="area_icono_parte">
+            <div class="icono_fondo_parte">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chef-hat" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z" />
+                    <path d="M6.161 17.009l11.839 -.009" />
+                </svg> -->
+                <img src="build/img/icono_centro.webp" alt="">
+            </div>
+            <p>CENTROS DE CONSUMO</p>
+        </div>
+        <div class="area_icono_parte">
+            <div class="icono_fondo_parte">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-car-garage" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                    <path d="M15 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                    <path d="M5 20h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" />
+                    <path d="M3 6l9 -4l9 4" />
+                </svg> -->
+                <img src="build/img/icono_estacionamiento.webp" alt="">
+            </div>
+            <p>ESTACIONAMIENTO</p>
+        </div>
+        <div class="area_icono_parte">
+            <div class="icono_fondo_parte">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wash-machine" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+                    <path d="M12 14m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                    <path d="M8 6h.01" />
+                    <path d="M11 6h.01" />
+                    <path d="M14 6h2" />
+                    <path d="M8 14c1.333 -.667 2.667 -.667 4 0c1.333 .667 2.667 .667 4 0" />
+                </svg> -->
+                <img src="build/img/icono_lavanderia.webp" alt="">
+            </div>
+            <p>LAVANDERIA</p>
+        </div>
+    </div>
+</div>
+
 <!-- eventos -->
 <?php
 include 'listadoev.php';
@@ -226,7 +331,6 @@ include 'listadoev.php';
     <div class="contenedor areas_rest">
         <div class="area_rest_part">
             <div class="img_area1">
-
             </div>
             <p>Espacios ideales para disfrutar su estadia con el mejor ambiente.</p>
         </div>
@@ -280,16 +384,3 @@ include 'listadoev.php';
 <div class="map-responsive">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.2622215769698!2d-62.77879712498322!3d8.276679300311317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses!2sve!4v1706880135009!5m2!1ses!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
-<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15793.049098834696!2d-62.7762222!3d8.276674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses-419!2sve!4v1704475270862!5m2!1ses-419!2sve" width="1423" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-<!-- <div class="seccion" id="paso-2">
-    habitaciones
-</div>
-<div class="seccion" id="paso-3">
-    Forma de pago
-</div>
-<div class="seccion" id="paso-4">
-    Confirmacion
-</div>
-<div class="seccion" id="paso-3">
-    verificate
-</div> -->

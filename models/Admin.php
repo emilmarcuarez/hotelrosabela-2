@@ -71,6 +71,14 @@ class Admin extends Activerecord{
             $_SESSION['usuario']=$this->email;
             $_SESSION['login_recepcion']=true;
             header('Location: /admin');
+        }else if(intval($this->tipo) ===3){
+            $_SESSION['usuario']=$this->email;
+            $_SESSION['login_comercializacion']=true;
+            header('Location: /admin');
+        }else if(intval($this->tipo) ===4){
+            $_SESSION['usuario']=$this->email;
+            $_SESSION['login_redes']=true;
+            header('Location: /admin');
         }
        
     }

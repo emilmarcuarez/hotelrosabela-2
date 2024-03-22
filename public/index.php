@@ -1,4 +1,10 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('ignore_repeated_errors', TRUE);
+ini_set('display_errors', FALSE);
+ini_set('log_errors', TRUE);
+ini_set("error_log", 'debug.log');
+
 
 require_once __DIR__ . '/../includes/app.php';
 
@@ -135,7 +141,7 @@ $router->post('/contacto', [PaginaController::class, 'contacto']);
 $router->get('/habitacion', [PaginaController::class, 'habitacion']);
 $router->get('/habitaciones', [PaginaController::class, 'habitaciones']);
 $router->get('/beneficios', [PaginaController::class, 'beneficios']);
-$router->get('/beneficios', [PaginaController::class, 'beneficios']);
+$router->post('/beneficios', [PaginaController::class, 'beneficios']);
 $router->get('/rbpremios', [PaginaController::class, 'rbpremios']);
 $router->get('/habitaciones_s', [PaginaController::class, 'habitaciones_s']);
 $router->get('/gestion', [PaginaController::class, 'gestion']);
@@ -168,11 +174,6 @@ $router->post('/responder', [chatController::class, 'responder']);
 // chatbot
 $router->get('/chatbot', [chatbotController::class, 'actualizarChat']);
 $router->post('/chatbot', [chatbotController::class, 'actualizarChat']);
-// comentarios
-$router->post('/crear-comentario', [ComentarioController::class, 'crear']);
-$router->get('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
-$router->post('/actualizar-comentarios', [ComentarioController::class, 'actualizarComentarios']);
-
 // Recuperar password
 $router->get('/olvide', [LoginController::class, 'olvide']);
 $router->post('/olvide', [LoginController::class, 'olvide']);
@@ -217,7 +218,4 @@ $router->get('/premios/actualizar', [PremiosController::class, 'actualizar']);
 $router->post('/premios/actualizar', [PremiosController::class, 'actualizar']);
 $router->post('/premios/eliminar', [PremiosController::class, 'eliminar']);
 
-// comentarios mostrar y eliminar
-$router->get('/comentarios/mostrar', [ComentarioController::class, 'index']);
-$router->post('/comentarios/eliminar', [ComentarioController::class, 'eliminar']);
 $router->comprobarRutas();
