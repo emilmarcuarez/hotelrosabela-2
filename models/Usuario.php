@@ -332,4 +332,36 @@ public static function allDesc_msj()
     $resultado = static::consultarSQL($query);
     return $resultado;
 }
+public function guardar2()
+{
+    if (!is_null($this->id)) {
+        // actualizar
+        $this->actualizar3();
+    } else {
+        // crear un nuevo registro
+        $this->crear();
+    }
+}
+public function actualizar3()
+{
+    // sanitizar los datos. siempre que se va a usar la bd
+    $atributos = $this->sanitizarAtributos();
+
+    $valores = [];
+    foreach ($atributos as $key => $value) {
+        $valores[] = "$key ='{$value}'";
+    }
+    $query = "UPDATE ". static::$tabla. " SET ";
+    $query .= join(', ', $valores);
+    $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+    $query .= " LIMIT 1 ";
+
+    $resultado = self::$db->query($query);
+    if ($resultado) {
+        //    redirecciona al usuario para que se borra la info cuando se envie
+        // esto se debe hacer poco, se puede hacer un loop de muchas redirecciones
+        header('location: /'.static::$pagina.'?resultado=2');
+    }
+    return $resultado;
+}
 }

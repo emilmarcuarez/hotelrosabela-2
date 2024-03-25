@@ -27,33 +27,22 @@ class UsuariosController
             $errores = $auth->validar(); //sintaxi de flecha porque no es estatico
             // debuguear($auth);
             if (empty($errores)) {
-
-                // verificar si el usuario existe
-                // $resultado = $auth->existeUsuario();
                 $resultado = $auth->existeUsuario();
-                // $usuario = Usuario::where('email', $auth->email);
-                // si NO existe el usuario se muestra el error
                 if (!$resultado) {
-                    // verificar si el usuario existe o no (mensaje de erorr)
                     $errores = Usuario::getErrores();
                 } else { //si  existe el usuario
                     $usuario = Usuario::where('email', $auth->email);
                     if ($usuario->comprobarPasswordAndVerificado($auth->contrasenia)) {
                         // Autenticar el usuario
                         session_start();
-                        // llenamos el arreglo de las sesiones establecidas
                         $_SESSION['usuario_pag'] = $usuario->email;
-                        // $usu=$usuario->getName();
                         $_SESSION['usuario_sexo'] = $usuario->sexo;
                         $_SESSION['usuario_name'] = $usuario->nombre;
                         $_SESSION['usuario_id'] = $usuario->id;
                         $_SESSION['login_pag'] = true;
-                        // debuguear($_SESSION);
-                        // Redireccionamiento
 
                         header('Location: /reservas-usuario');
                     } else {
-                        // Password incorrecto: mensaje de error.
                         $errores = Usuario::getErrores(); //si no coincide la contraseña, se muestra el error
                     }
                 }
@@ -214,10 +203,7 @@ class UsuariosController
         $errores = Usuario::getErrores();
         // todos los premioa registrados de ese usuario
         $premios_usu = Premios_usuario::where2('usuarios_id', $id);
-        // debuguear(Premios_usuario::where2('usuarios_id', $id));
         $premios = Premios::all();
-        // me trae todas las reservas de ese usuario
-        // $reservas=Reserva::where2('usuarios_id', $id);
         $resultado = $_GET['resultado'] ?? null;
 
         $router->render('auth/premios', [
@@ -365,14 +351,8 @@ class UsuariosController
     public static function enviarEncuesta(Router $router){
         $no = true;
         $no2 = true;
-        
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $errores = Premios_usuario::getErrores();
-           
   
             $reservas = Reserva::all();
-        //    debuguear($reservas);
-            // iterando sobre cada usuario
             foreach($reservas as $reserva) {
                 $fechaFin = new \DateTime($reserva->fecha_e);
                 $fechaHoy = new \DateTime(); // Esto obtiene la fecha de hoy automáticamente
@@ -385,6 +365,8 @@ class UsuariosController
                 }
             }
     }
+
+    // indica cuando premio fue usado o no
     public static function actPremio()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -424,9 +406,6 @@ class UsuariosController
                             $c->eliminare();
                         }
                     }
-
-
-                    // $reservahab=ReservaHabitacion::re_habitaciones_all($id);
                     $usuario->eliminare3();
                 }
             }

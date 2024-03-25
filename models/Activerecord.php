@@ -45,16 +45,7 @@ class Activerecord
             $this->crear();
         }
     }
-    public function guardar2()
-    {
-        if (!is_null($this->id)) {
-            // actualizar
-            $this->actualizar3();
-        } else {
-            // crear un nuevo registro
-            $this->crear();
-        }
-    }
+   
     public function crear()
     {
         // sanitizar los datos
@@ -98,28 +89,7 @@ class Activerecord
         }
         return $resultado;
     }
-    public function actualizar3()
-    {
-        // sanitizar los datos. siempre que se va a usar la bd
-        $atributos = $this->sanitizarAtributos();
 
-        $valores = [];
-        foreach ($atributos as $key => $value) {
-            $valores[] = "$key ='{$value}'";
-        }
-        $query = "UPDATE ". static::$tabla. " SET ";
-        $query .= join(', ', $valores);
-        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
-        $query .= " LIMIT 1 ";
-
-        $resultado = self::$db->query($query);
-        if ($resultado) {
-            //    redirecciona al usuario para que se borra la info cuando se envie
-            // esto se debe hacer poco, se puede hacer un loop de muchas redirecciones
-            header('location: /'.static::$pagina.'?resultado=2');
-        }
-        return $resultado;
-    }
     // eliminar un resgistro
     public function eliminar()
     {
@@ -233,7 +203,6 @@ class Activerecord
 
             $this->borrarImagen();
         }
-
         // asignar al atributo de imagen el nombre de la imagen
         if ($imagen) {
             $this->imagen = $imagen;
@@ -286,7 +255,7 @@ class Activerecord
         $query = "SELECT *
         FROM reserva 
         WHERE nombres LIKE '%".$valor."%' OR apellidos LIKE '%".$valor."%' OR email LIKE '%".$valor."%' OR codigo LIKE '".$valor."' ORDER BY id DESC;;";
-        //  debuguear($query);
+
         $resultado = static::consultarSQL($query);
         return $resultado;
     }
@@ -295,7 +264,6 @@ class Activerecord
         $query = "SELECT *
         FROM usuarios 
         WHERE nombre LIKE '%".$valor."%' OR apellido LIKE '%".$valor."%' OR email LIKE '%".$valor."%'  OR identificacion LIKE '%".$valor."%' OR codigo LIKE '%".$valor."%';";
-        //  debuguear($query);
         $resultado = static::consultarSQL($query);
         return $resultado;
     }
@@ -456,16 +424,7 @@ public static function getEventosdif($cantidad, $id)
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
-    public static function findComentario($id)
-    {
-        $query = "SELECT * FROM ". static::$tabla. " WHERE centros_consumo_id= $id";
-        // se sigue el principio de active record que es tener todo en objetos
-        // debuguear($query);
-        $resultado = self::consultarSQL($query);
-      
-        return $resultado;
-      
-    }
+    
 
     public static function consultarSQL($query)
     {
@@ -497,7 +456,6 @@ public static function getEventosdif($cantidad, $id)
         return $objeto;
     }
     // sincroniza el objeto en memoria con los cambios realizados por el usuario
-
     public function sincronizar($args = [])
     {
         foreach ($args as $key => $value) {

@@ -27,10 +27,6 @@ class Admin extends Activerecord{
         if(!$this->password){
             self::$errores[]='El Password es obligatorio';
         }
-        // if(!$this->tipo){
-        //     self::$errores[]='El tipo es obligatorio';
-        // }
-
         return self::$errores;
     }
 

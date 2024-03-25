@@ -101,9 +101,6 @@ class Evento extends Activerecord
         $query .= "') ";
 
         $resultado = self::$db->query($query);
-        //   return es un false or true
-        // Mensaje de exito
-        // debuguear($resultado);
         return [
             'resultado'=>$resultado,
             'id'=>self::$db->insert_id
