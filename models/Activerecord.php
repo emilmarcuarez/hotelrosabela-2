@@ -422,7 +422,17 @@ public static function getEventosdif($cantidad, $id)
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
-    
+
+    public static function findComentario($id)
+    {
+        $query = "SELECT * FROM ". static::$tabla. " WHERE centros_consumo_id= $id";
+        // se sigue el principio de active record que es tener todo en objetos
+        // debuguear($query);
+        $resultado = self::consultarSQL($query);
+      
+        return $resultado;
+      
+    }
 
     public static function consultarSQL($query)
     {
@@ -454,6 +464,7 @@ public static function getEventosdif($cantidad, $id)
         return $objeto;
     }
     // sincroniza el objeto en memoria con los cambios realizados por el usuario
+
     public function sincronizar($args = [])
     {
         foreach ($args as $key => $value) {

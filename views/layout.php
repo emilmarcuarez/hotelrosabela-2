@@ -7,20 +7,12 @@ if (!isset($_SESSION)) {
 
 $auth = $_SESSION['login'] ?? false;
 $auth_recepcion = $_SESSION['login_recepcion'] ?? false;
-<<<<<<< HEAD
 $auth_comercializacion = $_SESSION['login_comercializacion'] ?? false;
 $auth_redes = $_SESSION['login_redes'] ?? false;
 $auth2 = $_SESSION['login_pag'] ?? false;
 $login_id = $_SESSION['usuario_id'] ?? false;
 $sexo = $_SESSION['usuario_sexo'] ?? false;
 if (!isset($inicio)){
-=======
-$auth2 = $_SESSION['login_pag'] ?? false;
-$login_id = $_SESSION['usuario_id'] ?? false;
-// $nombre= $_SESSION['usuario_name'];
-$sexo = $_SESSION['usuario_sexo'] ?? false;
-if (!isset($inicio)) {
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     $inicio = false;
 }
 ?>
@@ -141,38 +133,21 @@ if (!isset($inicio)) {
 
                         <!-- <div id="google_translate_element" class="google"></div> -->
 
-<<<<<<< HEAD
                         <?php if ($auth2 || $auth || $auth_recepcion || $auth_comercializacion || $auth_redes) { ?>
                             <?php if (!$auth && !$auth_recepcion && !$auth_comercializacion && !$auth_redes) { ?>
                                 <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
                                     <div class="nav_menu_bg">
-=======
-                        <?php if ($auth2 || $auth || $auth_recepcion) { ?>
-                            <?php if (!$auth && !$auth_recepcion) { ?>
-
-                                <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
-
-
-                                <div class="nav_menu_bg">
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                                     <div class="nav_menu_usuario">
                                         <a href="/logout">Cerrar Sesion</a>
                                         <a href="/reservas-usuario">Reservas</a>
                                     </div>
                                 </div>
-<<<<<<< HEAD
                                 
-=======
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                                 <div class="nav_menu_usuario_movile">
                                         <a href="/logout">Cerrar Sesion</a>
                                         <a href="/reservas-usuario">Reservas</a>
                                     </div>
-<<<<<<< HEAD
                             <?php } else if ($auth || $auth_recepcion || $auth_comercializacion || $auth_redes) { ?>
-=======
-                            <?php } else if ($auth || $auth_recepcion) { ?>
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                                 <a href="/logout">Cerrar Sesion</a>
                             <?php } ?>
                         <?php } ?>
@@ -281,11 +256,7 @@ if (!isset($inicio)) {
         </div>
 
     </div>
-<<<<<<< HEAD
     <?php if (!$auth && !$auth_recepcion && !$auth_redes && !$auth_comercializacion) { ?>
-=======
-    <?php if (!$auth && !$auth_recepcion) { ?>
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
         <div class="chatbot_abrir_btn" id="abrirChatbot">
             <div class="text_chatbot">
                 <p>Chatea con nosotros</p>
@@ -385,10 +356,7 @@ if (!isset($inicio)) {
                     });
 
                     // Luego de construir las opciones, seleccionamos el país del usuario si coincide
-<<<<<<< HEAD
                 
-=======
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                     const usuarioPais = '<?php echo s($usuario->pais); ?>';
 
                     if (usuarioPais) {

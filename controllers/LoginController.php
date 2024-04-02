@@ -64,8 +64,6 @@ class LoginController{
                      if($autenticado){
                          // autenticar el usuario
                          $auth = Admin::where('email', $auth->email);
-                        // $autenticar_resultado=Admin::find($auth->id);
-                        // debuguear($auth);
                          $auth->autenticar();
  
                      }else{
@@ -94,12 +92,6 @@ class LoginController{
          if($_SERVER['REQUEST_METHOD']==='POST'){
            
               $usuario=new Admin($_POST['usuario']);
-<<<<<<< HEAD
-=======
-            //   debuguear($usuario);
-            //   $errores=$usuario->validar();//sintaxi de flecha porque no es estatico
-              
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
               $usuario->setPassword($usuario->password);
               $errores = $usuario->validarRegistro();
               if(empty($errores)){
@@ -124,10 +116,6 @@ class LoginController{
               'no2'=>$no2
           ]);
       }
-<<<<<<< HEAD
-
-=======
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 // actualizar usuario administrador
      public static function actualizarAdmin(Router $router){
         $id=validarORedireccionar('/admin');
@@ -159,11 +147,7 @@ class LoginController{
               }
           }
   
-<<<<<<< HEAD
           $router->render('auth/actualizarAdmin',[
-=======
-          $router->render('auth/actualizaradmin',[
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
               'usuario'=>$usuario,
               'errores'=>$errores,
               'no'=>$no,
@@ -176,19 +160,6 @@ class LoginController{
         $_SESSION=[]; //cerramos sesion
         header('Location: /');
     }
-<<<<<<< HEAD
-=======
-
-    public static function mensaje(Router $router){
-        $no2 =true;
-        $no =true;
-        $router->render('auth/mensaje',[
-            'no'=>$no,
-            'no2'=>$no2
-        ]);
-        // $router->render('auth/mensaje');
-    }
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     public static function confirmar(Router $router){
         $no2 =true;
         $no =true;
@@ -197,10 +168,6 @@ class LoginController{
         $usuario=Usuario::where('token',$token);
         if(empty($usuario) || $usuario->token === ''){
             // mostrar mensaje de error
-<<<<<<< HEAD
-=======
-            // echo "token no valido";
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
             Usuario::setAlerta('error', 'Token No Valido');
         }else{
             // modificar a usuario confirmado
@@ -220,10 +187,6 @@ class LoginController{
             'no'=>$no,
             'no2'=>$no2
         ]);
-<<<<<<< HEAD
-=======
-        // $router->render('auth/mensaje');
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     }
 
     // olvide password
@@ -252,11 +215,7 @@ class LoginController{
                     // Alerta de exito
                     Usuario::setAlerta('exito', 'Revisa tu email');
                  } else {
-<<<<<<< HEAD
                      Usuario::setAlerta('error', 'El Usuario no existe');
-=======
-                     Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                      
                  }
             } 
@@ -295,9 +254,6 @@ class LoginController{
             // $Usuario->setPassword($Usuario->contrasenia);
             if(empty($alertas)) {
                 $usuario->contrasenia = null;
-
-                // $usuario->contrasenia = $password->contrasenia;
-                // debuguear($contrasenia->contrasenia);
                 $usuario->setPassword($contrasenia->contrasenia);
                 // $usuario->hashPassword();
                 $usuario->token = null;

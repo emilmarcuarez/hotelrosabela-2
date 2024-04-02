@@ -25,10 +25,7 @@
             </div>
              
             <label for="imagen">Foto del chef:</label>
-<<<<<<< HEAD
             <p>La imagen debe ser: 200px x 200px (Solo formato jpg y png)</p>
-=======
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="chef[imagen]">
               <?php if($chef->imagen) {?>

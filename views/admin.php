@@ -12,15 +12,11 @@
     <a href="/salones/mostrar">Salones</a>
     <a href="/empleados/mostrar">Empleados</a>
     <a href="/chef/mostrar">Chef</a>
-<<<<<<< HEAD
     <a href="/chatbot/mostrar">Chatbot</a>
-=======
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     <a href="/auth/mostrarusuarios">Usuarios</a>
     <a href="/auth/mostrar">Usuarios Administradores</a>
     <a href="/premios/mostrar">Premios disponibles</a>
     <a href="/beneficios/mostrar">Beneficios</a>
-<<<<<<< HEAD
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/chats/mostrar2">Chats</a>
     <a href="/noches">Fidelizacion</a>
@@ -37,12 +33,6 @@
     <?php }else if($_SESSION['login_redes']){ ?>
         <a href="/eventos/mostrar">Eventos</a>
     <?php }?>
-=======
-  <?php } ?>
-    <a href="/reservas/mostrar">Reservas</a>
-    <a href="/chats/mostrar2">Chats</a>
-    <a href="/noches">Fidelizacion</a>
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 </div>
 
 

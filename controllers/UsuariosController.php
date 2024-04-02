@@ -2,13 +2,8 @@
 
 namespace Controllers;
 
-<<<<<<< HEAD
 use Model\Email;
 use Model\Email_premios;
-=======
-use Classes\Email;
-use Classes\Email_premios;
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 use Model\Chat;
 use Model\Comentarios;
 use Model\Premios;
@@ -32,48 +27,22 @@ class UsuariosController
             $errores = $auth->validar(); //sintaxi de flecha porque no es estatico
             // debuguear($auth);
             if (empty($errores)) {
-<<<<<<< HEAD
                 $resultado = $auth->existeUsuario();
                 if (!$resultado) {
-=======
-
-                // verificar si el usuario existe
-                // $resultado = $auth->existeUsuario();
-                $resultado = $auth->existeUsuario();
-                // $usuario = Usuario::where('email', $auth->email);
-                // si NO existe el usuario se muestra el error
-                if (!$resultado) {
-                    // verificar si el usuario existe o no (mensaje de erorr)
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                     $errores = Usuario::getErrores();
                 } else { //si  existe el usuario
                     $usuario = Usuario::where('email', $auth->email);
                     if ($usuario->comprobarPasswordAndVerificado($auth->contrasenia)) {
                         // Autenticar el usuario
                         session_start();
-<<<<<<< HEAD
                         $_SESSION['usuario_pag'] = $usuario->email;
-=======
-                        // llenamos el arreglo de las sesiones establecidas
-                        $_SESSION['usuario_pag'] = $usuario->email;
-                        // $usu=$usuario->getName();
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                         $_SESSION['usuario_sexo'] = $usuario->sexo;
                         $_SESSION['usuario_name'] = $usuario->nombre;
                         $_SESSION['usuario_id'] = $usuario->id;
                         $_SESSION['login_pag'] = true;
-<<<<<<< HEAD
 
                         header('Location: /reservas-usuario');
                     } else {
-=======
-                        // debuguear($_SESSION);
-                        // Redireccionamiento
-
-                        header('Location: /reservas-usuario');
-                    } else {
-                        // Password incorrecto: mensaje de error.
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                         $errores = Usuario::getErrores(); //si no coincide la contraseña, se muestra el error
                     }
                 }
@@ -234,14 +203,7 @@ class UsuariosController
         $errores = Usuario::getErrores();
         // todos los premioa registrados de ese usuario
         $premios_usu = Premios_usuario::where2('usuarios_id', $id);
-<<<<<<< HEAD
         $premios = Premios::all();
-=======
-        // debuguear(Premios_usuario::where2('usuarios_id', $id));
-        $premios = Premios::all();
-        // me trae todas las reservas de ese usuario
-        // $reservas=Reserva::where2('usuarios_id', $id);
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
         $resultado = $_GET['resultado'] ?? null;
 
         $router->render('auth/premios', [
@@ -389,28 +351,13 @@ class UsuariosController
     public static function enviarEncuesta(Router $router){
         $no = true;
         $no2 = true;
-<<<<<<< HEAD
   
             $reservas = Reserva::all();
-=======
-        
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $errores = Premios_usuario::getErrores();
-           
-  
-            $reservas = Reserva::all();
-        //    debuguear($reservas);
-            // iterando sobre cada usuario
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
             foreach($reservas as $reserva) {
                 $fechaFin = new \DateTime($reserva->fecha_e);
                 $fechaHoy = new \DateTime(); // Esto obtiene la fecha de hoy automáticamente
             
-<<<<<<< HEAD
                 if ($fechaHoy > $fechaFin && intval($reserva->enviado_encuesta)!==1 && intval($reserva->status)===1) {
-=======
-                if ($fechaHoy > $fechaFin && intval($reserva->enviado_encuesta)!==1) {
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                     $email = new Email($reserva->email, $reserva->nombres, $reserva->apellidos, '');
                     $email->enviarCorreoEncuesta();
                     $reserva->enviado_encuesta=1;
@@ -418,11 +365,8 @@ class UsuariosController
                 }
             }
     }
-<<<<<<< HEAD
 
     // indica cuando premio fue usado o no
-=======
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     public static function actPremio()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -462,12 +406,6 @@ class UsuariosController
                             $c->eliminare();
                         }
                     }
-<<<<<<< HEAD
-=======
-
-
-                    // $reservahab=ReservaHabitacion::re_habitaciones_all($id);
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                     $usuario->eliminare3();
                 }
             }

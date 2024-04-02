@@ -280,26 +280,6 @@ class PaginaController
             'no2' => $no2
         ]);
     }
-<<<<<<< HEAD
-=======
-
-    // gestion del perfil
-    public static function gestion(Router $router)
-    {
-        $no = true;
-        $no2 = true;
-        session_start();
-        $id = $_SESSION['usuario_id'];
-        $usuario = Usuario::find($id);
-        $premios_usu = Premios_usuario::all();
-        $router->render('paginas/gestion', [
-            'no' => $no,
-            'no2' => $no2,
-            'usuario' => $usuario,
-            'premios_usu' => $premios_usu
-        ]);
-    }
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     public static function pdf(Router $router)
     {
 
@@ -311,12 +291,6 @@ class PaginaController
         $id = Reserva::getId2();
         $habitaciones = Habitaciones::all();
         $habitacionesReserva = ReservaHabitacion::habitaciones_all($id->id);
-<<<<<<< HEAD
-
-=======
-        // $reserva=Reserva::find($id);
-        // $usuario = Usuario::where($id);
->>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
         $router->render('paginas/prueba2', [
             'reserva' => $reserva,
             'habitacionesReserva' => $habitacionesReserva,
