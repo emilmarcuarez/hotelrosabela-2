@@ -7,6 +7,7 @@
     padding: 2rem;
     height: 51rem;
   }
+<<<<<<< HEAD
   .area_membrete{
     text-align: center;
     display: flex;
@@ -59,6 +60,8 @@
         gap: 1rem;
       }
   }
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
   .texto_de_boda p {
     text-align: center;
     font-size: 1.3rem;
@@ -177,9 +180,15 @@
   display: none;
   padding: 1rem;
   position: absolute;
+<<<<<<< HEAD
   right: 21rem;
   top: 4.2rem;
   z-index: 9;
+=======
+  top: 4rem;
+  z-index: 9;
+  right: 25rem;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
   border: 1px solid black;
   .nav_menu_usuario{
     display: flex;
@@ -931,6 +940,7 @@ border-radius: 2rem;
 .nav_menu_usuario_movile{
     display: none;
 }
+<<<<<<< HEAD
 .fecha_re input {
     background: #ffffff00;
 }
@@ -942,6 +952,9 @@ border-radius: 2rem;
     .counter-input{
         font-size: 1.3rem !important;
     }
+=======
+@media screen and (max-width: 900px){
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     .nav_menu_usuario_movile{
         display: flex;
         flex-direction: column;
@@ -977,7 +990,11 @@ border-radius: 2rem;
         grid-template-columns: 100% !important;
       }
     .d-block.w-100 {
+<<<<<<< HEAD
         height: 35rem;
+=======
+        height: 37rem;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
       }
       .bodas_grid{
         grid-template-columns: 100%;
@@ -985,12 +1002,18 @@ border-radius: 2rem;
         margin-top: 2rem;
       }
     .info_rb_rewards{
+<<<<<<< HEAD
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
         justify-content: center;
         align-items: center;
         text-align: center;
+=======
+        gap: 1rem;
+        flex-direction: column;
+        padding: 1rem;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     }
     .btn_reserva_lista{
         display: flex;
@@ -1048,9 +1071,13 @@ border-radius: 2rem;
         // background: gray;
   color: rgb(0, 0, 0);
   border: none;
+<<<<<<< HEAD
   width: 2rem;
     }
 
+=======
+    }
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     // habitaciones
     .hab_part{
         grid-template-columns: 100%;
@@ -1061,8 +1088,11 @@ border-radius: 2rem;
     }
     .hab_part .info_hab .icono_info {
         overflow: hidden;
+<<<<<<< HEAD
         position: relative;
     z-index: 2;
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     }
     .salon_fondo{
         padding: 2rem !important;
@@ -1123,7 +1153,11 @@ border-radius: 2rem;
             padding: 2rem !important;
         }
         .imagenes_cont .img_ev_ img{
+<<<<<<< HEAD
             height: 100% !important;
+=======
+            height: 23rem !important;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
         }
 
         // areas-rest index
@@ -1241,6 +1275,7 @@ border-radius: 2rem;
         width: 100% !important;
         }
 
+<<<<<<< HEAD
         .area_membrete p{
             width: 100%;
         }
@@ -1259,6 +1294,10 @@ border-radius: 2rem;
             font-size: 1.2rem;
             text-align: center;
           }
+=======
+
+       
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     }
 .login_usu{
     display: flex;

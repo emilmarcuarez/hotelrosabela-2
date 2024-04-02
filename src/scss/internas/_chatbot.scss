@@ -378,10 +378,16 @@ transition: all 0.5s ease; /* Agregamos una transición */
     bottom: 11rem;
     height: 50rem;
     position: fixed;
+<<<<<<< HEAD
     right: 1em;
     left: 1em;
     transition: all .5s ease;
     width: 90%;
+=======
+    right: 2rem;
+    transition: all .5s ease;
+    width: 39rem;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     z-index: 33;
   }
 }

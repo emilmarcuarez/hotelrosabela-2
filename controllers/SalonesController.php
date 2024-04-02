@@ -19,7 +19,11 @@ class SalonesController{
             'no'=>$no,
             'no2'=>$no2,
         ]);
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 public static function crear(Router $router){
     $no2=true;
     $no=true;

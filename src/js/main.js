@@ -1,7 +1,11 @@
 //----------------------- chatbot-----------------------
 
 $(document).ready(function () {
+<<<<<<< HEAD
 // Obtener la fecha actual
+=======
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	// CONTRASEÑA DEL REGISTRO DE USUARIO
 	$('#togglePassword').click(function () {
 		const passwordInput = $('#contrasenia');
@@ -149,9 +153,17 @@ function ocultar_menu() {
 if (document.getElementById('file-label')) {
 	const inputFile = document.getElementById('imagen_reserva');
 	const fileLabel = document.getElementById('file-label');
+<<<<<<< HEAD
 	inputFile.addEventListener('change', function () {
 		if (inputFile.files.length > 0) {
 			fileLabel.textContent = inputFile.files[0].name;
+=======
+	console.log('prueba emi');
+	inputFile.addEventListener('change', function () {
+		if (inputFile.files.length > 0) {
+			fileLabel.textContent = inputFile.files[0].name;
+			console.log(inputFile.files[0].name);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		} else {
 			fileLabel.textContent = 'Subir Imagen';
 		}
@@ -162,7 +174,11 @@ if (document.getElementById('file-label')) {
 
 // AJAX
 // CHAT EN LINEA
+<<<<<<< HEAD
 if (document.querySelector(".typing-area").querySelector(".incoming_id").value!=='') {
+=======
+if (document.querySelector(".typing-area")) {
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	const form = document.querySelector(".typing-area"),
 		incoming_id = form.querySelector(".incoming_id").value,
 		inputField = form.querySelector(".input-field"),
@@ -823,6 +839,12 @@ if (document.getElementById('fecha')) {
 		const nuevoMes = fechaInput.value.substring(5, 7);
 		const nuevoDia = fechaInput.value.substring(8, 10);
 		fechaInput.value = `${nuevoAño}-${nuevoMes}-${nuevoDia}`;
+<<<<<<< HEAD
+=======
+		console.log("n dia: " + nuevoDia);
+		console.log("n mes: " + nuevoMes);
+		console.log("n año: " + nuevoAño);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	});
 }
 
@@ -874,6 +896,7 @@ const re_habitacion = {
 const reserva_cant = {
 	mostrar: 0,
 	cant: 0
+<<<<<<< HEAD
 };if (document.getElementById('fechaReserva2')) {
 	const fechaIngresoInput = document.getElementById('fechaReserva2');
 	const fechaEgresoInput = document.getElementById('fechaEgreso2');
@@ -943,6 +966,41 @@ fechaEgresoInput.addEventListener('keypress', function(event) {
 
 document.addEventListener('DOMContentLoaded', function () {
 	
+=======
+};
+if (document.getElementById('fechaReserva2')) {
+	const fechaIngresoInput = document.getElementById('fechaReserva2');
+	const fechaEgresoInput = document.getElementById('fechaEgreso2');
+
+	fechaIngresoInput.addEventListener('input', function () {
+		// Obtener la fecha de ingreso
+		const fechaIngreso = new Date(fechaIngresoInput.value);
+
+		// Establecer la fecha de egreso un día después
+		const fechaEgreso = new Date(fechaIngreso);
+		fechaEgreso.setDate(fechaIngreso.getDate() + 1);
+
+		// Formatear la fecha de egreso en el formato adecuado (YYYY-MM-DD)
+		const formattedFechaEgreso = fechaEgreso.toISOString().split('T')[0];
+
+		// Asignar la fecha de egreso y actualizar el atributo min
+		fechaEgresoInput.value = formattedFechaEgreso;
+		fechaEgresoInput.min = formattedFechaEgreso;
+	});
+}
+if (document.querySelector('#fechaReserva2')) {
+	const fechaReserva = document.querySelector('#fechaReserva2');
+	const fechaEgreso = document.querySelector('#fechaEgreso2');
+	fechaReserva.min = new Date().toISOString().split("T")[0];
+	fechaEgreso.min = fechaReserva.value;
+	fechaReserva.addEventListener('input', function () {
+		fechaEgreso.min = fechaReserva.value;
+	})
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	const chatbot = document.getElementById("chatbot");
 	const abrirBoton = document.getElementById("abrirChatbot");
 
@@ -972,6 +1030,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	limitarCaracteres2();
 
 	iniciarApp();
+<<<<<<< HEAD
+=======
+	if (document.querySelector('#fechaReserva2')) {
+		const fechaReserva = document.querySelector('#fechaReserva2');
+		const fechaEgreso = document.querySelector('#fechaEgreso2');
+		fechaReserva.min = new Date().toISOString().split("T")[0];
+		fechaEgreso.min = fechaReserva.value;
+		fechaReserva.addEventListener('input', function () {
+			fechaEgreso.min = fechaReserva.value;
+		})
+	}
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 
 
 });
@@ -985,11 +1055,20 @@ function iniciarApp() {
 	seleccionarHora();
 	seleccionarPago();
 	mostrarResumen();
+<<<<<<< HEAD
+=======
+	// mostrarResumen2();
+	// idUsuario();
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	paginaSiguiente();
 	paginaAnterior();
 	botonesPaginas(); // Agrega o quita los botones del paginador
 	mostrarSeccion(); //muestra y oculta las secciones
 	tabs();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 }
 
 // MODAL - chat en linea
@@ -1018,6 +1097,10 @@ if (document.getElementById('abrir_modal')) {
 	});
 
 	window.addEventListener('click', function (e) {
+<<<<<<< HEAD
+=======
+		// console.log(e.target);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		if (e.target == flex) {
 			modal.style.display = 'none';
 		}
@@ -1042,6 +1125,10 @@ if (document.getElementById('abrir_modal3')) {
 	});
 
 	window.addEventListener('click', function (e) {
+<<<<<<< HEAD
+=======
+		// console.log(e.target);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		if (e.target == flex) {
 			modal.style.display = 'none';
 		}
@@ -1090,6 +1177,10 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	reserva.ninos = ninos;
 	reserva.adultos = adultos;
 	mostrarResumen2();
+<<<<<<< HEAD
+=======
+	// console.log(reserva);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	habitaciones.forEach(habitacion => {
 		const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
 
@@ -1195,6 +1286,7 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	const fecha_re = document.createElement('DIV');
 	fecha_re.classList.add('fecha_re');
 
+<<<<<<< HEAD
 	// fecha de ingreso
 	const fecha_re_i = document.createElement('input');
 	fecha_re_i.type = 'date';
@@ -1231,6 +1323,17 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 			reserva.fecha_e = fecha_re_e.value;
 		mostrarResumen2();
 
+=======
+	// const datos_seleccion_basic = document.createElement('DIV');
+	// datos_seleccion_basic.classList.add('datos_seleccion_basic');
+
+	const fecha_re_i = document.createElement('input');
+	fecha_re_i.type = 'date';
+	fecha_re_i.value = reserva.fecha_i;
+	fecha_re_i.addEventListener('input', function () {
+		reserva.fecha_i = fecha_re_i.value;
+		mostrarResumen2();
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	});
 
 
@@ -1253,7 +1356,13 @@ function mostrarservicio(habitaciones, cantidad, ninos, adultos, fecha_i, fecha_
 	const fecha_re_iconos2 = document.createElement('DIV');
 	fecha_re_iconos2.classList.add('fecha_re_iconos');
 
+<<<<<<< HEAD
 
+=======
+	const fecha_re_e = document.createElement('input');
+	fecha_re_e.type = 'date';
+	fecha_re_e.value = reserva.fecha_e;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	fecha_re_e.addEventListener('input', function () {
 		reserva.fecha_e = fecha_re_e.value;
 		mostrarResumen2();
@@ -1415,6 +1524,10 @@ function validarCantidad() {
 function validarCantidadTotal(ult, valida) {
 	let cantidadTotalHabitaciones = 0;
 	cantidadTotalHabitaciones = reserva.cantidad;
+<<<<<<< HEAD
+=======
+	console.log('la cantidad actual: ' + reserva_cant.cant);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	if (valida === 2) {
 		reserva_cant.cant -= ult;
 	}
@@ -1444,6 +1557,10 @@ function validarCantidadTotal(ult, valida) {
 	}
 	if (reserva_cant.cant < 0) {
 		reserva_cant.cant = 0;
+<<<<<<< HEAD
+=======
+		console.log('la cantidad actual PERO AHORA: ' + reserva_cant.cant);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	}
 }
 function seleccionarHabitacion(habitacion, re_habitacion) {
@@ -1460,6 +1577,7 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 		ult = 0;
 		let indexprueba = 0;
 		indexprueba = reserva.habitaciones_re.findIndex(hab_re => hab_re.id_habitacion === id);
+<<<<<<< HEAD
 		
 		if (indexprueba !== -1) {
 	
@@ -1474,6 +1592,24 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 				
 				reserva_cant.cant -= parseInt(reserva.habitaciones_re[indexprueba].cantidad_s) + parseInt(reserva.habitaciones_re[indexprueba].cantidad_d);
 			} 
+=======
+		console.log('index: ' + indexprueba);
+		if (indexprueba !== -1) {
+			console.log(habitaciones_re[indexprueba]);
+			if ((reserva.habitaciones_re[indexprueba].cantidad_s === 0) && reserva.habitaciones_re[indexprueba].cantidad_d !== 0) {
+				console.log('if1');
+				reserva_cant.cant = reserva_cant.cant - habitaciones_re[indexprueba].cantidad_d;
+
+			} else if (reserva.habitaciones_re[indexprueba].cantidad_s !== 0 && reserva.habitaciones_re[indexprueba].cantidad_d === 0) {
+				console.log('if2');
+				reserva_cant.cant -= parseInt(reserva.habitaciones_re[indexprueba].cantidad_s);
+			} else if (reserva.habitaciones_re[indexprueba].cantidad_s !== 0 && reserva.habitaciones_re[indexprueba].cantidad_d !== 0) {
+				console.log('if3');
+				reserva_cant.cant -= parseInt(reserva.habitaciones_re[indexprueba].cantidad_s) + parseInt(reserva.habitaciones_re[indexprueba].cantidad_d);
+			} else {
+				console.log('no entraron a los ifs: ' + reserva.habitaciones_re[indexprueba].cantidad_s + reserva.habitaciones_re[indexprueba].cantidad_d)
+			}
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		}
 		reserva.habitaciones = habitaciones.filter(agregado => agregado.id !== id);
 		reserva.habitaciones_re = habitaciones_re.filter(hab_re => hab_re.id_habitacion !== id);
@@ -1499,11 +1635,25 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 		}
 		if (validarCantidad()) {
 			valida = 0;
+<<<<<<< HEAD
+=======
+			console.log('seleccionadoo');
+			console.log(re_habitacion.cantidad_s);
+			console.log(re_habitacion.cantidad_d);
+			console.log('----------------');
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 			if (re_habitacion.cantidad_d !== 0 && re_habitacion.cantidad_s !== 0) {
 				reserva.habitaciones = [...habitaciones, habitacion];
 				reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
 
 				divServicio.classList.add('seleccionado');
+<<<<<<< HEAD
+=======
+				console.log('seleccionadoo');
+				console.log(re_habitacion.cantidad_s);
+				console.log(re_habitacion.cantidad_d);
+				console.log('----------------');
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 				valida = 1;
 			}
 
@@ -1513,7 +1663,14 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 				reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
 
 				divServicio.classList.add('seleccionado');
+<<<<<<< HEAD
 
+=======
+				console.log('seleccionadoo');
+				console.log(re_habitacion.cantidad_s);
+				console.log(re_habitacion.cantidad_d);
+				console.log('----------------');
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 				valida = 1;
 			}
 			if (re_habitacion.cantidad_d !== 0 && re_habitacion.cantidad_s === 0) {
@@ -1522,6 +1679,13 @@ function seleccionarHabitacion(habitacion, re_habitacion) {
 				reserva.habitaciones_re = [...habitaciones_re, re_habitacion];
 
 				divServicio.classList.add('seleccionado');
+<<<<<<< HEAD
+=======
+				console.log('seleccionadoo');
+				console.log(re_habitacion.cantidad_s);
+				console.log(re_habitacion.cantidad_d);
+				console.log('----------------');
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 				valida = 1;
 			}
 			if ((isNaN(re_habitacion.cantidad_s) && isNaN(re_habitacion.cantidad_d)) || (re_habitacion.cantidad_s === 0 && re_habitacion.cantidad_d === 0)) {
@@ -1651,12 +1815,21 @@ function mostrarResumen() {
 
 	// Formatear el div de resumen
 	const { fecha_e, fecha_i, ninos, adultos, habitaciones, habitaciones_re } = reserva;
+<<<<<<< HEAD
 
+=======
+	console.log(reserva);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	reserva.monto = 0;
 
 
 
 	habitaciones.forEach(habitacion => {
+<<<<<<< HEAD
+=======
+
+		console.log(habitacion);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
 		const contenedorHabitacion = document.createElement('DIV');
 		contenedorHabitacion.classList.add('contenedor-habitacion');
@@ -1775,6 +1948,7 @@ function mostrarResumen() {
 }
 // mostrar resumen 2 en el paso 1
 function mostrarResumen2() {
+<<<<<<< HEAD
 	const resumen = document.querySelector('.contenido-resumen2');
 	const part_resumen_monto = document.querySelectorAll('.part_resumen_monto2');
 	// Limpiar el Contenido de Resumen
@@ -1782,17 +1956,45 @@ function mostrarResumen2() {
 		while (resumen.firstChild) {
 			resumen.removeChild(resumen.firstChild);
 		}
+=======
+	console.log('entrando');
+	console.log(reserva);
+	const resumen = document.querySelector('.contenido-resumen2');
+	// const boton_reserva = document.querySelector('.boton-reserva');
+	const part_resumen_monto = document.querySelectorAll('.part_resumen_monto2');
+	// Limpiar el Contenido de Resumen
+	part_resumen_monto.forEach(function (resumen2) {
+
+
+
+		while (resumen.firstChild) {
+			resumen.removeChild(resumen.firstChild);
+		}
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		while (resumen2.firstChild) {
 			resumen2.removeChild(resumen2.firstChild);
 		}
 
+<<<<<<< HEAD
 		// Formatear el div de resumen
 		const { fecha_e, fecha_i, ninos, adultos, habitaciones, habitaciones_re } = reserva;
 	
+=======
+
+
+		// Formatear el div de resumen
+		const { fecha_e, fecha_i, ninos, adultos, habitaciones, habitaciones_re } = reserva;
+		console.log(reserva);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		reserva.monto = 0;
 
 		habitaciones.forEach(habitacion => {
 
+<<<<<<< HEAD
+=======
+			console.log(habitacion);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 			const { id, imagen, nombre, descripcion, preciocd, preciosd, adultos, ninos } = habitacion;
 
 
@@ -1802,19 +2004,38 @@ function mostrarResumen2() {
 
 
 					if (!isNaN(cantidad_s) && cantidad_s !== 0) {
+<<<<<<< HEAD
 
 						let preciocant = 0;
 						preciocant = cantidad_s * preciosd;
+=======
+						// if(cantidad_s!== 0){
+						// const cantidads = document.createElement('P');
+						let preciocant = 0;
+						preciocant = cantidad_s * preciosd;
+						// cantidads.innerHTML = `<span>Habitaciones sin desayuno: </span> (${cantidad_s}). <br> Total: USD ${preciocant} por noche`;
+						// contenedorHabitacion.appendChild(cantidads);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 						reserva.monto = reserva.monto + (parseFloat(preciosd) * parseFloat(cantidad_s));
 
 					} else {
 						habitacionr.cantidad_s = 0;
 					}
 					if (!isNaN(cantidad_d) && cantidad_d !== 0) {
+<<<<<<< HEAD
 						let preciocant2 = 0;
 						preciocant2 = cantidad_d * preciocd;
 					
 						reserva.monto = reserva.monto + (parseFloat(preciocd) * parseFloat(cantidad_d));
+=======
+
+						// const cantidadd = document.createElement('P');
+						let preciocant2 = 0;
+						preciocant2 = cantidad_d * preciocd;
+						// cantidadd.innerHTML = `<span>Habitaciones con desayuno incluido: </span> (${cantidad_d}). <br> Total: USD ${preciocant2} por noche`;
+						reserva.monto = reserva.monto + (parseFloat(preciocd) * parseFloat(cantidad_d));
+						// contenedorHabitacion.appendChild(cantidadd);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 
 					} else {
 						habitacionr.cantidad_d = 0;
@@ -1832,6 +2053,17 @@ function mostrarResumen2() {
 		monto3.innerHTML = `<span>TOTAL: </span> USD ${reserva.monto}`;
 		divmonto.classList.add('monto_resumen2');
 		divmonto.appendChild(monto3);
+<<<<<<< HEAD
+=======
+
+		// Boton para Crear una cita
+		// const botonReservar = document.createElement('BUTTON');
+		// const botonPdf = document.createElement('BUTTON');
+		// botonReservar.classList.add('btn_reservar');
+		// botonReservar.textContent = 'Enviar reserva';
+		// botonReservar.onclick = reservarHabitacion   // resumen.appendChild(nombreCliente);
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 		// formatear fecha ingreso:
 		// Formatear la fecha en español
 		const fechaObj = new Date(fecha_i);
@@ -1874,9 +2106,17 @@ function mostrarResumen2() {
 		divdatos.appendChild(ninos_parrafo);
 		resumen2.appendChild(divdatos);
 		resumen2.appendChild(divmonto);
+<<<<<<< HEAD
 	});
 }
 
+=======
+		// boton_reserva.appendChild(botonReservar);
+	});
+}
+
+// mostrar resumen en el paso 2
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 
 
 
@@ -1920,6 +2160,12 @@ async function reservarHabitacion() {
 		});
 
 	}
+<<<<<<< HEAD
+=======
+	console.log(beneficio2);
+
+	console.log(idHabitaciones);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 
 	const datos = new FormData();
 	const fileInput = document.getElementById('imagen_reserva');
@@ -2002,11 +2248,20 @@ async function reservarHabitacion() {
 	datos.append('nacionalidad', reserva.nacionalidad);
 	reserva.enviado_encuesta = 0;
 	datos.append('enviado_encuesta', reserva.enviado_encuesta);
+<<<<<<< HEAD
+=======
+	// datos.append('habitaciones', idHabitaciones);
+	console.log(datos);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	habitaciones_re.forEach(habitacionre => {
 		datos.append(`habitaciones[${habitacionre.id_habitacion}][id]`, habitacionre.id_habitacion);
 		datos.append(`habitaciones[${habitacionre.id_habitacion}][cantidad_d]`, habitacionre.cantidad_d);
 		datos.append(`habitaciones[${habitacionre.id_habitacion}][cantidad_s]`, habitacionre.cantidad_s);
 	});
+<<<<<<< HEAD
+=======
+	console.log(reserva);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	reserva.codigo = codigo2;
 	if ((Object.entries(reserva).filter(([key, value]) => key !== 'solicitudes' && key !== 'i_fiscal' && key !== 'id_beneficio' && key !== 'n_empresa' && (value === '' || value === undefined || value === null)).length > 0 || reserva.habitaciones.length === 0)) {
 		Swal.fire({
@@ -2024,9 +2279,19 @@ async function reservarHabitacion() {
 				method: 'POST',
 				body: datos
 			});
+<<<<<<< HEAD
 			const resultado = await respuesta.json();
 			if (resultado.resultado) {
 
+=======
+			console.log(respuesta);
+			console.log('YA DI LA RESPUESTA');
+			const resultado = await respuesta.json();
+			console.log(resultado);
+			if (resultado.resultado) {
+
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 				// Mostrar mensaje de éxito
 				Swal.fire({
 					icon: 'success',
@@ -2190,6 +2455,11 @@ async function encuesta() {
 	datos.append('usuarioId', id);
 	datos.append('servicios', idServicios);
 
+<<<<<<< HEAD
+=======
+	// console.log([...datos]);
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 	try {
 		// Petición hacia la api
 		const url = 'http://localhost:3000/api/citas'
@@ -2199,6 +2469,10 @@ async function encuesta() {
 		});
 
 		const resultado = await respuesta.json();
+<<<<<<< HEAD
+=======
+		console.log(resultado);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 
 		if (resultado.resultado) {
 			Swal.fire({
@@ -2531,9 +2805,17 @@ function mostrarMetodosPago(e) {
 
 		const inputFile = document.getElementById('imagen_reserva');
 		const fileLabel = document.getElementById('file-label');
+<<<<<<< HEAD
 		inputFile.addEventListener('change', function () {
 			if (inputFile.files.length > 0) {
 				fileLabel.textContent = inputFile.files[0].name;
+=======
+		console.log('prueba emi');
+		inputFile.addEventListener('change', function () {
+			if (inputFile.files.length > 0) {
+				fileLabel.textContent = inputFile.files[0].name;
+				console.log(inputFile.files[0].name);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 			} else {
 				fileLabel.textContent = 'Subir Imagen';
 			}
@@ -2549,9 +2831,17 @@ function mostrarMetodosPago(e) {
 	<input type="file" id="imagen_reserva" accept="image/jpeg, image/png" name="reserva[imagen]" required style="display: none;">`;
 		const inputFile = document.getElementById('imagen_reserva');
 		const fileLabel = document.getElementById('file-label');
+<<<<<<< HEAD
 		inputFile.addEventListener('change', function () {
 			if (inputFile.files.length > 0) {
 				fileLabel.textContent = inputFile.files[0].name;
+=======
+		console.log('prueba emi');
+		inputFile.addEventListener('change', function () {
+			if (inputFile.files.length > 0) {
+				fileLabel.textContent = inputFile.files[0].name;
+				console.log(inputFile.files[0].name);
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 			} else {
 				fileLabel.textContent = 'Subir Imagen';
 			}

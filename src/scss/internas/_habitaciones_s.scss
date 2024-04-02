@@ -830,6 +830,7 @@
 
 // reserva- mq
 @media screen and (max-width: 900px) {
+<<<<<<< HEAD
 
   .fecha_re input{
     font-size: 1.3rem !important;
@@ -838,6 +839,8 @@
   .bancos_transferencia_datos{
     flex-direction: column;
   }
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
   .cont_grid_paso2 {
     display: grid;
     grid-template-columns: 100%;
@@ -888,7 +891,11 @@
   }
 
   .contenedor.hab_seleccion3 #hora {
+<<<<<<< HEAD
     width: 49%;
+=======
+    width: 36%;
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
   }
 
   .contenedor.hab_seleccion3 .metodo_pago {
@@ -996,7 +1003,10 @@ padding-top: 1rem;
 .div_datos_pago{
   label,select,input{
       font-size: 1.5rem;
+<<<<<<< HEAD
       width: 100%;
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
   }
 }
 .contenedor.resumen_final h3{
@@ -1005,12 +1015,15 @@ font-size: 2rem;
 .contenido-resumen{
 grid-template-columns: 100%;
 }
+<<<<<<< HEAD
 
 .diventrada_salida{
     gap: 0rem;
     flex-direction: column;
 }
 
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 .div_datos_pago label{
 border-right: none;
 }
@@ -1023,7 +1036,10 @@ font-size: 2rem;
 .fondo_paso3 .p1 {
 margin-bottom: 2rem !important;
 }
+<<<<<<< HEAD
 .counter-list3 {
   gap: 0rem;
 }
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 }

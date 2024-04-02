@@ -1,5 +1,8 @@
 /vendor/
 /node_modules/
 includes/.env
+<<<<<<< HEAD
 public/debug.log
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 

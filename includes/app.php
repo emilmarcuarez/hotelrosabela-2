@@ -10,5 +10,4 @@ require 'config/database.php';
 $db=conectarDB();
 
 
-
 Activerecord::setDB($db);

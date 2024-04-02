@@ -89,7 +89,6 @@ class Activerecord
         }
         return $resultado;
     }
-
     // eliminar un resgistro
     public function eliminar()
     {
@@ -255,7 +254,6 @@ class Activerecord
         $query = "SELECT *
         FROM reserva 
         WHERE nombres LIKE '%".$valor."%' OR apellidos LIKE '%".$valor."%' OR email LIKE '%".$valor."%' OR codigo LIKE '".$valor."' ORDER BY id DESC;;";
-
         $resultado = static::consultarSQL($query);
         return $resultado;
     }

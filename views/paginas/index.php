@@ -109,7 +109,11 @@
 
 
 <main class="contenedor">
+<<<<<<< HEAD
     <!-- <main class="contenedor" data-aos="fade-up" data-aos-duration="3000"> -->
+=======
+<!-- <main class="contenedor" data-aos="fade-up" data-aos-duration="3000"> -->
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     <!-- espacio -->
     <div class="titulo_sal padding_espa">
         <h4>Nuestros espacios</h4>
@@ -140,12 +144,15 @@
                             <div class="imagen_header_fondo"></div>
                         </div>
                     </li>
+<<<<<<< HEAD
                     <li>
                         <img src="/build/img/slider3.webp" alt="" class="img_slider">
                         <div class="imagen_header2">
                             <div class="imagen_header_fondo"></div>
                         </div>
                     </li>
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
                 </ul>
 
             </div>
@@ -186,10 +193,17 @@
     <div class="espacio"></div>
 </main>
 <div class="contenedor">
+<<<<<<< HEAD
     <div class="titulo_sal">
         <h4>Bodas</h4>
         <hr class="salones_hr">
     </div>
+=======
+<div class="titulo_sal">
+            <h4>Bodas</h4>
+            <hr class="salones_hr">
+        </div>
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
     <!-- carrusel -->
     <div class="bodas_grid">
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -220,6 +234,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 <div class="areas_hotel contenedor">
     <div class="area_membrete">
@@ -319,6 +334,8 @@ En Rosa Bela Hotel & Convention Center pensamos en ofrecer el mejor servicio par
     </div>
 </div>
 
+=======
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
 <!-- eventos -->
 <?php
 include 'listadoev.php';
@@ -331,6 +348,10 @@ include 'listadoev.php';
     <div class="contenedor areas_rest">
         <div class="area_rest_part">
             <div class="img_area1">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
             </div>
             <p>Espacios ideales para disfrutar su estadia con el mejor ambiente.</p>
         </div>
@@ -383,4 +404,21 @@ include 'listadoev.php';
 </div>
 <div class="map-responsive">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.2622215769698!2d-62.77879712498322!3d8.276679300311317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses!2sve!4v1706880135009!5m2!1ses!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15793.049098834696!2d-62.7762222!3d8.276674!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf926378c5da3%3A0x5470f47009e15b6b!2sRosa%20Bela%20Hotel%20%26%20Convention%20Center!5e0!3m2!1ses-419!2sve!4v1704475270862!5m2!1ses-419!2sve" width="1423" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+<!-- <div class="seccion" id="paso-2">
+    habitaciones
+</div>
+<div class="seccion" id="paso-3">
+    Forma de pago
+</div>
+<div class="seccion" id="paso-4">
+    Confirmacion
+</div>
+<div class="seccion" id="paso-3">
+    verificate
+</div> -->
+>>>>>>> 0fc736a08ab2ba1bce5c230bddf053fb3de5e33d
