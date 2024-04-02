@@ -1,5 +1,5 @@
 /vendor/
 /node_modules/
 includes/.env
-# public/debug.log
+public/debug.log
 
