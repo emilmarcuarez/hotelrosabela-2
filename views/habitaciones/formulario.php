@@ -5,6 +5,7 @@
             </legend>
 
             <label for="imagen">Imagen:</label>
+            <p>La imagen debe ser: 1100px x 688px (Solo formato jpg y png)</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="habitacion[imagen]">
                 <?php if($habitacion->imagen) {?>

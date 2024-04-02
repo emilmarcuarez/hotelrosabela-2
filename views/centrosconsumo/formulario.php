@@ -13,6 +13,7 @@
             <input type="text" name="centro[horario]" id="horario" placeholder="ejm: 10:20am - 12:40pm" value="<?php echo s($centro->horario); ?>">
            
             <label for="imagen">Logo del restaurante:</label>
+            <p>La imagen debe ser de 200px x 170px (solo png y jpg)</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="centro[imagen]">
                 <?php if($centro->imagen) {?>
@@ -20,7 +21,7 @@
              <?php }?>
 
              <label for="imagen">Imagen del restaurante:</label>
-             <p>La imagen debe ser de 1100px x 500px</p>
+             <p>La imagen debe ser de 1100px x 500px (solo png y jpg)</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="centro[imagen2]">
                 <?php if($centro->imagen2) {?>

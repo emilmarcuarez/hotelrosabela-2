@@ -4,7 +4,7 @@
 
  class Chatbot extends Activerecord{
     protected static $tabla = 'chatbot';
-    protected static $pagina='/';
+    protected static $pagina='chatbot/mostrar';
     protected static $columnasDB=['id', 'queries', 'replies'];
 
     public $id;
@@ -15,5 +15,15 @@
       $this->queries=$args['queries'] ?? '';
       $this->replies=$args['replies'] ?? '';
     }
+    public function validar()
+  {
+      if (!$this->queries) {
+          self::$errores[] = "Debes añadir un queries";
+      }
+      if (!$this->replies) {
+          self::$errores[] = "El replies es obligatorio";
+      }
     
+      return self::$errores;
+  }
 }

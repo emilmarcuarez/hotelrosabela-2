@@ -136,12 +136,13 @@ if (!isset($inicio)){
                         <?php if ($auth2 || $auth || $auth_recepcion || $auth_comercializacion || $auth_redes) { ?>
                             <?php if (!$auth && !$auth_recepcion && !$auth_comercializacion && !$auth_redes) { ?>
                                 <button id="menu_usuario" class="btn_menu_usuario"><i class="fa-solid fa-sliders"></i> RB loyalty</button>
-                                <div class="nav_menu_bg">
+                                    <div class="nav_menu_bg">
                                     <div class="nav_menu_usuario">
                                         <a href="/logout">Cerrar Sesion</a>
                                         <a href="/reservas-usuario">Reservas</a>
                                     </div>
                                 </div>
+                                
                                 <div class="nav_menu_usuario_movile">
                                         <a href="/logout">Cerrar Sesion</a>
                                         <a href="/reservas-usuario">Reservas</a>

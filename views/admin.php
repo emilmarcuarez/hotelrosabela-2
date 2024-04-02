@@ -12,10 +12,14 @@
     <a href="/salones/mostrar">Salones</a>
     <a href="/empleados/mostrar">Empleados</a>
     <a href="/chef/mostrar">Chef</a>
+    <a href="/chatbot/mostrar">Chatbot</a>
     <a href="/auth/mostrarusuarios">Usuarios</a>
     <a href="/auth/mostrar">Usuarios Administradores</a>
     <a href="/premios/mostrar">Premios disponibles</a>
     <a href="/beneficios/mostrar">Beneficios</a>
+    <a href="/reservas/mostrar">Reservas</a>
+    <a href="/chats/mostrar2">Chats</a>
+    <a href="/noches">Fidelizacion</a>
   <?php }else if($_SESSION['login_recepcion']){ ?>
     <a href="/reservas/mostrar">Reservas</a>
     <a href="/chats/mostrar2">Chats</a>

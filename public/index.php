@@ -67,6 +67,14 @@ $router->post('/beneficios/actualizar', [BeneficioController::class, 'actualizar
 $router->get('/beneficios/mostrar', [BeneficioController::class, 'index']);
 $router->post('/beneficios/eliminar', [BeneficioController::class, 'eliminar']);
 
+// chatbot
+$router->get('/chatbot/crear', [chatbotController::class, 'crear']);
+$router->post('/chatbot/crear', [chatbotController::class, 'crear']);
+$router->get('/chatbot/actualizar', [chatbotController::class, 'actualizar']);
+$router->post('/chatbot/actualizar', [chatbotController::class, 'actualizar']);
+$router->get('/chatbot/mostrar', [chatbotController::class, 'index']);
+$router->post('/chatbot/eliminar', [chatbotController::class, 'eliminar']);
+
 // chef
 $router->get('/chef/crear', [ChefController::class, 'crear']);
 $router->post('/chef/crear', [ChefController::class, 'crear']);

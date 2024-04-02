@@ -7,6 +7,7 @@
             <input type="text" name="salon[nombre]" id="nombre" placeholder="nombre del salon" value="<?php echo s($salon->nombre); ?>">
 
             <label for="imagen">Imagen:</label>
+            <p>La imagen debe ser: 886px x 554px (Solo formato jpg y png)</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="salon[imagen]">
               <?php if($salon->imagen) {?>

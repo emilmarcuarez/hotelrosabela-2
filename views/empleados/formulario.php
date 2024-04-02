@@ -14,6 +14,7 @@
             <input type="text" name="empleado[cargo]" id="cargo" placeholder="cargo del empleado" value="<?php echo s($empleado->cargo); ?>">
             
             <label for="imagen">Imagen:</label>
+            <p>La imagen debe ser: 200px x 200px (Solo formato jpg y png)</p>
             <!-- con accept solo permite aceptar imagen jpeg y png-->
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="empleado[imagen]">
               <?php if($empleado->imagen) {?>
